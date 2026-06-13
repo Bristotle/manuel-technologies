@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — CWV Drift Monitor</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px; line-height: 1.7; color: #1A1033;
+      background: #FFFFFF; max-width: 680px; margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 48px;
+    }
+    .logo {
+      font-family: 'SF Mono', monospace; font-size: 12px; font-weight: 700;
+      background: #6B2FD9; color: #fff; padding: 3px 8px; border-radius: 5px;
+    }
+    .brand-name { font-size: 14px; color: #7B72A0; }
+    h1 { font-size: 28px; font-weight: 700; color: #1A1033; margin-bottom: 8px; }
+    .updated { font-size: 13px; color: #7B72A0; margin-bottom: 40px; }
+    h2 {
+      font-size: 17px; font-weight: 700; color: #1A1033;
+      margin: 36px 0 10px; padding-bottom: 8px;
+      border-bottom: 1px solid #E4DDF7;
+    }
+    p { margin-bottom: 16px; color: #3D3560; }
+    ul { margin: 0 0 16px 20px; color: #3D3560; }
+    ul li { margin-bottom: 6px; }
+    .highlight {
+      background: #F5F2FC; border-left: 3px solid #6B2FD9;
+      padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 24px 0;
+      font-size: 15px; color: #1A1033;
+    }
+    a { color: #6B2FD9; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer {
+      margin-top: 60px; padding-top: 20px; border-top: 1px solid #E4DDF7;
+      font-size: 12px; color: #7B72A0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="brand">
+    <span class="logo">CWV</span>
+    <span class="brand-name">Manuel Technologies · CWV Drift Monitor</span>
+  </div>
+
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: June 2026</p>
+
+  <div class="highlight">
+    CWV Drift Monitor collects no personal data, makes no external network requests, and stores nothing outside your own browser.
+  </div>
+
+  <h2>What we collect</h2>
+  <p>Nothing. CWV Drift Monitor does not collect, transmit, store, or share any personal information, browsing history, or user data of any kind.</p>
+
+  <h2>How the extension works</h2>
+  <p>The extension operates entirely within your browser using native browser APIs:</p>
+  <ul>
+    <li>The <strong>PerformanceObserver API</strong> is used to measure layout shift (CLS) and interaction latency (INP) on pages you visit.</li>
+    <li>Metric readings are stored temporarily in <strong>chrome.storage.local</strong> — a sandboxed local storage area accessible only to this extension, on your device.</li>
+    <li>No data is ever sent to any external server, third party, or remote endpoint.</li>
+    <li>Stored metric data is automatically cleared when you close a tab or navigate away.</li>
+  </ul>
+
+  <h2>Permissions used</h2>
+  <ul>
+    <li><strong>activeTab</strong> — to read performance metrics from the page you are currently viewing.</li>
+    <li><strong>scripting</strong> — to inject the PerformanceObserver content script into active tabs.</li>
+    <li><strong>storage</strong> — to temporarily persist metric readings so the popup can display them. All data is local to your device.</li>
+  </ul>
+  <p>These permissions are the minimum required for the extension to function. No host permissions beyond the active tab are requested.</p>
+
+  <h2>Third-party services</h2>
+  <p>CWV Drift Monitor makes no requests to any third-party services, analytics platforms, or external APIs. There are no CDN dependencies, no telemetry, and no advertising integrations.</p>
+
+  <h2>Data retention</h2>
+  <p>Metric data stored in chrome.storage.local is scoped to individual browser tabs and is removed automatically when a tab is closed or navigated away from. No data persists between browser sessions.</p>
+
+  <h2>Children's privacy</h2>
+  <p>This extension is a developer tool not directed at children. It does not knowingly collect information from anyone under the age of 13.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If this policy changes, the updated version will be published at this URL with a revised date at the top.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy can be directed to:<br>
+  <a href="mailto:emmanuelakyeam@gmail.com">emmanuelakyeam@gmail.com</a><br>
+  Manuel Technologies, Accra, Ghana</p>
+
+  <footer>
+    &copy; 2026 Manuel Technologies. CWV Drift Monitor is an independent tool and is not affiliated with Google.
+  </footer>
+
+</body>
+</html>
