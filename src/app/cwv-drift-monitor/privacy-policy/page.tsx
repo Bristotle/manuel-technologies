@@ -155,7 +155,7 @@ export default function PrivacyPolicy() {
               info@manueltechnologies.com
             </a>
             <br />
-            Manuel Technologies, Accra, Ghana
+            Manuel Technologies
           </p>
         </Section>
 

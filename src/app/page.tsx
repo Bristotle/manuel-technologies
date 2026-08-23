@@ -29,7 +29,7 @@ export default function Home() {
         <Container>
           <div className="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div>
-              <SectionLabel>Accra, Ghana · Working worldwide</SectionLabel>
+              <SectionLabel>Working worldwide</SectionLabel>
               <h1 className="mt-8 flex flex-col leading-[0.92] tracking-[-0.04em]">
                 <span>Build.</span>
                 <span>Grow.</span>
@@ -50,12 +50,8 @@ export default function Home() {
                 <Button href={`mailto:${SITE.email}`}>
                   Start a conversation
                 </Button>
-                <Button
-                  href={SITE.chromeStore}
-                  variant="secondary"
-                  external
-                >
-                  See CWV Drift Monitor
+                <Button href="/work" variant="secondary">
+                  See our work
                 </Button>
               </div>
             </div>

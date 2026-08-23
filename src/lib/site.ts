@@ -7,7 +7,6 @@ export const SITE = {
   email: "info@manueltechnologies.com",
   tagline: "Build. Grow. Scale.",
   proof: "We ship our own software. Yours gets the same standard.",
-  location: "Accra, Ghana",
   chromeStore: "https://chromewebstore.google.com/",
 } as const;
 

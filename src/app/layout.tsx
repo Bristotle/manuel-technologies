@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | Manuel Technologies",
   },
   description:
-    "We build websites and custom software, grow them through technical SEO and GEO, and automate the work behind them. Accra, Ghana. Clients in the UK, US and UAE.",
+    "We build websites and custom software, grow them through technical SEO and GEO, and automate the work behind them. Working with clients worldwide.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -75,11 +75,7 @@ export default function RootLayout({
     slogan: "Build. Grow. Scale.",
     description:
       "Websites, custom software, technical SEO, GEO and AI automation.",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Accra",
-      addressCountry: "GH",
-    },
+    areaServed: "Worldwide",
     founder: {
       "@type": "Person",
       name: "Emmanuel Akyeam",

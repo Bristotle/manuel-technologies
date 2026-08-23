@@ -51,7 +51,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col gap-4 border-t border-mt-border pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-mt-muted">
-            &copy; {new Date().getFullYear()} {SITE.name} · {SITE.location}
+            &copy; {new Date().getFullYear()} {SITE.name}
           </p>
           <div className="flex flex-wrap gap-6">
             <Link
