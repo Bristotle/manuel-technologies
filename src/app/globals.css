@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ==========================================================================
+   Manuel Technologies · design tokens
+   Palette locked from CWV Drift Monitor. Do not add colours.
+   ========================================================================== */
+
+@theme {
+  /* Brand */
+  --color-mt-purple:       #6B2FD9;
+  --color-mt-purple-light: #8B52E8;
+  --color-mt-ink:          #1A1033;
+  --color-mt-slate:        #3D3560;
+  --color-mt-muted:        #7B72A0;
+  --color-mt-border:       #E4DDF7;
+  --color-mt-surface:      #F5F2FC;
+
+  /* Product UI and charts only. Never the agency identity.
+     These are Google Lighthouse's status colours. */
+  --color-mt-good: #0CCE6B;
+  --color-mt-warn: #FFA400;
+  --color-mt-poor: #FF4E42;
+
+  /* Type. Placeholder until the display face is chosen. */
+  --font-display: var(--font-display-face), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono:    var(--font-mono-face), ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Spacing scale */
+  --spacing-section:    6rem;
+  --spacing-section-lg: 9rem;
+
+  /* Radius */
+  --radius-card:  1.125rem;
+  --radius-pill:  1.25rem;
+  --radius-input: 0.625rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ==========================================================================
+   Base
+   ========================================================================== */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-mt-surface);
+    color: var(--color-mt-ink);
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Display type must clamp or it destroys 360px screens */
+  h1 { font-size: clamp(2.25rem, 6vw, 4.5rem); line-height: 1.02; letter-spacing: -0.035em; font-weight: 800; }
+  h2 { font-size: clamp(1.75rem, 4vw, 3rem);   line-height: 1.08; letter-spacing: -0.028em; font-weight: 800; }
+  h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); line-height: 1.2; letter-spacing: -0.02em; font-weight: 700; }
+
+  p { line-height: 1.7; }
+
+  /* Never below 16px body, never below 14px anywhere */
+  body, p, li { font-size: 1rem; }
+
+  :focus-visible {
+    outline: 2px solid var(--color-mt-purple);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  ::selection {
+    background: var(--color-mt-purple);
+    color: #fff;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ==========================================================================
+   Components
+   ========================================================================== */
+
+@layer components {
+
+  /* Mono label. The ( BRACKET ) + ( SYNTAX ) pattern from REF-002 */
+  .mt-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-mt-purple);
+  }
+
+  /* Marquee. Duplicate the track in markup, translate by exactly -50% */
+  .mt-marquee {
+    display: flex;
+    width: max-content;
+    animation: mt-scroll 40s linear infinite;
+    will-change: transform;
+  }
+}
+
+@keyframes mt-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   Motion safety. Required, not optional.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
