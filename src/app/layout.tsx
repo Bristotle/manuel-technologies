@@ -39,12 +39,21 @@ export const metadata: Metadata = {
     description:
       "Websites and custom software, technical SEO and GEO, AI automation. Built by an engineer, not a marketer.",
     locale: "en_GB",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1000,
+        height: 1000,
+        alt: "Manuel Technologies",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Manuel Technologies | Build. Grow. Scale.",
     description:
       "Websites and custom software, technical SEO and GEO, AI automation.",
+    images: ["/og-default.png"],
   },
   robots: { index: true, follow: true },
 };
