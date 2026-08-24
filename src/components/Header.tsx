@@ -26,9 +26,9 @@ export function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-mt-slate transition-colors duration-150 hover:text-mt-purple"
+                  className="relative inline-flex min-h-11 items-center border-b-2 border-transparent font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-mt-slate transition-colors duration-150 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-2 after:bg-mt-purple after:content-[''] hover:border-mt-purple-light hover:text-mt-purple active:border-mt-purple"
                 >
-                  ( {item.name} )
+                  {item.name}
                 </Link>
               </li>
             ))}

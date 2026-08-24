@@ -58,6 +58,21 @@ const FAQS = [
       "Manuel Technologies works with businesses and organisations that require technical digital services to support their operations.",
   },
   {
+    question: "How much do your services cost?",
+    answer:
+      "The cost depends on the scope, technical complexity, and amount of implementation required. Projects begin with a conversation about the work, followed by a clear plan rather than a generic package.",
+  },
+  {
+    question: "How long does it take to see results?",
+    answer:
+      "Technical fixes can show early improvements after release, while organic visibility, authority, and qualified traffic usually need sustained work over several months. We measure progress against useful outcomes, not rankings alone.",
+  },
+  {
+    question: "Who does the work?",
+    answer:
+      "The work is led by professional engineers who handle the technical decisions and implementation. We do not pass the project to an unseen junior team after the sale.",
+  },
+  {
     question: "How do I start a project with Manuel Technologies?",
     answer:
       "Projects begin with an initial discussion to understand requirements, followed by a structured plan that outlines the scope and next steps.",
@@ -103,7 +118,7 @@ export default function Home() {
                 {SITE.proof}
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
-                <Button href={`mailto:${SITE.email}`}>
+                <Button href="/contact">
                   Start a conversation
                 </Button>
                 <Button href="/work" variant="secondary">
@@ -122,7 +137,7 @@ export default function Home() {
         <Container>
           <SectionLabel>What we do</SectionLabel>
           <h2 className="mt-6 max-w-[18ch]">
-            Three pillars. One engineer across all of them.
+            Three pillars. Professional engineering across all of them.
           </h2>
 
           <div className="mt-12 grid gap-5 md:grid-cols-3">

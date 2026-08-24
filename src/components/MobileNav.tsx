@@ -34,7 +34,7 @@ export function MobileNav() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="flex min-h-11 items-center border-b border-mt-border text-lg font-semibold text-mt-ink transition-colors duration-150 hover:text-mt-purple"
+                    className="flex min-h-11 items-center border-b border-mt-border text-lg font-semibold text-mt-ink transition-colors duration-150 hover:border-mt-purple-light hover:text-mt-purple active:border-mt-purple"
                   >
                     {item.name}
                   </Link>

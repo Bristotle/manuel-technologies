@@ -18,7 +18,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     name: "Website development",
     title: "Website development that works hard after launch",
     description: "Performance focused website development for organisations that need a fast, maintainable site and a clear route to growth.",
-    intro: "A website should make the business easier to understand, easier to find, and easier to choose. I build fast, accessible websites around the content, integrations, and measurement that make those outcomes possible.",
+    intro: "A website should make the business easier to understand, easier to find, and easier to choose. We build fast, accessible websites around the content, integrations, and measurement that make those outcomes possible.",
     audience: "For organisations replacing a slow site, launching a new offer, or outgrowing a page builder.",
     approach: [
       "Start with the commercial job of the site, then map the journeys, content, and technical constraints around it.",
@@ -39,7 +39,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     name: "Web design and UX",
     title: "Web design that makes the next action obvious",
     description: "Web design and UX for clear digital journeys, stronger positioning, and interfaces people can use without explanation.",
-    intro: "Good web design gives every page a job. I connect positioning, information architecture, content hierarchy, and interaction design so visitors can understand the offer and move forward without friction.",
+    intro: "Good web design gives every page a job. We connect positioning, information architecture, content hierarchy, and interaction design so visitors can understand the offer and move forward without friction.",
     audience: "For businesses whose website feels generic, difficult to navigate, or disconnected from how customers decide.",
     approach: [
       "Turn audience questions and business priorities into a page hierarchy that can be scanned quickly.",
@@ -60,7 +60,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     name: "Custom software",
     title: "Custom software for work your tools cannot handle",
     description: "Custom software for internal operations, customer portals, dashboards, and workflows that need more than an off the shelf tool.",
-    intro: "When a process matters and the existing tools keep forcing awkward workarounds, custom software can make the operation clearer and more reliable. I design and build focused systems around the real workflow, data, and permissions.",
+    intro: "When a process matters and the existing tools keep forcing awkward workarounds, custom software can make the operation clearer and more reliable. We design and build focused systems around the real workflow, data, and permissions.",
     audience: "For teams with repeated manual work, disconnected tools, or customer experiences that cannot be delivered by a standard product.",
     approach: [
       "Map the current process, including exceptions, ownership, data sources, and the decisions people make manually.",
@@ -81,7 +81,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     name: "Mobile applications",
     title: "Mobile applications built around the moments that matter",
     description: "Mobile application development for focused customer, field, and internal workflows across iOS and Android.",
-    intro: "A useful mobile app earns its place by making a frequent or important task easier in the context where it happens. I build focused mobile experiences with a reliable data layer, clear permissions, and a practical release plan.",
+    intro: "A useful mobile app earns its place by making a frequent or important task easier in the context where it happens. We build focused mobile experiences with a reliable data layer, clear permissions, and a practical release plan.",
     audience: "For organisations with a field workflow, member experience, customer utility, or internal process that benefits from mobile access.",
     approach: [
       "Identify the mobile moment, connectivity assumptions, device needs, and the smallest useful journey.",
@@ -102,7 +102,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     name: "Systems and integrations",
     title: "Systems and integrations that keep data moving correctly",
     description: "API and systems integration work for CRM, ERP, legacy, payment, and operational data flows.",
-    intro: "Disconnected systems create duplicate work and unreliable reporting. I connect the tools you already use with explicit data ownership, monitored transfers, and failure handling that people can understand.",
+    intro: "Disconnected systems create duplicate work and unreliable reporting. We connect the tools you already use with explicit data ownership, monitored transfers, and failure handling that people can understand.",
     audience: "For teams moving data between systems, replacing spreadsheets, or inheriting integrations nobody wants to touch.",
     approach: [
       "Document the systems, records, triggers, identifiers, authentication, and direction of travel before writing an integration.",
@@ -123,7 +123,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     name: "Technical SEO",
     title: "Technical SEO that lets useful pages be found",
     description: "Technical SEO audits and implementation for crawlability, indexation, performance, structured data, and site architecture.",
-    intro: "Technical SEO is the engineering layer beneath organic growth. I find the reasons search engines struggle to crawl, interpret, or trust a site, then implement fixes that can be measured in logs, reports, and real user data.",
+    intro: "Technical SEO is the engineering layer beneath organic growth. We find the reasons search engines struggle to crawl, interpret, or trust a site, then implement fixes that can be measured in logs, reports, and real user data.",
     audience: "For teams with traffic declines, indexation problems, migrations, JavaScript sites, or a backlog of SEO fixes that never gets shipped.",
     approach: [
       "Establish the current state from Search Console, analytics, crawls, templates, sitemaps, redirects, and server behaviour.",
@@ -187,7 +187,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     name: "Link building and digital PR",
     title: "Link building based on something worth citing",
     description: "Digital PR and link building built around useful evidence, original assets, relevant relationships, and a clear risk standard.",
-    intro: "A link is most valuable when it is earned because a publisher or practitioner wants readers to see the source. I focus on the research, tools, data, and expertise that make a relevant mention reasonable, rather than volume for its own sake.",
+    intro: "A link is most valuable when it is earned because a publisher or practitioner wants readers to see the source. We focus on the research, tools, data, and expertise that make a relevant mention reasonable, rather than volume for its own sake.",
     audience: "For organisations with genuine expertise or data that need stronger authority in a competitive search category.",
     approach: [
       "Assess the current link profile, competitors, audience, claim strength, and topics where the business can contribute something original.",
@@ -229,7 +229,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     name: "Content and branding",
     title: "Content and branding with a point of view",
     description: "Content strategy and brand systems that make technical or complex businesses easier to recognise, understand, and trust.",
-    intro: "Brand is not decoration around the work. It is the pattern people remember when they compare options. I connect positioning, language, visual rules, and useful content so the business sounds like one considered organisation everywhere it appears.",
+    intro: "Brand is not decoration around the work. It is the pattern people remember when they compare options. We connect positioning, language, visual rules, and useful content so the business sounds like one considered organisation everywhere it appears.",
     audience: "For technical, specialist, or growing businesses whose expertise is stronger than their current presentation.",
     approach: [
       "Find the concrete difference, audience tension, proof, and language the business can own.",
@@ -250,7 +250,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     name: "Social media management",
     title: "Social media management with a reason to post",
     description: "Social media planning and management for organisations that need consistent, useful communication without losing their voice.",
-    intro: "Social activity should support a real business objective: trust, demand, conversation, recruitment, or retention. I help turn expertise and daily work into a manageable publishing system with clear formats and feedback loops.",
+    intro: "Social activity should support a real business objective: trust, demand, conversation, recruitment, or retention. We help turn expertise and daily work into a manageable publishing system with clear formats and feedback loops.",
     audience: "For businesses that have something valuable to say but lack the time, structure, or consistency to say it well.",
     approach: [
       "Choose channels and formats based on audience behaviour and the organisation's ability to sustain them.",
@@ -271,7 +271,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     name: "Paid ads",
     title: "Paid ads measured beyond the click",
     description: "Paid search and social advertising built around sound tracking, focused landing pages, and decisions based on qualified outcomes.",
-    intro: "Paid media works best when the message, landing page, tracking, and commercial follow through agree. I build campaigns around the questions people ask and the actions that show whether the spend is creating useful demand.",
+    intro: "Paid media works best when the message, landing page, tracking, and commercial follow through agree. We build campaigns around the questions people ask and the actions that show whether the spend is creating useful demand.",
     audience: "For businesses with a validated offer that need controlled acquisition, testing, or better visibility into marketing performance.",
     approach: [
       "Define the conversion that matters and test whether the measurement survives consent, devices, forms, and offline follow up.",
@@ -292,7 +292,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     name: "AI automations",
     title: "AI automation for repeatable work with clear limits",
     description: "AI automation for document handling, classification, drafting, routing, and cross platform workflows with human oversight where it matters.",
-    intro: "AI automation is useful when it reduces a defined queue of repetitive work without hiding important decisions. I connect models to controlled workflows, source data, validation, and human review so the result can be trusted and improved.",
+    intro: "AI automation is useful when it reduces a defined queue of repetitive work without hiding important decisions. We connect models to controlled workflows, source data, validation, and human review so the result can be trusted and improved.",
     audience: "For teams with high volume text or document work, repeated triage, or slow handoffs between systems.",
     approach: [
       "Choose a process with measurable effort, stable inputs, and a clear definition of an acceptable result.",
@@ -313,7 +313,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     name: "AI agent development",
     title: "AI agents that use tools within defined boundaries",
     description: "AI agent development for research, operations, and support workflows that need controlled tool use, memory, and escalation.",
-    intro: "An AI agent is more than a chat box. It can plan a bounded task, use approved tools, inspect results, and ask for help when a decision exceeds its authority. I build agent workflows around explicit permissions, observable steps, and useful failure behaviour.",
+    intro: "An AI agent is more than a chat box. It can plan a bounded task, use approved tools, inspect results, and ask for help when a decision exceeds its authority. We build agent workflows around explicit permissions, observable steps, and useful failure behaviour.",
     audience: "For teams exploring multi step AI workflows where a fixed prompt or simple automation is not enough.",
     approach: [
       "Define the task, tools, data boundary, success criteria, refusal conditions, and human handoff before selecting a model.",
@@ -335,7 +335,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     name: "Business insights and analytics",
     title: "Analytics that help someone make a decision",
     description: "Analytics engineering, dashboards, data pipelines, and reporting that connect activity to decisions people can take.",
-    intro: "A dashboard is only useful when it changes what someone does. I build measurement systems around clear definitions, reliable sources, and the questions that matter to the operation, marketing team, or leadership group.",
+    intro: "A dashboard is only useful when it changes what someone does. We build measurement systems around clear definitions, reliable sources, and the questions that matter to the operation, marketing team, or leadership group.",
     audience: "For teams reconciling reports by hand, arguing over numbers, or collecting data without a dependable decision loop.",
     approach: [
       "Define the decisions, metrics, owners, grain, source systems, and acceptable freshness before choosing a chart.",
