@@ -34,16 +34,25 @@ export function Footer() {
                 ( {pillar.name.toUpperCase()} )
               </Link>
               <ul className="mt-5 flex flex-col gap-2.5">
-                {pillar.services.map((s) => (
-                  <li key={s.href}>
-                    <Link
-                      href={s.href}
-                      className="text-sm leading-snug text-mt-slate transition-colors duration-150 hover:text-mt-purple"
+                {pillar.services.map((s) =>
+                  s.live ? (
+                    <li key={s.href}>
+                      <Link
+                        href={s.href}
+                        className="text-sm leading-snug text-mt-slate transition-colors duration-150 hover:text-mt-purple"
+                      >
+                        {s.name}
+                      </Link>
+                    </li>
+                  ) : (
+                    <li
+                      key={s.href}
+                      className="text-sm leading-snug text-mt-muted"
                     >
                       {s.name}
-                    </Link>
-                  </li>
-                ))}
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
           ))}

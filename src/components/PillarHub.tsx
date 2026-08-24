@@ -70,7 +70,7 @@ export function PillarHub({ slug }: { slug: string }) {
           <SectionLabel>Services</SectionLabel>
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {pillar.services.map((s) => (
-              <Card key={s.href} href={s.href}>
+              <Card key={s.href} href={s.live ? s.href : undefined}>
                 <h2 className="!text-base !tracking-tight">{s.name}</h2>
                 <p className="mt-3 text-[0.9375rem] leading-relaxed text-mt-slate">
                   {s.blurb}

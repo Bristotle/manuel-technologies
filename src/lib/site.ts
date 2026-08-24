@@ -12,7 +12,15 @@ export const SITE = {
 
 export const CONTACT_RECIPIENT = "emmanuelakyeam@gmail.com";
 
-export type Service = { name: string; href: string; blurb: string };
+export type Service = {
+  name: string;
+  href: string;
+  blurb: string;
+  /* Flip to true when the page actually exists. The footer only links
+     live pages. Everything else renders as plain text, so we never ship
+     a dead internal link. */
+  live?: boolean;
+};
 
 export type Pillar = {
   name: string;

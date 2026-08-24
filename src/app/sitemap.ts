@@ -4,14 +4,25 @@ import { PILLARS, SITE } from "@/lib/site";
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  const pillars = PILLARS.flatMap((p) => [
-    {
-      url: `${SITE.url}/${p.slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.9,
-    },
-  ]);
+  const pillars = PILLARS.map((p) => ({
+    url: `${SITE.url}/${p.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  }));
+
+  /* Service pages enter the sitemap only once `live` is true.
+     Never submit a URL that does not exist. */
+  const services = PILLARS.flatMap((p) =>
+    p.services
+      .filter((s) => s.live)
+      .map((s) => ({
+        url: `${SITE.url}${s.href}`,
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
+      })),
+  );
 
   return [
     {
@@ -21,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     ...pillars,
+    ...services,
     {
       url: `${SITE.url}/work`,
       lastModified: now,
