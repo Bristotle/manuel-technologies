@@ -1,37 +1,21 @@
 import { Resend } from "resend";
 import { CONTACT_RECIPIENT } from "@/lib/site";
 
-const PERSONAL_EMAIL_DOMAINS = new Set([
-  "gmail.com",
-  "googlemail.com",
-  "yahoo.com",
-  "outlook.com",
-  "hotmail.com",
-  "icloud.com",
-]);
-
-function isValidEmail(email: string) {
-  const domain = email.split("@")[1]?.toLowerCase();
-  return Boolean(domain && !PERSONAL_EMAIL_DOMAINS.has(domain));
-}
-
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const name = String(body.name || "").trim();
     const email = String(body.email || "").trim().toLowerCase();
-    const website = String(body.website || "").trim();
     const service = String(body.service || "").trim();
-    const budget = String(body.budget || "").trim();
     const message = String(body.message || "").trim();
 
-    if (!name || !email || !website || !service || !budget || !message) {
+    if (!name || !email || !service || !message) {
       return Response.json({ error: "Please complete every field." }, { status: 400 });
     }
 
-    if (!email.includes("@") || !isValidEmail(email)) {
+    if (!email.includes("@")) {
       return Response.json(
-        { error: "Please use your business email address." },
+        { error: "Please enter a valid email address." },
         { status: 400 },
       );
     }
@@ -48,10 +32,8 @@ export async function POST(request: Request) {
       subject: `New enquiry: ${service} from ${name}`,
       text: [
         `Name: ${name}`,
-        `Business email: ${email}`,
-        `Company website: ${website}`,
+        `Email: ${email}`,
         `Service: ${service}`,
-        `Budget: ${budget}`,
         "",
         message,
       ].join("\n"),

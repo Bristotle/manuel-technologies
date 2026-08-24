@@ -54,40 +54,22 @@ export function ContactForm() {
           <input name="name" required className="contact-input" />
         </label>
         <label className="flex flex-col gap-2 text-sm font-semibold">
-          Business email
+          Email
           <input name="email" type="email" required className="contact-input" />
         </label>
       </div>
 
       <label className="flex flex-col gap-2 text-sm font-semibold">
-        Company website
-        <input name="website" type="url" required className="contact-input" placeholder="https://" />
+        What do you need?
+        <select name="service" required className="contact-input">
+          <option value="">Choose a service</option>
+          <option>Website development</option>
+          <option>Custom software</option>
+          <option>Technical SEO or GEO</option>
+          <option>AI automation or agents</option>
+          <option>Something else</option>
+        </select>
       </label>
-
-      <div className="grid gap-6 sm:grid-cols-2">
-        <label className="flex flex-col gap-2 text-sm font-semibold">
-          What do you need?
-          <select name="service" required className="contact-input">
-            <option value="">Choose a service</option>
-            <option>Website development</option>
-            <option>Custom software</option>
-            <option>Technical SEO or GEO</option>
-            <option>AI automation or agents</option>
-            <option>Something else</option>
-          </select>
-        </label>
-        <label className="flex flex-col gap-2 text-sm font-semibold">
-          Budget range
-          <select name="budget" required className="contact-input">
-            <option value="">Choose a range</option>
-            <option>Under £2,500</option>
-            <option>£2,500 to £5,000</option>
-            <option>£5,000 to £10,000</option>
-            <option>£10,000 or more</option>
-            <option>Not sure yet</option>
-          </select>
-        </label>
-      </div>
 
       <label className="flex flex-col gap-2 text-sm font-semibold">
         Tell us about the project
