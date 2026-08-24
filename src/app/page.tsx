@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { Marquee } from "@/components/ui/Marquee";
 import { FAQTabs, FAQ_CATEGORIES } from "@/components/ui/faq-tabs";
 import { WorkProcess } from "@/components/WorkProcess";
-import { CAPABILITIES, PILLARS, SITE } from "@/lib/site";
+import { CAPABILITIES, PILLARS, PROJECTS, SITE } from "@/lib/site";
 
 const STANDARDS = [
   {
@@ -22,6 +22,36 @@ const STANDARDS = [
     body: "No brittle no-code templates. Production grade code, designed to handle real traffic without breaking.",
   },
 ];
+
+const ENGAGEMENTS = [
+  {
+    title: "A focused first move",
+    body: "Start with a technical audit, discovery sprint, or defined piece of work that makes the next decision clearer.",
+  },
+  {
+    title: "A complete build",
+    body: "Move from an agreed brief to a working website, application, integration, or automation with testing and handover included.",
+  },
+  {
+    title: "Ongoing technical support",
+    body: "Keep improving the system after launch with SEO implementation, new features, performance work, and measured iteration.",
+  },
+] as const;
+
+const FIT_POINTS = [
+  "You need a website, application, or internal system that has to work in the real world.",
+  "You need technical SEO implementation, not another report that stays in a folder.",
+  "You have a repeatable workflow where AI or automation could reduce manual effort.",
+  "You value clear ownership, maintainable code, and direct technical accountability.",
+] as const;
+
+const CLIENT_RECEIVES = [
+  "A clear brief, scope, priorities, and definition of done",
+  "Working code and a documented deployment path",
+  "Technical SEO foundations and structured content where relevant",
+  "Testing across devices, accessibility checks, and sensible failure handling",
+  "A practical handover with the next improvements identified",
+] as const;
 
 export default function Home() {
   const faqs = Object.values(FAQ_CATEGORIES).flatMap(
@@ -112,6 +142,70 @@ export default function Home() {
 
       <WorkProcess />
 
+      <section className="border-y border-mt-border bg-white py-24 sm:py-32">
+        <Container>
+          <SectionLabel>Selected work</SectionLabel>
+          <h2 className="mt-6 max-w-[18ch]">Real systems for real operating problems.</h2>
+          <p className="mt-8 max-w-[60ch] text-lg leading-relaxed text-mt-slate">
+            A few examples of websites, custom software, ecommerce, and programmatic SEO delivered across different markets.
+          </p>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {PROJECTS.filter((project) => ["impressiful", "cgt-experts", "dementia-in-home"].includes(project.slug)).map((project) => (
+              <Card key={project.slug} href={project.url} className="h-full">
+                <SectionLabel>{project.sector}</SectionLabel>
+                <h3 className="mt-5 !text-xl !tracking-tight">{project.client}</h3>
+                <p className="mt-4 text-base leading-relaxed text-mt-slate">{project.summary}</p>
+                <span className="mt-6 inline-flex text-sm font-semibold text-mt-purple">View the live project</span>
+              </Card>
+            ))}
+          </div>
+          <div className="mt-10">
+            <Button href="/work" variant="secondary">See all the work</Button>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-24 sm:py-32">
+        <Container>
+          <SectionLabel>Engagement options</SectionLabel>
+          <h2 className="mt-6 max-w-[18ch]">Start with the right level of work.</h2>
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {ENGAGEMENTS.map((engagement, index) => (
+              <div key={engagement.title} className="border-t border-mt-border pt-6">
+                <span className="font-[family-name:var(--font-mono)] text-xs tracking-[0.18em] text-mt-purple">0{index + 1}</span>
+                <h3 className="mt-4 !text-xl !tracking-tight">{engagement.title}</h3>
+                <p className="mt-4 text-base leading-relaxed text-mt-slate">{engagement.body}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-y border-mt-border bg-white py-24 sm:py-32">
+        <Container>
+          <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
+            <div>
+              <SectionLabel>Is this a fit?</SectionLabel>
+              <h2 className="mt-6 max-w-[16ch]">Bring us the work that matters.</h2>
+              <ul className="mt-10 flex flex-col gap-5">
+                {FIT_POINTS.map((point) => (
+                  <li key={point} className="border-t border-mt-border pt-4 text-base leading-relaxed text-mt-slate">{point}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <SectionLabel>What you receive</SectionLabel>
+              <h2 className="mt-6 max-w-[16ch]">The work stays useful after handover.</h2>
+              <ul className="mt-10 flex flex-col gap-5">
+                {CLIENT_RECEIVES.map((item) => (
+                  <li key={item} className="border-t border-mt-border pt-4 text-base leading-relaxed text-mt-slate">{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* Enterprise reassurance. The objection nobody says out loud. */}
       <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container>
@@ -181,6 +275,24 @@ export default function Home() {
 
           <div className="mt-12">
             <Button href="/contact">Talk about your project</Button>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-mt-border bg-mt-purple py-24 text-white sm:py-32">
+        <Container>
+          <SectionLabel>Start here</SectionLabel>
+          <h2 className="mt-6 max-w-[16ch] text-white">Have a problem worth building around?</h2>
+          <p className="mt-8 max-w-[52ch] text-lg leading-relaxed text-white/80">
+            Tell us what is happening, what you have tried, and what a useful result would look like. We will suggest the right first move.
+          </p>
+          <div className="mt-10">
+            <Link
+              href="/contact"
+              className="inline-flex min-h-12 items-center justify-center rounded-[10px] bg-white px-6 py-3.5 text-base font-semibold text-mt-purple transition-colors duration-150 hover:bg-mt-surface active:bg-mt-border"
+            >
+              Start a conversation
+            </Link>
           </div>
         </Container>
       </section>
