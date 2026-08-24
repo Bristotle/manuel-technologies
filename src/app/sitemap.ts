@@ -11,17 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  /* Service pages enter the sitemap only once `live` is true.
-     Never submit a URL that does not exist. */
   const services = PILLARS.flatMap((p) =>
-    p.services
-      .filter((s) => s.live)
-      .map((s) => ({
-        url: `${SITE.url}${s.href}`,
-        lastModified: now,
-        changeFrequency: "monthly" as const,
-        priority: 0.8,
-      })),
+    p.services.map((s) => ({
+      url: `${SITE.url}${s.href}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
   );
 
   return [
