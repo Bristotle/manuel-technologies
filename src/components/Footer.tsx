@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="border-t border-mt-border bg-white">
       <div className="mx-auto w-full max-w-5xl px-6 py-16">
-        <div className="grid gap-12 md:grid-cols-[1.2fr_repeat(4,1fr)]">
+        <div className="grid gap-16 md:grid-cols-[1.2fr_repeat(4,1fr)]">
           <div>
             <Link href="/" className="flex items-center gap-3">
               <Logo className="h-9 w-9 text-mt-purple" />
@@ -29,11 +29,12 @@ export function Footer() {
             <p className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-mt-purple">
               Quick links
             </p>
-            <ul className="mt-5 flex flex-col gap-2.5">
+            <ul className="mt-6 flex flex-col gap-3">
               {[
                 ["Blog", "/blog"],
-                ["Contact", "/contact"],
                 ["About", "/about"],
+                ["Work", "/work"],
+                ["Contact", "/contact"],
                 ["Build", "/build"],
                 ["Grow", "/grow"],
                 ["Scale", "/scale"],
@@ -58,7 +59,7 @@ export function Footer() {
               >
                 ( {pillar.name.toUpperCase()} )
               </Link>
-              <ul className="mt-5 flex flex-col gap-2.5">
+              <ul className="mt-6 flex flex-col gap-3">
                 {pillar.services.map((s) => (
                   <li key={s.href}>
                     <Link
