@@ -10,6 +10,10 @@ export const SITE = {
   chromeStore: "https://chromewebstore.google.com/",
 } as const;
 
+/* Where contact form submissions are delivered. Server side only.
+   NEVER render this in the UI. The address shown to visitors is
+   SITE.email, the business address. A personal Gmail on a contact
+   page undercuts everything else on the site. */
 export const CONTACT_RECIPIENT = "emmanuelakyeam@gmail.com";
 
 export type Service = {

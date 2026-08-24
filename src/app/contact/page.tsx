@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { CONTACT_RECIPIENT } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -28,8 +28,8 @@ export default function ContactPage() {
                 <div>
                   <dt className="mt-label">Email</dt>
                   <dd className="mt-2 text-base font-semibold">
-                    <a href={`mailto:${CONTACT_RECIPIENT}`} className="hover:text-mt-purple">
-                      {CONTACT_RECIPIENT}
+                    <a href={`mailto:${SITE.email}`} className="hover:text-mt-purple">
+                      {SITE.email}
                     </a>
                   </dd>
                 </div>
