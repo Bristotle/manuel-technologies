@@ -3,7 +3,6 @@ import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
 import { WorkProcess } from "@/components/WorkProcess";
-import { SITE } from "@/lib/site";
 
 const FAQS = [
   {
@@ -96,7 +95,7 @@ export default function About() {
           </div>
 
           <div className="mt-14">
-            <Button href={`mailto:${SITE.email}`}>Start a conversation</Button>
+            <Button href="/contact">Start a conversation</Button>
           </div>
         </Container>
       </section>

@@ -5,7 +5,11 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { WorkProcess } from "@/components/WorkProcess";
-import { getServicePage, SERVICE_PAGES } from "@/lib/service-pages";
+import {
+  getServicePage,
+  RELATED_SERVICE_SLUGS,
+  SERVICE_PAGES,
+} from "@/lib/service-pages";
 import { SITE } from "@/lib/site";
 
 type PageProps = {
@@ -37,6 +41,10 @@ export default async function ServicePage({ params }: PageProps) {
   const { pillar, service } = await params;
   const page = getServicePage(pillar, service);
   if (!page) notFound();
+
+  const relatedServices = (RELATED_SERVICE_SLUGS[page.slug] || [])
+    .map((slug) => SERVICE_PAGES.find((servicePage) => servicePage.slug === slug))
+    .filter((servicePage) => servicePage !== undefined);
 
   const pageUrl = `${SITE.url}/${page.pillar}/${page.slug}`;
   const jsonLd = [
@@ -96,7 +104,7 @@ export default async function ServicePage({ params }: PageProps) {
             <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">{page.intro}</p>
             <p className="mt-6 max-w-[65ch] font-semibold text-mt-ink">{page.audience}</p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <Button href={`mailto:${SITE.email}`}>Start a conversation</Button>
+              <Button href="/contact">Start a conversation</Button>
               <Button href="/work" variant="secondary">See the work</Button>
             </div>
           </div>
@@ -130,6 +138,32 @@ export default async function ServicePage({ params }: PageProps) {
       </section>
 
       <WorkProcess compact />
+
+      <section className="py-24 sm:py-32">
+        <Container>
+          <SectionLabel>Related services</SectionLabel>
+          <h2 className="mt-6 max-w-[18ch]">Continue with the part that matters next.</h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {relatedServices.map((related) => (
+              <Link
+                key={related.slug}
+                href={`/${related.pillar}/${related.slug}`}
+                className="group border border-mt-border bg-white p-6 transition-colors duration-150 hover:border-mt-purple"
+              >
+                <span className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-mt-purple">
+                  {related.name}
+                </span>
+                <p className="mt-4 text-base leading-relaxed text-mt-slate group-hover:text-mt-ink">
+                  {related.description}
+                </p>
+                <span className="mt-6 inline-flex text-sm font-semibold text-mt-purple">
+                  Explore the service
+                </span>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container>

@@ -352,6 +352,25 @@ export const SERVICE_PAGES: ServicePage[] = [
   }
 ];
 
+export const RELATED_SERVICE_SLUGS: Record<string, string[]> = {
+  "website-development": ["technical-seo", "web-design", "custom-software"],
+  "web-design": ["website-development", "on-page-seo", "mobile-apps"],
+  "custom-software": ["systems-integrations", "ai-agents", "analytics"],
+  "mobile-apps": ["custom-software", "web-design", "systems-integrations"],
+  "systems-integrations": ["custom-software", "ai-automations", "analytics"],
+  "technical-seo": ["programmatic-seo", "geo", "website-development"],
+  "programmatic-seo": ["technical-seo", "geo", "custom-software"],
+  "on-page-seo": ["technical-seo", "content-branding", "geo"],
+  "link-building": ["content-branding", "technical-seo", "geo"],
+  geo: ["technical-seo", "programmatic-seo", "content-branding"],
+  "content-branding": ["on-page-seo", "link-building", "website-development"],
+  "social-media": ["content-branding", "paid-ads", "website-development"],
+  "paid-ads": ["website-development", "analytics", "content-branding"],
+  "ai-automations": ["ai-agents", "systems-integrations", "custom-software"],
+  "ai-agents": ["ai-automations", "custom-software", "systems-integrations"],
+  analytics: ["custom-software", "technical-seo", "ai-automations"],
+};
+
 export function getServicePage(pillar: string, slug: string) {
   return SERVICE_PAGES.find((page) => page.pillar === pillar && page.slug === slug);
 }
