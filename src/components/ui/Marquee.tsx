@@ -1,5 +1,5 @@
 /* Infinite rail. Track is duplicated in markup and translated exactly -50%,
-   so the loop is seamless. Pure CSS, zero JavaScript.
+   so the loop has no visible join. Pure CSS, zero JavaScript.
    Animation is disabled by the prefers-reduced-motion block in globals.css. */
 
 export function Marquee({ items }: { items: readonly string[] }) {

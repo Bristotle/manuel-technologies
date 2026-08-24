@@ -10,6 +10,8 @@ export const SITE = {
   chromeStore: "https://chromewebstore.google.com/",
 } as const;
 
+export const CONTACT_RECIPIENT = "emmanuelakyeam@gmail.com";
+
 export type Service = { name: string; href: string; blurb: string };
 
 export type Pillar = {
@@ -134,6 +136,7 @@ export const NAV = [
   ...PILLARS.map((p) => ({ name: p.name, href: `/${p.slug}` })),
   { name: "Work", href: "/work" },
   { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ] as const;
 
 /* Marquee rail. Bracket syntax from REF-002. */
@@ -149,3 +152,76 @@ export const CAPABILITIES = [
   "MOBILE APPS",
   "ANALYTICS",
 ] as const;
+
+/* --------------------------------------------------------------------------
+   Work. Only engagements where Manuel Technologies was the vendor.
+   Employer work never appears here. See CLAUDE.md section 7.
+   -------------------------------------------------------------------------- */
+
+export type Project = {
+  slug: string;
+  client: string;
+  url: string;
+  market: string;
+  sector: string;
+  summary: string;
+  scope: string[];
+  thumb?: string;
+};
+
+export const PROJECTS: Project[] = [
+  {
+    slug: "impressiful",
+    client: "Impressiful",
+    url: "https://impressiful.com",
+    market: "United Arab Emirates",
+    sector: "Ecommerce",
+    summary:
+      "Custom branded merchandise at catalogue scale. Over 1,000 configurable products across 15 categories, with multi currency pricing, sample kit and bulk order flows, and WhatsApp commerce wired into the checkout path.",
+    scope: ["Website Development", "Ecommerce", "Technical SEO"],
+    thumb: "/work/impressiful.webp",
+  },
+  {
+    slug: "cgt-experts",
+    client: "Capital Gains Tax Experts",
+    url: "https://capitalgainstaxexpert.co.uk",
+    market: "United Kingdom",
+    sector: "Regulated professional services",
+    summary:
+      "Eight bespoke tax calculators covering property, shares, crypto, non-resident disposals, BADR, stamp duty, inheritance and income tax. Functional software in a regulated domain, where the arithmetic has consequences, and a lead engine rather than a brochure.",
+    scope: ["Custom Software", "Website Development", "Technical SEO"],
+    thumb: "/work/cgt-experts.webp",
+  },
+  {
+    slug: "dementia-in-home",
+    client: "Dementia In Home",
+    url: "https://www.dementiainhome.com",
+    market: "United States",
+    sector: "Healthcare",
+    summary:
+      "A national caregiver matching service built on Next.js, with programmatic city pages carrying real local pricing. The page architecture is designed to scale from five cities to several hundred without a rebuild.",
+    scope: ["Website Development", "Programmatic SEO", "Custom Software"],
+    thumb: "/work/dementia-in-home.webp",
+  },
+  {
+    slug: "miyaki-beauty",
+    client: "Miyaki Beauty",
+    url: "https://miyakibeautygh.com",
+    market: "Ghana",
+    sector: "Beauty and retail",
+    summary:
+      "Ecommerce and brand presence for a premium beauty retailer. Also the site we test CWV Drift Monitor against, so its Core Web Vitals get watched more closely than most.",
+    scope: ["Website Development", "Ecommerce", "Web Design"],
+    thumb: "/work/miyaki-beauty.webp",
+  },
+  {
+    slug: "cangaf",
+    client: "Cangaf",
+    url: "https://cangafltd.com",
+    market: "United Kingdom",
+    sector: "Accountancy",
+    summary:
+      "The parent practice behind Capital Gains Tax Experts. Chartered accountants in Bolton, with a client portal and a resource library.",
+    scope: ["Website Development", "Technical SEO"],
+  },
+];

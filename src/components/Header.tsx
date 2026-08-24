@@ -35,12 +35,12 @@ export function Header() {
           </ul>
         </nav>
 
-        <a
-          href={`mailto:${SITE.email}`}
+        <Link
+          href="/contact"
           className="ml-auto hidden rounded-[10px] bg-mt-purple px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-mt-purple-light md:ml-0 md:inline-flex"
         >
           Get in touch
-        </a>
+        </Link>
 
         <div className="ml-auto md:hidden">
           <MobileNav />

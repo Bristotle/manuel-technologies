@@ -21,7 +21,63 @@ const STANDARDS = [
   },
 ];
 
+const FAQS = [
+  {
+    question: "What does Manuel Technologies do?",
+    answer:
+      "Manuel Technologies provides website development, custom software, technical SEO, GEO for AI search and language models, and AI automation services.",
+  },
+  {
+    question: "What website development services are available?",
+    answer:
+      "Website development covers the creation and maintenance of websites that meet specific business requirements and function reliably across devices.",
+  },
+  {
+    question: "Do you provide custom software?",
+    answer:
+      "Custom software is built to handle the operational work that off the shelf tools cannot, such as internal systems, client portals and dashboards shaped around how a business actually runs.",
+  },
+  {
+    question: "What is technical SEO?",
+    answer:
+      "Technical SEO involves optimising the underlying structure of a website so that search engines can crawl, index and understand its content effectively.",
+  },
+  {
+    question: "What is GEO for AI search and language models?",
+    answer:
+      "GEO for AI search and language models focuses on structuring content and data so that generative AI systems retrieve and present information accurately.",
+  },
+  {
+    question: "What can AI automation and AI agents be used for?",
+    answer:
+      "AI automation applies machine learning and related techniques to handle repetitive tasks and improve workflow efficiency within an organisation.",
+  },
+  {
+    question: "Who does Manuel Technologies work with?",
+    answer:
+      "Manuel Technologies works with businesses and organisations that require technical digital services to support their operations.",
+  },
+  {
+    question: "How do I start a project with Manuel Technologies?",
+    answer:
+      "Projects begin with an initial discussion to understand requirements, followed by a structured plan that outlines the scope and next steps.",
+  },
+] as const;
+
 export default function Home() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <main>
       {/* Hero. The tagline is the H1. Nothing restates it underneath. */}
@@ -138,6 +194,49 @@ export default function Home() {
             >
               Read its privacy policy
             </Link>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-mt-border bg-white py-24 sm:py-32">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+        <Container>
+          <SectionLabel>FAQ</SectionLabel>
+          <h2 className="mt-6 max-w-[18ch]">
+            What we build, grow, and scale.
+          </h2>
+          <p className="mt-8 max-w-[60ch] text-lg text-mt-slate">
+            Clear answers about our services, technical SEO, GEO, software, and
+            automation work.
+          </p>
+
+          <div className="mt-12 max-w-[760px] border-t border-mt-border">
+            {FAQS.map((faq) => (
+              <details
+                key={faq.question}
+                className="group border-b border-mt-border py-6"
+              >
+                <summary className="flex cursor-pointer list-none items-start justify-between gap-8 text-lg font-semibold marker:hidden">
+                  <span>{faq.question}</span>
+                  <span
+                    aria-hidden="true"
+                    className="shrink-0 text-2xl font-normal leading-none text-mt-purple transition-transform duration-150 group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="mt-4 max-w-[65ch] text-base leading-relaxed text-mt-slate">
+                  {faq.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+
+          <div className="mt-12">
+            <Button href="/contact">Talk about your project</Button>
           </div>
         </Container>
       </section>

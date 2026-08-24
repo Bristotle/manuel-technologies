@@ -98,6 +98,30 @@
     animation: mt-scroll 40s linear infinite;
     will-change: transform;
   }
+
+  .contact-input {
+    min-height: 3rem;
+    border: 1px solid var(--color-mt-border);
+    border-radius: var(--radius-input);
+    background: white;
+    padding: 0.75rem 1rem;
+    color: var(--color-mt-ink);
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .contact-input:hover {
+    border-color: var(--color-mt-purple-light);
+  }
+
+  .contact-input:focus-visible {
+    border-color: var(--color-mt-purple);
+  }
+
+  .contact-input:active {
+    border-color: var(--color-mt-purple);
+  }
 }
 
 @keyframes mt-scroll {
