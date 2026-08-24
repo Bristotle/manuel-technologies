@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Marquee } from "@/components/ui/Marquee";
 import { FAQTabs, FAQ_CATEGORIES } from "@/components/ui/faq-tabs";
+import { WorkProcess } from "@/components/WorkProcess";
 import { CAPABILITIES, PILLARS, SITE } from "@/lib/site";
 
 const STANDARDS = [
@@ -108,6 +109,8 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      <WorkProcess />
 
       {/* Enterprise reassurance. The objection nobody says out loud. */}
       <section className="border-y border-mt-border bg-white py-24 sm:py-32">

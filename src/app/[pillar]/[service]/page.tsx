@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { WorkProcess } from "@/components/WorkProcess";
 import { getServicePage, SERVICE_PAGES } from "@/lib/service-pages";
 import { SITE } from "@/lib/site";
 
@@ -127,6 +128,8 @@ export default async function ServicePage({ params }: PageProps) {
           </div>
         </Container>
       </section>
+
+      <WorkProcess compact />
 
       <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { WorkProcess } from "@/components/WorkProcess";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -58,25 +59,7 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      <section className="border-y border-mt-border py-24 sm:py-32">
-        <Container>
-          <SectionLabel>What happens next</SectionLabel>
-          <div className="mt-8 grid gap-10 md:grid-cols-3">
-            <div>
-              <h3>01. We read the brief</h3>
-              <p className="mt-4 text-mt-slate">We look at the goal, constraints, existing stack and the result that would make the project worthwhile.</p>
-            </div>
-            <div>
-              <h3>02. We ask the useful questions</h3>
-              <p className="mt-4 text-mt-slate">No generic discovery call. Just the technical and commercial questions needed to scope the right first step.</p>
-            </div>
-            <div>
-              <h3>03. We agree the first move</h3>
-              <p className="mt-4 text-mt-slate">That might be an audit, a fixed build, a roadmap or a clear reason not to proceed yet.</p>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <WorkProcess compact />
     </main>
   );
 }
