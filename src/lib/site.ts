@@ -6,7 +6,8 @@ export const SITE = {
   url: "https://manueltechnologies.com",
   email: "info@manueltechnologies.com",
   tagline: "Build. Grow. Scale.",
-  proof: "We ship our own software. Yours gets the same standard.",
+  proof:
+    "We build our own software, ship it, get it cited in LLMs, rank in Google and AI Overviews. Yours gets the same standard.",
   chromeStore: "https://chromewebstore.google.com/",
 } as const;
 

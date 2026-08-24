@@ -95,9 +95,9 @@ export default function Home() {
 
             <div className="lg:pb-3">
               <p className="max-w-[52ch] text-lg leading-relaxed text-mt-slate">
-                Websites and custom software. Technical SEO and GEO. AI
-                automation. Built by an engineer who does this professionally,
-                not an agency passing your work to a junior.
+                Websites and custom software. SEO and GEO. AI agents and
+                automation development. Built by an engineer who does this
+                professionally, not an agency passing your work to a junior.
               </p>
               <p className="mt-6 max-w-[52ch] text-lg font-semibold text-mt-ink">
                 {SITE.proof}
