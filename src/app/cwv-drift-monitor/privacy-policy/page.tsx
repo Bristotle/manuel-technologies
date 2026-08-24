@@ -6,7 +6,7 @@ import { Logo } from "@/components/Logo";
    it publicly accessible for as long as the extension is published. */
 
 export const metadata: Metadata = {
-  title: "Privacy Policy · CWV Drift Monitor",
+  title: "Privacy policy",
   description:
     "Privacy policy for the CWV Drift Monitor Chrome extension by Manuel Technologies. No personal data collected, no tracking, no accounts.",
   alternates: { canonical: "/cwv-drift-monitor/privacy-policy" },
@@ -18,13 +18,11 @@ export default function PrivacyPolicy() {
       <article className="mx-auto max-w-[680px] px-6 py-16 sm:py-20">
         <header className="mb-12 flex items-center gap-3">
           <Logo className="h-8 w-8 text-mt-purple" />
-          <span className="text-sm text-mt-muted">
-            Manuel Technologies · CWV Drift Monitor
-          </span>
+          <span className="text-sm text-mt-muted">Manuel Technologies</span>
         </header>
 
         <h1 className="!text-[1.75rem] !leading-tight sm:!text-[2rem]">
-          Privacy Policy
+          Privacy policy
         </h1>
         <p className="mt-2 text-sm text-mt-muted">Last updated: July 2026</p>
 

@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="border-t border-mt-border bg-white">
       <div className="mx-auto w-full max-w-5xl px-6 py-16">
-        <div className="grid gap-12 md:grid-cols-[1.2fr_repeat(3,1fr)]">
+        <div className="grid gap-12 md:grid-cols-[1.2fr_repeat(4,1fr)]">
           <div>
             <Link href="/" className="flex items-center gap-3">
               <Logo className="h-9 w-9 text-mt-purple" />
@@ -23,6 +23,31 @@ export function Footer() {
             >
               {SITE.email}
             </a>
+          </div>
+
+          <div>
+            <p className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-mt-purple">
+              Quick links
+            </p>
+            <ul className="mt-5 flex flex-col gap-2.5">
+              {[
+                ["Blog", "/blog"],
+                ["Contact", "/contact"],
+                ["About", "/about"],
+                ["Build", "/build"],
+                ["Grow", "/grow"],
+                ["Scale", "/scale"],
+              ].map(([label, href]) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-sm leading-snug text-mt-slate transition-colors duration-150 hover:text-mt-purple"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {PILLARS.map((pillar) => (
@@ -58,7 +83,7 @@ export function Footer() {
               href="/cwv-drift-monitor/privacy-policy"
               className="text-sm text-mt-muted transition-colors duration-150 hover:text-mt-purple"
             >
-              CWV Drift Monitor privacy policy
+              Privacy policy
             </Link>
           </div>
         </div>
