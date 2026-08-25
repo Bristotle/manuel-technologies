@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
 import { PILLARS } from "@/lib/site";
+import { BLOG_POSTS } from "@/lib/blog-posts";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -112,16 +113,19 @@ export default function BlogPage() {
         <Container>
           <SectionLabel>Topics</SectionLabel>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {TOPICS.map((topic) => (
+            {TOPICS.map((topic, index) => {
+              const post = BLOG_POSTS[index];
+              return (
               <article key={topic.title} className="border border-mt-border bg-white p-6">
                 <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.13em] text-mt-purple">{topic.cluster}</span>
-                <h2 className="mt-4 !text-xl !tracking-tight">{topic.title}</h2>
-                <p className="mt-4 text-base leading-relaxed text-mt-slate">{topic.body}</p>
+                <h2 className="mt-4 !text-xl !tracking-tight"><Link href={`/blog/${post.slug}`} className="hover:text-mt-purple">{topic.title}</Link></h2>
+                <p className="mt-4 text-base leading-relaxed text-mt-slate">{post.description}</p>
                 <div className="mt-6">
-                  <Button href={topic.href} variant="secondary">Explore the service</Button>
+                  <Button href={`/blog/${post.slug}`} variant="secondary">Read the article</Button>
                 </div>
               </article>
-            ))}
+              );
+            })}
           </div>
           <div className="mt-16 border-t border-mt-border pt-8">
             <SectionLabel>Start with a service</SectionLabel>

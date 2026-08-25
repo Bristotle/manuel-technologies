@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { BLOG_POSTS } from "@/lib/blog-posts";
 import { PILLARS, SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -19,6 +20,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     })),
   );
+
+  const blogPosts = BLOG_POSTS.map((post) => ({
+    url: `${SITE.url}/blog/${post.slug}`,
+    lastModified: post.modified,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
 
   return [
     {
@@ -53,6 +61,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
+    ...blogPosts,
     {
       url: `${SITE.url}/cwv-drift-monitor/privacy-policy`,
       lastModified: now,
