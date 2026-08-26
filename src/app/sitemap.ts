@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 import { BLOG_POSTS } from "@/lib/blog-posts";
-import { FREE_TOOLS } from "@/lib/free-tools";
 import { PILLARS, SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -29,11 +28,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const freeTools = FREE_TOOLS.map((tool) => ({
-    url: `${SITE.url}/free-tools/${tool.slug}`,
+  const toolPages = [
+    "seo-audit",
+    "geo-content-brief",
+    "ai-agent-readiness",
+  ].map((slug) => ({
+    url: `${SITE.url}/free-tools/${slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
-    priority: 0.8,
+    priority: 0.7,
   }));
 
   return [
@@ -76,7 +79,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     ...blogPosts,
-    ...freeTools,
+    ...toolPages,
+    {
+      url: `${SITE.url}/privacy-policy`,
+      lastModified: now,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
+    {
+      url: `${SITE.url}/terms-of-service`,
+      lastModified: now,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
     {
       url: `${SITE.url}/cwv-drift-monitor/privacy-policy`,
       lastModified: now,

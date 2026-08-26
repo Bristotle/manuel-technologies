@@ -16,12 +16,6 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Free tools
-
-The tools library lives at `/free-tools`. The SEO health check and AI agent assessment can use Grok for a short recommendation. Set `GROK_API_KEY` in the local environment or Vercel project settings. The key is read only by `/api/tools` and is never sent to the browser.
-
-Optional: set `GROK_MODEL` to choose the xAI model. The default is `grok-3-mini`.
-
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
