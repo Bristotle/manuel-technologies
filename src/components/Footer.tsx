@@ -46,6 +46,7 @@ export function Footer() {
                 ["About", "/about"],
                 ["Work", "/work"],
                 ["Contact", "/contact"],
+                ["Free tools", "/free-tools"],
               ].map(([label, href]) => (
                 <li key={href}>
                   <Link
@@ -83,18 +84,18 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col gap-4 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-mt-muted">
-            &copy; {new Date().getFullYear()} {SITE.name}
-          </p>
+        <div className="flex flex-col-reverse gap-6 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap gap-6">
             <Link
-              href="/cwv-drift-monitor/privacy-policy"
+              href="/privacy-policy"
               className="text-sm text-mt-muted transition-colors duration-150 hover:text-mt-purple"
             >
               Privacy policy
             </Link>
+            <Link href="/terms-of-service" className="text-sm text-mt-muted transition-colors duration-150 hover:text-mt-purple">Terms of service</Link>
+            <Link href="/contact" className="text-sm text-mt-muted transition-colors duration-150 hover:text-mt-purple">Contact</Link>
           </div>
+          <p className="text-sm text-mt-muted">&copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
         </div>
       </div>
     </footer>

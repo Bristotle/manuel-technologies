@@ -8,6 +8,7 @@ import { NAV, SITE } from "@/lib/site";
 export function Header() {
   return (
     <header className="relative border-b border-mt-border bg-white">
+      <div className="border-b border-mt-border bg-mt-ink px-6 py-2 text-center font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-white">AI agents and automation, SEO and GEO, ROI-focused websites, and custom software built around your business.</div>
       <div className="mx-auto flex w-full max-w-5xl items-center gap-8 px-6 py-4">
         <Link
           href="/"

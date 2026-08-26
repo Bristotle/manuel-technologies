@@ -86,6 +86,12 @@ const TOPICS = [
     body: "The questions that reveal who owns the work, how delivery is governed, and whether the evidence is real.",
     href: "/about",
   },
+  {
+    cluster: "Search and GEO",
+    title: "SEO writing: how to create content that earns visibility",
+    body: "A practical workflow for choosing a query, matching intent, adding evidence, and improving content after publication.",
+    href: "/grow/on-page-seo",
+  },
 ] as const;
 
 const SERVICE_LINKS = PILLARS.flatMap((pillar) =>

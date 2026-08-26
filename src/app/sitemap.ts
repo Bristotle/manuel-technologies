@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogPosts = BLOG_POSTS.map((post) => ({
     url: `${SITE.url}/blog/${post.slug}`,
-    lastModified: post.modified,
+    lastModified: new Date(post.modified),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
@@ -60,6 +60,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.6,
+    },
+    {
+      url: `${SITE.url}/free-tools`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     ...blogPosts,
     {

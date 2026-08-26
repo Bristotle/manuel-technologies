@@ -150,6 +150,7 @@ export const NAV = [
   { name: "Work", href: "/work" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
+  { name: "Free tools", href: "/free-tools" },
 ] as const;
 
 /* Marquee rail. Bracket syntax from REF-002. */
