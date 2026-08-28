@@ -66,14 +66,34 @@ Push the boundary as deep as possible. If a section contains one interactive but
 
 Client components allowed: mobile menu toggle, accordion, contact form. That is close to the full list.
 
-### No animation libraries
+### Motion, three tiers. Reach for tier 1 first.
 
-No Framer Motion, no GSAP, at any point in v1. Everything needed is CSS:
+**Tier 1, CSS scroll-driven animation. 0KB.** Already built in `globals.css`.
+Use `mt-reveal`, `mt-reveal-group`, `mt-reveal-display`, `mt-scroll-progress`,
+`mt-lift`, `mt-underline`. Runs on the compositor, no `"use client"`, no bundle
+cost. This covers most cases.
 
-- Marquees: `@keyframes` translateX on a duplicated track
-- Scroll reveals: CSS scroll-driven animations, or `IntersectionObserver` in about 15 lines
-- Layer stacking: `z-index` and negative margins
-- Always wrap in `@media (prefers-reduced-motion: reduce)`
+**Tier 2, IntersectionObserver.** About 15 lines, roughly 1KB, one shared client
+component. For counters, fire-once sequences, anything CSS cannot express.
+
+**Tier 3, Framer Motion (`motion`). Last resort.** Roughly 34KB standard, or
+15KB via `LazyMotion` with `domAnimation`. Your remaining budget after the
+Next.js baseline is about 20KB, so this is expensive. Only for genuine
+choreography: shared element transitions, drag, gesture, physics.
+
+**Rules that apply to all three:**
+
+- Animate `transform` and `opacity` only. Never width, height, top, left or
+  margin. Those trigger layout and cost CLS
+- **Never put an animation library in the shared layout.** Confine to one route
+- Everything respects `prefers-reduced-motion`, already handled globally
+- Re-run `next build` after adding motion. A jump in first load JS is a bug
+- One `mt-reveal-display` per page maximum. If everything arrives dramatically,
+  nothing does
+- Marquees stay `@keyframes` translateX on a duplicated track
+- Layer stacking stays `z-index` and negative margins
+
+Full reasoning in `MOTION.md`.
 
 ### Images
 

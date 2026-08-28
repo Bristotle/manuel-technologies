@@ -6,6 +6,8 @@ import { Card } from "@/components/ui/Card";
 import { Marquee } from "@/components/ui/Marquee";
 import { FAQTabs, FAQ_CATEGORIES } from "@/components/ui/faq-tabs";
 import { WorkProcess } from "@/components/WorkProcess";
+import { ClientMarquee } from "@/components/ClientMarquee";
+import { Integrations } from "@/components/Integrations";
 import { CAPABILITIES, PILLARS, PROJECTS, SITE } from "@/lib/site";
 
 const STANDARDS = [
@@ -109,6 +111,8 @@ export default function Home() {
 
       <Marquee items={CAPABILITIES} />
 
+      <ClientMarquee />
+
       {/* Pillars. The tagline doubles as the navigation. */}
       <section className="py-24 sm:py-32">
         <Container>
@@ -117,7 +121,7 @@ export default function Home() {
             Three pillars. Professional engineering across all of them.
           </h2>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div className="mt-12 grid gap-5 md:grid-cols-3 mt-reveal-group">
             {PILLARS.map((pillar) => (
               <Card key={pillar.slug} href={`/${pillar.slug}`}>
                 <SectionLabel>{pillar.name.toUpperCase()}</SectionLabel>
@@ -164,6 +168,8 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      <Integrations />
 
       <section className="py-24 sm:py-32">
         <Container>

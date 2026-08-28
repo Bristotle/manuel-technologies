@@ -25,7 +25,13 @@ export function pillarMetadata(slug: string): Metadata {
   };
 }
 
-export function PillarHub({ slug }: { slug: string }) {
+export function PillarHub({
+  slug,
+  afterHero,
+}: {
+  slug: string;
+  afterHero?: React.ReactNode;
+}) {
   const pillar = get(slug);
   if (!pillar) notFound();
 
@@ -64,6 +70,8 @@ export function PillarHub({ slug }: { slug: string }) {
           </p>
         </Container>
       </section>
+
+      {afterHero}
 
       <section className="py-24 sm:py-32">
         <Container>

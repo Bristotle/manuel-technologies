@@ -49,7 +49,7 @@ export default function ContactPage() {
               <SectionLabel>Project enquiry</SectionLabel>
               <h2 className="mt-6 max-w-[16ch]">Give us enough to be useful.</h2>
               <p className="mt-6 max-w-[52ch] text-base text-mt-slate">
-                A few concrete details help us understand the shape of the work before we reply.
+                Free, no obligation. We respond within 24 hours, 7 days a week.
               </p>
               <div className="mt-10">
                 <ContactForm />

@@ -101,7 +101,15 @@ const SERVICE_LINKS = PILLARS.flatMap((pillar) =>
   })),
 );
 
-export default function BlogPage() {
+export default async function BlogPage({ searchParams }: { searchParams: Promise<{ q?: string; category?: string }> }) {
+  const params = await searchParams;
+  const query = (params.q || "").trim().toLowerCase();
+  const category = params.category || "";
+  const visiblePosts = BLOG_POSTS.filter((post) => {
+    const matchesCategory = !category || post.cluster === category;
+    const searchText = `${post.title} ${post.description} ${post.cluster} ${post.primaryKeyword || ""}`.toLowerCase();
+    return matchesCategory && (!query || searchText.includes(query));
+  });
   return (
     <main>
       <section className="border-b border-mt-border bg-white py-24 sm:py-32">
@@ -119,12 +127,11 @@ export default function BlogPage() {
         <Container>
           <SectionLabel>Topics</SectionLabel>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {TOPICS.map((topic, index) => {
-              const post = BLOG_POSTS[index];
+            {visiblePosts.map((post) => {
               return (
-              <article key={topic.title} className="border border-mt-border bg-white p-6">
-                <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.13em] text-mt-purple">{topic.cluster}</span>
-                <h2 className="mt-4 !text-xl !tracking-tight"><Link href={`/blog/${post.slug}`} className="hover:text-mt-purple">{topic.title}</Link></h2>
+              <article key={post.title} className="border border-mt-border bg-white p-6">
+                <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.13em] text-mt-purple">{post.cluster}</span>
+                <h2 className="mt-4 !text-xl !tracking-tight"><Link href={`/blog/${post.slug}`} className="hover:text-mt-purple">{post.title}</Link></h2>
                 <p className="mt-4 text-base leading-relaxed text-mt-slate">{post.description}</p>
                 <div className="mt-6">
                   <Button href={`/blog/${post.slug}`} variant="secondary">Read the article</Button>
@@ -133,6 +140,7 @@ export default function BlogPage() {
               );
             })}
           </div>
+          {visiblePosts.length === 0 && <p className="mt-8 text-lg text-mt-slate">No articles match that search.</p>}
           <div className="mt-16 border-t border-mt-border pt-8">
             <SectionLabel>Start with a service</SectionLabel>
             <div className="mt-6 flex flex-wrap gap-x-8 gap-y-4">
