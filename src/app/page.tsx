@@ -7,6 +7,8 @@ import { Marquee } from "@/components/ui/Marquee";
 import { FAQTabs, FAQ_CATEGORIES } from "@/components/ui/faq-tabs";
 import { WorkProcess } from "@/components/WorkProcess";
 import { ClientMarquee } from "@/components/ClientMarquee";
+import { Testimonials } from "@/components/Testimonials";
+import { CallToAction } from "@/components/CallToAction";
 import { DotGrid } from "@/components/ui/DotGrid";
 import { Integrations } from "@/components/Integrations";
 import { CAPABILITIES, PILLARS, PROJECTS, SITE } from "@/lib/site";
@@ -114,8 +116,6 @@ export default function Home() {
       </section>
 
       <Marquee items={CAPABILITIES} />
-
-      <ClientMarquee />
 
       {/* Pillars. The tagline doubles as the navigation. */}
       <section className="py-24 sm:py-32">
@@ -289,23 +289,14 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-t border-mt-border bg-mt-purple py-24 text-white sm:py-32">
-        <Container>
-          <SectionLabel>Start here</SectionLabel>
-          <h2 className="mt-6 max-w-[16ch] text-white">Have a problem worth building around?</h2>
-          <p className="mt-8 max-w-[52ch] text-lg leading-relaxed text-white/80">
-            Tell us what is happening, what you have tried, and what a useful result would look like. We will suggest the right first move.
-          </p>
-          <div className="mt-10">
-            <Link
-              href="/contact"
-              className="inline-flex min-h-12 items-center justify-center rounded-[10px] bg-white px-6 py-3.5 text-base font-semibold text-mt-purple transition-colors duration-150 hover:bg-mt-surface active:bg-mt-border"
-            >
-              Start a conversation
-            </Link>
-          </div>
-        </Container>
-      </section>
+      <Testimonials />
+
+      {/* Trusted by sits here, immediately before the closing CTA. Proof is
+          worth more at the point of decision than as an unearned claim four
+          seconds after arrival. */}
+      <ClientMarquee />
+
+      <CallToAction />
     </main>
   );
 }

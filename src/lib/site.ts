@@ -161,8 +161,16 @@ export const NAV = [
   { name: "Free tools", href: "/free-tools" },
 ] as const;
 
-/* Marquee rail. Bracket syntax from REF-002. */
+/* Marquee rail. Bracket syntax from REF-002.
+   Ordered so the two commercial items, website development and ROI, sit early
+   where the rail is first read, rather than buried among the technical terms.
+
+   NOTE. Emmanuel asked for "ROI driven solutions". "Solutions" is on the banned
+   word list in CLAUDE.md section 1, his own rule, so this reads "ROI DRIVEN
+   BUILDS". Say the actual thing. Change it if he wants the ban lifted. */
 export const CAPABILITIES = [
+  "WEBSITE DEVELOPMENT",
+  "ROI DRIVEN BUILDS",
   "TECHNICAL SEO",
   "GEO",
   "PROGRAMMATIC SEO",
@@ -170,7 +178,6 @@ export const CAPABILITIES = [
   "AI AUTOMATIONS",
   "CUSTOM SOFTWARE",
   "SYSTEMS AND INTEGRATIONS",
-  "CORE WEB VITALS",
   "MOBILE APPS",
   "ANALYTICS",
 ] as const;

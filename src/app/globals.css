@@ -142,6 +142,43 @@
     mask-image: linear-gradient(to top, black, transparent 70%);
   }
 
+  /* ---------------------------------------------------------------------
+     Perspective grid floor. REF-012, hero-section-dark.
+     Two repeating-linear-gradients tilted on the X axis, so the lines
+     converge at a vanishing point. The reference ships this as a component
+     with configurable angle and opacity props; the effect is entirely
+     transform and gradient, so it belongs in CSS.
+     Transform on a static element, so it never animates and never reflows.
+     --------------------------------------------------------------------- */
+  .mt-grid-floor {
+    background-image:
+      repeating-linear-gradient(
+        to right,
+        rgb(255 255 255 / 0.08) 0 1px,
+        transparent 1px 64px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        rgb(255 255 255 / 0.08) 0 1px,
+        transparent 1px 64px
+      );
+    transform: perspective(340px) rotateX(62deg) scale(2.4);
+    transform-origin: 50% 100%;
+    -webkit-mask-image: linear-gradient(to top, black, transparent 72%);
+    mask-image: linear-gradient(to top, black, transparent 72%);
+  }
+
+  /* Soft purple bloom behind the CTA headline. Replaces the reference's
+     glow, which it does with a blurred absolutely positioned div. A radial
+     gradient is one paint and no extra element. */
+  .mt-bloom {
+    background-image: radial-gradient(
+      50% 50% at 50% 0%,
+      rgb(139 82 232 / 0.5) 0%,
+      transparent 70%
+    );
+  }
+
   /* Client rail. Slower than the capability rail so names stay readable,
      and the second row runs the other way so the two do not read as one
      block sliding. Transform only, so it stays on the compositor. */

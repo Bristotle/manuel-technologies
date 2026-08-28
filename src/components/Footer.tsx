@@ -5,48 +5,53 @@ import { PILLARS, SITE, SOCIAL } from "@/lib/site";
 /* Footer. REF-009, shadcnblocks footer-7.
    ---------------------------------------------------------------------------
    Structure taken from the reference: brand block on the left with a short
-   line and social row, three link columns on the right, a rule, then a bottom
-   bar with copyright and legal. Colour, type and the bracket labels are ours.
+   line, address and social row, link columns on the right, a rule, then a
+   bottom bar with copyright and legal. Colour, type and bracket labels ours.
 
-   The previous footer listed all sixteen service pages across four columns,
-   twenty one links in total. That is a sitemap, not a footer, and it was the
-   heaviest block on every page. The reference caps each column at four, which
-   is the actual lesson here.
+   Columns are Build, Grow, Scale and Company. Each pillar lists its own
+   services rather than linking to a hub, so the footer says what we do instead
+   of making the reader click to find out. That also restores a sitewide
+   internal link to all sixteen service pages, which the previous cleanup had
+   traded away.
 
-   Nothing is orphaned by the change: each pillar hub links to all of its own
-   services, so every service page keeps an internal link and a crawl path.
+   The reference caps columns at four links. We deliberately break that for
+   Grow, which has eight. Splitting it would misrepresent the shape of the
+   business, and the type is small enough that the column reads fine.
 
    Icons are inline SVG. The reference pulls react-icons for these, which is a
    dependency for four glyphs.
    -------------------------------------------------------------------------- */
 
-const COLUMNS = [
-  {
-    heading: "Services",
-    links: [
-      ...PILLARS.map((p) => ({ name: p.name, href: `/${p.slug}` })),
-      { name: "Free tools", href: "/free-tools" },
-    ],
-  },
-  {
-    heading: "Company",
-    links: [
-      { name: "About", href: "/about" },
-      { name: "Work", href: "/work" },
-      { name: "Integrations", href: "/integrations" },
-      { name: "Contact", href: "/contact" },
-    ],
-  },
-  {
-    heading: "Resources",
-    links: [
-      { name: "Blog", href: "/blog" },
-      { name: "SEO audit", href: "/free-tools/seo-audit" },
-      { name: "GEO content brief", href: "/free-tools/geo-content-brief" },
-      { name: "AI agent readiness", href: "/free-tools/ai-agent-readiness" },
-    ],
-  },
-] as const;
+/* Each pillar gets its own column with its own services underneath, so the
+   footer states what we actually do rather than pointing at three hub pages
+   and making the reader click to find out.
+
+   The pillar heading is itself a link to the hub. Grow carries eight services
+   against Scale's three, and that asymmetry is honest: it is genuinely the
+   deepest pillar. Padding it out to match would be decoration. */
+const PILLAR_COLUMNS = PILLARS.map((pillar) => ({
+  heading: pillar.name,
+  headingHref: `/${pillar.slug}`,
+  links: pillar.services.map((service) => ({
+    name: service.name,
+    href: service.href,
+  })),
+}));
+
+const COMPANY_COLUMN = {
+  heading: "Company",
+  headingHref: null,
+  links: [
+    { name: "About", href: "/about" },
+    { name: "Work", href: "/work" },
+    { name: "Integrations", href: "/integrations" },
+    { name: "Free tools", href: "/free-tools" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
+  ],
+};
+
+const COLUMNS = [...PILLAR_COLUMNS, COMPANY_COLUMN];
 
 const ICONS: Record<string, React.ReactNode> = {
   GitHub: (
@@ -63,7 +68,7 @@ export function Footer() {
   return (
     <footer className="border-t border-mt-border bg-white">
       <div className="mx-auto w-full max-w-5xl px-6 py-16 sm:py-20">
-        <div className="grid gap-12 md:grid-cols-[1.1fr_1.4fr] md:gap-16">
+        <div className="grid gap-14 lg:grid-cols-[0.85fr_2fr] lg:gap-16">
           {/* Brand block */}
           <div>
             <Link href="/" className="inline-flex items-center gap-3">
@@ -110,19 +115,28 @@ export function Footer() {
             )}
           </div>
 
-          {/* Three columns, four links each. Never more. */}
-          <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
+          {/* Build, Grow, Scale, Company. Each pillar lists its own services. */}
+          <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4">
             {COLUMNS.map((column) => (
               <div key={column.heading}>
-                <p className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-mt-purple">
-                  {column.heading}
-                </p>
-                <ul className="mt-5 flex flex-col gap-3.5">
+                {column.headingHref ? (
+                  <Link
+                    href={column.headingHref}
+                    className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-mt-purple transition-colors duration-150 hover:text-mt-purple-light"
+                  >
+                    {column.heading}
+                  </Link>
+                ) : (
+                  <p className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-mt-purple">
+                    {column.heading}
+                  </p>
+                )}
+                <ul className="mt-5 flex flex-col gap-3">
                   {column.links.map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-[0.9375rem] leading-snug text-mt-slate transition-colors duration-150 hover:text-mt-purple"
+                        className="text-[0.875rem] leading-snug text-mt-slate transition-colors duration-150 hover:text-mt-purple"
                       >
                         {link.name}
                       </Link>
