@@ -116,11 +116,57 @@ there is means the images were built carelessly.
 - **Always** explicit `width` and `height`. This is the main CLS cause
 - `priority` on exactly one image per page, the LCP element
 - Get `sizes` right, or you serve a 1920px image to a 360px phone
-- Budgets: hero 100KB, in-content 40KB, page total 300KB
-- Screenshots go in `/public/work/` as `.webp`, captured at 2x then downscaled
-- Logos and icons are **inline SVG**, never image files
-- Third party company logos are never reproduced without written permission.
-  Client and integration names are set as type. See `ClientMarquee.tsx`
+- Our own UI icons are **inline SVG**, never image files
+
+### Every image is WebP. No exceptions.
+
+**No PNG, JPG or GIF ever reaches `/public`.** Convert on the way in.
+
+```bash
+npm i -D sharp                        # once
+node scripts/optimise-images.mjs      # convert everything and report
+node scripts/optimise-images.mjs --check   # CI gate, exits non zero on failure
+```
+
+The script walks `/public`, converts anything convertible to WebP at quality 82,
+resizes to the per-directory cap, deletes the source, and fails loudly on
+anything over budget. `--check` is the pre commit gate.
+
+| Location | Budget | Max width |
+|---|---|---|
+| `/public/integrations/` | **12KB** | 128px |
+| `/public/work/` | **120KB** | 1600px |
+| `/public/og/` | 200KB | 1200px |
+| Anything else | 100KB | 1600px |
+
+Page total stays under 300KB of images. SVG and `.ico` are skipped, since they
+are already vector.
+
+### Third party logos, and the distinction that matters
+
+These are **two different things** and an earlier version of this file wrongly
+treated them as one:
+
+**Client logos, "trusted by".** Imply a customer relationship and an
+endorsement. **Require written permission.** We do not have it, so client names
+are set as type. See `ClientMarquee.tsx`.
+
+**Integration logos, "works with".** A factual statement that our software talks
+to theirs. This is **nominative use** and it is standard practice across the
+entire SaaS industry. Permitted, and expected by technical buyers.
+
+Rules for integration marks:
+
+- Only list a tool we can genuinely integrate. A logo we cannot back up is a lie
+  a technical buyer catches on the first call
+- Never imply partnership, certification, or an official relationship
+- **Never modify a mark.** No recolouring, no distortion, no effects, no
+  cropping. `object-contain` in a fixed box
+- Official brand assets or a CC0 set such as Simple Icons. Never a scraped
+  screenshot of someone's homepage
+- Files land at `/public/integrations/<slug>.webp`, 12KB cap
+- A missing asset must never break the grid. `IntegrationLogo` falls back to a
+  wordmark tile in the brand colour, so assets can arrive in batches
 
 ### Fonts
 
@@ -509,11 +555,12 @@ None of these are refusals. They are trade offs to show Emmanuel so he decides.
 3. Lighthouse mobile throttled, four 100s
 4. `grep -rP '[\x{2013}\x{2014}]' src/` returns nothing
 5. No new `"use client"` without a reason
-6. Every image has explicit width and height, correct `sizes`, meaningful `alt`
-7. 320px and 360px, no horizontal scroll
-8. One `h1`, canonical present and pointing at the **apex**, schema valid
-9. British spelling, no banned words
-10. Spacing on the 8px scale, no `box-shadow`, one accent use per viewport
-11. All four interactive states present, focus ring intact
-12. No `mailto:` CTAs outside the contact page and privacy policy
-13. No API keys or secrets anywhere in the diff
+6. `node scripts/optimise-images.mjs --check` passes. Every image WebP, in budget
+7. Every image has explicit width and height, correct `sizes`, meaningful `alt`
+8. 320px and 360px, no horizontal scroll
+9. One `h1`, canonical present and pointing at the **apex**, schema valid
+10. British spelling, no banned words
+11. Spacing on the 8px scale, no `box-shadow`, one accent use per viewport
+12. All four interactive states present, focus ring intact
+13. No `mailto:` CTAs outside the contact page and privacy policy
+14. No API keys or secrets anywhere in the diff

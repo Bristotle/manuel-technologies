@@ -1,0 +1,57 @@
+import Image from "next/image";
+import type { Integration } from "@/lib/integrations";
+
+/* Integration logo tile. REF-005 Paperform.
+   ---------------------------------------------------------------------------
+   Renders the official mark when the asset exists at
+   /public/integrations/<slug>.webp, and a wordmark tile in the brand colour
+   when it does not.
+
+   The fallback is the point. Logo assets arrive in batches and a half filled
+   grid of broken images looks far worse than a consistent grid of wordmarks.
+   Drop a file in, it upgrades itself. No code change.
+
+   Marks are never recoloured, distorted, or given effects. `object-contain`
+   inside a fixed box preserves every aspect ratio without cropping.
+   -------------------------------------------------------------------------- */
+
+export function IntegrationLogo({
+  item,
+  size = 40,
+}: {
+  item: Integration;
+  size?: number;
+}) {
+  if (item.logo) {
+    return (
+      <Image
+        src={item.logo}
+        alt={`${item.name} logo`}
+        width={size}
+        height={size}
+        sizes={`${size}px`}
+        className="h-10 w-10 object-contain"
+      />
+    );
+  }
+
+  /* Wordmark fallback. Two characters keeps every tile the same optical
+     weight, which a grid of full names would not. */
+  const initials = item.name
+    .replace(/[^A-Za-z0-9 ]/g, "")
+    .split(" ")
+    .map((word) => word[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+
+  return (
+    <span
+      aria-hidden="true"
+      className="flex h-10 w-10 items-center justify-center rounded-[10px] text-sm font-extrabold tracking-tight text-white"
+      style={{ backgroundColor: item.brand }}
+    >
+      {initials}
+    </span>
+  );
+}

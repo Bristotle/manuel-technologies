@@ -33,17 +33,17 @@ const COLUMNS = [
     links: [
       { name: "About", href: "/about" },
       { name: "Work", href: "/work" },
-      { name: "Blog", href: "/blog" },
+      { name: "Integrations", href: "/integrations" },
       { name: "Contact", href: "/contact" },
     ],
   },
   {
-    heading: "Tools",
+    heading: "Resources",
     links: [
+      { name: "Blog", href: "/blog" },
       { name: "SEO audit", href: "/free-tools/seo-audit" },
       { name: "GEO content brief", href: "/free-tools/geo-content-brief" },
       { name: "AI agent readiness", href: "/free-tools/ai-agent-readiness" },
-      { name: "CWV Drift Monitor", href: "/cwv-drift-monitor/privacy-policy" },
     ],
   },
 ] as const;
