@@ -5,7 +5,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { NAV, SITE } from "@/lib/site";
+import { NAV } from "@/lib/site";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -41,13 +41,13 @@ export function MobileNav() {
                 </li>
               ))}
             </ul>
-            <a
-              href={`mailto:${SITE.email}`}
+            <Link
+              href="/contact"
               onClick={() => setOpen(false)}
               className="mt-6 flex min-h-11 items-center justify-center rounded-[10px] bg-mt-purple px-6 text-base font-semibold text-white"
             >
               Start a conversation
-            </a>
+            </Link>
           </nav>
         </div>
       )}

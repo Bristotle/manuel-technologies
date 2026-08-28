@@ -165,7 +165,7 @@ export default function Work() {
               then, ask and we will walk you through it.
             </p>
             <div className="mt-8">
-              <Button href={`mailto:${SITE.email}`}>Start a conversation</Button>
+              <Button href="/contact">Start a conversation</Button>
             </div>
           </div>
         </Container>

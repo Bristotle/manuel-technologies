@@ -102,12 +102,25 @@ Full reasoning in `MOTION.md`.
 images: { formats: ['image/avif', 'image/webp'] }
 ```
 
+**Images are required, not tolerated.** An earlier reading of this file treated
+the budget below as a reason to ship no images at all. That was wrong and it
+cost the site its credibility. See section 4, "Show the work". The budget exists
+to keep images cheap, not to keep them out.
+
+A correctly configured `next/image` in AVIF, sized properly, with `priority` on
+the LCP element, holds 100 on mobile. Vercel converts at the edge. There is no
+conflict between the performance target and a visually rich page. Any claim that
+there is means the images were built carelessly.
+
 - **Never** a raw `<img>`. Always `next/image`
 - **Always** explicit `width` and `height`. This is the main CLS cause
 - `priority` on exactly one image per page, the LCP element
 - Get `sizes` right, or you serve a 1920px image to a 360px phone
 - Budgets: hero 100KB, in-content 40KB, page total 300KB
+- Screenshots go in `/public/work/` as `.webp`, captured at 2x then downscaled
 - Logos and icons are **inline SVG**, never image files
+- Third party company logos are never reproduced without written permission.
+  Client and integration names are set as type. See `ClientMarquee.tsx`
 
 ### Fonts
 
@@ -162,9 +175,46 @@ Set in mono, uppercase, 0.22em tracking.
 
 Technical correctness is not design. A page can score 100 across and still look cheap. These rules are what separate the two.
 
+### Show the work. Do not describe it.
+
+**This is the first rule of the section, because breaking it is what made the
+first build fail.** Two senior engineers reviewed the site and both said the
+same thing: it looks raw and will not convert. They were right. Four screens
+deep there was not one image, screenshot, diagram or product visual. A firm
+selling sophisticated software cannot prove it with well set text.
+
+A prospect cannot evaluate code. They evaluate what they can see. So:
+
+**Every page must contain at least one piece of visual evidence.** Not
+decoration, evidence. A screenshot of a thing that was built, a diagram of a
+system that runs, or live interactive software on the page.
+
+| Page type | Required visual evidence |
+|---|---|
+| Home | Product visual in the hero, real work screenshots in Selected work, one live tool |
+| Pillar hub | A schematic of how that pillar's work is delivered |
+| Service page | A screenshot or diagram of that exact service delivered for a real client |
+| Work index | A screenshot per project. No text only cards |
+| Case study | Before and after, the interface, the result |
+| Free tools | The tool itself, above the fold, working |
+
+**The strongest asset is the software that already exists.** The eight tax
+calculators, the caregiver matching platform, the Chrome extension UI, the
+1,000 product catalogue. All of it is real and none of it was shown. Show it.
+
+**Live beats static.** A working tool on the page outperforms any screenshot,
+because the prospect experiences the competence rather than reading a claim
+about it. The three tools at `/free-tools` are the best proof on the site and
+they belong on the homepage, running.
+
+**"Whitespace is the budget" does not mean an empty page.** Generous space
+around substance reads confident. Generous space around nothing reads unfinished.
+If a viewport contains only text, it is not done.
+
 ### The visual language
 
 Taken from REF-002, adapted to the locked palette. Five patterns, all pure CSS.
+They are the frame around the evidence, never a substitute for it.
 
 **Type as architecture.** Display type is structure, not decoration. Headlines run large, tight and deliberately clipped by their container. `overflow: hidden` on the section, let the type overflow on purpose. The homepage H1 is the tagline stacked on three lines, and that is the model.
 
@@ -258,12 +308,17 @@ Every animation wrapped in `@media (prefers-reduced-motion: reduce)`. Non negoti
 
 Before shipping a section, ask:
 
-1. Is every spacing value on the 8px scale
-2. Is there exactly one accent colour use in this viewport
-3. Is body copy under 65 characters per line
-4. Does it survive 360px
-5. Are all four interactive states present
-6. Is there a `box-shadow` anywhere. If yes, remove it
+1. **Is there visual evidence in this viewport, or only text.** If only text, it
+   is not finished
+2. Is every spacing value on the 8px scale
+3. Is there exactly one accent colour use in this viewport
+4. Is body copy under 65 characters per line
+5. Does it survive 360px
+6. Are all four interactive states present
+7. Is there a `box-shadow` anywhere. If yes, remove it
+
+Question 1 is first because it is the one that was failed repeatedly. A section
+can pass all six of the others and still be worthless.
 
 ---
 
@@ -321,6 +376,24 @@ Every other page is written for a business owner. Plain, concrete, no jargon.
 - OG image per route via `next/og`
 - Meta descriptions hand written, never templated
 
+### The apex is canonical. This is load bearing.
+
+`SITE.url` is `https://manueltechnologies.com`, no `www`. Canonical tags, sitemap
+URLs, JSON-LD and OG URLs all use the apex. In Vercel, the apex is the Production
+domain and `www` is a 308 redirect to it.
+
+**This cost a week of indexing once. Do not reintroduce it.** The original setup
+had it backwards: `www` served Production, the apex 308'd to `www`, and every
+page still declared the apex as canonical. Google Search Console reported
+`Page is not indexed: Page with redirect`, with Google-selected canonical `www`
+against a user-declared canonical of the apex. Crawl succeeded, fetch succeeded,
+indexing was allowed, and Google still refused, because the two signals
+contradicted each other. Zero of 44 pages indexed.
+
+Any change to `SITE.url`, to Vercel's domain settings, or to the sitemap must
+keep all four in agreement: served domain, canonical tag, sitemap `loc`, and
+redirect direction.
+
 ### Programmatic pages, when they come
 
 **Three unique sentences minimum or do not generate the page.** Differentiate on data, never adjectives. Split sitemaps above 5,000 URLs. ISR or SSG only, never SSR.
@@ -341,9 +414,39 @@ Higglo Digital, SkillCEF and ChainYacc were **staff roles**. They appear on `/ab
 
 ---
 
-## 8. Forms
+## 8. Forms and email
 
-Contact form posts to a route handler, which sends via Resend from `noreply@manueltechnologies.com`, `reply-to` the enquirer, delivered to `info@manueltechnologies.com`.
+Contact form posts to `/api/contact`, which sends via Resend:
+
+| Field | Value | Why |
+|---|---|---|
+| `from` | `noreply@send.manueltechnologies.com` | The **subdomain** is what Resend verified |
+| `to` | `emmanuelakyeam@gmail.com` (`CONTACT_RECIPIENT`) | Every enquiry lands in Emmanuel's inbox directly |
+| `replyTo` | The enquirer's address | Hitting reply answers the prospect, not the robot |
+
+**`CONTACT_RECIPIENT` is server side only and must never render in the UI.** The
+address shown to visitors is `SITE.email`, the business address. A personal
+Gmail on a contact page undercuts everything else on the site.
+
+**Every enquiry CTA points at `/contact`, never `mailto:`.** A `mailto:` link
+depends on the paid mailbox staying active and on the visitor having a mail
+client configured. The form does not, and it delivers to Gmail either way.
+
+`mailto:` is allowed in exactly one situation: where the visible link text *is*
+the address, as a courtesy for people who prefer their own mail client. That
+covers the footer, the contact page, and the CWV privacy policy, where a direct
+address is legally expected. Any link whose label is a call to action, such as
+"Start a conversation" or "Get in touch", goes to `/contact`.
+
+### Why sending is on a subdomain
+
+Resend verifies `send.manueltechnologies.com`, not the root. The root already
+carries the SPF record for Namecheap Private Email, and a domain may only have
+one SPF record. Verifying the root would have meant editing that record, and
+getting it wrong kills `info@manueltechnologies.com` silently, with no error.
+
+**Never add a second SPF record to the root. Never change nameservers to Vercel**,
+which would move the MX records and take email down.
 
 Qualification, deliberate:
 
@@ -351,19 +454,66 @@ Qualification, deliberate:
 - Budget range field
 - Company website field
 
-No secrets in the repo. `RESEND_API_KEY` lives in Vercel env vars.
+No secrets in the repo. `RESEND_API_KEY` and `RESEND_FROM_EMAIL` live in Vercel
+env vars. **Never paste an API key into chat, a file, or a commit.** Code reads
+them from `process.env`, so the value is never needed in conversation.
 
 ---
 
-## 9. Pre commit checklist
+## 9. Working from references
 
-1. `next build`, first load JS within budget
-2. Lighthouse mobile throttled, four 100s
-3. `grep -rP '[\x{2013}\x{2014}]' src/` returns nothing
-4. No new `"use client"` without a reason
-5. Every image has explicit width and height
-6. 320px and 360px, no horizontal scroll
-7. One `h1`, canonical present, schema valid
-8. British spelling, no banned words
-9. Spacing on the 8px scale, no `box-shadow`, one accent use per viewport
-10. All four interactive states present, focus ring intact
+Emmanuel sends reference sites section by section. Every one is logged in
+`MT Agency/00-intake/references/REFERENCE-LOG.md` and influences the build from
+then on **by default, without being named again.**
+
+### What transfers and what does not
+
+**Take:** layout logic, spacing rhythm, hierarchy, what a section is *for*,
+interaction pattern, the kind of visual evidence used, density.
+
+**Never take:** colour, typeface, imagery, or sentences. Palette is locked.
+Copy lifted close enough to be recognisable is plagiarism, and a prospect who
+spots it stops trusting everything else.
+
+**Never take a factual claim.** REF-007 (Serval) claimed a client list including
+Fox, Notion, Perplexity, Vercel and Brex. None of that is true of Manuel
+Technologies. The register was taken; every claim was rejected. Do this every
+time. Borrowing another firm's proof is the fastest way to lose a deal, and it
+is dishonest.
+
+### The failure mode to defend against
+
+Twenty sites borrowed section by section produces a site that looks like twenty
+sites. It fails slowly, so nobody notices until it is finished and incoherent.
+
+The defence is that the design system is decided first and every reference is
+filtered through it. A reference changes **what a section does**, never what the
+site looks like. If a reference is good enough to change the system itself, that
+is a real option, decided deliberately and applied everywhere at once.
+
+### Push back on
+
+- Anything needing a heavy JS library where CSS gets 90% of it
+- Carousels. Bad for CWV, usually bad for conversion. Scroll snap does it free
+- Patterns that break at 360px
+- Anything pushing a page past its image budget
+
+None of these are refusals. They are trade offs to show Emmanuel so he decides.
+
+---
+
+## 10. Pre commit checklist
+
+1. **Every page touched carries visual evidence, not just text.** Section 4
+2. `next build`, first load JS within budget
+3. Lighthouse mobile throttled, four 100s
+4. `grep -rP '[\x{2013}\x{2014}]' src/` returns nothing
+5. No new `"use client"` without a reason
+6. Every image has explicit width and height, correct `sizes`, meaningful `alt`
+7. 320px and 360px, no horizontal scroll
+8. One `h1`, canonical present and pointing at the **apex**, schema valid
+9. British spelling, no banned words
+10. Spacing on the 8px scale, no `box-shadow`, one accent use per viewport
+11. All four interactive states present, focus ring intact
+12. No `mailto:` CTAs outside the contact page and privacy policy
+13. No API keys or secrets anywhere in the diff

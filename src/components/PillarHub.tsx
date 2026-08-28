@@ -88,7 +88,10 @@ export function PillarHub({
           </div>
 
           <div className="mt-16 flex flex-wrap gap-4">
-            <Button href={`mailto:${SITE.email}`}>Start a conversation</Button>
+            {/* Always /contact, never mailto. The form delivers to
+                CONTACT_RECIPIENT, so an enquiry never depends on the paid
+                mailbox or on the visitor having a mail client. */}
+            <Button href="/contact">Start a conversation</Button>
             <Button href="/work" variant="secondary">
               See the work
             </Button>
