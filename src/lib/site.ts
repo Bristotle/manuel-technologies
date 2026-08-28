@@ -11,6 +11,14 @@ export const SITE = {
   chromeStore: "https://chromewebstore.google.com/",
 } as const;
 
+/* Social. Only populated entries render, so an empty string hides the icon
+   rather than shipping a dead link. Add the LinkedIn URL when you have it to
+   hand and it appears in the footer automatically. */
+export const SOCIAL = [
+  { name: "GitHub", href: "https://github.com/Bristotle" },
+  { name: "LinkedIn", href: "" },
+] as const;
+
 /* Where contact form submissions are delivered. Server side only.
    NEVER render this in the UI. The address shown to visitors is
    SITE.email, the business address. A personal Gmail on a contact

@@ -99,6 +99,49 @@
     will-change: transform;
   }
 
+  /* ---------------------------------------------------------------------
+     Dot grid background. REF-008.
+     The reference implementation is an SVG <pattern> driven by useId(),
+     which forces "use client" and pulls in clsx and tailwind-merge for its
+     cn() helper. A radial-gradient renders the identical grid with no
+     component, no hook, no client boundary and no dependency.
+     Paint only, so it costs nothing against INP and cannot shift layout.
+     Put it on a positioned ancestor and keep content above it.
+     --------------------------------------------------------------------- */
+  .mt-dots {
+    background-image: radial-gradient(
+      var(--color-mt-border) 1px,
+      transparent 1px
+    );
+    background-size: 16px 16px;
+    background-position: center;
+  }
+
+  /* Denser and looser variants. Same grid, different rhythm. */
+  .mt-dots-tight { background-size: 12px 12px; }
+  .mt-dots-loose { background-size: 24px 24px; }
+
+  /* Fades. Without one of these the grid reads as a texture over the whole
+     block, which flattens it. The mask is what makes it feel like light. */
+  .mt-dots-fade-center {
+    -webkit-mask-image: radial-gradient(
+      60% 60% at 50% 50%,
+      black,
+      transparent
+    );
+    mask-image: radial-gradient(60% 60% at 50% 50%, black, transparent);
+  }
+
+  .mt-dots-fade-top {
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent 70%);
+    mask-image: linear-gradient(to bottom, black, transparent 70%);
+  }
+
+  .mt-dots-fade-bottom {
+    -webkit-mask-image: linear-gradient(to top, black, transparent 70%);
+    mask-image: linear-gradient(to top, black, transparent 70%);
+  }
+
   /* Client rail. Slower than the capability rail so names stay readable,
      and the second row runs the other way so the two do not read as one
      block sliding. Transform only, so it stays on the compositor. */

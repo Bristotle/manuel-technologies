@@ -7,6 +7,7 @@ import { Marquee } from "@/components/ui/Marquee";
 import { FAQTabs, FAQ_CATEGORIES } from "@/components/ui/faq-tabs";
 import { WorkProcess } from "@/components/WorkProcess";
 import { ClientMarquee } from "@/components/ClientMarquee";
+import { DotGrid } from "@/components/ui/DotGrid";
 import { Integrations } from "@/components/Integrations";
 import { CAPABILITIES, PILLARS, PROJECTS, SITE } from "@/lib/site";
 
@@ -74,9 +75,12 @@ export default function Home() {
 
   return (
     <main>
-      {/* Hero. The tagline is the H1. Nothing restates it underneath. */}
-      <section className="bg-white py-24 sm:py-32">
-        <Container>
+      {/* Hero. The tagline is the H1. Nothing restates it underneath.
+          The dot grid sits behind it so the space around the type reads as
+          deliberate rather than unfinished. REF-008. */}
+      <section className="relative overflow-hidden bg-white py-24 sm:py-32">
+        <DotGrid fade="center" />
+        <Container className="relative">
           <div className="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div>
               <SectionLabel>Working worldwide</SectionLabel>
