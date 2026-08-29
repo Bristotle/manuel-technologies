@@ -196,6 +196,16 @@ export type Project = {
   summary: string;
   scope: string[];
   thumb?: string;
+  /* The pill on the card. REF-013 puts a number on every single one, and that
+     is the entire reason that section reads as credible rather than confident.
+
+     Two rules. It must be verifiable, and it must be a fact rather than a
+     claim. "Eight tax calculators" is countable by anyone who opens the site.
+     "Improved conversion" is not, and does not go here.
+
+     Optional on purpose. A card without a metric renders cleanly, so nothing
+     has to be invented to fill the slot. */
+  metric?: string;
 };
 
 export const PROJECTS: Project[] = [
@@ -209,6 +219,7 @@ export const PROJECTS: Project[] = [
       "Custom branded merchandise at catalogue scale. Over 1,000 configurable products across 15 categories, with multi currency pricing, sample kit and bulk order flows, and WhatsApp commerce wired into the checkout path.",
     scope: ["Website Development", "Ecommerce", "Technical SEO"],
     thumb: "/work/impressiful.webp",
+    metric: "1,000+ products",
   },
   {
     slug: "cgt-experts",
@@ -220,6 +231,7 @@ export const PROJECTS: Project[] = [
       "Eight bespoke tax calculators covering property, shares, crypto, non-resident disposals, BADR, stamp duty, inheritance and income tax. Functional software in a regulated domain, where the arithmetic has consequences, and a lead engine rather than a brochure.",
     scope: ["Custom Software", "Website Development", "Technical SEO"],
     thumb: "/work/cgt-experts.webp",
+    metric: "8 tax calculators",
   },
   {
     slug: "dementia-in-home",
@@ -231,6 +243,7 @@ export const PROJECTS: Project[] = [
       "A national caregiver matching service built on Next.js, with programmatic city pages carrying real local pricing. The page architecture is designed to scale from five cities to several hundred without a rebuild.",
     scope: ["Website Development", "Programmatic SEO", "Custom Software"],
     thumb: "/work/dementia-in-home.webp",
+    metric: "Programmatic city pages",
   },
   {
     slug: "miyaki-beauty",
@@ -242,6 +255,7 @@ export const PROJECTS: Project[] = [
       "Ecommerce and brand presence for a premium beauty retailer. Also the site we test CWV Drift Monitor against, so its Core Web Vitals get watched more closely than most.",
     scope: ["Website Development", "Ecommerce", "Web Design"],
     thumb: "/work/miyaki-beauty.webp",
+    metric: "Ecommerce build",
   },
   {
     slug: "cangaf",

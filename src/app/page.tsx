@@ -9,9 +9,10 @@ import { WorkProcess } from "@/components/WorkProcess";
 import { ClientMarquee } from "@/components/ClientMarquee";
 import { Testimonials } from "@/components/Testimonials";
 import { CallToAction } from "@/components/CallToAction";
+import { SelectedWork } from "@/components/SelectedWork";
 import { DotGrid } from "@/components/ui/DotGrid";
 import { Integrations } from "@/components/Integrations";
-import { CAPABILITIES, PILLARS, PROJECTS, SITE } from "@/lib/site";
+import { CAPABILITIES, PILLARS, SITE } from "@/lib/site";
 
 const STANDARDS = [
   {
@@ -150,28 +151,7 @@ export default function Home() {
 
       <WorkProcess />
 
-      <section className="border-y border-mt-border bg-white py-24 sm:py-32">
-        <Container>
-          <SectionLabel>Selected work</SectionLabel>
-          <h2 className="mt-6 max-w-[18ch]">Real systems for real operating problems.</h2>
-          <p className="mt-8 max-w-[60ch] text-lg leading-relaxed text-mt-slate">
-            A few examples of websites, custom software, ecommerce, and programmatic SEO delivered across different markets.
-          </p>
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {PROJECTS.filter((project) => ["impressiful", "cgt-experts", "dementia-in-home"].includes(project.slug)).map((project) => (
-              <Card key={project.slug} href={project.url} className="h-full">
-                <SectionLabel>{project.sector}</SectionLabel>
-                <h3 className="mt-5 !text-xl !tracking-tight">{project.client}</h3>
-                <p className="mt-4 text-base leading-relaxed text-mt-slate">{project.summary}</p>
-                <span className="mt-6 inline-flex text-sm font-semibold text-mt-purple">View the live project</span>
-              </Card>
-            ))}
-          </div>
-          <div className="mt-10">
-            <Button href="/work" variant="secondary">See all the work</Button>
-          </div>
-        </Container>
-      </section>
+      <SelectedWork />
 
       <Integrations />
 
