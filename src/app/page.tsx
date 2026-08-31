@@ -8,6 +8,7 @@ import { FAQTabs, FAQ_CATEGORIES } from "@/components/ui/faq-tabs";
 import { WorkProcess } from "@/components/WorkProcess";
 import { ClientMarquee } from "@/components/ClientMarquee";
 import { ClientSpotlight } from "@/components/ClientSpotlight";
+import { Comparison } from "@/components/Comparison";
 import { Testimonials } from "@/components/Testimonials";
 import { CallToAction } from "@/components/CallToAction";
 import { SelectedWork } from "@/components/SelectedWork";
@@ -157,6 +158,8 @@ export default function Home() {
       <ClientSpotlight />
 
       <Integrations />
+
+      <Comparison />
 
       <section className="py-24 sm:py-32">
         <Container>
