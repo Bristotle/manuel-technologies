@@ -9,6 +9,7 @@ import { WorkProcess } from "@/components/WorkProcess";
 import { ClientMarquee } from "@/components/ClientMarquee";
 import { ClientSpotlight } from "@/components/ClientSpotlight";
 import { Comparison } from "@/components/Comparison";
+import { FunnelCoverage } from "@/components/FunnelCoverage";
 import { Testimonials } from "@/components/Testimonials";
 import { CallToAction } from "@/components/CallToAction";
 import { SelectedWork } from "@/components/SelectedWork";
@@ -150,6 +151,8 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      <FunnelCoverage />
 
       <WorkProcess />
 
