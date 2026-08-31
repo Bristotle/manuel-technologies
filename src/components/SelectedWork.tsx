@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { hasCaseStudy } from "@/lib/case-studies";
 import { PROJECTS, type Project } from "@/lib/site";
 
 /* Selected work. REF-013, higglo.io client spotlight.
@@ -35,9 +36,8 @@ function WorkCard({
 }) {
   return (
     <li>
-      <a
-        href={project.url}
-        rel="noopener"
+      <Link
+        href={hasCaseStudy(project.slug) ? `/work/${project.slug}` : project.url}
         className="mt-lift group flex h-full flex-col overflow-hidden rounded-[18px] border border-mt-border bg-white transition-colors duration-150 hover:border-mt-purple-light"
       >
         {/* Screenshot, with the category pill over it */}
@@ -72,7 +72,7 @@ function WorkCard({
             </span>
           )}
         </div>
-      </a>
+      </Link>
     </li>
   );
 }
@@ -112,16 +112,19 @@ export function SelectedWork() {
             <ul className="mt-5 flex flex-wrap items-center gap-x-8 gap-y-4">
               {rest.map((project) => (
                 <li key={project.slug}>
-                  <a
-                    href={project.url}
-                    rel="noopener"
+                  <Link
+                    href={
+                      hasCaseStudy(project.slug)
+                        ? `/work/${project.slug}`
+                        : project.url
+                    }
                     className="group inline-flex items-baseline gap-3 text-base font-semibold text-mt-ink transition-colors duration-150 hover:text-mt-purple"
                   >
                     {project.client}
                     <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.14em] text-mt-muted">
                       {project.market}
                     </span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

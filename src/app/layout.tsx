@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SOCIAL } from "@/lib/site";
 import "./globals.css";
 
 /* --------------------------------------------------------------------------
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     locale: "en_GB",
     images: [
       {
-        url: "/og-default.png",
+        url: "/og-default.webp",
         width: 1000,
         height: 1000,
         alt: "Manuel Technologies",
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
     title: "Manuel Technologies | Build. Grow. Scale.",
     description:
       "Websites and custom software, technical SEO and GEO, AI automation.",
-    images: ["/og-default.png"],
+    images: ["/og-default.webp"],
   },
   robots: { index: true, follow: true },
 };
@@ -82,6 +83,21 @@ export default function RootLayout({
       "@type": "Person",
       name: "Emmanuel Akyeam",
       jobTitle: "Technical SEO Manager and Engineer",
+    },
+    /* Every profile that verifiably belongs to the company. Google uses
+       these to connect the site to a known entity rather than treating it as
+       an unattached domain.
+
+       TODO, Emmanuel. Add the LinkedIn company page URL to SOCIAL in
+       src/lib/site.ts and it appears here automatically. It is the last
+       missing entity signal on the site. */
+    sameAs: SOCIAL.filter((s) => s.href).map((s) => s.href),
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: "info@manueltechnologies.com",
+      areaServed: "Worldwide",
+      availableLanguage: "English",
     },
     knowsAbout: [
       "Technical SEO",

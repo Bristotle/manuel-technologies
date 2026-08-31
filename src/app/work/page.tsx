@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
+import { hasCaseStudy } from "@/lib/case-studies";
 import { PROJECTS, SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,7 +29,9 @@ export default function Work() {
     hasPart: PROJECTS.map((p) => ({
       "@type": "CreativeWork",
       name: p.client,
-      url: p.url,
+      /* Point at our case study where one exists, so the schema graph stays
+         on our own domain rather than handing every node to the client. */
+      url: hasCaseStudy(p.slug) ? `${SITE.url}/work/${p.slug}` : p.url,
       about: p.sector,
     })),
   };
@@ -60,9 +64,8 @@ export default function Work() {
                 key={p.slug}
                 className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16"
               >
-                <a
-                  href={p.url}
-                  rel="noopener"
+                <Link
+                  href={hasCaseStudy(p.slug) ? `/work/${p.slug}` : p.url}
                   className={`group block overflow-hidden rounded-[18px] border border-mt-border bg-white transition-colors duration-150 hover:border-mt-purple ${
                     i % 2 ? "lg:order-2" : ""
                   }`}
@@ -76,7 +79,7 @@ export default function Work() {
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="h-auto w-full"
                   />
-                </a>
+                </Link>
 
                 <div className={i % 2 ? "lg:order-1" : ""}>
                   <SectionLabel>{p.sector}</SectionLabel>
@@ -97,7 +100,12 @@ export default function Work() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-8">
+                  <div className="mt-8 flex flex-wrap gap-4">
+                    {hasCaseStudy(p.slug) && (
+                      <Button href={`/work/${p.slug}`}>
+                        Read the case study
+                      </Button>
+                    )}
                     <Button href={p.url} variant="secondary" external>
                       Visit the site
                     </Button>
@@ -144,25 +152,24 @@ export default function Work() {
           <ul className="mt-8 flex flex-col">
             {PROJECTS.filter((p) => !p.thumb).map((p) => (
               <li key={p.slug} className="border-t border-mt-border">
-                <a
-                  href={p.url}
-                  rel="noopener"
+                <Link
+                  href={hasCaseStudy(p.slug) ? `/work/${p.slug}` : p.url}
                   className="flex flex-col gap-2 py-6 transition-colors duration-150 hover:text-mt-purple sm:flex-row sm:items-baseline sm:justify-between"
                 >
                   <span className="text-lg font-semibold">{p.client}</span>
                   <span className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-mt-muted">
                     {p.sector} · {p.market}
                   </span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
 
           <div className="mt-16 max-w-[60ch]">
             <p className="text-lg leading-relaxed text-mt-slate">
-              Detailed case studies with the numbers behind each of these are
-              being written up. If you want to see something specific before
-              then, ask and we will walk you through it.
+              Every case study states what was built and how to confirm it on
+              the live site. If you want to see something specific that is not
+              written up, ask and we will walk you through it.
             </p>
             <div className="mt-8">
               <Button href="/contact">Start a conversation</Button>

@@ -1,6 +1,11 @@
 export type ServicePage = {
   pillar: "build" | "grow" | "scale";
   slug: string;
+  /* Real date this page copy last changed, ISO yyyy-mm-dd.
+     Feeds sitemap lastmod. Touch it ONLY when the words change, never on a
+     deploy. A lastmod that moves on every build is noise, and Google stops
+     trusting the signal for the whole site. See CLAUDE.md section 6. */
+  modified: string;
   name: string;
   title: string;
   description: string;
@@ -15,6 +20,7 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     pillar: "build",
     slug: "website-development",
+    modified: "2026-08-24",
     name: "Website development",
     title: "Website development that works hard after launch",
     description: "Performance focused website development for organisations that need a fast, maintainable site and a clear route to growth.",
@@ -36,6 +42,7 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     pillar: "build",
     slug: "web-design",
+    modified: "2026-08-24",
     name: "Web design and UX",
     title: "Web design that makes the next action obvious",
     description: "Web design and UX for clear digital journeys, stronger positioning, and interfaces people can use without explanation.",
@@ -57,6 +64,7 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     pillar: "build",
     slug: "custom-software",
+    modified: "2026-08-24",
     name: "Custom software",
     title: "Custom software for work your tools cannot handle",
     description: "Custom software for internal operations, customer portals, dashboards, and workflows that need more than an off the shelf tool.",
@@ -78,6 +86,7 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     pillar: "build",
     slug: "mobile-apps",
+    modified: "2026-08-24",
     name: "Mobile applications",
     title: "Mobile applications built around the moments that matter",
     description: "Mobile application development for focused customer, field, and internal workflows across iOS and Android.",
@@ -99,6 +108,7 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     pillar: "build",
     slug: "systems-integrations",
+    modified: "2026-08-24",
     name: "Systems and integrations",
     title: "Systems and integrations that keep data moving correctly",
     description: "API and systems integration work for CRM, ERP, legacy, payment, and operational data flows.",
@@ -120,6 +130,7 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     pillar: "grow",
     slug: "technical-seo",
+    modified: "2026-08-24",
     name: "Technical SEO",
     title: "Technical SEO that lets useful pages be found",
     description: "Technical SEO audits and implementation for crawlability, indexation, performance, structured data, and site architecture.",
@@ -141,6 +152,7 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     pillar: "grow",
     slug: "programmatic-seo",
+    modified: "2026-08-24",
     name: "Programmatic SEO",
     title: "Programmatic SEO built on data, not page duplication",
     description: "Programmatic SEO systems for useful, differentiated pages driven by real data, search demand, and a controlled publishing pipeline.",
@@ -163,6 +175,7 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     pillar: "grow",
     slug: "on-page-seo",
+    modified: "2026-08-24",
     name: "On-page SEO",
     title: "On-page SEO that answers the search behind the keyword",
     description: "On-page SEO for clearer topical coverage, stronger page intent, useful internal links, and content people can understand.",
@@ -184,6 +197,7 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     pillar: "grow",
     slug: "link-building",
+    modified: "2026-08-24",
     name: "Link building and digital PR",
     title: "Link building based on something worth citing",
     description: "Digital PR and link building built around useful evidence, original assets, relevant relationships, and a clear risk standard.",
@@ -205,6 +219,7 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     pillar: "grow",
     slug: "geo",
+    modified: "2026-08-24",
     name: "Generative Engine Optimisation",
     title: "GEO for visibility in AI answers and search summaries",
     description: "Generative Engine Optimisation for clear entities, retrievable evidence, and content designed to be understood by modern search systems.",
@@ -226,6 +241,7 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     pillar: "grow",
     slug: "content-branding",
+    modified: "2026-08-24",
     name: "Content and branding",
     title: "Content and branding with a point of view",
     description: "Content strategy and brand systems that make technical or complex businesses easier to recognise, understand, and trust.",
@@ -247,6 +263,7 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     pillar: "grow",
     slug: "social-media",
+    modified: "2026-08-24",
     name: "Social media management",
     title: "Social media management with a reason to post",
     description: "Social media planning and management for organisations that need consistent, useful communication without losing their voice.",
@@ -268,6 +285,7 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     pillar: "grow",
     slug: "paid-ads",
+    modified: "2026-08-24",
     name: "Paid ads",
     title: "Paid ads measured beyond the click",
     description: "Paid search and social advertising built around sound tracking, focused landing pages, and decisions based on qualified outcomes.",
@@ -289,6 +307,7 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     pillar: "scale",
     slug: "ai-automations",
+    modified: "2026-08-24",
     name: "AI automations",
     title: "AI automation for repeatable work with clear limits",
     description: "AI automation for document handling, classification, drafting, routing, and cross platform workflows with human oversight where it matters.",
@@ -310,6 +329,7 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     pillar: "scale",
     slug: "ai-agents",
+    modified: "2026-08-24",
     name: "AI agent development",
     title: "AI agents that use tools within defined boundaries",
     description: "AI agent development for research, operations, and support workflows that need controlled tool use, memory, and escalation.",
@@ -332,6 +352,7 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     pillar: "scale",
     slug: "analytics",
+    modified: "2026-08-24",
     name: "Business insights and analytics",
     title: "Analytics that help someone make a decision",
     description: "Analytics engineering, dashboards, data pipelines, and reporting that connect activity to decisions people can take.",

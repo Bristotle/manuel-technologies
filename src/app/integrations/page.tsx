@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
@@ -132,12 +133,12 @@ export default function Page() {
             run and we will tell you honestly whether it is worth doing.
           </p>
           <div className="mt-10">
-            <a
+            <Link
               href="/contact"
               className="inline-flex min-h-12 items-center justify-center rounded-[10px] bg-white px-6 py-3.5 text-base font-semibold text-mt-purple transition-colors duration-150 hover:bg-mt-surface active:bg-mt-border"
             >
               Tell us your stack
-            </a>
+            </Link>
           </div>
         </Container>
       </section>

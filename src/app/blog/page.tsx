@@ -13,87 +13,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
 };
 
-const TOPICS = [
-  {
-    cluster: "Search and GEO",
-    title: "How to optimise a UK website for Google AI Overviews",
-    body: "What Google's guidance means for technical SEO, useful content, and sources that answer systems can retrieve.",
-    href: "/grow/geo",
-  },
-  {
-    cluster: "Search and GEO",
-    title: "Technical foundations for GEO: crawlability, schema, and AI access",
-    body: "A practical look at the supported technical work behind visibility in conventional and generative search.",
-    href: "/grow/technical-seo",
-  },
-  {
-    cluster: "Search and GEO",
-    title: "How to run a technical SEO and AI search audit",
-    body: "A buyer's guide to finding crawl, indexation, rendering, entity, and source quality issues before investing.",
-    href: "/grow/technical-seo",
-  },
-  {
-    cluster: "Search and GEO",
-    title: "Programmatic SEO that does not create thin content",
-    body: "How data quality, page rules, unique evidence, and publishing controls make scaled pages useful.",
-    href: "/grow/programmatic-seo",
-  },
-  {
-    cluster: "Web and software",
-    title: "What a secure, accessible website build should include",
-    body: "A practical checklist for mobile experience, accessibility, content structure, security, and maintainable delivery.",
-    href: "/build/website-development",
-  },
-  {
-    cluster: "Web and software",
-    title: "When should a business build custom software?",
-    body: "How to compare configuration, integration, and a focused application when existing tools create repeated work.",
-    href: "/build/custom-software",
-  },
-  {
-    cluster: "Web and software",
-    title: "How to connect CRM, ERP, and internal systems safely",
-    body: "The identifiers, permissions, validation, retries, and reconciliation an integration needs in production.",
-    href: "/build/systems-integrations",
-  },
-  {
-    cluster: "AI and automation",
-    title: "Should your business use an AI agent or a fixed automation?",
-    body: "A decision framework for choosing the simplest reliable pattern for a real operational workflow.",
-    href: "/scale/ai-agents",
-  },
-  {
-    cluster: "AI and automation",
-    title: "How to introduce AI automation without losing control",
-    body: "Where to use permissions, validation, human review, evaluation, monitoring, and escalation.",
-    href: "/scale/ai-automations",
-  },
-  {
-    cluster: "AI and automation",
-    title: "What does a production-ready AI agent need?",
-    body: "The practical architecture behind tool use, retrieval, structured outputs, cost controls, and safe rollout.",
-    href: "/scale/ai-agents",
-  },
-  {
-    cluster: "AI and automation",
-    title: "How to measure whether AI automation is working",
-    body: "Measure quality, exceptions, review effort, cost, time saved, and the downstream result instead of demo quality.",
-    href: "/scale/analytics",
-  },
-  {
-    cluster: "Proof and planning",
-    title: "How to choose a technical SEO and development partner",
-    body: "The questions that reveal who owns the work, how delivery is governed, and whether the evidence is real.",
-    href: "/about",
-  },
-  {
-    cluster: "Search and GEO",
-    title: "SEO writing: how to create content that earns visibility",
-    body: "A practical workflow for choosing a query, matching intent, adding evidence, and improving content after publication.",
-    href: "/grow/on-page-seo",
-  },
-] as const;
-
 const SERVICE_LINKS = PILLARS.flatMap((pillar) =>
   pillar.services.slice(0, 2).map((service) => ({
     name: service.name,
@@ -101,15 +20,8 @@ const SERVICE_LINKS = PILLARS.flatMap((pillar) =>
   })),
 );
 
-export default async function BlogPage({ searchParams }: { searchParams: Promise<{ q?: string; category?: string }> }) {
-  const params = await searchParams;
-  const query = (params.q || "").trim().toLowerCase();
-  const category = params.category || "";
-  const visiblePosts = BLOG_POSTS.filter((post) => {
-    const matchesCategory = !category || post.cluster === category;
-    const searchText = `${post.title} ${post.description} ${post.cluster} ${post.primaryKeyword || ""}`.toLowerCase();
-    return matchesCategory && (!query || searchText.includes(query));
-  });
+export default function BlogPage() {
+  const visiblePosts = BLOG_POSTS;
   return (
     <main>
       <section className="border-b border-mt-border bg-white py-24 sm:py-32">
@@ -140,7 +52,6 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
               );
             })}
           </div>
-          {visiblePosts.length === 0 && <p className="mt-8 text-lg text-mt-slate">No articles match that search.</p>}
           <div className="mt-16 border-t border-mt-border pt-8">
             <SectionLabel>Start with a service</SectionLabel>
             <div className="mt-6 flex flex-wrap gap-x-8 gap-y-4">
