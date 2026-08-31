@@ -41,10 +41,20 @@ export function MobileNav() {
                 </li>
               ))}
             </ul>
+            {/* Free audit is a header button on desktop rather than a NAV
+                entry, so it has to be added here explicitly or it disappears
+                on mobile. */}
+            <Link
+              href="/free-audit"
+              onClick={() => setOpen(false)}
+              className="mt-6 flex min-h-11 items-center justify-center rounded-[10px] border border-mt-border px-6 text-base font-semibold text-mt-ink"
+            >
+              Free audit
+            </Link>
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mt-6 flex min-h-11 items-center justify-center rounded-[10px] bg-mt-purple px-6 text-base font-semibold text-white"
+              className="mt-3 flex min-h-11 items-center justify-center rounded-[10px] bg-mt-purple px-6 text-base font-semibold text-white"
             >
               Start a conversation
             </Link>

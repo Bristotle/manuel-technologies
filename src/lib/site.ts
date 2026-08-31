@@ -189,6 +189,7 @@ export const PAGE_MODIFIED: Record<string, string> = {
   "/": "2026-08-31",
   "/work": "2026-08-28",
   "/agency-vs-engineer": "2026-08-31",
+  "/free-audit": "2026-08-31",
   "/about": "2026-08-24",
   "/contact": "2026-08-28",
   "/integrations": "2026-08-28",

@@ -78,6 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/integrations", 0.8),
     page("/contact", 0.8),
     page("/about", 0.7),
+    page("/free-audit", 0.9),
     page("/free-tools", 0.7),
     page("/free-tools/seo-audit", 0.7),
     page("/free-tools/geo-content-brief", 0.7),
