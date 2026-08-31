@@ -50,9 +50,9 @@ const STAGES: Stage[] = [
   {
     number: "01",
     title: "Discover",
-    body: "Buyers find you across Google and the engines that now answer before Google does.",
+    body: "Buyers find you across Google, ChatGPT, Claude, Perplexity, and Gemini.",
     tags: ["SEO", "GEO"],
-    rail: "Top of funnel",
+    rail: "Top of funnel · Awareness",
     connector: "Search and AI visibility",
   },
   {
@@ -60,23 +60,23 @@ const STAGES: Stage[] = [
     title: "Consider",
     body: "The site has to survive the click. Fast on a mid range phone, clear about what you do.",
     tags: ["Web design", "Web dev"],
-    rail: "Mid funnel",
+    rail: "Mid funnel · Trust",
     connector: "Trust and speed",
   },
   {
     number: "03",
     title: "Convert",
-    body: "Enquiry paths, forms, and the software behind them, so a visit becomes a conversation.",
-    tags: ["UX", "Software"],
-    rail: "Bottom funnel",
+    body: "Enquiry paths, forms, and decision moments built to turn a visit into a conversation.",
+    tags: ["UX", "Custom software"],
+    rail: "Bottom funnel · Enquiry",
     connector: "Enquiry conversion",
   },
   {
     number: "04",
     title: "Compound",
-    body: "The operation absorbs more volume without absorbing more headcount.",
-    tags: ["AI agents", "AI automation"],
-    rail: "Post convert",
+    body: "Systems that absorb new volume, new lines, and new markets without new headcount.",
+    tags: ["AI agents", "Automation"],
+    rail: "Post convert · Scale",
     connector: "Operational scale",
   },
 ];
@@ -96,37 +96,37 @@ const DISCIPLINES = [
   {
     code: "D.01",
     name: "SEO",
-    body: "Crawlability, indexation, architecture, and the code that causes all three.",
+    body: "Crawlability, indexation, and the architecture underneath both.",
     href: "/grow/technical-seo",
   },
   {
     code: "D.02",
     name: "GEO",
-    body: "Entity clarity and source quality for ChatGPT, Claude, Perplexity and AI Overviews.",
+    body: "Entity clarity and source quality for ChatGPT, Claude, Perplexity, and AI Overviews.",
     href: "/grow/geo",
   },
   {
     code: "D.03",
     name: "UX",
-    body: "Interface and journey design, built around the decision the visitor is actually making.",
+    body: "Interface and journey design, built around the decision being made.",
     href: "/build/web-design",
   },
   {
     code: "D.04",
     name: "Web dev",
-    body: "The build the other five disciplines run on, to a performance budget set before launch.",
+    body: "The build the other five run on, to a budget set before launch.",
     href: "/build/website-development",
   },
   {
     code: "D.05",
     name: "AI agents",
-    body: "Bounded agents with typed tools, retrieval, human approval points, and an evaluation set.",
+    body: "Bounded agents with typed tools, retrieval, and human approval points.",
     href: "/scale/ai-agents",
   },
   {
     code: "D.06",
     name: "AI automation",
-    body: "Workflow automation and document processing across the systems you already run.",
+    body: "Workflow automation across the systems you already run.",
     href: "/scale/ai-automations",
   },
 ];
@@ -134,7 +134,7 @@ const DISCIPLINES = [
 export function FunnelCoverage() {
   return (
     <section className="border-y border-mt-border bg-white py-24 sm:py-32">
-      <Container>
+      <Container size="wide">
         {/* Asymmetric header, as the reference has it: headline set right,
             label sitting left beneath it. CLAUDE.md section 4, asymmetry beats
             centring. */}
@@ -173,7 +173,7 @@ export function FunnelCoverage() {
                 {stage.tags.map((tag) => (
                   <li
                     key={tag}
-                    className="whitespace-nowrap rounded-[20px] border border-mt-border bg-mt-surface px-3 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.13em] text-mt-slate"
+                    className="whitespace-nowrap rounded-[20px] border border-mt-purple/25 bg-mt-surface px-2.5 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.12em] text-mt-purple"
                   >
                     {tag}
                   </li>
@@ -197,7 +197,7 @@ export function FunnelCoverage() {
             <li key={stage.number} className="flex items-center gap-3">
               <span className="h-px flex-1 bg-mt-border" />
               <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.14em] text-mt-muted">
-                {stage.connector}
+                {stage.connector} →
               </span>
             </li>
           ))}
@@ -206,7 +206,7 @@ export function FunnelCoverage() {
         {/* Countable facts, one per stage */}
         <div className="mt-10 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border lg:grid-cols-[auto_repeat(4,1fr)]">
           <div className="flex items-center bg-white px-6 py-6">
-            <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase leading-relaxed tracking-[0.16em] text-mt-purple">
+            <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase leading-relaxed tracking-[0.16em] text-mt-muted">
               Shipped, and checkable
             </span>
           </div>
