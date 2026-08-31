@@ -16,8 +16,11 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
    angle and opacity props and the glow as a blurred absolutely positioned div.
    Both are gradients and one transform, so neither needs JavaScript.
 
-   This is the last thing on the page. It carries the only dark ground on the
-   site, which is what makes it read as an ending rather than another section.
+   This is the last thing on the page. It used to carry the only dark ground on
+   the site. ClientSpotlight now carries one too, at Emmanuel's direction, to
+   match the higglo.io reference. Two dark bands is the deliberate state: this
+   one still closes the page, the spotlight punctuates the middle of it. Do not
+   add a third without deciding what the rhythm is.
    -------------------------------------------------------------------------- */
 
 export function CallToAction() {
