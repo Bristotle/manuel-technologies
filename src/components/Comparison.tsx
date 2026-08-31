@@ -7,42 +7,42 @@ import { Button } from "@/components/ui/Button";
 /* Side by side comparison. REF, higglo.io "retainer stack vs. integrated
    growth system".
    ---------------------------------------------------------------------------
-   Taken: the two card side by side, a tag on each, a shared set of row labels
-   so the columns read across rather than down, the struck through left column,
-   the "vs." marker between them, and a RESULT line closing each card.
+   This pass takes the structure properly rather than approximately:
 
-   NOT taken:
+   - Rows read LABEL left, value right on one line. The first version stacked
+     them, which is why it read as a list of headings rather than a table.
+   - A real gutter between the two cards, with a continuous vertical rule and
+     the vs marker sitting in it. Not a shared seam.
+   - An outer border wrapping both columns and the gutter as one object.
+   - Row rules inside the cards only. The gutter rule runs unbroken, so no
+     horizontal ticks cross it.
 
-   - Their subject. Higglo sells a retainer alternative to behavioural health
-     brands. That is their positioning and none of it is ours. The contrast
-     here is the one this site already makes in its own hero: an engineer who
-     does the work, against an agency that sells it and hands it down.
-   - Their colour and typeface. Left card is --mt-surface, right is white,
-     which is the two tone relationship CLAUDE.md section 4 locks. No third
-     background. Purple appears exactly once in this viewport, on the second
-     clause of the headline, so the tags are ink and border instead.
-   - Their punctuation. The reference uses hyphens between clauses throughout.
-     Banned here.
+   HOW THE ALIGNMENT WORKS. One grid at lg, three columns, and every row emits
+   three cells: left, gutter, right. Because the pair is emitted together they
+   land in the same implicit row and share a height, so SCOPE on the left sits
+   level with SCOPE on the right however the text wraps. Two independent cards
+   drift apart the moment one side wraps to an extra line, which is the only
+   thing this layout exists to prevent. Gutter cells are hidden below lg, where
+   the grid collapses to one column.
 
-   EVERY RIGHT HAND CLAIM IS GROUNDED. This is a competitive section, which is
-   exactly where a site starts writing cheques it cannot cash. Sources:
+   NOT taken: their subject, their colour, their serif, and their hyphens
+   between clauses. Ours carries the surface tint, because the tint belongs on
+   the column being argued for. CLAUDE.md section 9.
 
-     who writes it   the hero already says "an engineer who does this
-                     professionally, not an agency passing your work to a junior"
-     what arrives    CLIENT_RECEIVES: "Working code and a documented deployment
-                     path", "A practical handover"
-     scope           the three pillars, Build, Grow and Scale
-     performance     CLAUDE.md section 2 treats Core Web Vitals as a build
-                     requirement and measures on mobile
-     seo             the service copy: crawlability, indexation, architecture
-     ai search       VERIFIABLE. app/robots.ts names GPTBot, ClaudeBot,
-                     PerplexityBot, Google-Extended and Applebot-Extended
-     proof           CWV Drift Monitor is on the Chrome Web Store and the three
-                     tools at /free-tools run in the browser
+   EVERY RIGHT HAND CLAIM IS GROUNDED, and this is the section where a site
+   starts writing cheques it cannot cash. Sources:
+
+     who writes it   the hero: "not an agency passing your work to a junior"
+     operating unit  SERVICE_PAGES holds sixteen services across three pillars
+     what arrives    CLIENT_RECEIVES on the homepage
+     what you own    CLIENT_RECEIVES, plus the questions on /agency-vs-engineer
+     performance     CLAUDE.md section 2
+     seo             the service page copy
+     ai search       VERIFIABLE. app/robots.ts names all five crawlers
+     proof           CWV Drift Monitor on the Chrome Web Store, /free-tools
 
    The left column describes a widely known industry pattern and names nobody.
-   Keep it that way. A competitor comparison that identifies a firm is a
-   different thing legally and reputationally.
+   A comparison that identifies a firm is a different thing legally.
    -------------------------------------------------------------------------- */
 
 type Row = {
@@ -53,24 +53,29 @@ type Row = {
 
 const ROWS: Row[] = [
   {
-    label: "Who writes it",
+    label: "Who builds",
     usual: "Sold by a senior. Built by whoever is free that week.",
-    ours: "Scoped, written and reviewed under senior engineering ownership. Never passed down to a junior.",
+    ours: "Scoped, written and reviewed under senior engineering ownership.",
   },
   {
-    label: "What arrives",
+    label: "Structure",
+    usual: "Several vendors, several invoices, no single owner.",
+    ours: "Sixteen services, three pillars, one accountable owner.",
+  },
+  {
+    label: "Deliverable",
     usual: "A report, a deck, and a list of recommendations.",
     ours: "Working code, a documented deployment path, and a handover.",
   },
   {
-    label: "Scope",
-    usual: "The site, or the SEO, or the automation. One slice each.",
-    ours: "Build, Grow and Scale, under a single point of accountability.",
+    label: "Ownership",
+    usual: "Access through somebody else's accounts.",
+    ours: "The repository, the domains, and the analytics property.",
   },
   {
     label: "Performance",
     usual: "Fast enough, measured on an office desktop.",
-    ours: "Core Web Vitals treated as a build requirement, measured on mobile.",
+    ours: "Core Web Vitals as a build requirement, measured on mobile.",
   },
   {
     label: "SEO",
@@ -94,20 +99,55 @@ const RESULTS = {
   ours: "A system in production, senior review behind it, and the means to maintain it.",
 };
 
-function RowLabel({ children }: { children: React.ReactNode }) {
+/* Label left, value right, on one line from sm up. */
+function Cell({
+  label,
+  children,
+  struck = false,
+  last = false,
+}: {
+  label: string;
+  children: React.ReactNode;
+  struck?: boolean;
+  last?: boolean;
+}) {
   return (
-    <span className="mb-2 block font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-muted">
-      {children}
-    </span>
+    <div
+      className={`grid gap-1 px-6 py-5 sm:grid-cols-[7rem_1fr] sm:gap-5 sm:px-8 ${
+        last ? "" : "border-b border-mt-border"
+      }`}
+    >
+      <dt className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase leading-[1.8] tracking-[0.16em] text-mt-muted">
+        {label}
+      </dt>
+      <dd
+        className={`max-w-[44ch] text-[0.9375rem] leading-relaxed ${
+          struck ? "text-mt-muted line-through" : "text-mt-ink"
+        }`}
+      >
+        {children}
+      </dd>
+    </div>
+  );
+}
+
+/* One gutter cell per row. Carries the vertical rule and nothing else, so the
+   line runs unbroken down the middle. */
+function Gutter() {
+  return (
+    <div
+      aria-hidden="true"
+      className="hidden border-x border-mt-border bg-white lg:block"
+    />
   );
 }
 
 export function Comparison({
-  /* The /agency-vs-engineer page carries its own h1 and intro, so it renders
-     the table without repeating them. Homepage renders the full band. */
+  /* /agency-vs-engineer carries its own h1 and intro, so it renders the table
+     without repeating them. The homepage renders the full band. */
   heading = true,
-  /* Homepage links onward to the full page. The full page does not link to
-     itself. */
+  /* The homepage links onward to the full page. The full page does not link
+     to itself. */
   moreHref,
 }: {
   heading?: boolean;
@@ -122,7 +162,9 @@ export function Comparison({
 
             <h2 className="mt-6 max-w-[20ch] !text-3xl sm:!text-4xl">
               What an agency hands over,{" "}
-              <span className="text-mt-purple">what senior engineering ships.</span>
+              <span className="text-mt-purple">
+                what senior engineering ships.
+              </span>
             </h2>
 
             <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">
@@ -133,97 +175,101 @@ export function Comparison({
           </>
         )}
 
-        {/* One grid, not two cards. Each row emits its left cell then its right
-            cell, so the pair lands in the same implicit grid row and the two
-            share a height. Two independent columns drift apart as soon as one
-            side wraps to a different number of lines, which loses the only
-            thing this layout is for: reading across. */}
-        <div className="relative mt-14 grid overflow-hidden rounded-t-[18px] border border-mt-border lg:grid-cols-2">
-          {/* Headers */}
-          <div className="border-b border-mt-border bg-white p-7 sm:p-8">
-            <span className="inline-flex rounded-[20px] border border-mt-border bg-mt-surface px-3 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-slate">
-              The usual model
-            </span>
-            <h3 className="mt-6 !text-2xl !tracking-tight">
-              Sold, then handed down
-            </h3>
-            <p className="mt-3 max-w-[46ch] text-[0.9375rem] leading-relaxed text-mt-slate">
-              The default arrangement, and the one most businesses are still
-              paying for.
-            </p>
-          </div>
-          <div className="border-b border-mt-border bg-mt-surface p-7 sm:p-8 lg:border-l">
-            <span className="inline-flex rounded-[20px] bg-mt-ink px-3 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-white">
-              Manuel Technologies
-            </span>
-            <h3 className="mt-6 !text-2xl !tracking-tight">
-              Senior engineering, end to end
-            </h3>
-            <p className="mt-3 max-w-[46ch] text-[0.9375rem] leading-relaxed text-mt-slate">
-              Senior ownership across the build, the search work, and the
-              automation behind it, with one point of accountability for the
-              result.
-            </p>
+        <div className="relative mt-14 overflow-hidden rounded-t-[18px] border border-mt-border">
+          {/* Gradient behind the whole right column, as the reference has it.
+              It cannot go on the cells: each is its own grid item, so the
+              gradient would restart on every row instead of running the height
+              of the column. Width is exact for grid-cols-[1fr_4.5rem_1fr],
+              where each 1fr resolves to calc(50% - 2.25rem).
+
+              Surface to white. Both are already in the palette, so this is a
+              transition between two locked values rather than a third
+              background. CLAUDE.md section 4. */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 right-0 hidden w-[calc(50%-2.25rem)] bg-gradient-to-b from-mt-surface via-mt-surface to-white lg:block"
+          />
+
+          <div className="relative grid lg:grid-cols-[1fr_4.5rem_1fr]">
+            {/* Headers */}
+            <div className="border-b border-mt-border bg-white px-6 py-8 sm:px-8">
+              <span className="inline-flex rounded-[20px] border border-mt-border bg-mt-surface px-3 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-slate">
+                The usual model
+              </span>
+              <h3 className="mt-6 !text-2xl !tracking-tight">
+                The retainer arrangement
+              </h3>
+              <p className="mt-3 max-w-[44ch] text-[0.9375rem] leading-relaxed text-mt-slate">
+                The default way technical work is bought, and the one most
+                businesses are still paying for.
+              </p>
+            </div>
+            <Gutter />
+            <div className="border-b border-mt-border bg-mt-surface px-6 py-8 sm:px-8 lg:bg-transparent">
+              <span className="inline-flex rounded-[20px] bg-mt-ink px-3 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-white">
+                Manuel Technologies
+              </span>
+              <h3 className="mt-6 !text-2xl !tracking-tight">
+                One engineering practice
+              </h3>
+              <p className="mt-3 max-w-[44ch] text-[0.9375rem] leading-relaxed text-mt-slate">
+                Sixteen services across Build, Grow and Scale, under senior
+                engineering ownership and one accountable owner.
+              </p>
+            </div>
+
+            {/* Rows */}
+            {ROWS.map((row) => (
+              <Fragment key={row.label}>
+                <dl className="bg-white">
+                  <Cell label={row.label} struck>
+                    {row.usual}
+                  </Cell>
+                </dl>
+                <Gutter />
+                <dl className="bg-mt-surface lg:bg-transparent">
+                  <Cell label={row.label}>{row.ours}</Cell>
+                </dl>
+              </Fragment>
+            ))}
+
+            {/* Results */}
+            <dl className="bg-white">
+              <Cell label="Result" last>
+                <span className="text-mt-slate">{RESULTS.usual}</span>
+              </Cell>
+            </dl>
+            <Gutter />
+            <dl className="bg-mt-surface lg:bg-transparent">
+              <Cell label="Result" last>
+                <span className="font-semibold">{RESULTS.ours}</span>
+              </Cell>
+            </dl>
           </div>
 
-          {/* Rows */}
-          {ROWS.map((row) => (
-            <Fragment key={row.label}>
-              <div className="border-b border-mt-border bg-white px-7 py-6 sm:px-8">
-                <RowLabel>{row.label}</RowLabel>
-                {/* Struck through as the reference does. The column heading and
-                    the result line say the same thing in words, so nothing
-                    depends on the styling alone. */}
-                <p className="max-w-[42ch] text-base leading-relaxed text-mt-muted line-through">
-                  {row.usual}
-                </p>
-              </div>
-              <div className="border-b border-mt-border bg-mt-surface px-7 py-6 sm:px-8 lg:border-l">
-                <RowLabel>{row.label}</RowLabel>
-                <p className="max-w-[42ch] text-base leading-relaxed text-mt-ink">
-                  {row.ours}
-                </p>
-              </div>
-            </Fragment>
-          ))}
-
-          {/* Results */}
-          <div className="bg-white px-7 py-7 sm:px-8 sm:py-8">
-            <RowLabel>Result</RowLabel>
-            <p className="max-w-[46ch] text-base leading-relaxed text-mt-slate">
-              {RESULTS.usual}
-            </p>
-          </div>
-          <div className="bg-mt-surface px-7 py-7 sm:px-8 sm:py-8 lg:border-l lg:border-mt-border">
-            <RowLabel>Result</RowLabel>
-            <p className="max-w-[46ch] text-base font-semibold leading-relaxed text-mt-ink">
-              {RESULTS.ours}
-            </p>
-          </div>
-
-          {/* The marker sitting on the seam, as the reference has it. Desktop
-              only, where a seam exists to sit on. */}
+          {/* Marker in the gutter, as the reference has it. Desktop only,
+              where a gutter exists to sit in. */}
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute left-1/2 top-1/2 hidden h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-mt-border bg-white font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-muted lg:flex"
+            className="pointer-events-none absolute left-1/2 top-1/2 hidden h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-mt-border bg-white font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.14em] text-mt-muted lg:flex"
           >
             vs
           </span>
         </div>
 
-        {/* Attached to the foot of the table, not floated below it, so the
-            page does not gain a third free standing dark band. The spotlight
-            carries one and CallToAction closes with one. */}
-        <div className="-mt-px rounded-b-[18px] border border-mt-border bg-mt-ink px-7 py-8 sm:px-8 sm:py-10">
+        {/* Attached to the foot of the table rather than floated below it, so
+            the page does not gain a third free standing dark band. The
+            spotlight carries one and CallToAction closes with one. */}
+        <div className="-mt-px rounded-b-[18px] border border-mt-border bg-mt-ink px-6 py-8 sm:px-8 sm:py-10">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <h3 className="max-w-[24ch] !text-xl !leading-snug !tracking-tight text-white sm:!text-2xl">
+              <h3 className="max-w-[26ch] !text-xl !leading-snug !tracking-tight text-white sm:!text-2xl">
                 Not sure which column your last project sat in?
               </h3>
               <p className="mt-3 max-w-[52ch] text-base leading-relaxed text-white/70">
-                Fifteen minutes, no deck. Bring the site, the stack, or the
-                last invoice you were unhappy with, and we will tell you which
-                column it belongs in and what it would take to move it.
+                Fifteen minutes, no deck. Bring the site, the stack, or the last
+                invoice you were unhappy with, and we will tell you which column
+                it belongs in and what it would take to move it.
               </p>
             </div>
 
@@ -232,7 +278,7 @@ export function Comparison({
               {moreHref && (
                 <Link
                   href={moreHref}
-                  className="inline-flex items-center justify-center rounded-[10px] border border-white/25 px-6 py-3.5 text-base font-semibold text-white transition-colors duration-150 hover:border-white hover:text-white active:border-mt-purple-light"
+                  className="inline-flex items-center justify-center rounded-[10px] border border-white/25 px-6 py-3.5 text-base font-semibold text-white transition-colors duration-150 hover:border-white active:border-mt-purple-light"
                 >
                   Read the full comparison
                 </Link>
