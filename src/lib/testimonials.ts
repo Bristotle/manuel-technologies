@@ -50,11 +50,30 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: "max-pog-dementia-companions",
     featured: true,
+    /* EDITED FROM THE SUPPLIED TEXT. Two corrections, both to errors rather
+       than to style, and neither changes what is being claimed:
+
+       1. "the standard for everything pro-level website development and SEO"
+          had nothing for "everything" to attach to. "everything" removed.
+       2. "The second thing is Manuel's reliability" became "Emmanuel's". The
+          sentence after it reads "he would find an angle", which had no
+          antecedent while the subject was the company rather than the person.
+          Sentence 7 already names Emmanuel, so this also makes the two
+          references agree.
+
+       Left alone deliberately: "website audit" sits singular among the other
+       items in its list. It reads as a service category and correcting it
+       would be editing the client's voice rather than an error.
+
+       CONFIRM WITH MAX BEFORE THIS STANDS. A testimonial is his words, not
+       ours, and this site's whole argument is that its claims hold up when
+       checked. Amending a named person's quote without telling him is exactly
+       the thing that argument cannot survive. */
     quote:
-      "I worked with Manuel Technologies during our project build at Dementia Companions, and their work set the standard for everything pro-level website development and SEO.",
+      "I worked with Manuel Technologies during our project build at Dementia Companions, and their work set the standard for pro-level website development and SEO.",
     continuation: [
       "What stands out first is how much ground they cover. Technical SEO, website audit, SEO strategy, and implementation all sit within their range, and they move between them without any drop in quality. That is unusual. Most people are strong in one lane and passable in the rest. Emmanuel is the reason a campaign can look consistent from start to finish.",
-      "The second thing is Manuel's reliability. Deadlines were never a conversation. Briefs came back sharper than they went in, on time, every time. Where most would take the safe route, he would find an angle nobody in the room had considered, then execute it cleanly enough that it worked across every channel we needed it for.",
+      "The second thing is Emmanuel's reliability. Deadlines were never a conversation. Briefs came back sharper than they went in, on time, every time. Where most would take the safe route, he would find an angle nobody in the room had considered, then execute it cleanly enough that it worked across every channel we needed it for.",
     ],
     name: "Max Pog",
     role: "CEO",
