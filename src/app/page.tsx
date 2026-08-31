@@ -159,7 +159,7 @@ export default function Home() {
 
       <Integrations />
 
-      <Comparison />
+      <Comparison moreHref="/agency-vs-engineer" />
 
       <section className="py-24 sm:py-32">
         <Container>

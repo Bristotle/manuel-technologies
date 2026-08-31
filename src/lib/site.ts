@@ -54,7 +54,7 @@ export const PILLARS: Pillar[] = [
   {
     name: "Build",
     slug: "build",
-    modified: "2026-08-23",
+    modified: "2026-08-31",
     promise: "The thing itself, shipped and working.",
     intro:
       "Websites, applications and the systems underneath them. Built to a performance standard, not to a template.",
@@ -89,7 +89,7 @@ export const PILLARS: Pillar[] = [
   {
     name: "Grow",
     slug: "grow",
-    modified: "2026-08-23",
+    modified: "2026-08-31",
     promise: "More of the right people finding it.",
     intro:
       "Search visibility across Google and the AI engines that now answer before Google does.",
@@ -186,8 +186,9 @@ export const NAV = [
    it. See CLAUDE.md section 6.
    -------------------------------------------------------------------------- */
 export const PAGE_MODIFIED: Record<string, string> = {
-  "/": "2026-08-29",
+  "/": "2026-08-31",
   "/work": "2026-08-28",
+  "/agency-vs-engineer": "2026-08-31",
   "/about": "2026-08-24",
   "/contact": "2026-08-28",
   "/integrations": "2026-08-28",

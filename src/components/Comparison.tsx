@@ -1,6 +1,8 @@
 import { Fragment } from "react";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { Button } from "@/components/ui/Button";
 
 /* Side by side comparison. REF, higglo.io "retainer stack vs. integrated
    growth system".
@@ -53,7 +55,7 @@ const ROWS: Row[] = [
   {
     label: "Who writes it",
     usual: "Sold by a senior. Built by whoever is free that week.",
-    ours: "The engineer who scoped it is the engineer who writes it.",
+    ours: "Scoped, written and reviewed under senior engineering ownership. Never passed down to a junior.",
   },
   {
     label: "What arrives",
@@ -63,7 +65,7 @@ const ROWS: Row[] = [
   {
     label: "Scope",
     usual: "The site, or the SEO, or the automation. One slice each.",
-    ours: "Build, Grow and Scale, under one person who owns the result.",
+    ours: "Build, Grow and Scale, under a single point of accountability.",
   },
   {
     label: "Performance",
@@ -89,7 +91,7 @@ const ROWS: Row[] = [
 
 const RESULTS = {
   usual: "Advice in a folder, and an invoice that repeats.",
-  ours: "A system in production, and the means to maintain it.",
+  ours: "A system in production, senior review behind it, and the means to maintain it.",
 };
 
 function RowLabel({ children }: { children: React.ReactNode }) {
@@ -100,32 +102,46 @@ function RowLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function Comparison() {
+export function Comparison({
+  /* The /agency-vs-engineer page carries its own h1 and intro, so it renders
+     the table without repeating them. Homepage renders the full band. */
+  heading = true,
+  /* Homepage links onward to the full page. The full page does not link to
+     itself. */
+  moreHref,
+}: {
+  heading?: boolean;
+  moreHref?: string;
+} = {}) {
   return (
     <section className="border-y border-mt-border bg-white py-24 sm:py-32">
       <Container>
-        <SectionLabel>Side by side</SectionLabel>
+        {heading && (
+          <>
+            <SectionLabel>Side by side</SectionLabel>
 
-        <h2 className="mt-6 max-w-[20ch] !text-3xl sm:!text-4xl">
-          What an agency hands over,{" "}
-          <span className="text-mt-purple">what an engineer ships.</span>
-        </h2>
+            <h2 className="mt-6 max-w-[20ch] !text-3xl sm:!text-4xl">
+              What an agency hands over,{" "}
+              <span className="text-mt-purple">what senior engineering ships.</span>
+            </h2>
 
-        <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">
-          Most technical work is sold by one person and delivered by another,
-          and the gap between those two is where budgets go. This is the
-          difference, stated plainly enough to hold us to it.
-        </p>
+            <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">
+              Most technical work is sold by one person and delivered by
+              another, and the gap between those two is where budgets go. This
+              is the difference, stated plainly enough to hold us to it.
+            </p>
+          </>
+        )}
 
         {/* One grid, not two cards. Each row emits its left cell then its right
             cell, so the pair lands in the same implicit grid row and the two
             share a height. Two independent columns drift apart as soon as one
             side wraps to a different number of lines, which loses the only
             thing this layout is for: reading across. */}
-        <div className="relative mt-14 grid overflow-hidden rounded-[18px] border border-mt-border lg:grid-cols-2">
+        <div className="relative mt-14 grid overflow-hidden rounded-t-[18px] border border-mt-border lg:grid-cols-2">
           {/* Headers */}
-          <div className="border-b border-mt-border bg-mt-surface p-7 sm:p-8">
-            <span className="inline-flex rounded-[20px] border border-mt-border bg-white px-3 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-slate">
+          <div className="border-b border-mt-border bg-white p-7 sm:p-8">
+            <span className="inline-flex rounded-[20px] border border-mt-border bg-mt-surface px-3 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-slate">
               The usual model
             </span>
             <h3 className="mt-6 !text-2xl !tracking-tight">
@@ -136,34 +152,35 @@ export function Comparison() {
               paying for.
             </p>
           </div>
-          <div className="border-b border-mt-border bg-white p-7 sm:p-8 lg:border-l">
+          <div className="border-b border-mt-border bg-mt-surface p-7 sm:p-8 lg:border-l">
             <span className="inline-flex rounded-[20px] bg-mt-ink px-3 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-white">
               Manuel Technologies
             </span>
             <h3 className="mt-6 !text-2xl !tracking-tight">
-              Built by the person accountable
+              Senior engineering, end to end
             </h3>
             <p className="mt-3 max-w-[46ch] text-[0.9375rem] leading-relaxed text-mt-slate">
-              One engineer across the build, the search work, and the
-              automation behind it.
+              Senior ownership across the build, the search work, and the
+              automation behind it, with one point of accountability for the
+              result.
             </p>
           </div>
 
           {/* Rows */}
           {ROWS.map((row) => (
             <Fragment key={row.label}>
-              <div className="border-b border-mt-border bg-mt-surface px-7 py-5 sm:px-8">
+              <div className="border-b border-mt-border bg-white px-7 py-6 sm:px-8">
                 <RowLabel>{row.label}</RowLabel>
                 {/* Struck through as the reference does. The column heading and
                     the result line say the same thing in words, so nothing
                     depends on the styling alone. */}
-                <p className="text-[0.9375rem] leading-relaxed text-mt-muted line-through">
+                <p className="max-w-[42ch] text-base leading-relaxed text-mt-muted line-through">
                   {row.usual}
                 </p>
               </div>
-              <div className="border-b border-mt-border bg-white px-7 py-5 sm:px-8 lg:border-l">
+              <div className="border-b border-mt-border bg-mt-surface px-7 py-6 sm:px-8 lg:border-l">
                 <RowLabel>{row.label}</RowLabel>
-                <p className="text-[0.9375rem] leading-relaxed text-mt-ink">
+                <p className="max-w-[42ch] text-base leading-relaxed text-mt-ink">
                   {row.ours}
                 </p>
               </div>
@@ -171,13 +188,13 @@ export function Comparison() {
           ))}
 
           {/* Results */}
-          <div className="bg-mt-surface px-7 py-7 sm:px-8 sm:py-8">
+          <div className="bg-white px-7 py-7 sm:px-8 sm:py-8">
             <RowLabel>Result</RowLabel>
             <p className="max-w-[46ch] text-base leading-relaxed text-mt-slate">
               {RESULTS.usual}
             </p>
           </div>
-          <div className="bg-white px-7 py-7 sm:px-8 sm:py-8 lg:border-l lg:border-mt-border">
+          <div className="bg-mt-surface px-7 py-7 sm:px-8 sm:py-8 lg:border-l lg:border-mt-border">
             <RowLabel>Result</RowLabel>
             <p className="max-w-[46ch] text-base font-semibold leading-relaxed text-mt-ink">
               {RESULTS.ours}
@@ -192,6 +209,36 @@ export function Comparison() {
           >
             vs
           </span>
+        </div>
+
+        {/* Attached to the foot of the table, not floated below it, so the
+            page does not gain a third free standing dark band. The spotlight
+            carries one and CallToAction closes with one. */}
+        <div className="-mt-px rounded-b-[18px] border border-mt-border bg-mt-ink px-7 py-8 sm:px-8 sm:py-10">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <h3 className="max-w-[24ch] !text-xl !leading-snug !tracking-tight text-white sm:!text-2xl">
+                Not sure which column your last project sat in?
+              </h3>
+              <p className="mt-3 max-w-[52ch] text-base leading-relaxed text-white/70">
+                Fifteen minutes, no deck. Bring the site, the stack, or the
+                last invoice you were unhappy with, and we will tell you which
+                column it belongs in and what it would take to move it.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <Button href="/contact">Book a 15 minute call</Button>
+              {moreHref && (
+                <Link
+                  href={moreHref}
+                  className="inline-flex items-center justify-center rounded-[10px] border border-white/25 px-6 py-3.5 text-base font-semibold text-white transition-colors duration-150 hover:border-white hover:text-white active:border-mt-purple-light"
+                >
+                  Read the full comparison
+                </Link>
+              )}
+            </div>
+          </div>
         </div>
       </Container>
     </section>

@@ -72,6 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/", 1),
     ...pillars,
     ...services,
+    page("/agency-vs-engineer", 0.8),
     page("/work", 0.8),
     ...caseStudies,
     page("/integrations", 0.8),
