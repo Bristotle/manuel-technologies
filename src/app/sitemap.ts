@@ -1,37 +1,51 @@
 import type { MetadataRoute } from "next";
 import { BLOG_POSTS } from "@/lib/blog-posts";
 import { PUBLISHED_CASE_STUDIES } from "@/lib/case-studies";
+import ROUTE_DATES from "@/lib/route-dates.json";
+import { discoverStaticRoutes, priorityFor } from "@/lib/routes";
 import { SERVICE_PAGES } from "@/lib/service-pages";
-import { PAGE_MODIFIED, PILLARS, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 /* --------------------------------------------------------------------------
    Sitemap.
 
-   EVERY lastmod HERE IS A REAL CONTENT DATE. This file used to stamp
-   `new Date()` on 32 of 45 URLs, which resolved to the build time, so every
-   deploy told Google that 32 pages had changed when none of them had.
+   ROUTES ARE DISCOVERED, DATES ARE NOT. Two rules that pull in opposite
+   directions, both of which matter:
 
-   Google ignores lastmod once a site proves it unreliable, and that is the
-   strongest crawl scheduling signal a small site has. It matters more the
-   larger the site gets: at programmatic scale, lastmod is how you tell Google
-   which of several thousand URLs is worth recrawling. Spending it on noise is
-   expensive.
+   1. A page that exists should be listed. Nobody should have to remember to
+      add it here, because the one time they forget is the page that never
+      gets indexed. So static routes are found by walking src/app.
 
-   So: no `new Date()` in this file, ever. Dates come from the content records
-   themselves. See PAGE_MODIFIED in site.ts for the standalone routes.
+   2. lastmod must be a real content date. This file used to stamp
+      `new Date()` on 32 of 45 URLs, which resolved to the build time, so
+      every deploy claimed those pages had changed when none had. Google
+      ignores lastmod once a site proves it unreliable, and that is the
+      strongest crawl scheduling signal a small site has.
 
-   changeFrequency is deliberately absent. Google ignores it, and declaring
-   "weekly" on a page that changes twice a year is another false signal for
-   no gain. priority is kept because Bing gives it slight weight, and it costs
-   nothing to be honest about relative importance.
+   Discovery satisfies the first. src/lib/route-dates.json satisfies the
+   second: dates are captured once by scripts/sync-route-dates.mjs, from the
+   git history of the page file, and committed. `npm run routes:sync` picks up
+   anything new. The build runs the same script in check mode, so a route with
+   no recorded date fails loudly with its own name rather than quietly getting
+   today's date.
+
+   Data driven routes are not discovered, because they already carry something
+   better: service pages, blog posts and case studies each hold their own
+   modified date on the record itself.
+
+   changeFrequency is absent on purpose. Google ignores it, and declaring
+   "weekly" on a page that changes twice a year is another false signal for no
+   gain.
 
    WHEN THIS GROWS. Above roughly 5,000 URLs, split into a sitemap index with
    one child per cluster using Next's `generateSitemaps`. Segmented sitemaps
    are the only practical way to see which cluster is indexing and which is
-   not. One flat file gives you a single coverage number and no diagnosis.
+   not.
    -------------------------------------------------------------------------- */
 
 type Entry = MetadataRoute.Sitemap[number];
+
+const dates = ROUTE_DATES as Record<string, string>;
 
 function entry(path: string, modified: string, priority: number): Entry {
   return {
@@ -41,21 +55,22 @@ function entry(path: string, modified: string, priority: number): Entry {
   };
 }
 
-/* A standalone route, dated from PAGE_MODIFIED. Throws at build time if the
-   date is missing, so a new page can never quietly ship with no lastmod. */
-function page(path: string, priority: number): Entry {
-  const modified = PAGE_MODIFIED[path];
-  if (!modified) {
-    throw new Error(
-      `sitemap: no PAGE_MODIFIED date for "${path}". Add one in src/lib/site.ts.`,
-    );
-  }
-  return entry(path, modified, priority);
-}
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pillars = PILLARS.map((p) => entry(`/${p.slug}`, p.modified, 0.9));
+  /* Every page.tsx without a dynamic segment, found on disk. */
+  const staticRoutes = discoverStaticRoutes().map((route) => {
+    const modified = dates[route];
+    if (!modified) {
+      /* Only reachable if the dates file drifted from the filesystem, which
+         the prebuild check exists to catch first. Failing here rather than
+         defaulting is deliberate: a wrong date is worse than a failed build. */
+      throw new Error(
+        `sitemap: no recorded date for "${route}". Run \`npm run routes:sync\` and commit src/lib/route-dates.json.`,
+      );
+    }
+    return entry(route, modified, priorityFor(route));
+  });
 
+  /* Data driven routes, dated from their own records. */
   const services = SERVICE_PAGES.map((s) =>
     entry(`/${s.pillar}/${s.slug}`, s.modified, 0.8),
   );
@@ -68,25 +83,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`/blog/${post.slug}`, post.modified, 0.7),
   );
 
-  return [
-    page("/", 1),
-    ...pillars,
-    ...services,
-    page("/agency-vs-engineer", 0.8),
-    page("/work", 0.8),
-    ...caseStudies,
-    page("/integrations", 0.8),
-    page("/contact", 0.8),
-    page("/about", 0.7),
-    page("/free-audit", 0.9),
-    page("/free-tools", 0.7),
-    page("/free-tools/seo-audit", 0.7),
-    page("/free-tools/geo-content-brief", 0.7),
-    page("/free-tools/ai-agent-readiness", 0.7),
-    page("/blog", 0.6),
-    ...blogPosts,
-    page("/privacy-policy", 0.3),
-    page("/terms-of-service", 0.3),
-    page("/cwv-drift-monitor/privacy-policy", 0.3),
-  ];
+  return [...staticRoutes, ...services, ...caseStudies, ...blogPosts];
 }

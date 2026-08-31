@@ -42,9 +42,6 @@ export type Service = {
 export type Pillar = {
   name: string;
   slug: "build" | "grow" | "scale";
-  /* Real date this hub copy last changed. Feeds sitemap lastmod.
-     Never bump it for a deploy. See PAGE_MODIFIED below. */
-  modified: string;
   promise: string;
   intro: string;
   services: Service[];
@@ -54,7 +51,6 @@ export const PILLARS: Pillar[] = [
   {
     name: "Build",
     slug: "build",
-    modified: "2026-08-31",
     promise: "The thing itself, shipped and working.",
     intro:
       "Websites, applications and the systems underneath them. Built to a performance standard, not to a template.",
@@ -89,7 +85,6 @@ export const PILLARS: Pillar[] = [
   {
     name: "Grow",
     slug: "grow",
-    modified: "2026-08-31",
     promise: "More of the right people finding it.",
     intro:
       "Search visibility across Google and the AI engines that now answer before Google does.",
@@ -139,7 +134,6 @@ export const PILLARS: Pillar[] = [
   {
     name: "Scale",
     slug: "scale",
-    modified: "2026-08-28",
     promise: "Handle more without hiring more.",
     intro:
       "Automation is how a business absorbs more volume without adding headcount. That is what this pillar builds.",
@@ -170,38 +164,6 @@ export const NAV = [
   { name: "Contact", href: "/contact" },
   { name: "Free tools", href: "/free-tools" },
 ] as const;
-
-/* --------------------------------------------------------------------------
-   Content dates for the standalone routes, ISO yyyy-mm-dd.
-
-   These feed sitemap lastmod. Services carry their own date in
-   service-pages.ts, pillars carry theirs on the Pillar record, blog posts
-   carry theirs on the post. Everything else is listed here.
-
-   THE RULE. Touch a date ONLY when the words on that page change. Never on a
-   deploy, never in bulk. The sitemap previously stamped every URL with the
-   build time, which told Google that 32 pages changed every time anything
-   shipped. Google ignores lastmod once a site proves it unreliable, so that
-   spent the strongest crawl scheduling signal available and got nothing for
-   it. See CLAUDE.md section 6.
-   -------------------------------------------------------------------------- */
-export const PAGE_MODIFIED: Record<string, string> = {
-  "/": "2026-08-31",
-  "/work": "2026-08-28",
-  "/agency-vs-engineer": "2026-08-31",
-  "/free-audit": "2026-08-31",
-  "/about": "2026-08-24",
-  "/contact": "2026-08-28",
-  "/integrations": "2026-08-28",
-  "/blog": "2026-08-28",
-  "/free-tools": "2026-08-26",
-  "/free-tools/seo-audit": "2026-08-26",
-  "/free-tools/geo-content-brief": "2026-08-26",
-  "/free-tools/ai-agent-readiness": "2026-08-26",
-  "/privacy-policy": "2026-08-26",
-  "/terms-of-service": "2026-08-26",
-  "/cwv-drift-monitor/privacy-policy": "2026-08-24",
-};
 
 /* Marquee rail. Bracket syntax from REF-002.
    Ordered so the two commercial items, website development and ROI, sit early

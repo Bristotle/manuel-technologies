@@ -418,6 +418,34 @@ Every other page is written for a business owner. Plain, concrete, no jargon.
 - `Organization` JSON-LD in root layout. **Not `AutomationCompany`, that is not a real schema.org type**
 - `Service` schema on service pages, `BreadcrumbList` on nested pages
 - Generated `sitemap.xml` and `robots.txt`
+
+### The sitemap discovers routes. It does not invent dates.
+
+Static routes are found by walking `src/app`, so **a new page is listed the
+moment it exists**. Nobody has to remember to add it, because the one time
+somebody forgets is the page that never gets indexed.
+
+Dates are the opposite: captured once and committed, never generated at build
+time. They live in `src/lib/route-dates.json`.
+
+```bash
+npm run routes:sync     # record dates for any new routes, drop removed ones
+npm run routes:check    # CI gate, also wired as prebuild
+```
+
+`routes:sync` takes a new route's date from the last commit that touched its
+`page.tsx`, or today when the file is not committed yet. It **never rewrites a
+date that is already recorded**.
+
+The script refuses to write on Vercel and runs in check mode there instead,
+because Vercel shallow clones and git cannot answer the question. Falling
+through to "today" in CI would stamp the build date on anything missing, which
+is exactly the bug this replaced. A missing route fails the build with its own
+name printed.
+
+Service pages, blog posts and case studies are not discovered. They carry a
+`modified` date on their own record, which is a better source than a directory
+walk.
 - Self referencing canonical on every page
 - OG image per route via `next/og`
 - Meta descriptions hand written, never templated
@@ -551,16 +579,18 @@ None of these are refusals. They are trade offs to show Emmanuel so he decides.
 ## 10. Pre commit checklist
 
 1. **Every page touched carries visual evidence, not just text.** Section 4
-2. `next build`, first load JS within budget
-3. Lighthouse mobile throttled, four 100s
-4. `grep -rP '[\x{2013}\x{2014}]' src/` returns nothing
-5. No new `"use client"` without a reason
-6. `node scripts/optimise-images.mjs --check` passes. Every image WebP, in budget
-7. Every image has explicit width and height, correct `sizes`, meaningful `alt`
-8. 320px and 360px, no horizontal scroll
-9. One `h1`, canonical present and pointing at the **apex**, schema valid
-10. British spelling, no banned words
-11. Spacing on the 8px scale, no `box-shadow`, one accent use per viewport
-12. All four interactive states present, focus ring intact
-13. No `mailto:` CTAs outside the contact page and privacy policy
-14. No API keys or secrets anywhere in the diff
+2. `npm run routes:sync` if any page was added or removed, and commit
+   `src/lib/route-dates.json`. The build fails without it
+3. `next build`, first load JS within budget
+4. Lighthouse mobile throttled, four 100s
+5. `grep -rP '[\x{2013}\x{2014}]' src/` returns nothing
+6. No new `"use client"` without a reason
+7. `node scripts/optimise-images.mjs --check` passes. Every image WebP, in budget
+8. Every image has explicit width and height, correct `sizes`, meaningful `alt`
+9. 320px and 360px, no horizontal scroll
+10. One `h1`, canonical present and pointing at the **apex**, schema valid
+11. British spelling, no banned words
+12. Spacing on the 8px scale, no `box-shadow`, one accent use per viewport
+13. All four interactive states present, focus ring intact
+14. No `mailto:` CTAs outside the contact page and privacy policy
+15. No API keys or secrets anywhere in the diff
