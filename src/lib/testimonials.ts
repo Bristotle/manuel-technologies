@@ -21,6 +21,11 @@
 
 export type Testimonial = {
   id: string;
+  /* Promotes this quote to the ClientSpotlight band, the single large
+     treatment high on the homepage. At most one should carry it. Anything
+     without it renders in the grid lower down, so a featured quote is never
+     shown twice on the same page. */
+  featured?: boolean;
   /* The quote itself. Two to four sentences reads best. Longer gets skimmed,
      shorter reads like it was written by us. */
   quote: string;
@@ -32,13 +37,40 @@ export type Testimonial = {
   /* Which project this came from. Ties the quote to visible work. */
   project?: string;
   photo?: string;
+  /* Remaining paragraphs of a long quote. The spotlight renders `quote` at
+     display size and these beneath it at body size, which is how a 180 word
+     testimonial stays readable without being cut. Verbatim, always: a quote
+     attributed to a named person is never edited for house style. */
+  continuation?: string[];
   /* Confirmed permission to publish. Required. */
   permission: boolean;
 };
 
-export const TESTIMONIALS: Testimonial[] = [];
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    id: "max-pog-dementia-companions",
+    featured: true,
+    quote:
+      "I worked with Manuel Technologies during our project build at Dementia Companions, and their work set the standard for everything pro-level website development and SEO.",
+    continuation: [
+      "What stands out first is how much ground they cover. Technical SEO, website audit, SEO strategy, and implementation all sit within their range, and they move between them without any drop in quality. That is unusual. Most people are strong in one lane and passable in the rest. Emmanuel is the reason a campaign can look consistent from start to finish.",
+      "The second thing is Manuel's reliability. Deadlines were never a conversation. Briefs came back sharper than they went in, on time, every time. Where most would take the safe route, he would find an angle nobody in the room had considered, then execute it cleanly enough that it worked across every channel we needed it for.",
+    ],
+    name: "Max Pog",
+    role: "CEO",
+    company: "Dementia Companions",
+    companyUrl: "https://dementiacompanions.com",
+    permission: true,
+  },
+];
 
-/* Only entries with confirmed permission are ever rendered. */
+/* The one quote promoted to the spotlight band, or undefined. */
+export const FEATURED_TESTIMONIAL = TESTIMONIALS.find(
+  (item) => item.permission && item.featured,
+);
+
+/* Grid entries. Permissioned, and excluding whichever quote the spotlight is
+   already showing, so nothing appears twice on one page. */
 export const PUBLISHABLE_TESTIMONIALS = TESTIMONIALS.filter(
-  (item) => item.permission,
+  (item) => item.permission && !item.featured,
 );
