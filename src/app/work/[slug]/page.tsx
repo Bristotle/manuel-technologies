@@ -46,7 +46,7 @@ export async function generateMetadata({
   if (!study || !project) return {};
 
   return {
-    title: `${project.client}: ${study.title}`,
+    title: study.metaTitle,
     description: study.description,
     alternates: { canonical: `/work/${study.slug}` },
     openGraph: {

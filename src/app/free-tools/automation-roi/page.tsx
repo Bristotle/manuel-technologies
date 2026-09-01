@@ -8,9 +8,9 @@ import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Manual task automation ROI calculator",
-  description: "Work out what a repetitive workflow costs you a year, what automating it would save after the share a person still has to do, and how long the build takes to pay for itself.",
+  description: "What a repetitive workflow costs a year, what automating it saves after the share a person still does, and how long the build takes to pay back.",
   alternates: { canonical: "/free-tools/automation-roi" },
-  openGraph: { title: `Manual task automation ROI calculator | ${SITE.name}`, description: "Work out what a repetitive workflow costs you a year, what automating it would save after the share a person still has to do, and how long the build takes to pay for itself.", url: `${SITE.url}/free-tools/automation-roi` },
+  openGraph: { title: `Manual task automation ROI calculator | ${SITE.name}`, description: "What a repetitive workflow costs a year, what automating it saves after the share a person still does, and how long the build takes to pay back.", url: `${SITE.url}/free-tools/automation-roi` },
 };
 
 const FAQS = [
@@ -23,7 +23,7 @@ const FAQS = [
 
 export default function Page() {
   const jsonLd = [
-    { "@context": "https://schema.org", "@type": "WebApplication", name: "Manual task automation ROI calculator", url: `${SITE.url}/free-tools/automation-roi`, applicationCategory: "BusinessApplication", operatingSystem: "Any", description: "Work out what a repetitive workflow costs you a year, what automating it would save after the share a person still has to do, and how long the build takes to pay for itself.", offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" }, provider: { "@type": "Organization", name: SITE.name, url: SITE.url } },
+    { "@context": "https://schema.org", "@type": "WebApplication", name: "Manual task automation ROI calculator", url: `${SITE.url}/free-tools/automation-roi`, applicationCategory: "BusinessApplication", operatingSystem: "Any", description: "What a repetitive workflow costs a year, what automating it saves after the share a person still does, and how long the build takes to pay back.", offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" }, provider: { "@type": "Organization", name: SITE.name, url: SITE.url } },
     { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQS.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },

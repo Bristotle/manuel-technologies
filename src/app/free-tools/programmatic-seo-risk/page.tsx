@@ -11,9 +11,9 @@ const GROUPS = [...new Set(PROGRAMMATIC_ITEMS.map((i) => i.group))];
 
 export const metadata: Metadata = {
   title: "Programmatic SEO indexation risk index",
-  description: "Score a programmatic page set against fifteen weighted failure modes covering page uniqueness, crawl signals, architecture and data quality, before you ship it at scale.",
+  description: "Score a programmatic page set against fifteen weighted failure modes covering uniqueness, crawl signals, architecture and data quality.",
   alternates: { canonical: "/free-tools/programmatic-seo-risk" },
-  openGraph: { title: `Programmatic SEO indexation risk index | ${SITE.name}`, description: "Score a programmatic page set against fifteen weighted failure modes covering page uniqueness, crawl signals, architecture and data quality, before you ship it at scale.", url: `${SITE.url}/free-tools/programmatic-seo-risk` },
+  openGraph: { title: `Programmatic SEO indexation risk index | ${SITE.name}`, description: "Score a programmatic page set against fifteen weighted failure modes covering uniqueness, crawl signals, architecture and data quality.", url: `${SITE.url}/free-tools/programmatic-seo-risk` },
 };
 
 const FAQS = [
@@ -26,7 +26,7 @@ const FAQS = [
 
 export default function Page() {
   const jsonLd = [
-    { "@context": "https://schema.org", "@type": "WebApplication", name: "Programmatic SEO indexation risk index", url: `${SITE.url}/free-tools/programmatic-seo-risk`, applicationCategory: "BusinessApplication", operatingSystem: "Any", description: "Score a programmatic page set against fifteen weighted failure modes covering page uniqueness, crawl signals, architecture and data quality, before you ship it at scale.", offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" }, provider: { "@type": "Organization", name: SITE.name, url: SITE.url } },
+    { "@context": "https://schema.org", "@type": "WebApplication", name: "Programmatic SEO indexation risk index", url: `${SITE.url}/free-tools/programmatic-seo-risk`, applicationCategory: "BusinessApplication", operatingSystem: "Any", description: "Score a programmatic page set against fifteen weighted failure modes covering uniqueness, crawl signals, architecture and data quality.", offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" }, provider: { "@type": "Organization", name: SITE.name, url: SITE.url } },
     { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQS.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },

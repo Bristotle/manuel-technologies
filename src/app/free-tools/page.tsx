@@ -6,7 +6,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 
 export const metadata: Metadata = {
   title: "Free SEO, GEO and performance tools",
-  description: "Twelve free tools: a live SEO and GEO audit, an AI crawler check, ROI and automation calculators, a retainer versus build comparison, a Google Business Profile checker, funnel and programmatic SEO assessments, and a JSON-LD generator. No account, no email gate.",
+  description: "Twelve free tools: a live SEO and GEO audit, an AI crawler check, ROI and automation calculators, and four assessments. No account, no email gate.",
   alternates: { canonical: "/free-tools" },
 };
 

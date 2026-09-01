@@ -32,7 +32,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Free SEO and GEO audit",
   description:
-    "Audit any live page in about fifteen seconds. Real measurements of crawlability, indexation, structured data, AI crawler access and page health, with a ranked plan. No account, no email.",
+    "Audit any live page in fifteen seconds. Real measurements of crawlability, indexation, structured data and AI crawler access, with a ranked plan.",
   alternates: { canonical: "/free-audit" },
   openGraph: {
     title: `Free SEO and GEO audit | ${SITE.name}`,

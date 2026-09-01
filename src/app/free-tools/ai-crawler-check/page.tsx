@@ -8,9 +8,9 @@ import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "AI crawler compatibility checker",
-  description: "Check whether GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended and CCBot are allowed to read your site. We fetch your robots.txt and resolve the rules, including wildcards.",
+  description: "Check whether GPTBot, ClaudeBot, PerplexityBot and Google-Extended can read your site. We fetch your robots.txt and resolve the rules live.",
   alternates: { canonical: "/free-tools/ai-crawler-check" },
-  openGraph: { title: `AI crawler compatibility checker | ${SITE.name}`, description: "Check whether GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended and CCBot are allowed to read your site. We fetch your robots.txt and resolve the rules, including wildcards.", url: `${SITE.url}/free-tools/ai-crawler-check` },
+  openGraph: { title: `AI crawler compatibility checker | ${SITE.name}`, description: "Check whether GPTBot, ClaudeBot, PerplexityBot and Google-Extended can read your site. We fetch your robots.txt and resolve the rules live.", url: `${SITE.url}/free-tools/ai-crawler-check` },
 };
 
 const FAQS = [
@@ -23,7 +23,7 @@ const FAQS = [
 
 export default function Page() {
   const jsonLd = [
-    { "@context": "https://schema.org", "@type": "WebApplication", name: "AI crawler compatibility checker", url: `${SITE.url}/free-tools/ai-crawler-check`, applicationCategory: "DeveloperApplication", operatingSystem: "Any", description: "Check whether GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended and CCBot are allowed to read your site. We fetch your robots.txt and resolve the rules, including wildcards.", offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" }, provider: { "@type": "Organization", name: SITE.name, url: SITE.url } },
+    { "@context": "https://schema.org", "@type": "WebApplication", name: "AI crawler compatibility checker", url: `${SITE.url}/free-tools/ai-crawler-check`, applicationCategory: "DeveloperApplication", operatingSystem: "Any", description: "Check whether GPTBot, ClaudeBot, PerplexityBot and Google-Extended can read your site. We fetch your robots.txt and resolve the rules live.", offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" }, provider: { "@type": "Organization", name: SITE.name, url: SITE.url } },
     { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQS.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },

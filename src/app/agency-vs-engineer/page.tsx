@@ -24,9 +24,9 @@ import { SITE } from "@/lib/site";
    cited by nobody. */
 
 export const metadata: Metadata = {
-  title: "Agency or engineer: choosing for technical work",
+  title: "Agency or engineer: how to choose",
   description:
-    "A plain comparison of the agency retainer against senior engineering ownership, including when an agency is the better choice, and the questions worth asking either one.",
+    "The agency retainer against senior engineering ownership, including when an agency is the better choice and the questions worth asking either one.",
   alternates: { canonical: "/agency-vs-engineer" },
   openGraph: {
     title: `Agency or engineer | ${SITE.name}`,

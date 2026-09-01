@@ -8,9 +8,9 @@ import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "JSON-LD schema generator",
-  description: "Generate clean, valid JSON-LD for Organization, LocalBusiness, Service and FAQPage markup. Empty fields are omitted rather than emitted blank. No account, no email to copy the code.",
+  description: "Clean JSON-LD for Organization, LocalBusiness, Service and FAQPage markup. Empty fields are omitted rather than emitted blank. No email gate.",
   alternates: { canonical: "/free-tools/schema-generator" },
-  openGraph: { title: `JSON-LD schema generator | ${SITE.name}`, description: "Generate clean, valid JSON-LD for Organization, LocalBusiness, Service and FAQPage markup. Empty fields are omitted rather than emitted blank. No account, no email to copy the code.", url: `${SITE.url}/free-tools/schema-generator` },
+  openGraph: { title: `JSON-LD schema generator | ${SITE.name}`, description: "Clean JSON-LD for Organization, LocalBusiness, Service and FAQPage markup. Empty fields are omitted rather than emitted blank. No email gate.", url: `${SITE.url}/free-tools/schema-generator` },
 };
 
 const FAQS = [
@@ -23,7 +23,7 @@ const FAQS = [
 
 export default function Page() {
   const jsonLd = [
-    { "@context": "https://schema.org", "@type": "WebApplication", name: "JSON-LD schema generator", url: `${SITE.url}/free-tools/schema-generator`, applicationCategory: "DeveloperApplication", operatingSystem: "Any", description: "Generate clean, valid JSON-LD for Organization, LocalBusiness, Service and FAQPage markup. Empty fields are omitted rather than emitted blank. No account, no email to copy the code.", offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" }, provider: { "@type": "Organization", name: SITE.name, url: SITE.url } },
+    { "@context": "https://schema.org", "@type": "WebApplication", name: "JSON-LD schema generator", url: `${SITE.url}/free-tools/schema-generator`, applicationCategory: "DeveloperApplication", operatingSystem: "Any", description: "Clean JSON-LD for Organization, LocalBusiness, Service and FAQPage markup. Empty fields are omitted rather than emitted blank. No email gate.", offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" }, provider: { "@type": "Organization", name: SITE.name, url: SITE.url } },
     { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQS.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },

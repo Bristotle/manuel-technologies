@@ -9,7 +9,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Organic traffic and SEO ROI calculator",
   description:
-    "Work out what an organic session is worth to your business, what a 20, 50 or 100 percent traffic increase would be worth at your own conversion rate, and how much traffic it takes to break even.",
+    "What an organic session is worth to your business, what a traffic increase would be worth at your own conversion rate, and the break even point.",
   alternates: { canonical: "/free-tools/roi-calculator" },
   openGraph: {
     title: `SEO ROI calculator | ${SITE.name}`,

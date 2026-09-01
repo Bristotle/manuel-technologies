@@ -37,6 +37,11 @@ export type CaseStudy = {
      Never bump on a deploy. */
   modified: string;
   title: string;
+  /* Title tag only. The layout template appends " | Manuel Technologies",
+     which is 22 characters, so this has to stay under about 38 or the SERP
+     truncates the useful half. `title` above is the on page h1 and can be as
+     long as it needs to be. */
+  metaTitle: string;
   description: string;
   lead: string;
   sections: CaseStudySection[];
@@ -57,8 +62,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "cgt-experts",
     modified: "2026-08-31",
     title: "Nine tax calculators for a regulated UK practice",
+    metaTitle: "CGT calculators for a UK tax practice",
     description:
-      "How Capital Gains Tax Experts got nine working tax calculators, a service architecture built around HMRC deadlines, and a site that generates enquiries rather than describing a firm.",
+      "Nine working tax calculators, a service architecture built around HMRC deadlines, and a site that generates enquiries rather than describing a firm.",
     lead: "Capital Gains Tax Experts needed to compete with national accountancy brands for searches where the person asking already knows what they owe is complicated. The answer was not more copy about the firm. It was software that does the arithmetic in public.",
     sections: [
       {
@@ -107,8 +113,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "dementia-in-home",
     modified: "2026-08-31",
     title: "Programmatic city pages for a US caregiver service",
+    metaTitle: "Programmatic city pages, US caregiving",
     description:
-      "How Dementia In Home got twenty city pages carrying real local pricing, a published methodology for its own numbers, and an architecture that reaches several hundred cities without a rebuild.",
+      "Twenty city pages carrying real local pricing, a published methodology for the numbers, and an architecture that reaches several hundred cities.",
     lead: "Dementia In Home matches families with vetted in-home dementia caregivers across the United States. Local search is the whole market, and local search at national scale is where most programmatic page sets quietly fail.",
     sections: [
       {
@@ -156,8 +163,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "impressiful",
     modified: "2026-08-31",
     title: "A 1,000 product configurable catalogue in the UAE",
+    metaTitle: "A 1,000 product catalogue in the UAE",
     description:
-      "How Impressiful sells custom branded merchandise at catalogue scale: over 1,000 configurable products across 21 categories, with sample kit and bulk order paths and WhatsApp wired into the checkout route.",
+      "Custom branded merchandise at catalogue scale: 1,000 configurable products across 21 categories, with sample kit, bulk order and WhatsApp paths.",
     lead: "Impressiful sells custom branded merchandise to businesses in the United Arab Emirates. Every product is configurable, every order is a quantity negotiation, and the catalogue runs past a thousand items. None of that fits the shape of a normal ecommerce build.",
     sections: [
       {
@@ -204,8 +212,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "miyaki-beauty",
     modified: "2026-08-31",
     title: "Ecommerce for a premium beauty retailer in Accra",
+    metaTitle: "Ecommerce for a beauty retailer, Accra",
     description:
-      "How Miyaki Beauty sells certified skincare, professional makeup tools and studio equipment in Accra, and why it is the site we test CWV Drift Monitor against.",
+      "Certified skincare, professional makeup tools and studio equipment in Accra, and why it is the site we test CWV Drift Monitor against.",
     lead: "Miyaki Beauty is a premium beauty retailer in Accra, Ghana, selling certified skincare, professional makeup tools and studio essentials. It is also the site we point our own performance extension at, which means its Core Web Vitals get watched more closely than most.",
     sections: [
       {
@@ -246,8 +255,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "cangaf",
     modified: "2026-08-31",
     title: "Website and technical SEO for a Bolton accountancy practice",
+    metaTitle: "Accountancy website and technical SEO",
     description:
-      "How Cangaf, a certified chartered accountancy practice in Bolton, structures six service paths, a client onboarding route and a resource library that feeds its specialist CGT arm.",
+      "A chartered accountancy practice in Bolton: six service paths, a client onboarding route, and a resource library feeding its specialist CGT arm.",
     lead: "Cangaf is a certified chartered accountancy practice in Bolton and the parent firm behind Capital Gains Tax Experts. Two sites, one practice, and a deliberate decision to keep them apart.",
     sections: [
       {
@@ -296,8 +306,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "bot-properties",
     modified: "2026-08-31",
     title: "Buy and rent as two separate paths for a Ghanaian developer",
+    metaTitle: "Luxury property across Accra and Kumasi",
     description:
-      "How BOT Properties structures luxury residential and commercial property across Accra and Kumasi, with buy and rent split into their own routes and five accommodation types published separately.",
+      "Separate buy and rent routes, five accommodation types from studio to three bedroom, and amenity pages covering dining and spa.",
     lead: "BOT Properties is a real estate developer and high-end rental operator working across Accra and Kumasi. Its portfolio spans luxury apartments, townhouses and commercial space, and the buyers for each are not the same person.",
     sections: [
       {

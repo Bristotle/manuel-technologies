@@ -8,9 +8,9 @@ import { GBP_ITEMS } from "@/lib/tools/gbp";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Google Business Profile optimisation checker",
+  title: "Google Business Profile checker",
   description:
-    "Score your Google Business Profile against twenty weighted checks covering categories, reviews, media, services and activity, and get the gaps ordered by what moves local visibility most.",
+    "Score your profile against twenty weighted checks covering categories, reviews, media and activity, with the gaps ordered by local impact.",
   alternates: { canonical: "/free-tools/google-business-profile" },
   openGraph: {
     title: `Google Business Profile checker | ${SITE.name}`,
