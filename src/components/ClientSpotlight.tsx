@@ -72,7 +72,7 @@ export function ClientSpotlight() {
           Client spotlight
         </SectionLabel>
 
-        <figure className="mt-10">
+        <figure className="mt-reveal mt-10">
           <blockquote>
             <p className="max-w-[22ch] text-[1.875rem] leading-[1.12] tracking-[-0.03em] text-white sm:max-w-[26ch] sm:text-[2.75rem] lg:text-[3.25rem]">
               {/* Decorative marks, as the reference has them. aria-hidden so a

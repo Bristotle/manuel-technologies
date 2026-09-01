@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Comparison } from "@/components/Comparison";
 import { Container } from "@/components/ui/Container";
+import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SITE } from "@/lib/site";
 
@@ -108,8 +109,9 @@ export default function AgencyVsEngineer() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="border-b border-mt-border bg-white py-24 sm:py-32">
-        <Container>
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
+        <DotGrid fade="bottom" />
+        <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">
               Home
@@ -153,7 +155,7 @@ export default function AgencyVsEngineer() {
             If your situation is one of these, hire the agency.
           </p>
 
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
+          <div className="mt-reveal-group mt-12 grid gap-8 md:grid-cols-3">
             {AGENCY_WINS.map((item, index) => (
               <div key={item.title} className="border-t border-mt-border pt-6">
                 <span className="font-[family-name:var(--font-mono)] text-xs tracking-[0.18em] text-mt-purple">

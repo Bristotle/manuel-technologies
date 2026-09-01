@@ -156,7 +156,7 @@ export function FunnelCoverage() {
         </p>
 
         {/* Stage cards */}
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-reveal-group mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {STAGES.map((stage) => (
             <div
               key={stage.number}
@@ -232,7 +232,7 @@ export function FunnelCoverage() {
               <li key={d.code} className="border-b border-mt-border sm:border-r">
                 <Link
                   href={d.href}
-                  className="group flex h-full flex-col p-6 transition-colors duration-150 hover:bg-mt-surface"
+                  className="mt-spot group flex h-full flex-col p-6 transition-colors duration-150 hover:bg-mt-surface"
                 >
                   <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-muted">
                     {d.code}

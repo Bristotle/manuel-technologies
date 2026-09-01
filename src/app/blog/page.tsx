@@ -38,7 +38,7 @@ export default function BlogPage() {
       <section className="py-24 sm:py-32">
         <Container>
           <SectionLabel>Topics</SectionLabel>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <div className="mt-reveal-group mt-8 grid gap-5 md:grid-cols-3">
             {visiblePosts.map((post) => {
               return (
               <article key={post.title} className="border border-mt-border bg-white p-6">

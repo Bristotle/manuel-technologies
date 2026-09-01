@@ -99,7 +99,7 @@ export function Engine() {
         </div>
 
         {/* Figure */}
-        <figure className="mt-14 overflow-hidden rounded-[18px] border border-mt-border bg-white">
+        <figure className="mt-reveal mt-14 overflow-hidden rounded-[18px] border border-mt-border bg-white">
           <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-b border-mt-border px-6 py-4">
             <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">
               Fig. 01
@@ -308,7 +308,7 @@ export function Engine() {
         </figure>
 
         {/* Axioms */}
-        <ol className="mt-14 grid gap-8 md:grid-cols-3">
+        <ol className="mt-reveal-group mt-14 grid gap-8 md:grid-cols-3">
           {AXIOMS.map((a) => (
             <li key={a.code} className="border-t border-mt-border pt-6">
               <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">

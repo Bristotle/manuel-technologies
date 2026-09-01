@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
+import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
 import { hasCaseStudy } from "@/lib/case-studies";
@@ -43,8 +44,9 @@ export default function Work() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="bg-white py-24 sm:py-32">
-        <Container>
+      <section className="relative overflow-hidden bg-white py-24 sm:py-32">
+        <DotGrid fade="bottom" />
+        <Container className="relative">
           <SectionLabel>Work</SectionLabel>
           <h1 className="mt-6 max-w-[14ch]">Everything here is live.</h1>
           <p className="mt-8 max-w-[60ch] text-lg leading-relaxed text-mt-slate">
@@ -58,7 +60,7 @@ export default function Work() {
       {/* Projects */}
       <section className="py-24 sm:py-32">
         <Container>
-          <div className="flex flex-col gap-24">
+          <div className="mt-reveal-group flex flex-col gap-24">
             {PROJECTS.filter((p) => p.thumb).map((p, i) => (
               <article
                 key={p.slug}

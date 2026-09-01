@@ -141,7 +141,7 @@ export function Motions() {
           ))}
         </ol>
 
-        <div className="mt-4">
+        <div className="mt-reveal-group mt-4">
           {MOTIONS.map((motion) => (
             <article
               key={motion.number}

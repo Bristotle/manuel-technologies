@@ -78,8 +78,16 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <main>
+      {/* Reading progress. mt-scroll-progress is scroll driven CSS, so this
+          rail costs no JavaScript and no scroll listener. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-x-0 top-0 z-50 h-0.5 bg-transparent"
+      >
+        <div className="mt-scroll-progress h-full w-full bg-mt-purple" />
+      </div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <section className="border-b border-mt-border bg-white py-24 sm:py-32">
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
         <Container>
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/blog">Blog</Link><span aria-hidden="true">/</span><span>{post.cluster}</span>
@@ -95,9 +103,9 @@ export default async function BlogPostPage({ params }: PageProps) {
       <article className="py-24 sm:py-32"><Container><div className="grid gap-16 lg:grid-cols-[minmax(0,680px)_280px] lg:items-start">
         <div>
           <div className="border-l-4 border-mt-purple bg-white p-6"><SectionLabel>Quick answer</SectionLabel><p className="mt-4 text-lg leading-relaxed">{post.lead}</p></div>
-          <div className="mt-16">{post.sections.map((item) => <section id={sectionId(item.heading)} key={item.heading} className="mb-16 scroll-mt-8"><h2 className="!text-3xl">{item.heading}</h2>{item.paragraphs.map((paragraph) => <p key={paragraph} className="mt-6 text-lg leading-relaxed text-mt-slate">{paragraph}</p>)}</section>)}</div>
+          <div className="mt-reveal-group mt-16">{post.sections.map((item) => <section id={sectionId(item.heading)} key={item.heading} className="mb-16 scroll-mt-8"><h2 className="!text-3xl">{item.heading}</h2>{item.paragraphs.map((paragraph) => <p key={paragraph} className="mt-6 text-lg leading-relaxed text-mt-slate">{paragraph}</p>)}</section>)}</div>
           <section id="final-thoughts" className="scroll-mt-8 py-4"><SectionLabel>Final thoughts</SectionLabel><p className="mt-6 text-xl leading-relaxed">{post.conclusion}</p></section>
-          <section id="faqs" className="mt-16 scroll-mt-8"><SectionLabel>Frequently asked questions</SectionLabel><div className="mt-8 flex flex-col gap-8">{post.faqs.map((item) => <div key={item.question} className="pt-2"><h2 className="!text-2xl">{item.question}</h2><p className="mt-4 text-lg leading-relaxed text-mt-slate">{item.answer}</p></div>)}</div></section>
+          <section id="faqs" className="mt-16 scroll-mt-8"><SectionLabel>Frequently asked questions</SectionLabel><div className="mt-reveal-group mt-8 flex flex-col gap-8">{post.faqs.map((item) => <div key={item.question} className="pt-2"><h2 className="!text-2xl">{item.question}</h2><p className="mt-4 text-lg leading-relaxed text-mt-slate">{item.answer}</p></div>)}</div></section>
           <section className="mt-16 pt-8"><SectionLabel>Sources</SectionLabel><ul className="mt-6 flex flex-wrap gap-x-6 gap-y-3">{post.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer" className="text-sm text-mt-slate underline decoration-mt-border underline-offset-4 hover:text-mt-purple">{source.label}</a></li>)}</ul></section>
           <section className="mt-16 border-y border-mt-border bg-white px-6 py-12 sm:px-10"><SectionLabel>Next step</SectionLabel><h2 className="mt-6 !text-3xl">Turn the research into a working plan.</h2><p className="mt-6 max-w-[55ch] text-lg leading-relaxed text-mt-slate">Bring the evidence, constraints, and next decision. We will help you turn it into a clear technical brief.</p><div className="mt-8 flex flex-wrap gap-4"><Button href={post.serviceHref}>Explore the related service</Button><Button href="/contact" variant="secondary">Start a conversation</Button></div></section>
         </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { Container } from "@/components/ui/Container";
+import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { WorkProcess } from "@/components/WorkProcess";
 import { SITE } from "@/lib/site";
@@ -15,8 +16,9 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main>
-      <section className="bg-white py-24 sm:py-32">
-        <Container>
+      <section className="relative overflow-hidden bg-white py-24 sm:py-32">
+        <DotGrid fade="bottom" />
+        <Container className="relative">
           <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
               <SectionLabel>Start a conversation</SectionLabel>

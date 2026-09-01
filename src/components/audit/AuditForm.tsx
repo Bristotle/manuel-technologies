@@ -118,7 +118,7 @@ export function AuditForm() {
   return (
     <div>
       {/* Input */}
-      <form onSubmit={run} className="rounded-[18px] border border-mt-border bg-white p-7 sm:p-8">
+      <form onSubmit={run} className="mt-beam rounded-[18px] border border-mt-border p-7 sm:p-8">
         <label
           htmlFor="audit-url"
           className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple"
@@ -143,7 +143,7 @@ export function AuditForm() {
           <button
             type="submit"
             disabled={state === "running" || url.trim().length === 0}
-            className="inline-flex min-h-12 shrink-0 items-center justify-center rounded-[10px] bg-mt-purple px-6 py-3.5 text-base font-semibold text-white transition-colors duration-150 hover:bg-mt-purple-light active:bg-mt-purple disabled:opacity-50"
+            className="mt-sheen relative inline-flex min-h-12 shrink-0 items-center justify-center rounded-[10px] bg-mt-purple px-6 py-3.5 text-base font-semibold text-white transition-colors duration-150 hover:bg-mt-purple-light active:bg-mt-purple disabled:opacity-50"
           >
             {state === "running" ? "Auditing your site" : "Audit my site"}
           </button>
@@ -211,7 +211,7 @@ export function AuditForm() {
                 {report.advice.summary}
               </p>
 
-              <ol className="mt-10">
+              <ol className="mt-reveal-group mt-10">
                 {report.advice.actions.map((action) => (
                   <li
                     key={action.rank}

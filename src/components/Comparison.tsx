@@ -190,7 +190,7 @@ export function Comparison({
             className="pointer-events-none absolute inset-y-0 right-0 hidden w-[calc(50%-2.25rem)] bg-gradient-to-b from-mt-surface via-mt-surface to-white lg:block"
           />
 
-          <div className="relative grid lg:grid-cols-[1fr_4.5rem_1fr]">
+          <div className="mt-reveal relative grid lg:grid-cols-[1fr_4.5rem_1fr]">
             {/* Headers */}
             <div className="border-b border-mt-border bg-white px-6 py-8 sm:px-8">
               <span className="inline-flex rounded-[20px] border border-mt-border bg-mt-surface px-3 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-slate">

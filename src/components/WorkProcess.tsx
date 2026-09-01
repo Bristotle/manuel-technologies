@@ -37,7 +37,7 @@ export function WorkProcess({ compact = false }: { compact?: boolean }) {
             </p>
           </div>
 
-          <ol className="grid gap-8 sm:grid-cols-2">
+          <ol className="mt-reveal-group grid gap-8 sm:grid-cols-2">
             {STEPS.map((step) => (
               <li key={step.number} className="border-t border-mt-border pt-6">
                 <span className="font-[family-name:var(--font-mono)] text-xs tracking-[0.18em] text-mt-purple">

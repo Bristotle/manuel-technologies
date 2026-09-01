@@ -176,8 +176,11 @@ export default function FreeAudit() {
       />
 
       {/* Hero, with the tool in it */}
-      <section className="border-b border-mt-border bg-white py-20 sm:py-28">
-        <Container>
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
+        {/* Aurora, palette locked. The tool is the product demo, so this is
+            the one hero that earns a moving background. */}
+        <div aria-hidden="true" className="mt-aurora pointer-events-none absolute inset-0" />
+        <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">
               Home
@@ -234,7 +237,7 @@ export default function FreeAudit() {
             <span className="text-mt-purple">measured, not guessed.</span>
           </h2>
 
-          <div className="mt-14 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-reveal-group mt-14 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border md:grid-cols-2 lg:grid-cols-3">
             {COVERAGE.map((item) => (
               <div key={item.code} className="flex flex-col gap-4 bg-white p-7">
                 <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">
@@ -272,7 +275,7 @@ export default function FreeAudit() {
             score.
           </p>
 
-          <div className="mt-14 grid gap-8 md:grid-cols-4">
+          <div className="mt-reveal-group mt-14 grid gap-8 md:grid-cols-4">
             {STEPS.map((s) => (
               <div key={s.step} className="border-t border-mt-border pt-6">
                 <span className="font-[family-name:var(--font-mono)] text-xs tracking-[0.18em] text-mt-purple">
@@ -336,7 +339,7 @@ export default function FreeAudit() {
           <SectionLabel>Questions</SectionLabel>
           <h2 className="mt-6 max-w-[22ch]">What people ask about the audit.</h2>
 
-          <div className="mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">
+          <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">
             {FAQS.map((f) => (
               <article key={f.q} className="border-t border-mt-border pt-6">
                 <h3 className="!text-lg !tracking-tight">{f.q}</h3>

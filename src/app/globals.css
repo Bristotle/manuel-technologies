@@ -340,6 +340,165 @@
   transform: scaleX(1);
 }
 
+/* ==========================================================================
+   Effect primitives, taken from the 21st.dev vocabulary.
+   --------------------------------------------------------------------------
+   21st.dev aggregates Magic UI, Aceternity, Origin UI and Geist. Their
+   register is shimmer buttons, border beams, spotlights and animated fields.
+   Those are the patterns worth having. What is NOT worth having is how most
+   of them are built there: WebGL shaders, three.js galleries, liquid metal,
+   and framer-motion on everything.
+
+   This site already ships about 145KB gzipped of first load JavaScript
+   against a stated budget of 100KB. Every primitive below is therefore CSS
+   only and costs 0KB. Each animates transform, opacity or background-position
+   exclusively, so none of them triggers layout or costs CLS, and the global
+   prefers-reduced-motion reset below switches all of them off.
+
+   No box-shadow anywhere, including for the glow effects, which is the usual
+   way these are built elsewhere. Depth comes from overlap and gradient.
+   ========================================================================== */
+
+/* Shimmer sweep. Magic UI's shimmer button, without the JS.
+   A light band travels across the surface on hover. */
+.mt-sheen {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.mt-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    rgb(255 255 255 / 0.22) 45%,
+    transparent 70%
+  );
+  transform: translate3d(-120%, 0, 0);
+  transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.mt-sheen:hover::after,
+.mt-sheen:focus-visible::after {
+  transform: translate3d(120%, 0, 0);
+}
+
+/* Spotlight. Aceternity's spotlight card, minus the mouse tracking that
+   forces a client component. A soft purple field rises from the lower edge
+   on hover, which reads as depth without a shadow. */
+.mt-spot {
+  position: relative;
+  isolation: isolate;
+}
+.mt-spot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    120% 80% at 50% 115%,
+    var(--color-mt-surface) 0%,
+    transparent 62%
+  );
+  opacity: 0;
+  transition: opacity 260ms ease;
+  pointer-events: none;
+}
+.mt-spot:hover::before,
+.mt-spot:focus-within::before {
+  opacity: 1;
+}
+
+/* Border beam. Magic UI's rotating border.
+   Geometry matters here and the obvious version is wrong. A conic gradient
+   sized to the element and then rotated sweeps its own corners outside the
+   box, so it leaks past the card as a wedge. The fix is a square larger than
+   the element, centred and spun, with the parent clipping it, and an inset
+   panel covering all but a 1px ring.
+
+   The element must NOT carry its own background: isolation creates a stacking
+   context, so the negative z-index pseudo elements paint behind it and any
+   background on the element itself hides the beam entirely.
+
+   Use on ONE element per page, the thing that should look live. */
+.mt-beam {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.mt-beam::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  left: 50%;
+  top: 50%;
+  width: 190%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    var(--color-mt-purple) 30deg,
+    var(--color-mt-purple-light) 55deg,
+    transparent 95deg,
+    transparent 360deg
+  );
+  animation: mt-beam-spin 7s linear infinite;
+}
+.mt-beam::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: #fff;
+}
+
+@keyframes mt-beam-spin {
+  to { transform: rotate(1turn); }
+}
+
+/* Aurora field. The "gradients" category, palette locked: two soft purple
+   washes drifting behind a hero. Background-position only, so it composites
+   on the GPU and never reflows. */
+.mt-aurora {
+  background-image:
+    radial-gradient(38% 46% at 18% 22%, color-mix(in srgb, var(--color-mt-purple) 6%, transparent) 0%, transparent 70%),
+    radial-gradient(34% 42% at 82% 12%, color-mix(in srgb, var(--color-mt-purple-light) 7%, transparent) 0%, transparent 68%);
+  background-repeat: no-repeat;
+  background-size: 180% 180%, 170% 170%;
+  animation: mt-aurora-drift 26s ease-in-out infinite alternate;
+}
+
+@keyframes mt-aurora-drift {
+  from { background-position: 0% 0%, 100% 0%; }
+  to   { background-position: 18% 12%, 78% 10%; }
+}
+
+/* Text sheen. A single pass of light across display type on hover. */
+.mt-text-sheen {
+  background-image: linear-gradient(
+    100deg,
+    currentColor 0%,
+    currentColor 40%,
+    var(--color-mt-purple-light) 50%,
+    currentColor 60%,
+    currentColor 100%
+  );
+  background-size: 300% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: background-position 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mt-text-sheen:hover {
+  background-position: 0 0;
+  color: transparent;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

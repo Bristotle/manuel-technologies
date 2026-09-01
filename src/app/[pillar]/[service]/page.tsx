@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { WorkProcess } from "@/components/WorkProcess";
 import {
@@ -89,8 +90,9 @@ export default async function ServicePage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="border-b border-mt-border bg-white py-24 sm:py-32">
-        <Container>
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
+        <DotGrid fade="bottom" />
+        <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link>
             <span aria-hidden="true">/</span>
@@ -143,7 +145,7 @@ export default async function ServicePage({ params }: PageProps) {
         <Container>
           <SectionLabel>Related services</SectionLabel>
           <h2 className="mt-6 max-w-[18ch]">Continue with the part that matters next.</h2>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
+          <div className="mt-reveal-group mt-10 grid gap-5 md:grid-cols-3">
             {relatedServices.map((related) => (
               <Link
                 key={related.slug}
@@ -168,7 +170,7 @@ export default async function ServicePage({ params }: PageProps) {
       <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container>
           <SectionLabel>Frequently asked questions</SectionLabel>
-          <div className="mt-8 grid gap-8 md:grid-cols-2">
+          <div className="mt-reveal-group mt-8 grid gap-8 md:grid-cols-2">
             {page.faqs.map((faq) => (
               <article key={faq.question} className="border-t border-mt-border pt-6">
                 <h2 className="!text-xl !tracking-tight">{faq.question}</h2>

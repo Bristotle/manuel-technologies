@@ -92,7 +92,7 @@ export default function Home() {
           <div className="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div>
               <SectionLabel>Working worldwide</SectionLabel>
-              <h1 className="mt-8 flex flex-col leading-[0.92] tracking-[-0.04em]">
+              <h1 className="mt-reveal-display mt-8 flex flex-col leading-[0.92] tracking-[-0.04em]">
                 <span>Build.</span>
                 <span>Grow.</span>
                 <span className="text-mt-purple">Scale.</span>

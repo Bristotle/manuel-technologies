@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Card } from "@/components/ui/Card";
+import { DotGrid } from "@/components/ui/DotGrid";
 import { Button } from "@/components/ui/Button";
 import { PILLARS, SITE, type Pillar } from "@/lib/site";
 
@@ -61,8 +62,9 @@ export function PillarHub({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="border-b border-mt-border bg-white py-24 sm:py-32">
-        <Container>
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
+        <DotGrid fade="bottom" />
+        <Container className="relative">
           <SectionLabel>{pillar.name.toUpperCase()}</SectionLabel>
           <h1 className="mt-6 max-w-[16ch]">{pillar.promise}</h1>
           <p className="mt-8 max-w-[60ch] text-lg text-mt-slate">

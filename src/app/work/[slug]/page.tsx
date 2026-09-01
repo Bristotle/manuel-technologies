@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import {
   getCaseStudy,
@@ -117,8 +118,9 @@ export default async function CaseStudyPage({ params }: PageProps) {
       />
 
       {/* Hero */}
-      <section className="border-b border-mt-border bg-white py-24 sm:py-32">
-        <Container>
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
+        <DotGrid fade="bottom" />
+        <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">
               Home
@@ -221,7 +223,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             Everything above is{" "}
             <span className="text-mt-purple">verifiable on the live site.</span>
           </h2>
-          <ul className="mt-10 max-w-[680px] flex flex-col">
+          <ul className="mt-reveal-group mt-10 max-w-[680px] flex flex-col">
             {study.verify.map((item) => (
               <li
                 key={item}
@@ -296,7 +298,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         <section className="border-t border-mt-border py-24 sm:py-32">
           <Container>
             <SectionLabel>More work</SectionLabel>
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
+            <div className="mt-reveal-group mt-10 grid gap-5 md:grid-cols-3">
               {others.map(({ study: other, project: otherProject }) => (
                 <Link
                   key={other.slug}
