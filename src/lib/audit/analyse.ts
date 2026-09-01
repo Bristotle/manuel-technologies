@@ -30,7 +30,7 @@ import type {
    pillar scores.
    -------------------------------------------------------------------------- */
 
-const AI_CRAWLERS = [
+export const AI_CRAWLERS = [
   "GPTBot",
   "ClaudeBot",
   "PerplexityBot",
@@ -74,7 +74,7 @@ function metaContent(html: string, nameOrProperty: string): string | null {
 /* robots.txt, parsed only as far as we need: does a named agent get a blanket
    disallow. Deliberately conservative, because reporting a site as blocked
    when it is not would be worse than saying nothing. */
-function parseRobots(robotsTxt: string, path: string): CrawlerAccess[] {
+export function parseRobots(robotsTxt: string, path: string): CrawlerAccess[] {
   const lines = robotsTxt
     .split("\n")
     .map((l) => l.replace(/#.*$/, "").trim())
