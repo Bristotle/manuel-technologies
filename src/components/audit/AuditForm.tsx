@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { AuditReport, Check, CheckStatus } from "@/lib/audit/types";
 
@@ -85,12 +85,18 @@ function CheckRow({ check }: { check: Check }) {
 
 export function AuditForm() {
   const [url, setUrl] = useState("");
+  const autoRan = useRef(false);
   const [state, setState] = useState<"idle" | "running" | "done" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
   const [report, setReport] = useState<AuditReport | null>(null);
 
   async function run(event: React.FormEvent) {
     event.preventDefault();
+    await audit(url);
+  }
+
+  async function audit(target: string) {
+    setUrl(target);
     setState("running");
     setError(null);
     setReport(null);
@@ -99,7 +105,7 @@ export function AuditForm() {
       const response = await fetch("/api/audit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url }),
+        body: JSON.stringify({ url: target }),
       });
       const data = await response.json();
       if (!response.ok) {
@@ -114,6 +120,28 @@ export function AuditForm() {
       setState("error");
     }
   }
+
+  /* Handoff from the homepage hero, which pushes /free-audit#u=<domain>.
+
+     A fragment rather than a query string on purpose: searchParams would force
+     this route to render on demand, which is exactly what made /blog dynamic
+     until it was fixed. A fragment never reaches the server, so the page stays
+     static and the handoff still works.
+
+     Deferred to a microtask so no state is set synchronously inside the effect
+     body, and guarded by a ref so it can only ever fire once. */
+  useEffect(() => {
+    if (autoRan.current) return;
+    const match = window.location.hash.match(/^#u=(.+)$/);
+    if (!match) return;
+    autoRan.current = true;
+    const incoming = decodeURIComponent(match[1]).slice(0, 300);
+    /* Clear it so a refresh does not silently repeat a paid call. */
+    window.history.replaceState(null, "", window.location.pathname);
+    queueMicrotask(() => {
+      void audit(incoming);
+    });
+  }, []);
 
   return (
     <div>

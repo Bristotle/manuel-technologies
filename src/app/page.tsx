@@ -9,6 +9,7 @@ import { WorkProcess } from "@/components/WorkProcess";
 import { ClientMarquee } from "@/components/ClientMarquee";
 import { ClientSpotlight } from "@/components/ClientSpotlight";
 import { Comparison } from "@/components/Comparison";
+import { HeroAudit } from "@/components/HeroAudit";
 import { Engine } from "@/components/Engine";
 import { FunnelCoverage } from "@/components/FunnelCoverage";
 import { Motions } from "@/components/Motions";
@@ -18,6 +19,27 @@ import { SelectedWork } from "@/components/SelectedWork";
 import { DotGrid } from "@/components/ui/DotGrid";
 import { Integrations } from "@/components/Integrations";
 import { CAPABILITIES, PILLARS, SITE } from "@/lib/site";
+
+/* One countable artefact per pillar, each from real client work and each
+   checkable by opening the client's own site. Counts, never percentages: a
+   percentage nobody can audit is worth less than a number they can. */
+const PILLAR_PROOF: Record<string, { value: string; label: string; detail: string }> = {
+  build: {
+    value: "9",
+    label: "Tax calculators shipped",
+    detail: "Each on its own URL, in a regulated domain where the arithmetic has consequences. Capital Gains Tax Experts.",
+  },
+  grow: {
+    value: "20",
+    label: "City pages live",
+    detail: "Programmatic pages carrying real local pricing, with the methodology published. Dementia In Home.",
+  },
+  scale: {
+    value: "52",
+    label: "Tools integrated",
+    detail: "Systems we connect to, from CRMs to custom SQL, listed openly rather than described vaguely.",
+  },
+};
 
 const STANDARDS = [
   {
@@ -83,73 +105,132 @@ export default function Home() {
 
   return (
     <main>
-      {/* Hero. The tagline is the H1. Nothing restates it underneath.
-          The dot grid sits behind it so the space around the type reads as
-          deliberate rather than unfinished. REF-008. */}
-      <section className="relative overflow-hidden bg-white py-24 sm:py-32">
+      {/* Hero. The tagline is the H1, and the live audit sits beside it.
+
+          CLAUDE.md section 4 requires visual evidence in every viewport and
+          names the homepage hero specifically. It had none: two columns of
+          text and two buttons. "Live beats static. A working tool on the page
+          outperforms any screenshot, because the prospect experiences the
+          competence rather than reading a claim about it."
+
+          The counters underneath are countable facts, each verifiable by
+          opening a page. Not percentages, not outcomes. */}
+      <section className="relative overflow-hidden bg-white py-20 sm:py-28">
         <DotGrid fade="center" />
         <Container className="relative">
-          <div className="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+          <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20">
             <div>
               <SectionLabel>Working worldwide</SectionLabel>
-              <h1 className="mt-reveal-display mt-8 flex flex-col leading-[0.92] tracking-[-0.04em]">
+              <h1 className="mt-reveal-display mt-7 flex flex-col leading-[0.92] tracking-[-0.04em]">
                 <span>Build.</span>
                 <span>Grow.</span>
                 <span className="text-mt-purple">Scale.</span>
               </h1>
-            </div>
-
-            <div className="lg:pb-3">
-              <p className="max-w-[52ch] text-lg leading-relaxed text-mt-slate">
+              <p className="mt-8 max-w-[52ch] text-lg leading-relaxed text-mt-slate">
                 Websites and custom software. SEO and GEO. AI agents and
-                automation development. Built by an engineer who does this
-                professionally, not an agency passing your work to a junior.
+                automation development. Built under senior engineering
+                ownership, not passed down to a junior.
               </p>
-              <p className="mt-6 max-w-[52ch] text-lg font-semibold text-mt-ink">
-                {SITE.proof}
-              </p>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Button href="/contact">
-                  Start a conversation
-                </Button>
-                <Button href="/work" variant="secondary">
-                  See our work
-                </Button>
+              <div className="mt-9 flex flex-wrap gap-4">
+                <Button href="/contact">Start a conversation</Button>
+                <Button href="/work" variant="secondary">See our work</Button>
               </div>
             </div>
+
+            <div>
+              <HeroAudit />
+              <p className="mt-6 max-w-[46ch] text-[0.9375rem] leading-relaxed text-mt-slate">
+                {SITE.proof}
+              </p>
+            </div>
           </div>
+
+          {/* Countable, and every one checkable by opening a page. */}
+          <dl className="mt-16 grid gap-8 border-t border-mt-border pt-8 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              ["12", "Free tools, none gated"],
+              ["5", "Case studies you can open"],
+              ["4", "Markets delivered in"],
+              ["1", "Extension on the Chrome store"],
+            ].map(([value, label]) => (
+              <div key={label}>
+                <dt className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase leading-relaxed tracking-[0.14em] text-mt-muted">
+                  {label}
+                </dt>
+                <dd className="mt-2 text-3xl font-extrabold tracking-tight text-mt-ink">
+                  {value}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </Container>
       </section>
 
       <Marquee items={CAPABILITIES} />
 
-      {/* Pillars. The tagline doubles as the navigation. */}
+      {/* Pillars. The tagline doubles as the navigation.
+
+          Rebuilt from a list of service names into a proof grid. Each pillar
+          now carries one countable artefact from real client work, verifiable
+          by opening the client's site, because CLAUDE.md section 4 asks every
+          viewport for evidence rather than description and three cards of
+          service names is a nav menu wearing a card. The service links stay,
+          since they are what the section is for structurally. */}
       <section className="py-24 sm:py-32">
         <Container>
-          <SectionLabel>What we do</SectionLabel>
-          <h2 className="mt-6 max-w-[18ch]">
-            Three pillars. Professional engineering across all of them.
-          </h2>
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+            <SectionLabel>What we do</SectionLabel>
+            <h2 className="max-w-[24ch] !text-3xl sm:!text-4xl lg:text-right">
+              Three pillars, and something{" "}
+              <span className="text-mt-purple">shipped in each.</span>
+            </h2>
+          </div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-3 mt-reveal-group">
-            {PILLARS.map((pillar) => (
-              <Card key={pillar.slug} href={`/${pillar.slug}`}>
-                <SectionLabel>{pillar.name.toUpperCase()}</SectionLabel>
-                <p className="mt-4 text-base font-semibold leading-snug">
-                  {pillar.promise}
-                </p>
-                <ul className="mt-5 flex flex-col gap-2 text-[0.9375rem] text-mt-slate">
-                  {pillar.services.slice(0, 4).map((s) => (
-                    <li key={s.href}>{s.name}</li>
-                  ))}
-                  {pillar.services.length > 4 && (
-                    <li className="text-mt-muted">
-                      and {pillar.services.length - 4} more
-                    </li>
-                  )}
-                </ul>
-              </Card>
-            ))}
+          <div className="mt-reveal-group mt-14 grid gap-5 md:grid-cols-3">
+            {PILLARS.map((pillar) => {
+              const proof = PILLAR_PROOF[pillar.slug];
+              return (
+                <Card key={pillar.slug} href={`/${pillar.slug}`} className="flex flex-col">
+                  <SectionLabel>{pillar.name.toUpperCase()}</SectionLabel>
+                  <p className="mt-5 text-lg font-semibold leading-snug text-mt-ink">
+                    {pillar.promise}
+                  </p>
+
+                  {/* The evidence, not a description of it. */}
+                  <div className="mt-7 border-t border-mt-border pt-6">
+                    <span className="block text-3xl font-extrabold tracking-tight text-mt-purple">
+                      {proof.value}
+                    </span>
+                    <span className="mt-2 block font-[family-name:var(--font-mono)] text-[0.625rem] uppercase leading-relaxed tracking-[0.14em] text-mt-muted">
+                      {proof.label}
+                    </span>
+                    <p className="mt-3 text-[0.875rem] leading-relaxed text-mt-slate">
+                      {proof.detail}
+                    </p>
+                  </div>
+
+                  <ul className="mt-6 flex flex-1 flex-wrap content-start gap-2 border-t border-mt-border pt-6">
+                    {pillar.services.slice(0, 4).map((service) => (
+                      <li
+                        key={service.href}
+                        className="whitespace-nowrap rounded-[20px] border border-mt-border bg-mt-surface px-2.5 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.12em] text-mt-slate"
+                      >
+                        {service.name}
+                      </li>
+                    ))}
+                    {pillar.services.length > 4 && (
+                      <li className="self-center font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.12em] text-mt-muted">
+                        +{pillar.services.length - 4} more
+                      </li>
+                    )}
+                  </ul>
+
+                  <span className="mt-7 inline-flex text-sm font-semibold text-mt-purple">
+                    Explore {pillar.name}
+                  </span>
+                </Card>
+              );
+            })}
           </div>
         </Container>
       </section>
