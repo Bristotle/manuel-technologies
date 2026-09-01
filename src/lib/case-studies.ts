@@ -115,7 +115,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "Programmatic city pages for a US caregiver service",
     metaTitle: "Programmatic city pages, US caregiving",
     description:
-      "Twenty city pages carrying real local pricing, a published methodology for the numbers, and an architecture that reaches several hundred cities.",
+      "Over a thousand programmatic pages across twenty cities, each carrying real local pricing, with the methodology behind the numbers published.",
     lead: "Dementia In Home matches families with vetted in-home dementia caregivers across the United States. Local search is the whole market, and local search at national scale is where most programmatic page sets quietly fail.",
     sections: [
       {
@@ -129,7 +129,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         heading: "What makes each page different",
         paragraphs: [
           "Every city page carries local pricing for in-home dementia care in that market. Care costs in Baltimore are not care costs in Seattle, and a family comparing options needs the local figure, not a national average with a disclaimer.",
-          "Twenty cities are live, spanning most major US care markets: Baltimore, Boston, Buffalo, Charlotte, Chicago, Columbus, Dallas, Denver, Detroit, Houston, Los Angeles, Memphis, Milwaukee, New York, Philadelphia, Phoenix, San Antonio, San Diego, Seattle and Tucson.",
+          "Twenty city hubs are live, each expanding into around fifty pages, spanning most major US care markets: Baltimore, Boston, Buffalo, Charlotte, Chicago, Columbus, Dallas, Denver, Detroit, Houston, Los Angeles, Memphis, Milwaukee, New York, Philadelphia, Phoenix, San Antonio, San Diego, Seattle and Tucson.",
           "The architecture supports several hundred without a rebuild, which is the point of doing it programmatically. What limits expansion is pricing data coverage, not engineering. That is the correct constraint, and it is deliberate: the build will not publish a city it cannot describe honestly.",
         ],
       },
@@ -149,7 +149,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     verify: [
-      "Twenty city pages are live under /cities, each carrying local pricing rather than a national figure.",
+      "The sitemap carries 1,067 URLs: twenty cities with around fifty pages each, every one holding local pricing rather than a national figure.",
       "The homepage publishes a section explaining where its pricing numbers come from.",
       "Six distinct service paths are published, from companion care through to hospital discharge.",
       "Caregiver profiles are real video profiles, viewable before any commitment.",

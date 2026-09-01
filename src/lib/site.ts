@@ -244,10 +244,10 @@ export const PROJECTS: Project[] = [
     market: "United States",
     sector: "Healthcare",
     summary:
-      "A national caregiver matching service built on Next.js, with programmatic city pages carrying real local pricing. Twenty city pages are live, and the page architecture is designed to reach several hundred without a rebuild.",
+      "A national caregiver matching service built on Next.js. Over a thousand programmatic pages across twenty cities, each carrying real local pricing, built to scale further without a rebuild.",
     scope: ["Website Development", "Programmatic SEO", "Custom Software"],
     thumb: "/work/dementia-in-home.webp",
-    metric: "20 city pages",
+    metric: "1,000+ pages",
   },
   {
     slug: "miyaki-beauty",

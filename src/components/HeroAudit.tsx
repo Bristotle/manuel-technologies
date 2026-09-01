@@ -33,7 +33,7 @@ export function HeroAudit() {
   }
 
   return (
-    <form onSubmit={go} className="mt-beam rounded-[18px] border border-mt-border p-6 sm:p-7">
+    <form onSubmit={go} className="mt-beam rounded-[18px] border border-mt-border p-6 sm:p-8">
       <div className="flex items-center justify-between gap-4">
         <span className="mt-label">( Try it on your own site )</span>
         <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.14em] text-mt-muted">
@@ -44,7 +44,7 @@ export function HeroAudit() {
       <label htmlFor="hero-audit" className="sr-only">
         Your website address
       </label>
-      <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+      <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
         <input
           id="hero-audit"
           type="text"
@@ -53,7 +53,7 @@ export function HeroAudit() {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="yourcompany.com"
-          className="min-h-12 w-full rounded-[10px] border border-mt-border bg-white px-4 py-3 text-base text-mt-ink transition-colors duration-150 placeholder:text-mt-muted hover:border-mt-purple-light focus:border-mt-purple"
+          className="min-h-12 w-full sm:max-w-[34rem] rounded-[10px] border border-mt-border bg-white px-4 py-3 text-base text-mt-ink transition-colors duration-150 placeholder:text-mt-muted hover:border-mt-purple-light focus:border-mt-purple"
         />
         <button
           type="submit"

@@ -24,7 +24,8 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 
    So the bar keeps its shape and takes numbers that are ours and countable:
 
-     20 city pages     Dementia In Home, live under /cities
+     1,000+ pages      Dementia In Home, 20 cities x ~50 pages, 1,067 in
+                       its sitemap
      5 case studies    published at /work on this site
      9 calculators     Capital Gains Tax Experts, each on its own URL
      52 tools          listed at /integrations
@@ -83,7 +84,7 @@ const STAGES: Stage[] = [
 
 /* One countable fact per stage. Each is checkable by opening a page. */
 const IMPACT = [
-  { value: "20", label: "City pages", stage: "Stage 01" },
+  { value: "1,000+", label: "Pages live", stage: "Stage 01" },
   { value: "5", label: "Case studies", stage: "Stage 02" },
   { value: "9", label: "Calculators", stage: "Stage 03" },
   { value: "52", label: "Integrations", stage: "Stage 04" },

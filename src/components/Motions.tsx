@@ -23,7 +23,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 
    Ours are counts of things that exist, each verifiable by opening a page:
 
-     Acquire    5 crawlers named in robots.ts · 20 city pages · 13 articles
+     Acquire    5 crawlers named in robots.ts · 1,000+ pages · 13 articles
      Convert    9 calculators · 1,000+ products · 5 case studies
      Compound   52 integrations · 4 live tools · 1 published extension
 
@@ -59,7 +59,7 @@ const MOTIONS: Motion[] = [
     panel: "Discovery surface · shipped",
     figures: [
       { value: "5", label: "AI crawlers named" },
-      { value: "20", label: "City pages live" },
+      { value: "1,000+", label: "Programmatic pages" },
       { value: "13", label: "Articles published" },
     ],
   },

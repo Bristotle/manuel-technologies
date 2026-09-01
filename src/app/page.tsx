@@ -20,19 +20,30 @@ import { DotGrid } from "@/components/ui/DotGrid";
 import { Integrations } from "@/components/Integrations";
 import { CAPABILITIES, PILLARS, SITE } from "@/lib/site";
 
-/* One countable artefact per pillar, each from real client work and each
-   checkable by opening the client's own site. Counts, never percentages: a
-   percentage nobody can audit is worth less than a number they can. */
+/* One countable artefact per pillar, each traceable to real work.
+
+   "9 tax calculators" was replaced because Emmanuel is right that it reads as
+   though calculators are all we do. The replacement is broader but still
+   countable: Impressiful alone carries over a thousand configured products,
+   and the label names the range around it.
+
+   NOT USED: "hundreds of web apps". There are six client builds. A prospect
+   who counts is the prospect you least want to lose, and CLAUDE.md section 9
+   is explicit that invented proof is the fastest way to lose a deal.
+
+   The Grow figure was corrected upward. Dementia In Home's sitemap carries
+   1,067 URLs, twenty city hubs at roughly fifty pages each. The previous "20"
+   counted only the /cities index and badly understated the work. */
 const PILLAR_PROOF: Record<string, { value: string; label: string; detail: string }> = {
   build: {
-    value: "9",
-    label: "Tax calculators shipped",
-    detail: "Each on its own URL, in a regulated domain where the arithmetic has consequences. Capital Gains Tax Experts.",
+    value: "1,000+",
+    label: "Products, pages and tools shipped",
+    detail: "Ecommerce catalogues, tax calculators, caregiver platforms and property portals. Four markets, one standard.",
   },
   grow: {
-    value: "20",
-    label: "City pages live",
-    detail: "Programmatic pages carrying real local pricing, with the methodology published. Dementia In Home.",
+    value: "1,067",
+    label: "Programmatic pages live",
+    detail: "Twenty city hubs at around fifty pages each, every one carrying real local pricing. Dementia In Home.",
   },
   scale: {
     value: "52",
@@ -105,64 +116,53 @@ export default function Home() {
 
   return (
     <main>
-      {/* Hero. The tagline is the H1, and the live audit sits beside it.
+      {/* Hero.
 
-          CLAUDE.md section 4 requires visual evidence in every viewport and
-          names the homepage hero specifically. It had none: two columns of
-          text and two buttons. "Live beats static. A working tool on the page
-          outperforms any screenshot, because the prospect experiences the
-          competence rather than reading a claim about it."
+          The tagline is set as large as it can go before it breaks at 360px,
+          which is what clamp() is protecting. It is the identity, so it earns
+          the space.
 
-          The counters underneath are countable facts, each verifiable by
-          opening a page. Not percentages, not outcomes. */}
+          The four counters that sat under this are gone. Emmanuel's read was
+          that they were not strong enough to make anyone reach out, and he is
+          right: they described the site rather than the visitor's problem.
+          The audit takes that place instead, full width, because it is the one
+          thing on the page that does something for a stranger immediately.
+
+          The right hand column is deliberately light for now. Not every
+          visitor arrives for search, so it is held for something that speaks
+          to the rest of them. */}
       <section className="relative overflow-hidden bg-white py-20 sm:py-28">
         <DotGrid fade="center" />
         <Container className="relative">
-          <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20">
+          <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-20">
             <div>
               <SectionLabel>Working worldwide</SectionLabel>
-              <h1 className="mt-reveal-display mt-7 flex flex-col leading-[0.92] tracking-[-0.04em]">
+              <h1 className="mt-reveal-display mt-7 flex flex-col !text-[clamp(3.25rem,13vw,7rem)] font-extrabold !leading-[0.86] !tracking-[-0.05em]">
                 <span>Build.</span>
                 <span>Grow.</span>
                 <span className="text-mt-purple">Scale.</span>
               </h1>
-              <p className="mt-8 max-w-[52ch] text-lg leading-relaxed text-mt-slate">
+            </div>
+
+            <div className="lg:pb-2">
+              <p className="max-w-[46ch] text-lg leading-relaxed text-mt-slate">
                 Websites and custom software. SEO and GEO. AI agents and
                 automation development. Built under senior engineering
                 ownership, not passed down to a junior.
+              </p>
+              <p className="mt-6 max-w-[46ch] text-lg font-semibold text-mt-ink">
+                {SITE.proof}
               </p>
               <div className="mt-9 flex flex-wrap gap-4">
                 <Button href="/contact">Start a conversation</Button>
                 <Button href="/work" variant="secondary">See our work</Button>
               </div>
             </div>
-
-            <div>
-              <HeroAudit />
-              <p className="mt-6 max-w-[46ch] text-[0.9375rem] leading-relaxed text-mt-slate">
-                {SITE.proof}
-              </p>
-            </div>
           </div>
 
-          {/* Countable, and every one checkable by opening a page. */}
-          <dl className="mt-16 grid gap-8 border-t border-mt-border pt-8 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              ["12", "Free tools, none gated"],
-              ["5", "Case studies you can open"],
-              ["4", "Markets delivered in"],
-              ["1", "Extension on the Chrome store"],
-            ].map(([value, label]) => (
-              <div key={label}>
-                <dt className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase leading-relaxed tracking-[0.14em] text-mt-muted">
-                  {label}
-                </dt>
-                <dd className="mt-2 text-3xl font-extrabold tracking-tight text-mt-ink">
-                  {value}
-                </dd>
-              </div>
-            ))}
-          </dl>
+          <div className="mt-16 border-t border-mt-border pt-10">
+            <HeroAudit />
+          </div>
         </Container>
       </section>
 
@@ -213,7 +213,7 @@ export default function Home() {
                     {pillar.services.slice(0, 4).map((service) => (
                       <li
                         key={service.href}
-                        className="whitespace-nowrap rounded-[20px] border border-mt-border bg-mt-surface px-2.5 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.12em] text-mt-slate"
+                        className="whitespace-nowrap rounded-[20px] border border-mt-purple/25 bg-mt-surface px-2.5 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.12em] text-mt-purple"
                       >
                         {service.name}
                       </li>
