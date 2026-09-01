@@ -9,7 +9,9 @@ import { WorkProcess } from "@/components/WorkProcess";
 import { ClientMarquee } from "@/components/ClientMarquee";
 import { ClientSpotlight } from "@/components/ClientSpotlight";
 import { Comparison } from "@/components/Comparison";
+import { Engine } from "@/components/Engine";
 import { FunnelCoverage } from "@/components/FunnelCoverage";
+import { Motions } from "@/components/Motions";
 import { Testimonials } from "@/components/Testimonials";
 import { CallToAction } from "@/components/CallToAction";
 import { SelectedWork } from "@/components/SelectedWork";
@@ -154,11 +156,15 @@ export default function Home() {
 
       <FunnelCoverage />
 
+      <Engine />
+
       <WorkProcess />
 
       <SelectedWork />
 
       <ClientSpotlight />
+
+      <Motions />
 
       <Integrations />
 
