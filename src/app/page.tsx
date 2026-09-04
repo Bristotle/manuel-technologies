@@ -10,6 +10,7 @@ import { ClientMarquee } from "@/components/ClientMarquee";
 import { ClientSpotlight } from "@/components/ClientSpotlight";
 import { Comparison } from "@/components/Comparison";
 import { HeroAudit } from "@/components/HeroAudit";
+import ROUTE_DATES from "@/lib/route-dates.json";
 import { Engine } from "@/components/Engine";
 import { FunnelCoverage } from "@/components/FunnelCoverage";
 import { Motions } from "@/components/Motions";
@@ -101,6 +102,26 @@ export default function Home() {
   const faqs = Object.values(FAQ_CATEGORIES).flatMap(
     (category) => category.questions,
   );
+  /* WebPage carries the freshness signal. Organization does not take
+     dateModified: it is not an expected property on that type, and inventing
+     one would repeat the AutomationCompany mistake CLAUDE.md section 6 calls
+     out. WebPage does take it, and the value comes from route-dates.json so
+     there is no second date to keep in step. */
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE.url}/#webpage`,
+    url: SITE.url,
+    name: `${SITE.name} | ${SITE.tagline}`,
+    description:
+      "Websites and custom software, technical SEO and GEO, AI agents and automation, delivered under senior engineering ownership.",
+    inLanguage: "en-GB",
+    dateModified: (ROUTE_DATES as Record<string, string>)["/"],
+    isPartOf: { "@type": "WebSite", url: SITE.url, name: SITE.name },
+    about: { "@type": "Organization", name: SITE.name, url: SITE.url },
+    primaryImageOfPage: { "@type": "ImageObject", url: `${SITE.url}/og-default.webp` },
+  };
+
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -116,6 +137,10 @@ export default function Home() {
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       {/* Hero.
 
           The tagline is set as large as it can go before it breaks at 360px,
@@ -147,8 +172,11 @@ export default function Home() {
             <div className="lg:pb-2">
               <p className="max-w-[46ch] text-lg leading-relaxed text-mt-slate">
                 Websites and custom software. SEO and GEO. AI agents and
-                automation development. Built under senior engineering
-                ownership, not passed down to a junior.
+                automation development. Built under{" "}
+                <Link href="/about" className="text-mt-purple hover:underline">
+                  senior engineering ownership
+                </Link>
+                , not passed down to a junior.
               </p>
               <p className="mt-6 max-w-[46ch] text-lg font-semibold text-mt-ink">
                 {SITE.proof}
