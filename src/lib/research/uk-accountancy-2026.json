@@ -1,0 +1,33 @@
+{
+  "sampledAt": "2026-09-05",
+  "cities": [
+    "Manchester",
+    "Birmingham",
+    "Leeds",
+    "Bristol",
+    "Nottingham",
+    "Liverpool",
+    "Glasgow and Edinburgh",
+    "London"
+  ],
+  "sampled": 56,
+  "refused": 7,
+  "challenged": 5,
+  "measurable": 44,
+  "findings": {
+    "blockingAiCrawlers": 4,
+    "namingAiCrawlers": 7,
+    "noStructuredData": 7,
+    "localBusinessSchema": 5,
+    "faqSchema": 3,
+    "noSitemap": 2,
+    "notOneH1": 18,
+    "noMetaDescription": 3,
+    "noCanonical": 2,
+    "slowerThan3s": 26,
+    "medianResponseMs": 3497,
+    "medianHtmlKb": 212,
+    "medianWordCount": 1284,
+    "medianScore": 84
+  }
+}

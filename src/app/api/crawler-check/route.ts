@@ -1,4 +1,4 @@
-import { AI_CRAWLERS, parseRobots } from "@/lib/audit/analyse";
+import { AI_CRAWLERS, looksLikeRobotsTxt, parseRobots } from "@/lib/audit/analyse";
 import { normaliseInput, safeFetch, UnsafeUrlError } from "@/lib/audit/fetch";
 
 /* Focused robots.txt check for AI crawlers.
@@ -79,6 +79,19 @@ export async function POST(request: Request) {
       return Response.json(
         { error: `robots.txt returned HTTP ${robots.status}. Nothing can be checked until it responds.` },
         { status: 400 },
+      );
+    }
+
+    /* A challenge page or a soft 404 served at /robots.txt is not a
+       robots.txt. Parsing one produces phantom rules and a fabricated list of
+       blocked crawlers, which is worse than admitting we could not read it. */
+    if (!looksLikeRobotsTxt(robots.body)) {
+      return Response.json(
+        {
+          error:
+            "That domain returned something other than a robots.txt at /robots.txt, usually a bot protection challenge. We cannot read the real rules from here, and guessing would be worse than saying so.",
+        },
+        { status: 422 },
       );
     }
 

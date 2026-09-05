@@ -37,6 +37,27 @@ export default function BlogPage() {
 
       <section className="py-24 sm:py-32">
         <Container>
+          {/* Original research sits above the article list. It is the only
+              content here nobody else can produce, so it should not be buried
+              in a grid with everything else. */}
+          <Link
+            href="/research/uk-accountancy-websites"
+            className="mt-lift mt-spot group block rounded-[18px] border border-mt-purple bg-white p-7 transition-colors duration-150 sm:p-8"
+          >
+            <span className="mt-label">( Original research )</span>
+            <h2 className="mt-5 max-w-[26ch] !text-2xl !tracking-tight group-hover:text-mt-purple sm:!text-3xl">
+              We crawled 56 UK accountancy websites. 12 could not be read at all.
+            </h2>
+            <p className="mt-4 max-w-[65ch] leading-relaxed text-mt-slate">
+              What we found about AI crawler access, structured data and speed,
+              plus the bug the study exposed in our own audit tool.
+            </p>
+            <span className="mt-6 inline-flex text-sm font-semibold text-mt-purple">
+              Read the study
+            </span>
+          </Link>
+
+          <div className="mt-16">
           <SectionLabel>Topics</SectionLabel>
           <div className="mt-reveal-group mt-8 grid gap-5 md:grid-cols-3">
             {visiblePosts.map((post) => {
@@ -61,6 +82,7 @@ export default function BlogPage() {
                 </Link>
               ))}
             </div>
+          </div>
           </div>
         </Container>
       </section>

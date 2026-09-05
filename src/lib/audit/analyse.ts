@@ -71,9 +71,36 @@ function metaContent(html: string, nameOrProperty: string): string | null {
   return tag ? attr(tag[0], "content") : null;
 }
 
+/* Is this actually a robots.txt, or something else wearing its URL?
+
+   Found while running a study across 56 accountancy sites: five of them sat
+   behind a Cloudflare challenge, so /robots.txt returned the "Just a moment..."
+   interstitial as HTML. The parser below splits lines on ":" and looks for
+   user-agent and disallow, and an HTML document full of CSS and CSP directives
+   produced phantom rules. Every one of those five was reported as blocking
+   GPTBot, ClaudeBot, Google-Extended, Applebot-Extended and CCBot. None of
+   them was. The tool was confidently wrong about five real companies.
+
+   So the body is checked before it is parsed. A robots.txt is plain text and
+   opens with a directive or a comment. Anything containing markup is not one,
+   and the honest answer there is "we could not read it", not a fabricated list
+   of blocked crawlers. */
+function looksLikeRobotsTxt(body: string): boolean {
+  const head = body.slice(0, 2000).toLowerCase();
+  if (head.includes("<html") || head.includes("<!doctype") || head.includes("<script")) {
+    return false;
+  }
+  /* A real robots.txt has at least one directive we recognise. An empty file
+     is legal and means everything is allowed, so treat blank as valid. */
+  if (body.trim() === "") return true;
+  return /^\s*(user-agent|disallow|allow|sitemap|crawl-delay)\s*:/im.test(body);
+}
+
 /* robots.txt, parsed only as far as we need: does a named agent get a blanket
    disallow. Deliberately conservative, because reporting a site as blocked
    when it is not would be worse than saying nothing. */
+export { looksLikeRobotsTxt };
+
 export function parseRobots(robotsTxt: string, path: string): CrawlerAccess[] {
   const lines = robotsTxt
     .split("\n")
@@ -206,7 +233,11 @@ export async function gatherFacts(inputUrl: string): Promise<AuditFacts> {
 
   try {
     const robots = await safeFetch(`${origin}/robots.txt`, { accept: "text/plain" });
-    if (robots.status === 200 && robots.body.length < 500_000) {
+    if (
+      robots.status === 200 &&
+      robots.body.length < 500_000 &&
+      looksLikeRobotsTxt(robots.body)
+    ) {
       robotsTxtFound = true;
       crawlers = parseRobots(robots.body, final.pathname || "/");
       const declared = robots.body.match(/^\s*sitemap:\s*(\S+)/im);

@@ -109,6 +109,13 @@ export default async function ServicePage({ params }: PageProps) {
               <Button href="/contact">Start a conversation</Button>
               <Button href="/work" variant="secondary">See the work</Button>
             </div>
+            <p className="mt-8 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-slate">
+              Related reading:{" "}
+              <Link href="/research/uk-accountancy-websites" className="text-mt-purple hover:underline">
+                our study of 56 UK accountancy websites
+              </Link>
+              , covering AI crawler access, structured data and response times.
+            </p>
           </div>
         </Container>
       </section>
