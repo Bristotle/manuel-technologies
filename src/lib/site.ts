@@ -160,6 +160,7 @@ export const PILLARS: Pillar[] = [
 export const NAV = [
   ...PILLARS.map((p) => ({ name: p.name, href: `/${p.slug}` })),
   { name: "Work", href: "/work" },
+  { name: "Pricing", href: "/pricing" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
   { name: "Free tools", href: "/free-tools" },

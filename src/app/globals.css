@@ -509,3 +509,15 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Currency display on /pricing.
+   Every price is rendered in three currencies as sibling spans. The toggle
+   stamps data-currency on an ancestor; this shows one span and hides the
+   rest. With no ancestor stamp (a blog post, say) the GHS span shows. No
+   JavaScript touches the price list. See components/pricing/CurrencyScope. */
+.mt-price { display: none; }
+.mt-price[data-ccy="GHS"] { display: inline; }
+[data-currency="USD"] .mt-price { display: none; }
+[data-currency="USD"] .mt-price[data-ccy="USD"] { display: inline; }
+[data-currency="GBP"] .mt-price { display: none; }
+[data-currency="GBP"] .mt-price[data-ccy="GBP"] { display: inline; }

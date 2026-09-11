@@ -1,4 +1,5 @@
-import type { BlogFaq, BlogSection, BlogSource } from "@/lib/blog-types";
+import type { BlogFaq, BlogSection, BlogSource, BlogImage } from "@/lib/blog-types";
+import { COST_CLUSTER_POSTS } from "@/lib/blog-cost-cluster";
 
 export type BlogPost = {
   slug: string;
@@ -14,6 +15,8 @@ export type BlogPost = {
   faqs: BlogFaq[];
   sources: BlogSource[];
   serviceHref: string;
+  /* Schema image and share card. Also the first screenshot in the post. */
+  heroImage?: BlogImage;
   primaryKeyword?: string;
   secondaryKeywords?: string[];
   searchIntent?: string;
@@ -178,6 +181,7 @@ export const BLOG_POSTS: BlogPost[] = [
     faqs: [faq("What is SEO writing?", "SEO writing is creating useful content around a defined search need and structuring it so people and search systems can discover, understand, verify, and use the answer."), faq("How many keywords should an SEO article target?", "Choose one primary query and cover related phrases only when they represent natural variations or useful sub-questions. A page should own one coherent intent, not a fixed keyword count."), faq("Does AI-generated content rank in Google?", "Google evaluates content by usefulness, originality, accuracy, and whether it is created for people. AI assistance does not remove the need for expertise, review, accountability, and original value."), faq("How long should an SEO article be?", "Long enough to satisfy the search task and no longer. There is no universal preferred word count. Coverage, clarity, evidence, and usefulness matter more than hitting a number."), faq("How often should SEO content be updated?", "Review it when the topic, sources, customer need, or business offering changes. Make a substantive improvement and record the modified date only when the content has genuinely been reviewed.")],
     sources: [...common.geo, { label: "Semrush: 12 SEO writing tips", href: "https://www.semrush.com/blog/seo-writing/" }], serviceHref: "/grow/on-page-seo",
   },
+  ...COST_CLUSTER_POSTS,
 ];
 
 export function getBlogPost(slug: string) {

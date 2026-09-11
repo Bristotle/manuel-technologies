@@ -393,6 +393,7 @@ can pass all six of the others and still be worthless.
   /scale/analytics
 /work                          Case study index
 /work/[slug]
+/pricing                       Price list. Pillar of the website cost cluster
 /about
 /contact
 /cwv-drift-monitor/privacy-policy

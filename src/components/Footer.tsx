@@ -44,6 +44,7 @@ const COMPANY_COLUMN = {
   links: [
     { name: "About", href: "/about" },
     { name: "Work", href: "/work" },
+    { name: "Pricing", href: "/pricing" },
     { name: "Integrations", href: "/integrations" },
     { name: "Free tools", href: "/free-tools" },
     { name: "Blog", href: "/blog" },
