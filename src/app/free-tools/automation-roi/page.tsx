@@ -5,12 +5,13 @@ import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { AutomationRoi } from "@/components/tools/AutomationRoi";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "Manual task automation ROI calculator",
   description: "What a repetitive workflow costs a year, what automating it saves after the share a person still does, and how long the build takes to pay back.",
   alternates: { canonical: "/free-tools/automation-roi" },
-  openGraph: { title: `Manual task automation ROI calculator | ${SITE.name}`, description: "What a repetitive workflow costs a year, what automating it saves after the share a person still does, and how long the build takes to pay back.", url: `${SITE.url}/free-tools/automation-roi` },
+  openGraph: { images: [ogCard("Manual task automation ROI calculator", "Free tool")], title: `Manual task automation ROI calculator | ${SITE.name}`, description: "What a repetitive workflow costs a year, what automating it saves after the share a person still does, and how long the build takes to pay back.", url: `${SITE.url}/free-tools/automation-roi` },
 };
 
 const FAQS = [

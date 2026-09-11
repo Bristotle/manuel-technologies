@@ -6,14 +6,15 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ChecklistTool } from "@/components/tools/ChecklistTool";
 import { FUNNEL_ITEMS, FUNNEL_BANDS } from "@/lib/tools/funnel";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 const GROUPS = [...new Set(FUNNEL_ITEMS.map((i) => i.group))];
 
 export const metadata: Metadata = {
   title: "B2B enquiry funnel friction tester",
-  description: "Score the path between a service page visit and a signed brief against sixteen weighted checks, and get the leaks ordered by how often each one is the actual cause.",
+  description: "Score the path from a service page visit to a signed brief against sixteen weighted checks, with the leaks ordered by how often each is the real cause.",
   alternates: { canonical: "/free-tools/funnel-friction" },
-  openGraph: { title: `B2B enquiry funnel friction tester | ${SITE.name}`, description: "Score the path between a service page visit and a signed brief against sixteen weighted checks, and get the leaks ordered by how often each one is the actual cause.", url: `${SITE.url}/free-tools/funnel-friction` },
+  openGraph: { images: [ogCard("B2B enquiry funnel friction tester", "Free tool")], title: `B2B enquiry funnel friction tester | ${SITE.name}`, description: "Score the path between a service page visit and a signed brief against sixteen weighted checks, and get the leaks ordered by how often each one is the actual cause.", url: `${SITE.url}/free-tools/funnel-friction` },
 };
 
 const FAQS = [

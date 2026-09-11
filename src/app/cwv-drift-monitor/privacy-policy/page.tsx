@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { Logo } from "@/components/Logo";
+import { ogCard } from "@/lib/og";
 
 /* SHIP 1. The urgent one.
    The live Chrome Web Store listing points at this exact URL. Google requires
    it publicly accessible for as long as the extension is published. */
 
 export const metadata: Metadata = {
-  title: "Privacy policy",
+  openGraph: { images: [ogCard("CWV Drift Monitor privacy policy", "Legal")] },
+  title: "CWV Drift Monitor privacy policy",
   description:
     "Privacy policy for the CWV Drift Monitor Chrome extension by Manuel Technologies. No personal data collected, no tracking, no accounts.",
   alternates: { canonical: "/cwv-drift-monitor/privacy-policy" },

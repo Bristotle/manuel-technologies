@@ -6,6 +6,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ChecklistTool } from "@/components/tools/ChecklistTool";
 import { PROGRAMMATIC_ITEMS, PROGRAMMATIC_BANDS } from "@/lib/tools/programmatic";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 const GROUPS = [...new Set(PROGRAMMATIC_ITEMS.map((i) => i.group))];
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   title: "Programmatic SEO indexation risk index",
   description: "Score a programmatic page set against fifteen weighted failure modes covering uniqueness, crawl signals, architecture and data quality.",
   alternates: { canonical: "/free-tools/programmatic-seo-risk" },
-  openGraph: { title: `Programmatic SEO indexation risk index | ${SITE.name}`, description: "Score a programmatic page set against fifteen weighted failure modes covering uniqueness, crawl signals, architecture and data quality.", url: `${SITE.url}/free-tools/programmatic-seo-risk` },
+  openGraph: { images: [ogCard("Programmatic SEO indexation risk index", "Free tool")], title: `Programmatic SEO indexation risk index | ${SITE.name}`, description: "Score a programmatic page set against fifteen weighted failure modes covering uniqueness, crawl signals, architecture and data quality.", url: `${SITE.url}/free-tools/programmatic-seo-risk` },
 };
 
 const FAQS = [

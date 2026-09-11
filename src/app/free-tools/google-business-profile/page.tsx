@@ -6,6 +6,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { GbpChecker } from "@/components/tools/GbpChecker";
 import { GBP_ITEMS } from "@/lib/tools/gbp";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "Google Business Profile checker",
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
     "Score your profile against twenty weighted checks covering categories, reviews, media and activity, with the gaps ordered by local impact.",
   alternates: { canonical: "/free-tools/google-business-profile" },
   openGraph: {
+    images: [ogCard("Google Business Profile checker", "Free tool")],
     title: `Google Business Profile checker | ${SITE.name}`,
     description:
       "Twenty weighted checks, a local dominance score, and the gaps ordered by impact. No account, nothing stored.",

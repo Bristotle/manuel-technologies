@@ -102,6 +102,9 @@ export function BuildIntro() {
           <Button href="/build/custom-software" variant="secondary">
             Custom software
           </Button>
+          <Button href="/pricing" variant="secondary">
+            See the prices
+          </Button>
         </div>
       </Container>
     </section>

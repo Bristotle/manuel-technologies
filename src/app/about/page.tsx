@@ -6,6 +6,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
 import { WorkProcess } from "@/components/WorkProcess";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 /* About.
    ---------------------------------------------------------------------------
@@ -105,6 +106,7 @@ export const metadata: Metadata = {
     "An engineering practice with a senior accountable delivery pipeline. Scoped by someone building it, reviewed by a senior engineer, handed over documented.",
   alternates: { canonical: "/about" },
   openGraph: {
+    images: [ogCard("Scoped by someone who will build it", "About")],
     title: `About | ${SITE.name}`,
     description:
       "How the work is scoped, reviewed and handed over, and why nothing ships without senior review.",

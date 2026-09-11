@@ -5,12 +5,13 @@ import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SchemaGenerator } from "@/components/tools/SchemaGenerator";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "JSON-LD schema generator",
   description: "Clean JSON-LD for Organization, LocalBusiness, Service and FAQPage markup. Empty fields are omitted rather than emitted blank. No email gate.",
   alternates: { canonical: "/free-tools/schema-generator" },
-  openGraph: { title: `JSON-LD schema generator | ${SITE.name}`, description: "Clean JSON-LD for Organization, LocalBusiness, Service and FAQPage markup. Empty fields are omitted rather than emitted blank. No email gate.", url: `${SITE.url}/free-tools/schema-generator` },
+  openGraph: { images: [ogCard("JSON-LD schema generator", "Free tool")], title: `JSON-LD schema generator | ${SITE.name}`, description: "Clean JSON-LD for Organization, LocalBusiness, Service and FAQPage markup. Empty fields are omitted rather than emitted blank. No email gate.", url: `${SITE.url}/free-tools/schema-generator` },
 };
 
 const FAQS = [

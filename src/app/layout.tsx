@@ -53,13 +53,10 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Manuel Technologies | Build. Grow. Scale.",
-    description:
-      "Websites and custom software, technical SEO and GEO, AI automation.",
-    images: ["/og-default.webp"],
-  },
+  /* Card type only. Title, description and image fall through from each
+     page's openGraph block. Hardcoding them here sent the homepage title
+     and a blank image on every shared service page and article. */
+  twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
 };
 
@@ -78,11 +75,11 @@ export default function RootLayout({
     slogan: "Build. Grow. Scale.",
     description:
       "Websites, custom software, technical SEO, GEO and AI automation.",
-    areaServed: "Worldwide",
+    areaServed: [{ "@type": "Country", name: "Ghana" }, { "@type": "Country", name: "United Kingdom" }, { "@type": "Country", name: "United States" }, { "@type": "Country", name: "United Arab Emirates" }],
     founder: {
       "@type": "Person",
       name: "Emmanuel Akyeam",
-      jobTitle: "Technical SEO Manager and Engineer",
+      jobTitle: "Founder and Technical Lead",
     },
     /* Every profile that verifiably belongs to the company. Google uses
        these to connect the site to a known entity rather than treating it as
@@ -96,7 +93,7 @@ export default function RootLayout({
       "@type": "ContactPoint",
       contactType: "sales",
       email: "info@manueltechnologies.com",
-      areaServed: "Worldwide",
+      areaServed: [{ "@type": "Country", name: "Ghana" }, { "@type": "Country", name: "United Kingdom" }, { "@type": "Country", name: "United States" }, { "@type": "Country", name: "United Arab Emirates" }],
       availableLanguage: "English",
     },
     knowsAbout: [

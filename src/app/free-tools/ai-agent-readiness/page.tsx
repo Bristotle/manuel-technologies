@@ -5,12 +5,13 @@ import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ToolWorkspace } from "@/components/ToolWorkspace";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "AI agent readiness assessment",
   description: "Decide whether a workflow needs deterministic automation, a narrow AI feature, or a bounded agent, and what it would take to run it safely in production.",
   alternates: { canonical: "/free-tools/ai-agent-readiness" },
-  openGraph: { title: `AI agent readiness assessment | ${SITE.name}`, description: "Decide whether a workflow needs deterministic automation, a narrow AI feature, or a bounded agent, and what it would take to run it safely in production.", url: `${SITE.url}/free-tools/ai-agent-readiness` },
+  openGraph: { images: [ogCard("AI agent readiness assessment", "Free tool")], title: `AI agent readiness assessment | ${SITE.name}`, description: "Decide whether a workflow needs deterministic automation, a narrow AI feature, or a bounded agent, and what it would take to run it safely in production.", url: `${SITE.url}/free-tools/ai-agent-readiness` },
 };
 
 const COVERS = [

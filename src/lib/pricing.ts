@@ -34,8 +34,9 @@ export type Tier = {
   timeline: string;
   revisions: string;
   includes: string[];
-  /* Real work delivered at this tier. Required: CLAUDE.md section 4. */
-  proof: { src: string; alt: string; client: string; href: string } | null;
+  /* Real work delivered at this tier. Required: CLAUDE.md section 4.
+     href is a case study where one exists, otherwise the live site. */
+  proof: { src: string; alt: string; client: string; href: string };
 };
 
 export const TIERS: Tier[] = [
@@ -56,7 +57,12 @@ export const TIERS: Tier[] = [
       "Hand written page titles and descriptions",
       "Tested on real phones from 320px",
     ],
-    proof: null,
+    proof: {
+      src: "/work/cgt-experts.webp",
+      alt: "Capital Gains Tax Experts website, built by Manuel Technologies",
+      client: "Capital Gains Tax Experts",
+      href: "/work/cgt-experts",
+    },
   },
   {
     slug: "business",
@@ -74,10 +80,10 @@ export const TIERS: Tier[] = [
       "30 days of support after launch",
     ],
     proof: {
-      src: "/work/cangaf.webp",
-      alt: "Cangaf Ltd business website homepage, built by Manuel Technologies",
-      client: "Cangaf Ltd",
-      href: "/work/cangaf",
+      src: "/work/miyaki-beauty.webp",
+      alt: "Miyaki Beauty Ghana business website, built by Manuel Technologies",
+      client: "Miyaki Beauty",
+      href: "/work/miyaki-beauty",
     },
   },
   {
@@ -98,10 +104,10 @@ export const TIERS: Tier[] = [
       "Admin training for your team",
     ],
     proof: {
-      src: "/work/miyaki-beauty.webp",
-      alt: "Miyaki Beauty online store, built by Manuel Technologies",
-      client: "Miyaki Beauty",
-      href: "/work/miyaki-beauty",
+      src: "/work/impressiful.webp",
+      alt: "Impressiful online store with a catalogue past a thousand products, built by Manuel Technologies",
+      client: "Impressiful",
+      href: "/work/impressiful",
     },
   },
   {
@@ -121,10 +127,10 @@ export const TIERS: Tier[] = [
       "Automated testing, documentation and handover",
     ],
     proof: {
-      src: "/work/cgt-experts.webp",
-      alt: "Capital Gains Tax Experts calculator suite, built by Manuel Technologies",
-      client: "Capital Gains Tax Experts",
-      href: "/work/cgt-experts",
+      src: "/work/getfold.webp",
+      alt: "Fold, church management web app and PWA for Ghanaian congregations, built by Manuel Technologies",
+      client: "Fold, getfold.org",
+      href: "https://www.getfold.org",
     },
   },
 ];

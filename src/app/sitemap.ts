@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { BLOG_POSTS } from "@/lib/blog-posts";
+import { CATEGORIES, postsIn } from "@/lib/blog-categories";
 import { PUBLISHED_CASE_STUDIES } from "@/lib/case-studies";
 import ROUTE_DATES from "@/lib/route-dates.json";
 import { discoverStaticRoutes, priorityFor } from "@/lib/routes";
@@ -83,5 +84,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`/blog/${post.slug}`, post.modified, 0.7),
   );
 
-  return [...staticRoutes, ...services, ...caseStudies, ...blogPosts];
+  /* Category hubs. Dated from the newest post they contain, which is the
+     last time the hub's content actually changed. */
+  const categories = CATEGORIES.filter((c) => postsIn(c).length > 0).map((c) =>
+    entry(
+      `/blog/category/${c.slug}`,
+      postsIn(c).map((p) => p.modified).sort().at(-1)!,
+      0.7,
+    ),
+  );
+
+  return [...staticRoutes, ...services, ...caseStudies, ...categories, ...blogPosts];
 }

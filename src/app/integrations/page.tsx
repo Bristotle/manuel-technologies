@@ -10,13 +10,15 @@ import {
   INTEGRATIONS,
 } from "@/lib/integrations";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 export const metadata: Metadata = {
-  title: `Integrations · ${INTEGRATIONS.length} systems we build against`,
+  title: { absolute: `Integrations: ${INTEGRATIONS.length} systems we build against` },
   description:
     "The CRMs, billing systems, automation platforms, AI models, data stores and ad platforms Manuel Technologies integrates and automates against.",
   alternates: { canonical: "/integrations" },
   openGraph: {
+    images: [ogCard(`${INTEGRATIONS.length} systems we build against`, "Integrations")],
     title: `Integrations | ${SITE.name}`,
     description: `${INTEGRATIONS.length} systems we connect, automate, and build middleware for.`,
     url: `${SITE.url}/integrations`,

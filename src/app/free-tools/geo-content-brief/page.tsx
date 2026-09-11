@@ -5,12 +5,13 @@ import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ToolWorkspace } from "@/components/ToolWorkspace";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "GEO content brief generator",
   description: "Structure a page before anyone drafts it: one primary query, answer first headings, the entities to cover, the questions to answer, and the sources it needs.",
   alternates: { canonical: "/free-tools/geo-content-brief" },
-  openGraph: { title: `GEO content brief generator | ${SITE.name}`, description: "Structure a page before anyone drafts it: one primary query, answer first headings, the entities to cover, the questions to answer, and the sources it needs.", url: `${SITE.url}/free-tools/geo-content-brief` },
+  openGraph: { images: [ogCard("GEO content brief generator", "Free tool")], title: `GEO content brief generator | ${SITE.name}`, description: "Structure a page before anyone drafts it: one primary query, answer first headings, the entities to cover, the questions to answer, and the sources it needs.", url: `${SITE.url}/free-tools/geo-content-brief` },
 };
 
 const COVERS = [

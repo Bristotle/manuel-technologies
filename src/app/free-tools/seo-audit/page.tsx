@@ -5,12 +5,13 @@ import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ToolWorkspace } from "@/components/ToolWorkspace";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "Technical SEO triage tool",
-  description: "Turn the page facts you already have into a severity ranked action plan covering crawl, indexation, content and Core Web Vitals risks. For pages a crawler cannot reach.",
+  description: "Turn the page facts you already have into a severity ranked plan covering crawl, indexation, content and Core Web Vitals. For pages a crawler cannot reach.",
   alternates: { canonical: "/free-tools/seo-audit" },
-  openGraph: { title: `Technical SEO triage tool | ${SITE.name}`, description: "Turn the page facts you already have into a severity ranked action plan covering crawl, indexation, content and Core Web Vitals risks. For pages a crawler cannot reach.", url: `${SITE.url}/free-tools/seo-audit` },
+  openGraph: { images: [ogCard("Technical SEO triage tool", "Free tool")], title: `Technical SEO triage tool | ${SITE.name}`, description: "Turn the page facts you already have into a severity ranked action plan covering crawl, indexation, content and Core Web Vitals risks. For pages a crawler cannot reach.", url: `${SITE.url}/free-tools/seo-audit` },
 };
 
 const COVERS = [

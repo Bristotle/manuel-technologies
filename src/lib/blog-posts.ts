@@ -1,10 +1,14 @@
 import type { BlogFaq, BlogSection, BlogSource, BlogImage } from "@/lib/blog-types";
 import { COST_CLUSTER_POSTS } from "@/lib/blog-cost-cluster";
+import { DECISION_CLUSTER_POSTS } from "@/lib/blog-decision-cluster";
+import { TECHNICAL_CLUSTER_POSTS } from "@/lib/blog-technical-cluster";
 
 export type BlogPost = {
   slug: string;
   cluster: string;
   title: string;
+  /* Shorter <title> when the H1 runs past 60 characters. */
+  metaTitle?: string;
   description: string;
   published: string;
   modified: string;
@@ -72,7 +76,7 @@ export const BLOG_POSTS: BlogPost[] = [
     faqs: [faq("Can a UK business guarantee a Google AI Overview citation?", "No. AI Overviews vary by query, location, device, language, and system changes. A business can improve the quality and discoverability of its sources, but cannot guarantee a particular citation."), faq("Does FAQ schema make a page appear in AI Overviews?", "No. Structured data helps systems understand a page when it accurately describes visible content, but Google does not guarantee a rich result or AI Overview appearance."), faq("How often should an AI search page be updated?", "Review it when the underlying guidance, service, evidence, or customer question changes. Do not change a date without making a meaningful content improvement.")], sources: common.geo, serviceHref: "/grow/geo",
   },
   {
-    slug: "technical-foundations-for-geo", cluster: "Search and GEO", title: "Technical foundations for GEO: crawlability, schema, and AI access",
+    slug: "technical-foundations-for-geo", cluster: "Search and GEO", title: "Technical foundations for GEO: crawlability, schema, and AI access", metaTitle: "Technical foundations for GEO",
     description: "The technical SEO foundations that help conventional search and generative systems discover, interpret, and connect your content.", published: "2026-08-25", modified: "2026-08-25", readTime: "7 min read",
     lead: "Generative Engine Optimisation starts with access. If a crawler cannot fetch a page, understand its primary subject, or connect it to the rest of your site, better copy cannot rescue the source.",
     sections: [section("Audit access before markup", "Check that important URLs return a successful status, are not blocked by robots.txt or a noindex directive, and are present in the canonical and sitemap strategy. Test the rendered HTML, not only the source your framework generates during development.", "A clean information architecture is an AI access feature. Keep service pages, evidence, author pages, and supporting articles connected with descriptive links so their relationships are explicit."), section("Use structured data as a label", "JSON-LD can clarify whether a page is an Article, Service, Organisation, or BreadcrumbList. It cannot turn an empty page into a useful source. Every marked property should describe information visible to the visitor.", "Validate markup with Google's Rich Results Test, then inspect the deployed URL. A valid schema object is not a ranking guarantee and should never be used to hide claims from readers."), section("Design for extraction and verification", "Use one descriptive H1, short answer-first sections, named authors, dates, and links to primary sources. State definitions and limitations plainly. This helps readers scan and gives retrieval systems less ambiguity.", "Measure crawling and search performance in Search Console, then test representative prompts as a separate observation. Prompt visibility is directional evidence, not a replacement for analytics or rankings.")],
@@ -161,7 +165,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "seo-writing-guide", cluster: "Search and GEO", title: "SEO writing: how to create content that earns visibility",
-    description: "A practical SEO writing process for choosing a search query, matching intent, building a useful outline, adding evidence, and improving content for Google and AI search.", published: "2026-08-25", modified: "2026-08-25", readTime: "12 min read",
+    description: "A practical SEO writing process: choose a search query, match intent, build a useful outline, add evidence, and improve content for Google and AI search.", published: "2026-08-25", modified: "2026-08-25", readTime: "12 min read",
     lead: "SEO writing is not inserting a keyword into a blank page. It is the discipline of answering a defined search need better than the available alternatives, then making that answer easy to discover, scan, verify, and act on.",
     sections: [
       section("1. Choose one primary search query", "Start with the question or task your reader is trying to complete. Use Search Console data, customer calls, sales questions, keyword tools, and competitor pages to build a candidate list. Pick one primary query that is relevant to the business, specific enough to answer, and realistic for the site's current authority.", "For example, a page titled 'SEO writing' should not also try to be the definitive guide to technical audits, link building, and AI agents. Those are separate intents. A focused page can rank for natural variations such as 'how to write for SEO' without becoming a bag of unrelated terms."),
@@ -182,6 +186,8 @@ export const BLOG_POSTS: BlogPost[] = [
     sources: [...common.geo, { label: "Semrush: 12 SEO writing tips", href: "https://www.semrush.com/blog/seo-writing/" }], serviceHref: "/grow/on-page-seo",
   },
   ...COST_CLUSTER_POSTS,
+  ...DECISION_CLUSTER_POSTS,
+  ...TECHNICAL_CLUSTER_POSTS,
 ];
 
 export function getBlogPost(slug: string) {

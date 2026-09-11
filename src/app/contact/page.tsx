@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 import { Container } from "@/components/ui/Container";
 import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { WorkProcess } from "@/components/WorkProcess";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 export const metadata: Metadata = {
+  openGraph: { images: [ogCard("Start a conversation", "Contact")] },
   title: "Contact",
   description:
     "Tell Manuel Technologies what you are building, growing or scaling. We respond to serious project enquiries within one business day.",
@@ -14,8 +17,17 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contact Manuel Technologies",
+    url: `${SITE.url}/contact`,
+    description: metadata.description,
+    mainEntity: { "@type": "Organization", name: SITE.name, url: SITE.url, email: SITE.email },
+  };
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="relative overflow-hidden bg-white py-24 sm:py-32">
         <DotGrid fade="bottom" />
         <Container className="relative">
@@ -25,6 +37,11 @@ export default function ContactPage() {
               <h1 className="mt-8 max-w-[10ch]">Let&apos;s make the next thing work.</h1>
               <p className="mt-8 max-w-[42ch] text-lg leading-relaxed text-mt-slate">
                 Tell us what you are trying to build, grow or scale. You will get a direct reply from the person doing the work, usually within one business day.
+              </p>
+              <p className="mt-4 max-w-[42ch] text-[0.9375rem] leading-relaxed text-mt-slate">
+                Want a number first?{" "}
+                <Link href="/pricing" className="font-semibold text-mt-purple hover:underline">Every price is published</Link>
+                , with what it includes.
               </p>
 
               <dl className="mt-12 flex flex-col gap-8 border-t border-mt-border pt-8">

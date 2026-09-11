@@ -7,7 +7,9 @@ import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { BLOG_POSTS, getBlogPost } from "@/lib/blog-posts";
 import { renderInline } from "@/components/blog/Inline";
+import { CATEGORIES, categoryFor } from "@/lib/blog-categories";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -20,7 +22,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = getBlogPost(slug);
   if (!post) return {};
   return {
-    title: post.title,
+    /* Long titles drop the "| Manuel Technologies" suffix. With it, 33 of
+       the site's titles ran past 60 characters and the brand was always the
+       part truncated, so the suffix was paying no rent. */
+    title: { absolute: post.metaTitle ?? post.title },
     description: post.description,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
@@ -31,7 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       publishedTime: post.published,
       modifiedTime: post.modified,
       authors: [`${SITE.url}/about`],
-      ...(post.heroImage ? { images: [{ url: `${SITE.url}${post.heroImage.src}`, width: post.heroImage.width, height: post.heroImage.height, alt: post.heroImage.alt }] } : {}),
+      images: [ogCard(post.title, post.cluster), ...(post.heroImage ? [{ url: `${SITE.url}${post.heroImage.src}`, width: post.heroImage.width, height: post.heroImage.height, alt: post.heroImage.alt }] : [])],
     },
   };
 }
@@ -51,7 +56,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     ...others.filter((item) => item.cluster === post.cluster),
     ...others.filter((item) => item.cluster !== post.cluster),
   ].slice(0, 4);
-  const categories = [...new Set(BLOG_POSTS.map((item) => item.cluster))];
+  const thisCategory = categoryFor(post.cluster);
   const jsonLd = [
     {
       "@context": "https://schema.org",
@@ -62,7 +67,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       dateModified: post.modified,
       inLanguage: "en-GB",
       mainEntityOfPage: postUrl,
-      author: { "@type": "Person", name: "Emmanuel Akyeam", url: `${SITE.url}/about`, jobTitle: "Technical SEO Manager and Engineer" },
+      author: { "@type": "Person", name: "Emmanuel Akyeam", url: `${SITE.url}/about`, jobTitle: "Founder and Technical Lead" },
       publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
       articleSection: post.cluster,
       keywords: post.cluster,
@@ -74,7 +79,8 @@ export default async function BlogPostPage({ params }: PageProps) {
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
         { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE.url}/blog` },
-        { "@type": "ListItem", position: 3, name: post.title, item: postUrl },
+        ...(thisCategory ? [{ "@type": "ListItem", position: 3, name: thisCategory.name, item: `${SITE.url}/blog/category/${thisCategory.slug}` }] : []),
+        { "@type": "ListItem", position: thisCategory ? 4 : 3, name: post.title, item: postUrl },
       ],
     },
     {
@@ -102,7 +108,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
         <Container>
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
-            <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/blog">Blog</Link><span aria-hidden="true">/</span><span>{post.cluster}</span>
+            <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/blog">Blog</Link><span aria-hidden="true">/</span>{thisCategory ? <Link href={`/blog/category/${thisCategory.slug}`} className="hover:text-mt-purple">{post.cluster}</Link> : <span>{post.cluster}</span>}
           </div>
           <div className="mt-12 max-w-[760px]">
             <SectionLabel>{post.cluster}</SectionLabel>
@@ -175,7 +181,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="mt-12 border border-mt-border bg-white p-6"><SectionLabel>Have a brief?</SectionLabel><p className="mt-4 text-lg leading-relaxed">Tell us what you are building and get a direct reply from the person doing the work.</p><div className="mt-6"><Button href="/contact">Contact us</Button></div></div>
           <form action="/blog" method="get" className="mt-12"><label className="mt-label" htmlFor="blog-search">Search the blog</label><div className="mt-3 flex"><input id="blog-search" name="q" type="search" placeholder="Search topics" className="contact-input min-w-0 flex-1 rounded-r-none" /><button type="submit" className="rounded-r-[10px] bg-mt-purple px-4 text-sm font-semibold text-white hover:bg-mt-purple-light">Search</button></div></form>
           <div className="mt-12"><p className="mt-label">Recent posts</p><ul className="mt-5 flex flex-col gap-4">{recentPosts.map((item) => <li key={item.slug}><Link href={`/blog/${item.slug}`} className="text-sm leading-snug text-mt-slate hover:text-mt-purple">{item.title}</Link></li>)}</ul></div>
-          <div className="mt-12"><p className="mt-label">Categories</p><ul className="mt-5 flex flex-col gap-3">{categories.map((category) => <li key={category}><Link href={`/blog?category=${encodeURIComponent(category)}`} className="text-sm text-mt-slate hover:text-mt-purple">{category}</Link></li>)}</ul></div>
+          <div className="mt-12"><p className="mt-label">Categories</p><ul className="mt-5 flex flex-col gap-3">{CATEGORIES.map((category) => <li key={category.slug}><Link href={`/blog/category/${category.slug}`} className={`text-sm hover:text-mt-purple ${category.name === post.cluster ? "font-semibold text-mt-ink" : "text-mt-slate"}`}>{category.name}</Link></li>)}</ul></div>
         </aside>
       </div></Container></article>
     </main>

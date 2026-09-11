@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 /* Comparison page.
    ---------------------------------------------------------------------------
@@ -29,6 +30,7 @@ export const metadata: Metadata = {
     "The agency retainer against senior engineering ownership, including when an agency is the better choice and the questions worth asking either one.",
   alternates: { canonical: "/agency-vs-engineer" },
   openGraph: {
+    images: [ogCard("Agency or engineer: how to choose", "Guide")],
     title: `Agency or engineer | ${SITE.name}`,
     description:
       "When an agency is the right answer, when senior engineering ownership is, and how to tell before you sign.",
@@ -263,6 +265,9 @@ export default function AgencyVsEngineer() {
             <Button href="/contact">Book a 15 minute call</Button>
             <Button href="/work" variant="secondary">
               See the work first
+            </Button>
+            <Button href="/pricing" variant="secondary">
+              See the prices
             </Button>
           </div>
         </Container>

@@ -20,6 +20,7 @@ import {
   ghs,
 } from "@/lib/pricing";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 /* /pricing. The pillar of the website cost cluster.
    ---------------------------------------------------------------------------
@@ -38,22 +39,24 @@ import { SITE } from "@/lib/site";
    page. Where they are cheaper, the table says so. A comparison a prospect
    can check and finds selective is worse than no comparison.
 
-   PROOF PER TIER. Three of the four tiers show a real site delivered at that
-   tier, linking to its case study. CLAUDE.md section 4. The Starter tier has
-   no published example yet and says nothing rather than borrowing one.
+   PROOF PER TIER. Every tier shows a real site delivered at that tier,
+   assigned by Emmanuel: Starter is Capital Gains Tax Experts, Business is
+   Miyaki Beauty, Online store is Impressiful, Custom is Fold (getfold.org),
+   a church management PWA. Fold links to the live site until it has a case
+   study. CLAUDE.md section 4.
    -------------------------------------------------------------------------- */
 
-const TITLE = `Website design prices in Ghana: ${ghs(PRICE_BAND.from)} to ${ghs(PRICE_BAND.to)}`;
+const TITLE = `Website design and development prices in Ghana, ${ghs(PRICE_BAND.from)} to ${ghs(PRICE_BAND.to)}`;
 
 export const metadata: Metadata = {
-  title: TITLE,
-  description: `Published website development prices in Ghana. Four tiers from ${ghs(PRICE_BAND.from)}, care plans from GHS 299 a month, what is not included, payment terms, and an honest comparison against market rates.`,
+  title: { absolute: `Website prices in Ghana, ${ghs(PRICE_BAND.from)} to ${ghs(PRICE_BAND.to)}` },
+  description: `Published website prices in Ghana. Four tiers from ${ghs(PRICE_BAND.from)}, care plans from GHS 299 a month, what is excluded, and a comparison against market rates.`,
   alternates: { canonical: "/pricing" },
   openGraph: {
     title: `${TITLE} | ${SITE.name}`,
     description: `Four tiers, care plans, what is excluded, and how the prices compare to published market rates.`,
     url: `${SITE.url}/pricing`,
-    images: [{ url: `${SITE.url}/work/miyaki-beauty.webp`, width: 1200, height: 750, alt: "Miyaki Beauty online store, built by Manuel Technologies" }],
+    images: [ogCard(TITLE, "Pricing"), { url: `${SITE.url}/work/miyaki-beauty.webp`, width: 1200, height: 750, alt: "Miyaki Beauty online store, built by Manuel Technologies" }],
   },
 };
 
@@ -119,9 +122,8 @@ export default function Pricing() {
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
         <DotGrid fade="bottom" />
         <Container className="relative">
-          <SectionLabel>Pricing</SectionLabel>
-          <h1 className="mt-6 max-w-[22ch]">
-            Website design prices in Ghana:{" "}
+          <h1 className="max-w-[24ch]">
+            Pro level website developments and design prices ranging from{" "}
             <span className="text-mt-purple">
               {ghs(PRICE_BAND.from)} to {ghs(PRICE_BAND.to)}.
             </span>
@@ -146,7 +148,14 @@ export default function Pricing() {
                   id={t.slug}
                   className="mt-lift flex flex-col overflow-hidden rounded-[18px] border border-mt-border bg-white transition-colors duration-150 hover:border-mt-purple-light"
                 >
-                  {t.proof ? (
+                  {t.proof.href.startsWith("http") ? (
+                    <a href={t.proof.href} target="_blank" rel="noopener noreferrer" className="group relative block aspect-[16/10] overflow-hidden bg-mt-surface">
+                      <Image src={t.proof.src} alt={t.proof.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover object-top" />
+                      <span className="absolute left-4 top-4 rounded-full bg-mt-ink/85 px-3 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-white backdrop-blur-sm">
+                        Built at this tier: {t.proof.client}
+                      </span>
+                    </a>
+                  ) : (
                     <Link href={t.proof.href} className="group relative block aspect-[16/10] overflow-hidden bg-mt-surface">
                       <Image
                         src={t.proof.src}
@@ -159,7 +168,7 @@ export default function Pricing() {
                         Built at this tier: {t.proof.client}
                       </span>
                     </Link>
-                  ) : null}
+                  )}
 
                   <div className="flex flex-1 flex-col p-6 sm:p-8">
                     <span className="mt-label">( {t.name} )</span>

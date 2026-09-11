@@ -5,12 +5,13 @@ import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { RetainerVsBuild } from "@/components/tools/RetainerVsBuild";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "Retainer versus building it once",
   description: "Compare what an ongoing monthly retainer costs against building and maintaining the same thing as an asset you own, and find the month the two cross over.",
   alternates: { canonical: "/free-tools/retainer-vs-build" },
-  openGraph: { title: `Retainer versus building it once | ${SITE.name}`, description: "Compare what an ongoing monthly retainer costs against building and maintaining the same thing as an asset you own, and find the month the two cross over.", url: `${SITE.url}/free-tools/retainer-vs-build` },
+  openGraph: { images: [ogCard("Retainer versus building it once", "Free tool")], title: `Retainer versus building it once | ${SITE.name}`, description: "Compare what an ongoing monthly retainer costs against building and maintaining the same thing as an asset you own, and find the month the two cross over.", url: `${SITE.url}/free-tools/retainer-vs-build` },
 };
 
 const FAQS = [

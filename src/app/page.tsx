@@ -185,6 +185,13 @@ export default function Home() {
                 <Button href="/contact">Start a conversation</Button>
                 <Button href="/work" variant="secondary">See our work</Button>
               </div>
+              <p className="mt-6 text-[0.9375rem] text-mt-slate">
+                Prices are published.{" "}
+                <Link href="/pricing" className="font-semibold text-mt-purple hover:underline">
+                  See the four tiers and care plans
+                </Link>
+                .
+              </p>
             </div>
           </div>
 

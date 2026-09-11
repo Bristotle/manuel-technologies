@@ -7,13 +7,15 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
 import { hasCaseStudy } from "@/lib/case-studies";
 import { PROJECTS, SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Live client work from Manuel Technologies. Ecommerce, regulated professional services, healthcare and retail, across four markets, plus software we shipped ourselves.",
+    "Live client work from Manuel Technologies. Ecommerce, regulated professional services, healthcare and retail across four markets, plus our own software.",
   alternates: { canonical: "/work" },
   openGraph: {
+    images: [ogCard("Live client work", "Work")],
     title: `Work | ${SITE.name}`,
     description:
       "Live client work across four markets, plus software we shipped ourselves.",

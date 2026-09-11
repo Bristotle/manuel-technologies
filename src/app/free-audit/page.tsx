@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 /* Free audit. REF, higglo.io/free-seo-audit.
    ---------------------------------------------------------------------------
@@ -35,6 +36,7 @@ export const metadata: Metadata = {
     "Audit any live page in fifteen seconds. Real measurements of crawlability, indexation, structured data and AI crawler access, with a ranked plan.",
   alternates: { canonical: "/free-audit" },
   openGraph: {
+    images: [ogCard("Free SEO and GEO audit", "Free audit")],
     title: `Free SEO and GEO audit | ${SITE.name}`,
     description:
       "We fetch your page, its robots.txt and its sitemap, measure what we find, and rank what to fix.",

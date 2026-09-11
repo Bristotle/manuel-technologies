@@ -6,6 +6,7 @@ import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import STUDY from "@/lib/research/uk-accountancy-2026.json";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 /* Original research: UK accountancy websites, September 2026.
    ---------------------------------------------------------------------------
@@ -68,10 +69,11 @@ const FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "UK accountancy websites: an AI visibility study",
+  title: { absolute: "UK accountancy websites: an AI visibility study" },
   description: `We crawled ${STUDY.sampled} UK accountancy firm websites. ${STUDY.sampled - M} could not be read by an identified crawler at all, and the bot protection responsible serves a noindex page.`,
   alternates: { canonical: "/research/uk-accountancy-websites" },
   openGraph: {
+    images: [ogCard("UK accountancy websites: an AI visibility study", "Original research")],
     title: `UK accountancy websites: an AI visibility study | ${SITE.name}`,
     description: `${STUDY.sampled} firms crawled, ${M} measurable. What we found about structured data, crawler access and speed.`,
     url: `${SITE.url}/research/uk-accountancy-websites`,

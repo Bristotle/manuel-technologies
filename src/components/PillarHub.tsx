@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { DotGrid } from "@/components/ui/DotGrid";
 import { Button } from "@/components/ui/Button";
 import { PILLARS, SITE, type Pillar } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 function get(slug: string): Pillar | undefined {
   return PILLARS.find((p) => p.slug === slug);
@@ -15,10 +16,11 @@ export function pillarMetadata(slug: string): Metadata {
   const pillar = get(slug);
   if (!pillar) return {};
   return {
-    title: `${pillar.name} · ${pillar.promise}`,
+    title: { absolute: `${pillar.name} · ${pillar.promise} | ${SITE.name}`.length > 60 ? `${pillar.name} · ${pillar.promise}` : `${pillar.name} · ${pillar.promise} | ${SITE.name}` },
     description: pillar.intro,
     alternates: { canonical: `/${pillar.slug}` },
     openGraph: {
+      images: [ogCard(`${pillar.name}. ${pillar.promise}`, "Pillar")],
       title: `${pillar.name} | ${SITE.name}`,
       description: pillar.intro,
       url: `${SITE.url}/${pillar.slug}`,

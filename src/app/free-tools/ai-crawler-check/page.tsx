@@ -5,12 +5,13 @@ import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { CrawlerCheck } from "@/components/tools/CrawlerCheck";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "AI crawler compatibility checker",
   description: "Check whether GPTBot, ClaudeBot, PerplexityBot and Google-Extended can read your site. We fetch your robots.txt and resolve the rules live.",
   alternates: { canonical: "/free-tools/ai-crawler-check" },
-  openGraph: { title: `AI crawler compatibility checker | ${SITE.name}`, description: "Check whether GPTBot, ClaudeBot, PerplexityBot and Google-Extended can read your site. We fetch your robots.txt and resolve the rules live.", url: `${SITE.url}/free-tools/ai-crawler-check` },
+  openGraph: { images: [ogCard("AI crawler compatibility checker", "Free tool")], title: `AI crawler compatibility checker | ${SITE.name}`, description: "Check whether GPTBot, ClaudeBot, PerplexityBot and Google-Extended can read your site. We fetch your robots.txt and resolve the rules live.", url: `${SITE.url}/free-tools/ai-crawler-check` },
 };
 
 const FAQS = [

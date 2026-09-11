@@ -5,6 +5,7 @@ import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { RoiCalculator } from "@/components/tools/RoiCalculator";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "Organic traffic and SEO ROI calculator",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     "What an organic session is worth to your business, what a traffic increase would be worth at your own conversion rate, and the break even point.",
   alternates: { canonical: "/free-tools/roi-calculator" },
   openGraph: {
+    images: [ogCard("Organic traffic and SEO ROI calculator", "Free tool")],
     title: `SEO ROI calculator | ${SITE.name}`,
     description:
       "Turn a traffic conversation into a money conversation. Runs in your browser, no account, nothing stored.",

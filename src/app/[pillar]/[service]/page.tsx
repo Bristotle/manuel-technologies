@@ -12,6 +12,7 @@ import {
   SERVICE_PAGES,
 } from "@/lib/service-pages";
 import { SITE } from "@/lib/site";
+import { ogCard } from "@/lib/og";
 
 type PageProps = {
   params: Promise<{ pillar: string; service: string }>;
@@ -27,10 +28,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!page) return {};
 
   return {
-    title: page.title,
+    title: page.title.length > 38 ? { absolute: page.title } : page.title,
     description: page.description,
     alternates: { canonical: `/${page.pillar}/${page.slug}` },
     openGraph: {
+      images: [ogCard(page.title, page.pillar.charAt(0).toUpperCase() + page.pillar.slice(1))],
       title: `${page.title} | ${SITE.name}`,
       description: page.description,
       url: `${SITE.url}/${page.pillar}/${page.slug}`,
@@ -109,6 +111,15 @@ export default async function ServicePage({ params }: PageProps) {
               <Button href="/contact">Start a conversation</Button>
               <Button href="/work" variant="secondary">See the work</Button>
             </div>
+            {page.pillar === "build" ? (
+              <p className="mt-8 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-slate">
+                Prices are published.{" "}
+                <Link href="/pricing" className="text-mt-purple hover:underline">
+                  Four tiers from GHS 2,000, with what each includes
+                </Link>
+                , and a comparison against market rates.
+              </p>
+            ) : null}
             <p className="mt-8 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-slate">
               Related reading:{" "}
               <Link href="/research/uk-accountancy-websites" className="text-mt-purple hover:underline">

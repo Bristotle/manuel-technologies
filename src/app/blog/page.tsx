@@ -3,10 +3,13 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
-import { PILLARS } from "@/lib/site";
+import { PILLARS, SITE } from "@/lib/site";
 import { BLOG_POSTS } from "@/lib/blog-posts";
+import { CATEGORIES, categoryFor } from "@/lib/blog-categories";
+import { ogCard } from "@/lib/og";
 
 export const metadata: Metadata = {
+  openGraph: { images: [ogCard("Blog", "Blog")] },
   title: "Blog",
   description:
     "Practical notes on website development, technical SEO, programmatic SEO, GEO, AI agents, and automation.",
@@ -22,8 +25,22 @@ const SERVICE_LINKS = PILLARS.flatMap((pillar) =>
 
 export default function BlogPage() {
   const visiblePosts = BLOG_POSTS;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Blog",
+    url: `${SITE.url}/blog`,
+    description: metadata.description,
+    hasPart: CATEGORIES.map((c) => ({ "@type": "CollectionPage", name: c.name, url: `${SITE.url}/blog/category/${c.slug}` })),
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: visiblePosts.length,
+      itemListElement: visiblePosts.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: p.title, url: `${SITE.url}/blog/${p.slug}` })),
+    },
+  };
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="border-b border-mt-border bg-white py-24 sm:py-32">
         <Container>
           <SectionLabel>Blog</SectionLabel>
@@ -58,12 +75,23 @@ export default function BlogPage() {
           </Link>
 
           <div className="mt-16">
-          <SectionLabel>Topics</SectionLabel>
+          <SectionLabel>Browse by category</SectionLabel>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {CATEGORIES.map((c) => (
+              <Link key={c.slug} href={`/blog/category/${c.slug}`} className="rounded-[20px] border border-mt-border bg-white px-4 py-2 text-sm font-semibold text-mt-slate transition-colors duration-150 hover:border-mt-purple-light hover:text-mt-purple">
+                {c.name}
+              </Link>
+            ))}
+          </div>
+          </div>
+
+          <div className="mt-16">
+          <SectionLabel>All articles</SectionLabel>
           <div className="mt-reveal-group mt-8 grid gap-5 md:grid-cols-3">
             {visiblePosts.map((post) => {
               return (
               <article key={post.title} className="border border-mt-border bg-white p-6">
-                <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.13em] text-mt-purple">{post.cluster}</span>
+                {(() => { const c = categoryFor(post.cluster); return c ? <Link href={`/blog/category/${c.slug}`} className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.13em] text-mt-purple hover:underline">{post.cluster}</Link> : <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.13em] text-mt-purple">{post.cluster}</span>; })()}
                 <h2 className="mt-4 !text-xl !tracking-tight"><Link href={`/blog/${post.slug}`} className="hover:text-mt-purple">{post.title}</Link></h2>
                 <p className="mt-4 text-base leading-relaxed text-mt-slate">{post.description}</p>
                 <div className="mt-6">
