@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { Backdrop } from "@/components/ui/Backdrop";
 import { CurrencyScope } from "@/components/pricing/CurrencyScope";
 import { Price } from "@/components/pricing/Price";
 import {
@@ -120,6 +121,7 @@ export default function Pricing() {
 
       {/* Hero. The H1 is the price band. */}
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
+        <Backdrop kind="aurora" />
         <DotGrid fade="bottom" />
         <Container className="relative">
           <h1 className="max-w-[24ch]">
@@ -137,9 +139,11 @@ export default function Pricing() {
         </Container>
       </section>
 
-      {/* Tiers */}
-      <section className="py-24 sm:py-32">
-        <Container>
+      {/* Tiers. Blueprint grid behind the cards: a drafting sheet, which is
+          what a price list with inclusions written out actually is. */}
+      <section className="relative overflow-hidden py-24 sm:py-32">
+        <Backdrop kind="blueprint" />
+        <Container className="relative">
           <CurrencyScope>
             <div className="mt-reveal-group mt-12 grid gap-6 md:grid-cols-2">
               {TIERS.map((t) => (
@@ -246,9 +250,11 @@ export default function Pricing() {
         </Container>
       </section>
 
-      {/* Not included + payment terms */}
-      <section className="border-y border-mt-border bg-white py-24 sm:py-32">
-        <Container>
+      {/* Not included + payment terms. Sonar rings from the right: the
+          section is a check, and it looks like one. */}
+      <section className="relative overflow-hidden border-y border-mt-border bg-white py-24 sm:py-32">
+        <Backdrop kind="sonar" />
+        <Container className="relative">
           <div className="grid gap-16 lg:grid-cols-2">
             <div>
               <SectionLabel>Not included</SectionLabel>
@@ -280,9 +286,10 @@ export default function Pricing() {
         </Container>
       </section>
 
-      {/* How we compare */}
-      <section className="py-24 sm:py-32">
-        <Container>
+      {/* How we compare. Soft mesh with grain under the table. */}
+      <section className="relative overflow-hidden py-24 sm:py-32">
+        <Backdrop kind="mesh" />
+        <Container className="relative">
           <SectionLabel>How we compare</SectionLabel>
           <h2 className="mt-6 max-w-[24ch]">
             Against published market rates,{" "}
@@ -358,9 +365,10 @@ export default function Pricing() {
         </Container>
       </section>
 
-      {/* FAQ */}
-      <section className="border-t border-mt-border bg-white py-24 sm:py-32">
-        <Container>
+      {/* FAQ. Hatched corner, like the margin of a drawing. */}
+      <section className="relative overflow-hidden border-t border-mt-border bg-white py-24 sm:py-32">
+        <Backdrop kind="hatch" />
+        <Container className="relative">
           <SectionLabel>Questions people ask</SectionLabel>
           <h2 className="mt-6 max-w-[18ch]">The pricing questions, answered directly.</h2>
           <div className="mt-12 max-w-[760px] border-t border-mt-border">
@@ -389,9 +397,11 @@ export default function Pricing() {
         </Container>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 sm:py-32">
-        <Container size="prose">
+      {/* CTA. Rays across the section and the aurora drifting under them. */}
+      <section className="relative overflow-hidden py-24 sm:py-32">
+        <Backdrop kind="aurora" />
+        <Backdrop kind="rays" />
+        <Container size="prose" className="relative">
           <SectionLabel>Next step</SectionLabel>
           <h2 className="mt-6">Tell us what the site has to do. You will get a fixed price back.</h2>
           <p className="mt-6 max-w-[55ch] text-lg leading-relaxed text-mt-slate">

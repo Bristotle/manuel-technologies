@@ -521,3 +521,122 @@
 [data-currency="USD"] .mt-price[data-ccy="USD"] { display: inline; }
 [data-currency="GBP"] .mt-price { display: none; }
 [data-currency="GBP"] .mt-price[data-ccy="GBP"] { display: inline; }
+
+/* Section backdrops. REF 21st.dev background catalogue, September 2026.
+   ---------------------------------------------------------------------------
+   Taken: Blueprint Grid, Kinetic Grid, Sonar Grid, Vignette Grid, Mesh
+   Gradient, Noise, Beams. Every one on 21st.dev is a canvas, a shader or a
+   React effect. Every one here is a CSS pseudo-element on a positioned
+   layer: no bundle cost, no client boundary, transform only where anything
+   moves, and the global reduced-motion reset switches motion off.
+
+   TWO BACKGROUNDS ONLY. Each backdrop is hairlines in --color-mt-border or
+   purple at 8% and under, over the section's own white or surface. None
+   introduces a colour. If one reads as a third background at a glance, its
+   alpha is too high. See CLAUDE.md section 4, colour discipline.
+
+   Usage. Section is relative + overflow-hidden, content is relative:
+
+     <section className="relative overflow-hidden ...">
+       <Backdrop kind="blueprint" />
+       <Container className="relative">...</Container>
+     </section>
+   -------------------------------------------------------------------------- */
+.mt-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Blueprint grid. Fine lines every 32px, dissolving toward the edges. The
+   grid drifts one cell per 40s on the compositor, so it loops seamlessly;
+   the eye reads it as depth rather than as movement. */
+.mt-blueprint::before {
+  content: "";
+  position: absolute;
+  inset: -32px;
+  background-image:
+    linear-gradient(to right, var(--color-mt-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-mt-border) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.7;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+  animation: mt-grid-drift 40s linear infinite;
+}
+@keyframes mt-grid-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(32px, 32px, 0); }
+}
+
+/* Sonar. Concentric rings from a point off the right edge, fading out. A
+   scan rather than a decoration: it sits behind the comparison and the
+   terms, where the page is checking something. */
+.mt-sonar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-radial-gradient(
+    circle at 92% 50%,
+    var(--color-mt-border) 0,
+    var(--color-mt-border) 1px,
+    transparent 1px,
+    transparent 56px
+  );
+  -webkit-mask-image: radial-gradient(circle at 92% 50%, #000 0%, transparent 62%);
+  mask-image: radial-gradient(circle at 92% 50%, #000 0%, transparent 62%);
+}
+
+/* Mesh. Three soft purple fields, static, plus grain. The 21st.dev mesh
+   gradients run at full saturation; here the whole thing tops out at 11% so
+   it reads as light on the surface rather than as a new surface. */
+.mt-mesh::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(42% 50% at 12% 18%, color-mix(in srgb, var(--color-mt-purple) 11%, transparent) 0%, transparent 70%),
+    radial-gradient(36% 44% at 88% 22%, color-mix(in srgb, var(--color-mt-purple-light) 9%, transparent) 0%, transparent 70%),
+    radial-gradient(48% 40% at 50% 100%, color-mix(in srgb, var(--color-mt-purple) 6%, transparent) 0%, transparent 70%);
+}
+.mt-mesh::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+}
+
+/* Hatch. Diagonal hairlines in one corner. Reads as a drafting sheet. */
+.mt-hatch::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--color-mt-border) 0,
+    var(--color-mt-border) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+  -webkit-mask-image: radial-gradient(ellipse 55% 70% at 100% 0%, #000 0%, transparent 70%);
+  mask-image: radial-gradient(ellipse 55% 70% at 100% 0%, #000 0%, transparent 70%);
+}
+
+/* Rays. Three thin beams crossing the section, purple fading to nothing.
+   The 21st.dev "beams with collision" animate and explode; these hold
+   still and let the CTA carry the motion. */
+.mt-rays::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background-image:
+    linear-gradient(115deg, transparent 0 46%, color-mix(in srgb, var(--color-mt-purple) 9%, transparent) 46.5% 47%, transparent 47.5%),
+    linear-gradient(115deg, transparent 0 58%, color-mix(in srgb, var(--color-mt-purple-light) 7%, transparent) 58.5% 59.2%, transparent 59.7%),
+    linear-gradient(115deg, transparent 0 71%, color-mix(in srgb, var(--color-mt-purple) 5%, transparent) 71.5% 72%, transparent 72.5%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 70%, transparent 100%);
+}
