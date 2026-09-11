@@ -131,6 +131,25 @@ export default async function ServicePage({ params }: PageProps) {
         </Container>
       </section>
 
+      {/* Who needs this and why. Written per service in service-pages.ts,
+          and repeated as a question in the FAQ so answer engines can lift
+          it. Sits before the process, because the reader has to decide
+          they need the thing before they care how it is delivered. */}
+      <section className="border-b border-mt-border bg-white py-24 sm:py-32">
+        <Container>
+          <SectionLabel>Who this is for, and why</SectionLabel>
+          <h2 className="mt-6 max-w-[22ch]">{page.audience}</h2>
+          <ol className="mt-reveal-group mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {page.why.map((reason, index) => (
+              <li key={reason} className="border-t border-mt-border pt-6">
+                <span className="font-[family-name:var(--font-mono)] text-xs tracking-[0.18em] text-mt-purple">0{index + 1}</span>
+                <p className="mt-4 text-[1.0625rem] leading-relaxed text-mt-slate">{reason}</p>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </section>
+
       <section className="py-24 sm:py-32">
         <Container>
           <div className="grid gap-16 lg:grid-cols-[1.2fr_0.8fr]">

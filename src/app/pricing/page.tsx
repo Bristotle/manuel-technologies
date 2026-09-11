@@ -266,7 +266,7 @@ export default function Pricing() {
             </div>
             <div>
               <SectionLabel>Payment terms</SectionLabel>
-              <h2 className="mt-6 max-w-[20ch]">Half to start, half at launch.</h2>
+              <h2 className="mt-6 max-w-[22ch]">60% to start. Live on your domain when the balance clears.</h2>
               <dl className="mt-10 flex flex-col divide-y divide-mt-border border-y border-mt-border">
                 {PAYMENT_TERMS.map((p) => (
                   <div key={p.term} className="grid gap-1 py-4 sm:grid-cols-[140px_1fr] sm:gap-6">

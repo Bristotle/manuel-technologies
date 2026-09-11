@@ -176,10 +176,23 @@ export const PROMISES = [
   "Anyone can ship you a website now. The question is whether it still works, still ranks, and still has someone answering in six months.",
 ];
 
+/* Payment terms. 60% to start, 40% before handover, and the site stays on
+   our staging address until the balance clears. Emmanuel set these on 11
+   September 2026, replacing 50/50: in this market the pressure to delay the
+   final payment after the work is done is real, and the protection has to
+   be in the terms rather than in a chase.
+
+   THE WORDING IS DELIBERATE. The pricing page and the whole cost cluster
+   promise that the domain, the hosting and the code are the client's. That
+   promise and "we can block your website" cannot both be true, so the
+   mechanism is handover rather than blocking. Nothing the client owns is
+   withheld. Nothing is handed over before it is paid for. The 7 day clause
+   is stated plainly, once, without a threat attached. */
 export const PAYMENT_TERMS = [
-  { term: "To start", detail: "50% of the agreed price. Work begins once it clears and the brief is signed off." },
-  { term: "At launch", detail: "The remaining 50%, on the day the site goes live on your domain." },
-  { term: "Custom builds", detail: "Split into milestones agreed at scoping, typically three, each paid on delivery." },
+  { term: "To start", detail: "60% of the agreed price, or the full amount if you prefer to settle it once. Work begins when it clears and the brief is signed off." },
+  { term: "Before handover", detail: "The remaining 40%, when the finished site is approved. The site runs on our staging address until then, and goes live on your domain with every login handed over the day the balance clears." },
+  { term: "Late balance", detail: "If the balance is not settled within 7 days of approval and no reason has been agreed, the site stays on staging and the launch date moves. Once it is settled, launch and handover happen the same day." },
+  { term: "Custom builds", detail: "Split into milestones agreed at scoping, typically three, each paid before the next begins. Handover follows the final milestone." },
   { term: "Care plans", detail: "Monthly in advance. Cancel with 30 days notice, and the site and its code stay yours." },
   { term: "How to pay", detail: "Bank transfer, MTN MoMo, or card. International clients can pay in USD or GBP by transfer." },
   { term: "Quotes", detail: "Valid for 30 days. Prices in Ghana cedis." },
@@ -233,11 +246,19 @@ export const PRICING_FAQS = [
   },
   {
     q: "Can I pay with MTN MoMo?",
-    a: "Yes. Bank transfer, MTN MoMo and card are all accepted. Payment is 50% to start and 50% at launch. International clients can pay in USD or GBP by transfer.",
+    a: "Yes. Bank transfer, MTN MoMo and card are all accepted. Payment is 60% to start, or the full amount if you prefer, and the remaining 40% when the finished site is approved. The site goes live on your domain and the logins are handed over the day the balance clears. International clients can pay in USD or GBP by transfer.",
+  },
+  {
+    q: "Why does a business need a website?",
+    a: "Because it is the one channel you own. Strangers who search Google for what you sell find websites, not Instagram accounts or WhatsApp numbers. A stranger deciding whether to send money looks for one before they do. Payments, bookings and orders need somewhere to happen that does not depend on one person answering a chat. And a page that ranks this year still ranks next year, where a post is gone from the feed in a day. If your customers all come by referral and your orders fit in a chat, you may not need one yet. The moment strangers start searching, you do.",
+  },
+  {
+    q: "What happens if the final balance is not paid?",
+    a: "The site stays on our staging address, where it was built and approved, and the launch date moves until the balance is settled. Nothing you own is withheld: the domain is yours and the content is yours. What is not handed over is the finished work that has not yet been paid for. Once the balance clears, launch and handover happen the same day. This is stated here so it never has to be a conversation.",
   },
   {
     q: "Who owns the website when it is finished?",
-    a: "You do. The code, the domain, the hosting account and every login are in your name and handed over with documentation at launch. If you leave a care plan, the site and its code go with you. A site you cannot take elsewhere is a rental, not an asset.",
+    a: "You do. The code, the domain, the hosting account and every login are in your name and handed over with documentation the day the final balance clears and the site goes live. If you leave a care plan, the site and its code go with you. A site you cannot take elsewhere is a rental, not an asset.",
   },
   {
     q: "How long does a website take to build?",

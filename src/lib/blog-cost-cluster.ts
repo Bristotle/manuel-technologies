@@ -137,7 +137,7 @@ export const COST_CLUSTER_POSTS: BlogPost[] = [
       faq("How much should a website cost to develop?", "It depends on three things: how many distinct page types the site has, whether it takes payments, and what it connects to. Page count on its own is a poor guide, and a quote based purely on pages is usually a template with your logo on it. Ask what is included at each price and whether the person quoting will be the person building."),
       faq("How much does it cost to pay someone to design a website?", `Published agency prices in Ghana for a basic site run from roughly ${jobhouse.starter.replace("GHC", "GHS")} at the cheapest listed firm to ${range(starter)} for our Starter tier, which includes custom design, hosting, SSL and testing on real phones. The bottom of the market generally means a template, shared hosting and nobody to call after launch.`),
       faq("What is the cheapest way to get a website in Ghana?", `A template site from a low cost provider, from around ${faciotech.starter.split(" to ")[0]}, or a page builder you run yourself. Both are the right answer for some businesses. They are the wrong answer if the site is where customers decide whether to trust you, because a template looks like a template and shared hosting is slow on the phones most Ghanaians browse on.`),
-      faq("Do I pay everything up front?", "No. Half to start and half at launch is the standard on our tiers. Custom builds are split into milestones agreed at scoping. Bank transfer, MTN MoMo and card are all accepted, and international clients can pay by transfer in USD or GBP."),
+      faq("Do I pay everything up front?", "You can, and some clients prefer to. The standard is 60% to start and 40% when the finished site is approved, with the site going live on your domain and every login handed over the day the balance clears. Custom builds are split into milestones agreed at scoping. Bank transfer, MTN MoMo and card are all accepted, and international clients can pay by transfer in USD or GBP."),
     ],
     sources: [
       { label: `${jobhouse.firm}: pricing packages`, href: jobhouse.href },
@@ -258,7 +258,7 @@ export const COST_CLUSTER_POSTS: BlogPost[] = [
       section(
         "How to read these prices",
         "Each type below has a price band rather than a single figure. The bottom of the band is the site with the fewest distinct page types, content ready on day one and no integrations beyond a contact form. The top is the same type with more page types, more revision rounds used, or a connection to another system. Nothing outside the band is quoted without a scoping call, which is stated on the price list.",
-        "All prices are in Ghana cedis. Payment is half to start and half at launch. Copywriting, photography, the domain, logo design and payment gateway charges are not included at any level, and [the full list of exclusions is published](/pricing) so nothing arrives as a surprise.",
+        "All prices are in Ghana cedis. Payment is 60% to start and 40% when the finished site is approved, and the site goes live on your domain when the balance clears. Copywriting, photography, the domain, logo design and payment gateway charges are not included at any level, and [the full list of exclusions is published](/pricing) so nothing arrives as a surprise.",
       ),
       {
         heading: `Starter site: ${range(starter)}`,
