@@ -4,11 +4,29 @@
    so it earns "use client". Everything around it stays server rendered. */
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NAV } from "@/lib/site";
+
+/* THE BUG THIS FILE HAD. The panel is absolutely positioned inside a
+   header that is position: relative with no z-index. Every page's hero
+   section is also position: relative, comes later in the DOM, and so
+   painted over the open panel. The menu worked, and was invisible. Found
+   by driving Chrome at a real 360px viewport and asking
+   document.elementFromPoint what sat on top of the panel: the hero.
+   The fix is z-index on the panel (below) and on the header. */
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+
+  /* Escape closes it, and the body does not scroll behind an open panel. */
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.removeEventListener("keydown", onKey); document.body.style.overflow = prev; };
+  }, [open]);
 
   return (
     <div className="md:hidden">
@@ -25,7 +43,7 @@ export function MobileNav() {
       {open && (
         <div
           id="mobile-nav"
-          className="absolute inset-x-0 top-full border-b border-mt-border bg-white"
+          className="absolute inset-x-0 top-full z-50 max-h-[calc(100dvh-100%)] overflow-y-auto border-b border-mt-border bg-white"
         >
           <nav className="mx-auto w-full max-w-5xl px-6 py-6">
             <ul className="flex flex-col">
