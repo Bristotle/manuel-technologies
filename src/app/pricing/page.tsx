@@ -1,3 +1,4 @@
+import type React from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -121,7 +122,7 @@ export default function Pricing() {
 
       {/* Hero. The H1 is the price band. */}
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
-        <Backdrop kind="aurora" />
+        <Backdrop kind="glow" style={{ "--gx": "18%", "--gy": "35%", "--gw": "55%", "--gh": "70%", "--ga": "0.22" } as React.CSSProperties} />
         <DotGrid fade="bottom" />
         <Container className="relative">
           <h1 className="max-w-[24ch]">
@@ -367,7 +368,8 @@ export default function Pricing() {
 
       {/* FAQ. Hatched corner, like the margin of a drawing. */}
       <section className="relative overflow-hidden border-t border-mt-border bg-white py-24 sm:py-32">
-        <Backdrop kind="hatch" />
+        <Backdrop kind="glow" style={{ "--gx": "88%", "--gy": "20%", "--gw": "50%", "--gh": "60%", "--ga": "0.18" } as React.CSSProperties} />
+        <DotGrid fade="center" density="loose" />
         <Container className="relative">
           <SectionLabel>Questions people ask</SectionLabel>
           <h2 className="mt-6 max-w-[18ch]">The pricing questions, answered directly.</h2>
