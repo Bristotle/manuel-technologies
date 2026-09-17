@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { SOCIAL } from "@/lib/site";
+import { CONTACT, SOCIAL } from "@/lib/site";
 import "./globals.css";
 
 /* --------------------------------------------------------------------------
@@ -72,6 +72,14 @@ export default function RootLayout({
     url: SITE,
     logo: `${SITE}/logo.svg`,
     email: "info@manueltechnologies.com",
+    telephone: CONTACT.tel,
+    address: { "@type": "PostalAddress", addressLocality: "Accra", addressCountry: "GH" },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: CONTACT.hoursSchema.days,
+      opens: CONTACT.hoursSchema.opens,
+      closes: CONTACT.hoursSchema.closes,
+    },
     slogan: "Build. Grow. Scale.",
     description:
       "Websites, custom software, technical SEO, GEO and AI automation.",
@@ -85,14 +93,13 @@ export default function RootLayout({
        these to connect the site to a known entity rather than treating it as
        an unattached domain.
 
-       TODO, Emmanuel. Add the LinkedIn company page URL to SOCIAL in
-       src/lib/site.ts and it appears here automatically. It is the last
-       missing entity signal on the site. */
+       LinkedIn, Facebook, X and GitHub, from SOCIAL in src/lib/site.ts. */
     sameAs: SOCIAL.filter((s) => s.href).map((s) => s.href),
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
       email: "info@manueltechnologies.com",
+      telephone: CONTACT.tel,
       areaServed: [{ "@type": "Country", name: "Ghana" }, { "@type": "Country", name: "United Kingdom" }, { "@type": "Country", name: "United States" }, { "@type": "Country", name: "United Arab Emirates" }],
       availableLanguage: "English",
     },

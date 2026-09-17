@@ -16,12 +16,25 @@ export const SITE = {
 } as const;
 
 /* Social. Only populated entries render, so an empty string hides the icon
-   rather than shipping a dead link. Add the LinkedIn URL when you have it to
-   hand and it appears in the footer automatically. */
+   rather than shipping a dead link. Every URL here also feeds the
+   Organization schema's sameAs, which is how Google ties the site to a
+   known entity. Added by Emmanuel, 17 September 2026. */
 export const SOCIAL = [
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/manuel-technologies/" },
+  { name: "Facebook", href: "https://web.facebook.com/profile.php?id=61594152671187" },
+  { name: "X", href: "https://x.com/manueltechhq" },
   { name: "GitHub", href: "https://github.com/Bristotle" },
-  { name: "LinkedIn", href: "" },
 ] as const;
+
+/* Contact details shown in the footer and on the contact page, and carried
+   into the Organization schema. The phone is Emmanuel's for now. */
+export const CONTACT = {
+  phone: "+233 24 790 2348",
+  tel: "+233247902348",
+  office: "Accra, Ghana",
+  hours: "Mon to Sat, 8am to 5pm",
+  hoursSchema: { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "08:00", closes: "17:00" },
+} as const;
 
 /* Where contact form submissions are delivered. Server side only.
    NEVER render this in the UI. The address shown to visitors is

@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { WorkProcess } from "@/components/WorkProcess";
-import { SITE } from "@/lib/site";
+import { CONTACT, SITE } from "@/lib/site";
 import { ogCard } from "@/lib/og";
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default function ContactPage() {
     name: "Contact Manuel Technologies",
     url: `${SITE.url}/contact`,
     description: metadata.description,
-    mainEntity: { "@type": "Organization", name: SITE.name, url: SITE.url, email: SITE.email },
+    mainEntity: { "@type": "Organization", name: SITE.name, url: SITE.url, email: SITE.email, telephone: CONTACT.tel },
   };
   return (
     <main>
@@ -46,12 +46,26 @@ export default function ContactPage() {
 
               <dl className="mt-12 flex flex-col gap-8 border-t border-mt-border pt-8">
                 <div>
+                  <dt className="mt-label">Phone</dt>
+                  <dd className="mt-2 text-base font-semibold">
+                    <a href={`tel:${CONTACT.tel}`} className="hover:text-mt-purple">{CONTACT.phone}</a>
+                  </dd>
+                </div>
+                <div>
                   <dt className="mt-label">Email</dt>
                   <dd className="mt-2 text-base font-semibold">
                     <a href={`mailto:${SITE.email}`} className="hover:text-mt-purple">
                       {SITE.email}
                     </a>
                   </dd>
+                </div>
+                <div>
+                  <dt className="mt-label">Office</dt>
+                  <dd className="mt-2 text-base font-semibold">{CONTACT.office}</dd>
+                </div>
+                <div>
+                  <dt className="mt-label">Hours</dt>
+                  <dd className="mt-2 text-base font-semibold">{CONTACT.hours}</dd>
                 </div>
                 <div>
                   <dt className="mt-label">Typical response</dt>
