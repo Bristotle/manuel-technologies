@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { NewsletterForm } from "@/components/footer/NewsletterForm";
 import { CONTACT, PILLARS, SITE, SOCIAL } from "@/lib/site";
+import { ACCENT, PILLAR_ACCENT, type Accent } from "@/lib/accent";
 
 /* Footer. REF capitalgainstaxexpert.co.uk, 17 September 2026, at
    Emmanuel's direction, replacing REF-009.
@@ -32,12 +33,14 @@ import { CONTACT, PILLARS, SITE, SOCIAL } from "@/lib/site";
 const PILLAR_COLUMNS = PILLARS.map((pillar) => ({
   heading: pillar.name,
   headingHref: `/${pillar.slug}` as string | null,
+  accent: PILLAR_ACCENT[pillar.slug] as Accent,
   links: pillar.services.map((service) => ({ name: service.name, href: service.href })),
 }));
 
 const COMPANY_COLUMN = {
   heading: "Company",
   headingHref: null as string | null,
+  accent: "purple" as Accent,
   links: [
     { name: "About", href: "/about" },
     { name: "Work", href: "/work" },
@@ -67,8 +70,9 @@ const ICONS: Record<string, React.ReactNode> = {
 };
 
 /* Heading with the short rule under it, as the reference has it. */
-function Heading({ children, href }: { children: React.ReactNode; href: string | null }) {
-  const cls = "font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-mt-purple-light";
+function Heading({ children, href, accent = "purple" }: { children: React.ReactNode; href: string | null; accent?: Accent }) {
+  const band = ACCENT[accent];
+  const cls = `font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] ${band.onDark}`;
   return (
     <div className="flex flex-col gap-3">
       {href ? (
@@ -76,7 +80,7 @@ function Heading({ children, href }: { children: React.ReactNode; href: string |
       ) : (
         <p className={cls}>{children}</p>
       )}
-      <span aria-hidden="true" className="block h-0.5 w-6 bg-mt-purple-light" />
+      <span aria-hidden="true" className={`block h-0.5 w-6 ${band.rule}`} />
     </div>
   );
 }
@@ -146,7 +150,7 @@ export function Footer() {
           {/* Build, Grow, Scale, Company */}
           {COLUMNS.map((column) => (
               <div key={column.heading}>
-                <Heading href={column.headingHref}>{column.heading}</Heading>
+                <Heading href={column.headingHref} accent={column.accent}>{column.heading}</Heading>
                 <ul className="mt-5 flex flex-col gap-2.5">
                   {column.links.map((link) => (
                     <li key={link.href}>
@@ -162,7 +166,7 @@ export function Footer() {
 
           {/* Get in touch: icon tile, label, value, then the newsletter card */}
           <div className="sm:col-span-2 md:col-span-3 lg:col-span-1">
-            <Heading href="/contact">Get in touch</Heading>
+            <Heading href="/contact" accent="pink">Get in touch</Heading>
             <dl className="mt-5 flex flex-col gap-4 text-[0.875rem] leading-snug">
               {[
                 { k: "Phone", v: <a href={`tel:${CONTACT.tel}`} className="text-white/85 hover:text-white">{CONTACT.phone}</a>, icon: <path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" /> },
@@ -187,7 +191,7 @@ export function Footer() {
         {/* Newsletter card */}
         <div className="mt-14 grid gap-6 rounded-[18px] border border-white/12 bg-white/[0.04] p-6 sm:p-8 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-12">
           <div>
-            <span className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-mt-purple-light">( Newsletter )</span>
+            <span className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-mt-pink">( Newsletter )</span>
             <p className="mt-3 max-w-[36ch] text-lg font-semibold leading-snug text-white">
               Free updates on new products, features and AI, straight to your inbox.
             </p>

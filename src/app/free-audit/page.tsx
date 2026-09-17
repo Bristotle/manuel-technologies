@@ -192,7 +192,7 @@ export default function FreeAudit() {
           </div>
 
           <div className="mt-10 max-w-[760px]">
-            <SectionLabel>Free SEO and GEO audit</SectionLabel>
+            <SectionLabel accent="pink">Free SEO and GEO audit</SectionLabel>
             <h1 className="mt-6">
               Audit any live page in{" "}
               <span className="text-mt-purple">about fifteen seconds.</span>
@@ -233,7 +233,7 @@ export default function FreeAudit() {
       {/* What it covers */}
       <section className="py-24 sm:py-32">
         <Container>
-          <SectionLabel>What the report covers</SectionLabel>
+          <SectionLabel accent="pink">What the report covers</SectionLabel>
           <h2 className="mt-6 max-w-[24ch]">
             Six layers, and every one of them{" "}
             <span className="text-mt-purple">measured, not guessed.</span>
@@ -268,7 +268,7 @@ export default function FreeAudit() {
       {/* How it works */}
       <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container>
-          <SectionLabel>How it works</SectionLabel>
+          <SectionLabel accent="pink">How it works</SectionLabel>
           <h2 className="mt-6 max-w-[22ch]">Four steps. No email gate.</h2>
           <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">
             The scoring runs in code, from what the crawl actually observed.
@@ -299,7 +299,7 @@ export default function FreeAudit() {
       {/* Honesty band */}
       <section className="py-24 sm:py-32">
         <Container>
-          <SectionLabel>What this does not do</SectionLabel>
+          <SectionLabel accent="pink">What this does not do</SectionLabel>
           <h2 className="mt-6 max-w-[26ch]">
             We will not tell you what ChatGPT thinks of you.
           </h2>
@@ -338,7 +338,7 @@ export default function FreeAudit() {
       {/* FAQ */}
       <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container>
-          <SectionLabel>Questions</SectionLabel>
+          <SectionLabel accent="pink">Questions</SectionLabel>
           <h2 className="mt-6 max-w-[22ch]">What people ask about the audit.</h2>
 
           <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">

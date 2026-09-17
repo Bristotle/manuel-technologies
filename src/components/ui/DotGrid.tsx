@@ -26,6 +26,8 @@ type DotGridProps = {
      has it. On by default since 17 September 2026: every hero was dots on
      white and read flat. Pass false where a section carries its own. */
   glow?: boolean;
+  /* Hex for the glow. Defaults to purple; pillar pages pass their band. */
+  glowColor?: string;
   className?: string;
 };
 
@@ -46,11 +48,12 @@ export function DotGrid({
   fade = "center",
   density = "default",
   glow = true,
+  glowColor,
   className = "",
 }: DotGridProps) {
   return (
     <>
-      {glow ? <div aria-hidden="true" className="mt-bg mt-glow mt-glow-hero" /> : null}
+      {glow ? <div aria-hidden="true" className="mt-bg mt-glow mt-glow-hero" style={glowColor ? ({ "--glow-c": glowColor } as React.CSSProperties) : undefined} /> : null}
       <div
         aria-hidden="true"
         className={`mt-dots ${DENSITY[density]} ${FADE[fade]} pointer-events-none absolute inset-0 ${className}`}

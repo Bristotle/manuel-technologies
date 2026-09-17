@@ -43,7 +43,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
-        <DotGrid fade="bottom" />
+        <DotGrid fade="bottom" glowColor="#FF6B9D" />
         <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link>
@@ -53,7 +53,7 @@ export default function Page() {
             <span>GEO brief</span>
           </div>
           <div className="mt-10 max-w-[760px]">
-            <SectionLabel>Free tool / Grow</SectionLabel>
+            <SectionLabel accent="pink">Free tool / Grow</SectionLabel>
             <h1 className="mt-6">Plan the page <span className="text-mt-purple">before anyone drafts it.</span></h1>
             <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">One primary query, answer first headings, the entities that must appear, the questions to answer, and the sources each claim needs. Structure decided before writing is what stops a page covering everything and answering nothing.</p>
           </div>
@@ -66,7 +66,7 @@ export default function Page() {
 
       <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container>
-          <SectionLabel>What the brief contains</SectionLabel>
+          <SectionLabel accent="pink">What the brief contains</SectionLabel>
           <h2 className="mt-6 max-w-[26ch]">Three decisions made before the first sentence.</h2>
           <div className="mt-reveal-group mt-14 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border md:grid-cols-3">
             {COVERS.map((c) => (
@@ -85,7 +85,7 @@ export default function Page() {
 
       <section className="py-24 sm:py-32">
         <Container>
-          <SectionLabel>Questions</SectionLabel>
+          <SectionLabel accent="pink">Questions</SectionLabel>
           <h2 className="mt-6 max-w-[24ch]">What people ask about briefs.</h2>
           <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">
             {FAQS.map((f) => (

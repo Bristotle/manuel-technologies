@@ -18,6 +18,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { CallToAction } from "@/components/CallToAction";
 import { SelectedWork } from "@/components/SelectedWork";
 import { DotGrid } from "@/components/ui/DotGrid";
+import { ACCENT, PILLAR_ACCENT } from "@/lib/accent";
 import { Integrations } from "@/components/Integrations";
 import { CAPABILITIES, PILLARS, SITE } from "@/lib/site";
 
@@ -224,16 +225,17 @@ export default function Home() {
           <div className="mt-reveal-group mt-14 grid gap-5 md:grid-cols-3">
             {PILLARS.map((pillar) => {
               const proof = PILLAR_PROOF[pillar.slug];
+              const band = ACCENT[PILLAR_ACCENT[pillar.slug]];
               return (
                 <Card key={pillar.slug} href={`/${pillar.slug}`} className="flex flex-col">
-                  <SectionLabel>{pillar.name.toUpperCase()}</SectionLabel>
+                  <SectionLabel accent={PILLAR_ACCENT[pillar.slug]}>{pillar.name.toUpperCase()}</SectionLabel>
                   <p className="mt-5 text-lg font-semibold leading-snug text-mt-ink">
                     {pillar.promise}
                   </p>
 
                   {/* The evidence, not a description of it. */}
                   <div className="mt-7 border-t border-mt-border pt-6">
-                    <span className="block text-3xl font-extrabold tracking-tight text-mt-purple">
+                    <span className={`block text-3xl font-extrabold tracking-tight ${band.text}`}>
                       {proof.value}
                     </span>
                     <span className="mt-2 block font-[family-name:var(--font-mono)] text-[0.625rem] uppercase leading-relaxed tracking-[0.14em] text-mt-muted">
@@ -248,7 +250,7 @@ export default function Home() {
                     {pillar.services.slice(0, 4).map((service) => (
                       <li
                         key={service.href}
-                        className="whitespace-nowrap rounded-[20px] border border-mt-purple/25 bg-mt-surface px-2.5 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.12em] text-mt-purple"
+                        className={`whitespace-nowrap rounded-[20px] border px-2.5 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.12em] ${band.pill}`}
                       >
                         {service.name}
                       </li>
@@ -260,7 +262,7 @@ export default function Home() {
                     )}
                   </ul>
 
-                  <span className="mt-7 inline-flex text-sm font-semibold text-mt-purple">
+                  <span className={`mt-7 inline-flex text-sm font-semibold ${band.text}`}>
                     Explore {pillar.name}
                   </span>
                 </Card>

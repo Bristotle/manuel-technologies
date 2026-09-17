@@ -2,7 +2,21 @@
 
 /* ==========================================================================
    Manuel Technologies · design tokens
-   Palette locked from CWV Drift Monitor. Do not add colours.
+
+   Four band palette, set by Emmanuel on 17 September 2026. Purple stays
+   primary: the mark, links, every button. The other three each carry one
+   job, so a colour on the page always means something:
+
+     teal   Grow    (services, labels, rules, glows on Grow pages)
+     amber  Scale
+     pink   the proof layer: free tools, research, "delivered" tags
+
+   Build shares purple, so the three pillars read purple, teal, amber.
+
+   Each band has a fill and a "for words" tone. The fills are for rules,
+   pills, glows and dark ground text. The word tones are what body sized
+   text uses on white, and each passes 4.5:1 there. Never set words in a
+   fill on a light ground. See lib/accent.ts for the class map.
    ========================================================================== */
 
 @theme {
@@ -15,8 +29,16 @@
   --color-mt-border:       #E4DDF7;
   --color-mt-surface:      #F5F2FC;
 
-  /* Product UI and charts only. Never the agency identity.
-     These are Google Lighthouse's status colours. */
+  /* Bands */
+  --color-mt-teal:       #00B3A4;
+  --color-mt-teal-ink:   #008176;
+  --color-mt-amber:      #FFA400;
+  --color-mt-amber-ink:  #9E6600;
+  --color-mt-pink:       #FF6B9D;
+  --color-mt-pink-ink:   #B84D71;
+
+  /* Lighthouse status colours, product UI and charts only. Amber is the
+     same value as the Scale band by design. */
   --color-mt-good: #0CCE6B;
   --color-mt-warn: #FFA400;
   --color-mt-poor: #FF4E42;
@@ -563,8 +585,8 @@
   inset: 0;
   background-image: radial-gradient(
     ellipse var(--gw, 60%) var(--gh, 55%) at var(--gx, 50%) var(--gy, 30%),
-    color-mix(in srgb, var(--color-mt-purple) calc(var(--ga, 0.2) * 100%), transparent) 0%,
-    color-mix(in srgb, var(--color-mt-purple-light) calc(var(--ga, 0.2) * 45%), transparent) 35%,
+    color-mix(in srgb, var(--glow-c, var(--color-mt-purple)) calc(var(--ga, 0.2) * 100%), transparent) 0%,
+    color-mix(in srgb, var(--glow-c, var(--color-mt-purple-light)) calc(var(--ga, 0.2) * 45%), transparent) 35%,
     transparent 72%
   );
 }

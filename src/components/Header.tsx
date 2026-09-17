@@ -4,6 +4,7 @@ import { Logo } from "@/components/Logo";
 import { MobileNav } from "@/components/MobileNav";
 import { MENUS, PLAIN } from "@/lib/nav";
 import { SITE } from "@/lib/site";
+import { ACCENT } from "@/lib/accent";
 
 /* Server component. Only MobileNav ships JavaScript.
 
@@ -76,7 +77,7 @@ export function Header() {
                           <Image src={menu.feature.src} alt={menu.feature.alt} fill sizes="240px" className="object-cover object-left-top transition-transform duration-300 group-hover/feat:scale-[1.03]" />
                         </div>
                         <div className="p-4">
-                          <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">( {menu.feature.eyebrow} )</span>
+                          <span className={`font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] ${ACCENT[menu.accent].text}`}>( {menu.feature.eyebrow} )</span>
                           <p className="mt-2 text-[0.9375rem] font-semibold leading-snug text-mt-ink">{menu.feature.title}</p>
                           <p className="mt-1 text-[0.8125rem] leading-snug text-mt-slate">{menu.feature.body}</p>
                         </div>
@@ -84,7 +85,7 @@ export function Header() {
                     ) : (
                       <Link href="/free-audit" className="relative flex flex-col justify-end overflow-hidden border-r border-mt-border bg-mt-ink p-5 text-white">
                         <div aria-hidden="true" className="mt-bg mt-glow-dark" />
-                        <span className="relative font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple-light">( Start here )</span>
+                        <span className="relative font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-pink">( Start here )</span>
                         <p className="relative mt-2 text-lg font-bold leading-snug">Run the free audit on your own site.</p>
                         <p className="relative mt-2 text-[0.8125rem] leading-snug text-white/70">Twenty checks in about fifteen seconds. No account, nothing stored.</p>
                         <span className="relative mt-4 inline-flex text-sm font-semibold text-white">Audit my site →</span>

@@ -37,7 +37,7 @@ export default function Page() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
-        <DotGrid fade="bottom" />
+        <DotGrid fade="bottom" glowColor="#FF6B9D" />
         <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link>
@@ -47,7 +47,7 @@ export default function Page() {
             <span>Schema generator</span>
           </div>
           <div className="mt-10 max-w-[760px]">
-            <SectionLabel>Free tool / Grow</SectionLabel>
+            <SectionLabel accent="pink">Free tool / Grow</SectionLabel>
             <h1 className="mt-6">Clean JSON-LD, <span className="text-mt-purple">without the email gate.</span></h1>
             <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">Organization, LocalBusiness, Service and FAQPage markup, generated as you type. Empty fields are omitted rather than emitted blank, and nothing is sent anywhere.</p>
           </div>
@@ -60,7 +60,7 @@ export default function Page() {
 
       <section className="py-24 sm:py-32">
         <Container>
-          <SectionLabel>Questions</SectionLabel>
+          <SectionLabel accent="pink">Questions</SectionLabel>
           <h2 className="mt-6 max-w-[24ch]">What people ask about structured data.</h2>
           <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">
             {FAQS.map((f) => (

@@ -126,7 +126,7 @@ export default function Study() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
-        <DotGrid fade="bottom" />
+        <DotGrid fade="bottom" glowColor="#FF6B9D" />
         <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link>
@@ -135,7 +135,7 @@ export default function Study() {
           </div>
 
           <div className="mt-10 max-w-[820px]">
-            <SectionLabel>Original research · September 2026</SectionLabel>
+            <SectionLabel accent="pink">Original research · September 2026</SectionLabel>
             <h1 className="mt-6">
               We crawled {STUDY.sampled} UK accountancy websites.{" "}
               <span className="text-mt-purple">
@@ -171,7 +171,7 @@ export default function Study() {
           press release. */}
       <section className="py-20 sm:py-24">
         <Container size="prose">
-          <SectionLabel>Method</SectionLabel>
+          <SectionLabel accent="pink">Method</SectionLabel>
           <div className="mt-8 flex flex-col gap-6 text-lg leading-relaxed text-mt-slate">
             <p>
               Top organic results for &ldquo;accountants in {"{city}"}&rdquo;
@@ -197,7 +197,7 @@ export default function Study() {
       {/* Findings */}
       <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container>
-          <SectionLabel>What we found</SectionLabel>
+          <SectionLabel accent="pink">What we found</SectionLabel>
           <h2 className="mt-6 max-w-[26ch]">
             Share of the {M} readable sites failing each check.
           </h2>
@@ -240,7 +240,7 @@ export default function Study() {
       {/* The interesting bit */}
       <section className="py-24 sm:py-32">
         <Container size="prose">
-          <SectionLabel>The finding that surprised us</SectionLabel>
+          <SectionLabel accent="pink">The finding that surprised us</SectionLabel>
           <h2 className="mt-6">Bot protection is an AI visibility decision nobody made.</h2>
           <div className="mt-8 flex flex-col gap-6 text-lg leading-relaxed text-mt-slate">
             <p>
@@ -278,7 +278,7 @@ export default function Study() {
       {/* The honest bit */}
       <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container size="prose">
-          <SectionLabel>What we got wrong first</SectionLabel>
+          <SectionLabel accent="pink">What we got wrong first</SectionLabel>
           <h2 className="mt-6">The first run of this study was wrong, and checking it found a bug in our own tool.</h2>
           <div className="mt-8 flex flex-col gap-6 text-lg leading-relaxed text-mt-slate">
             <p>
@@ -330,7 +330,7 @@ export default function Study() {
       {/* Actionable */}
       <section className="py-24 sm:py-32">
         <Container>
-          <SectionLabel>What to do about it</SectionLabel>
+          <SectionLabel accent="pink">What to do about it</SectionLabel>
           <h2 className="mt-6 max-w-[24ch]">Four checks, none of which need a budget.</h2>
           <ol className="mt-reveal-group mt-14 grid gap-8 md:grid-cols-2">
             {[
@@ -358,7 +358,7 @@ export default function Study() {
 
       <section className="border-t border-mt-border bg-white py-24 sm:py-32">
         <Container>
-          <SectionLabel>Questions</SectionLabel>
+          <SectionLabel accent="pink">Questions</SectionLabel>
           <h2 className="mt-6 max-w-[24ch]">About the method.</h2>
           <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">
             {FAQS.map((x) => (

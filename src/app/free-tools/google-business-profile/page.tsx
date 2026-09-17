@@ -97,7 +97,7 @@ export default function GbpPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
-        <DotGrid fade="bottom" />
+        <DotGrid fade="bottom" glowColor="#FF6B9D" />
         <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link>
@@ -107,7 +107,7 @@ export default function GbpPage() {
             <span>Google Business Profile</span>
           </div>
           <div className="mt-10 max-w-[760px]">
-            <SectionLabel>Free tool / Grow</SectionLabel>
+            <SectionLabel accent="pink">Free tool / Grow</SectionLabel>
             <h1 className="mt-6">
               Score your Google Business Profile in{" "}
               <span className="text-mt-purple">about three minutes.</span>
@@ -128,7 +128,7 @@ export default function GbpPage() {
 
       <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container>
-          <SectionLabel>Why weighted</SectionLabel>
+          <SectionLabel accent="pink">Why weighted</SectionLabel>
           <h2 className="mt-6 max-w-[26ch]">A flat checklist sends people to spend an afternoon on the wrong thing.</h2>
           <div className="mt-12 grid gap-16 lg:grid-cols-2 lg:gap-24">
             <div className="flex flex-col gap-6 text-lg leading-relaxed text-mt-slate">
@@ -166,7 +166,7 @@ export default function GbpPage() {
 
       <section className="py-24 sm:py-32">
         <Container>
-          <SectionLabel>Questions</SectionLabel>
+          <SectionLabel accent="pink">Questions</SectionLabel>
           <h2 className="mt-6 max-w-[24ch]">What people ask about local profiles.</h2>
           <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">
             {FAQS.map((f) => (

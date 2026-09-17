@@ -37,7 +37,7 @@ export default function Page() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
-        <DotGrid fade="bottom" />
+        <DotGrid fade="bottom" glowColor="#FF6B9D" />
         <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link>
@@ -47,7 +47,7 @@ export default function Page() {
             <span>Automation ROI</span>
           </div>
           <div className="mt-10 max-w-[760px]">
-            <SectionLabel>Free tool / Scale</SectionLabel>
+            <SectionLabel accent="pink">Free tool / Scale</SectionLabel>
             <h1 className="mt-6">What is that repetitive task <span className="text-mt-purple">costing you a year?</span></h1>
             <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">Six inputs, and the arithmetic on what a workflow costs now, what it would cost automated, and how long the build takes to pay for itself. Including the share a person still has to do, which most calculators quietly set to zero.</p>
           </div>
@@ -60,7 +60,7 @@ export default function Page() {
 
       <section className="py-24 sm:py-32">
         <Container>
-          <SectionLabel>Questions</SectionLabel>
+          <SectionLabel accent="pink">Questions</SectionLabel>
           <h2 className="mt-6 max-w-[24ch]">What people ask about automation cases.</h2>
           <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">
             {FAQS.map((f) => (

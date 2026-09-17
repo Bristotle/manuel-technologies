@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { ACCENT, PILLAR_ACCENT } from "@/lib/accent";
 import { Card } from "@/components/ui/Card";
 import { DotGrid } from "@/components/ui/DotGrid";
 import { Button } from "@/components/ui/Button";
@@ -65,9 +66,9 @@ export function PillarHub({
       />
 
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
-        <DotGrid fade="bottom" />
+        <DotGrid fade="bottom" glowColor={ACCENT[PILLAR_ACCENT[pillar.slug]].glow} />
         <Container className="relative">
-          <SectionLabel>{pillar.name.toUpperCase()}</SectionLabel>
+          <SectionLabel accent={PILLAR_ACCENT[pillar.slug]}>{pillar.name.toUpperCase()}</SectionLabel>
           <h1 className="mt-6 max-w-[16ch]">{pillar.promise}</h1>
           <p className="mt-8 max-w-[60ch] text-lg text-mt-slate">
             {pillar.intro}

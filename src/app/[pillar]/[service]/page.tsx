@@ -13,6 +13,7 @@ import {
   SERVICE_PAGES,
 } from "@/lib/service-pages";
 import { SITE } from "@/lib/site";
+import { ACCENT, PILLAR_ACCENT } from "@/lib/accent";
 import { ogCard } from "@/lib/og";
 
 type PageProps = {
@@ -104,7 +105,7 @@ export default async function ServicePage({ params }: PageProps) {
       />
 
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
-        <DotGrid fade="bottom" />
+        <DotGrid fade="bottom" glowColor={ACCENT[PILLAR_ACCENT[page.pillar]].glow} />
         <Container className="relative">
           <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
@@ -116,7 +117,7 @@ export default async function ServicePage({ params }: PageProps) {
             <span>{page.name}</span>
           </div>
           <div className="mt-12 max-w-[760px]">
-            <SectionLabel>{page.pillar.toUpperCase()}</SectionLabel>
+            <SectionLabel accent={PILLAR_ACCENT[page.pillar]}>{page.pillar.toUpperCase()}</SectionLabel>
             <h1 className="mt-6">{page.title}</h1>
             <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">{page.intro}</p>
             <p className="mt-6 max-w-[65ch] font-semibold text-mt-ink">{page.audience}</p>
@@ -156,7 +157,7 @@ export default async function ServicePage({ params }: PageProps) {
             </div>
             <div className="flex items-center justify-between gap-4 border-t border-mt-border px-5 py-4">
               <div>
-                <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">Delivered</span>
+                <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-pink-ink">Delivered</span>
                 <p className="mt-1 text-[0.9375rem] font-semibold text-mt-ink">{proof.client}</p>
               </div>
               <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.14em] text-mt-muted group-hover:text-mt-purple">{proof.fact} →</span>
@@ -172,12 +173,12 @@ export default async function ServicePage({ params }: PageProps) {
           they need the thing before they care how it is delivered. */}
       <section className="border-b border-mt-border bg-white py-24 sm:py-32">
         <Container>
-          <SectionLabel>Who this is for, and why</SectionLabel>
+          <SectionLabel accent={PILLAR_ACCENT[page.pillar]}>Who this is for, and why</SectionLabel>
           <h2 className="mt-6 max-w-[22ch]">{page.audience}</h2>
           <ol className="mt-reveal-group mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {page.why.map((reason, index) => (
               <li key={reason} className="border-t border-mt-border pt-6">
-                <span className="font-[family-name:var(--font-mono)] text-xs tracking-[0.18em] text-mt-purple">0{index + 1}</span>
+                <span className={`font-[family-name:var(--font-mono)] text-xs tracking-[0.18em] ${ACCENT[PILLAR_ACCENT[page.pillar]].text}`}>0{index + 1}</span>
                 <p className="mt-4 text-[1.0625rem] leading-relaxed text-mt-slate">{reason}</p>
               </li>
             ))}

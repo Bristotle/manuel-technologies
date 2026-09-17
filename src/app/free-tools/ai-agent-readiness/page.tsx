@@ -43,7 +43,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
-        <DotGrid fade="bottom" />
+        <DotGrid fade="bottom" glowColor="#FF6B9D" />
         <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link>
@@ -53,7 +53,7 @@ export default function Page() {
             <span>AI readiness</span>
           </div>
           <div className="mt-10 max-w-[760px]">
-            <SectionLabel>Free tool / Scale</SectionLabel>
+            <SectionLabel accent="pink">Free tool / Scale</SectionLabel>
             <h1 className="mt-6">Automation, feature, or <span className="text-mt-purple">a real agent?</span></h1>
             <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">Three different answers with three different costs, and the wrong one is expensive. Describe the workflow and get a recommendation, the risks, a minimum architecture, and the approval points it would need.</p>
           </div>
@@ -66,7 +66,7 @@ export default function Page() {
 
       <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container>
-          <SectionLabel>How the decision is made</SectionLabel>
+          <SectionLabel accent="pink">How the decision is made</SectionLabel>
           <h2 className="mt-6 max-w-[26ch]">Three questions, in this order.</h2>
           <div className="mt-reveal-group mt-14 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border md:grid-cols-3">
             {COVERS.map((c) => (
@@ -85,7 +85,7 @@ export default function Page() {
 
       <section className="py-24 sm:py-32">
         <Container>
-          <SectionLabel>Questions</SectionLabel>
+          <SectionLabel accent="pink">Questions</SectionLabel>
           <h2 className="mt-6 max-w-[24ch]">What people ask before building agents.</h2>
           <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">
             {FAQS.map((f) => (

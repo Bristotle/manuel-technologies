@@ -189,7 +189,27 @@ Rules for integration marks:
 
 `#7B72A0` is 4.1:1 on white. Large text only, never below 18px.
 
-**Do not add colours.** The green, orange and red from CWV Drift Monitor are Google Lighthouse's status palette and stay out of the agency identity. Product UI and charts only.
+### The four bands, since 17 September 2026
+
+Emmanuel added three colours to the palette. Each has one job, so a colour
+on the page always means something. `src/lib/accent.ts` is the class map.
+
+| Band | Fill | For words on white | Job |
+|---|---|---|---|
+| Purple | `#6B2FD9` | `#6B2FD9` | Primary. The mark, links, every button. Also the Build pillar |
+| Teal | `#00B3A4` | `#008176` | The Grow pillar |
+| Amber | `#FFA400` | `#9E6600` | The Scale pillar |
+| Pink | `#FF6B9D` | `#B84D71` | The proof layer: free tools, research, "delivered" tags, newsletter |
+
+A pillar's band appears in its labels, rules, pills, hero glow, footer
+column and menu tile. Nowhere else. Body sized text on a light ground uses
+the "for words" tone, which passes 4.5:1; the fill is for rules, pills,
+glows and text on ink. Buttons stay purple on every page: the action colour
+does not change with the section.
+
+**Do not add a fifth.** The green and red from CWV Drift Monitor remain
+Lighthouse's status palette, for product UI and charts only. Amber is the
+same value as the Scale band by design.
 
 ### Logo
 
@@ -303,7 +323,7 @@ They are the frame around the evidence, never a substitute for it.
 
 ### Colour discipline
 
-**One accent, used sparingly.** Purple is for the mark, links, one word in a headline, and primary buttons. That is the list.
+**One accent per viewport, used sparingly.** Purple is for the mark, links, one word in a headline, and primary buttons. A pillar page adds its band (teal or amber) in labels and rules, and the proof layer adds pink. Never two bands in one viewport besides purple.
 
 The moment purple appears in five places in one viewport it stops meaning anything. Restraint is what made the CWV extension look expensive, and it is why the palette is only three working colours plus tints.
 

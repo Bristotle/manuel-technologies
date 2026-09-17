@@ -83,7 +83,7 @@ export default function RoiCalculatorPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
-        <DotGrid fade="bottom" />
+        <DotGrid fade="bottom" glowColor="#FF6B9D" />
         <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link>
@@ -93,7 +93,7 @@ export default function RoiCalculatorPage() {
             <span>ROI calculator</span>
           </div>
           <div className="mt-10 max-w-[760px]">
-            <SectionLabel>Free tool / Grow</SectionLabel>
+            <SectionLabel accent="pink">Free tool / Grow</SectionLabel>
             <h1 className="mt-6">
               What is one organic visit{" "}
               <span className="text-mt-purple">actually worth to you?</span>
@@ -114,7 +114,7 @@ export default function RoiCalculatorPage() {
 
       <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container>
-          <SectionLabel>How to read it</SectionLabel>
+          <SectionLabel accent="pink">How to read it</SectionLabel>
           <h2 className="mt-6 max-w-[24ch]">The figure that matters is the value of one session.</h2>
           <div className="mt-12 grid gap-16 lg:grid-cols-2 lg:gap-24">
             <div className="flex flex-col gap-6 text-lg leading-relaxed text-mt-slate">
@@ -148,7 +148,7 @@ export default function RoiCalculatorPage() {
 
       <section className="py-24 sm:py-32">
         <Container>
-          <SectionLabel>Questions</SectionLabel>
+          <SectionLabel accent="pink">Questions</SectionLabel>
           <h2 className="mt-6 max-w-[22ch]">What people ask about this calculator.</h2>
           <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">
             {FAQS.map((f) => (

@@ -1,5 +1,6 @@
 import { TOOLS } from "@/lib/free-tools";
 import { PILLARS } from "@/lib/site";
+import { PILLAR_ACCENT, type Accent } from "@/lib/accent";
 
 /* Primary navigation. The four menus with children, and the plain links.
    Shared by the desktop header and the mobile panel so they cannot drift. */
@@ -18,6 +19,7 @@ export const MENUS = [
     items: p.services.map((s) => ({ name: s.name, href: s.href, blurb: s.blurb })),
     footer: { label: `All ${p.name.toLowerCase()} services`, href: `/${p.slug}` },
     feature: FEATURE[p.slug] as typeof FEATURE[keyof typeof FEATURE] | null,
+    accent: PILLAR_ACCENT[p.slug] as Accent,
   })),
   {
     name: "Free tools",
@@ -25,6 +27,7 @@ export const MENUS = [
     items: TOOLS.map((t) => ({ name: t.title, href: t.href, blurb: t.label })),
     footer: { label: "All twelve tools", href: "/free-tools" },
     feature: null as typeof FEATURE[keyof typeof FEATURE] | null,
+    accent: "pink" as Accent,
   },
 ];
 
