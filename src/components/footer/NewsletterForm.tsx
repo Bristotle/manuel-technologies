@@ -6,7 +6,7 @@ import { useState } from "react";
    The form still posts without JavaScript to /api/subscribe, which answers
    JSON either way. */
 
-export function NewsletterForm() {
+export function NewsletterForm({ dark = false }: { dark?: boolean }) {
   const [state, setState] = useState<"idle" | "busy" | "done" | "error">("idle");
   const [note, setNote] = useState("");
 
@@ -36,7 +36,7 @@ export function NewsletterForm() {
           required
           autoComplete="email"
           placeholder="you@company.com"
-          className="min-h-12 w-full rounded-[10px] border border-mt-border bg-white px-4 text-base text-mt-ink transition-colors duration-150 placeholder:text-mt-muted hover:border-mt-purple-light focus:border-mt-purple"
+          className={dark ? "min-h-12 w-full rounded-[10px] border border-white/15 bg-white/10 px-4 text-base text-white transition-colors duration-150 placeholder:text-white/40 hover:border-mt-purple-light focus:border-mt-purple-light" : "min-h-12 w-full rounded-[10px] border border-mt-border bg-white px-4 text-base text-mt-ink transition-colors duration-150 placeholder:text-mt-muted hover:border-mt-purple-light focus:border-mt-purple"}
         />
         <input type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
         <button
@@ -47,7 +47,7 @@ export function NewsletterForm() {
           {state === "busy" ? "Joining" : "Join"}
         </button>
       </div>
-      <p aria-live="polite" className={`mt-3 min-h-5 text-sm ${state === "error" ? "text-mt-ink" : "text-mt-slate"}`}>
+      <p aria-live="polite" className={`mt-3 min-h-5 text-sm ${dark ? (state === "error" ? "text-white" : "text-white/60") : state === "error" ? "text-mt-ink" : "text-mt-slate"}`}>
         {note || "One email when something ships. No list selling, unsubscribe in one click."}
       </p>
     </form>

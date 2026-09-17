@@ -22,6 +22,10 @@ type DotGridProps = {
   fade?: "center" | "top" | "bottom" | "none";
   /* Grid rhythm. Default 16px matches the 8px spacing scale. */
   density?: "tight" | "default" | "loose";
+  /* A soft purple glow under the dots, top left, the way the pricing hero
+     has it. On by default since 17 September 2026: every hero was dots on
+     white and read flat. Pass false where a section carries its own. */
+  glow?: boolean;
   className?: string;
 };
 
@@ -41,12 +45,16 @@ const DENSITY = {
 export function DotGrid({
   fade = "center",
   density = "default",
+  glow = true,
   className = "",
 }: DotGridProps) {
   return (
-    <div
-      aria-hidden="true"
-      className={`mt-dots ${DENSITY[density]} ${FADE[fade]} pointer-events-none absolute inset-0 ${className}`}
-    />
+    <>
+      {glow ? <div aria-hidden="true" className="mt-bg mt-glow mt-glow-hero" /> : null}
+      <div
+        aria-hidden="true"
+        className={`mt-dots ${DENSITY[density]} ${FADE[fade]} pointer-events-none absolute inset-0 ${className}`}
+      />
+    </>
   );
 }

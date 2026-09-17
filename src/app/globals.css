@@ -654,3 +654,27 @@
   inset: 0;
   background-image: radial-gradient(ellipse 50% 60% at 30% 50%, color-mix(in srgb, var(--color-mt-purple) 16%, transparent) 0%, transparent 70%);
 }
+
+/* Hero preset for the glow: top left, behind the headline. */
+.mt-glow-hero { --gx: 18%; --gy: 30%; --gw: 60%; --gh: 75%; --ga: 0.2; }
+
+/* Dark ground variants, for the footer. Same shapes, light lines. */
+.mt-grid-dark::before {
+  content: "";
+  position: absolute;
+  inset: -32px;
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, #000 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, #000 30%, transparent 100%);
+}
+.mt-glow-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 50% 45% at 15% 0%, color-mix(in srgb, var(--color-mt-purple) 45%, transparent) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 90% 100%, color-mix(in srgb, var(--color-mt-purple-light) 22%, transparent) 0%, transparent 70%);
+}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/Button";
@@ -17,6 +18,14 @@ import { ogCard } from "@/lib/og";
 type PageProps = {
   params: Promise<{ pillar: string; service: string }>;
 };
+
+/* One delivered site per pillar, shown in every service hero under it.
+   Each is checkable by opening the case study. */
+const PROOF = {
+  build: { src: "/work/impressiful.webp", alt: "Impressiful online store, built by Manuel Technologies", client: "Impressiful", fact: "1,000+ products", href: "/work/impressiful" },
+  grow: { src: "/work/dementia-in-home.webp", alt: "Dementia In Home programmatic city pages, built by Manuel Technologies", client: "Dementia In Home", fact: "1,067 pages live", href: "/work/dementia-in-home" },
+  scale: { src: "/work/cgt-experts.webp", alt: "Capital Gains Tax Experts calculator suite, built by Manuel Technologies", client: "Capital Gains Tax Experts", fact: "9 calculators", href: "/work/cgt-experts" },
+} as const;
 
 export function generateStaticParams() {
   return SERVICE_PAGES.map(({ pillar, slug }) => ({ pillar, service: slug }));
@@ -85,6 +94,8 @@ export default async function ServicePage({ params }: PageProps) {
     },
   ];
 
+  const proof = PROOF[page.pillar];
+
   return (
     <main>
       <script
@@ -95,6 +106,8 @@ export default async function ServicePage({ params }: PageProps) {
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
         <DotGrid fade="bottom" />
         <Container className="relative">
+          <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div>
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link>
             <span aria-hidden="true">/</span>
@@ -127,6 +140,28 @@ export default async function ServicePage({ params }: PageProps) {
               </Link>
               , covering AI crawler access, structured data and response times.
             </p>
+          </div>
+          </div>
+
+          {/* Proof. A real site delivered under this pillar, the rule CLAUDE.md
+              section 4 puts first and that all sixteen service pages broke
+              until 17 September 2026. The card overlaps the hero edge on
+              large screens: layer stacking, no shadow. */}
+          <Link
+            href={proof.href}
+            className="mt-lift group relative block overflow-hidden rounded-[18px] border border-mt-border bg-white transition-colors duration-150 hover:border-mt-purple-light lg:translate-x-8"
+          >
+            <div className="relative aspect-[16/10] overflow-hidden bg-mt-surface">
+              <Image src={proof.src} alt={proof.alt} fill priority sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover object-top" />
+            </div>
+            <div className="flex items-center justify-between gap-4 border-t border-mt-border px-5 py-4">
+              <div>
+                <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">Delivered</span>
+                <p className="mt-1 text-[0.9375rem] font-semibold text-mt-ink">{proof.client}</p>
+              </div>
+              <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.14em] text-mt-muted group-hover:text-mt-purple">{proof.fact} →</span>
+            </div>
+          </Link>
           </div>
         </Container>
       </section>
