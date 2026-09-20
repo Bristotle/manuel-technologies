@@ -181,13 +181,13 @@ Rules for integration marks:
 --mt-purple-light: #8B52E8;  /* gradient partner, dark mode text */
 --mt-ink:          #1A1033;  /* headings, body. deep violet, not black */
 --mt-slate:        #3D3560;  /* secondary text */
---mt-muted:        #7B72A0;  /* labels, captions. 18px+ only */
+--mt-muted:        #6E6590;  /* labels, captions. passes 4.5:1 at any size */
 --mt-border:       #E4DDF7;
 --mt-surface:      #F5F2FC;
 --mt-white:        #FFFFFF;
 ```
 
-`#7B72A0` is 4.1:1 on white. Large text only, never below 18px.
+Muted was `#7B72A0`, 4.1:1, restricted to 18px and up. Forty labels under 12px broke that rule and failed Lighthouse contrast, so on 20 September 2026 it moved to `#6E6590`: 5.4:1 on white, 4.8:1 on surface. It now passes at any size.
 
 ### The four bands, since 17 September 2026
 
@@ -364,7 +364,7 @@ Every animation wrapped in `@media (prefers-reduced-motion: reduce)`. Non negoti
 
 ### Accessibility, treated as design
 
-- Text contrast 4.5:1 minimum. `--mt-muted` is 4.1:1, so **18px and above only**
+- Text contrast 4.5:1 minimum. Every token passes on white and surface at any size; keep it that way
 - Never colour alone to convey meaning
 - Real semantic elements. `<button>` for actions, `<a>` for navigation, never a clickable `<div>`
 - Every image gets meaningful `alt`, or `alt=""` if decorative

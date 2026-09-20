@@ -54,8 +54,27 @@ export function ContactForm() {
           <input name="name" required className="contact-input" />
         </label>
         <label className="flex flex-col gap-2 text-sm font-semibold">
-          Email
-          <input name="email" type="email" required className="contact-input" />
+          Work email
+          <input name="email" type="email" required className="contact-input" placeholder="you@yourcompany.com" />
+        </label>
+      </div>
+
+      <div className="grid gap-6 sm:grid-cols-2">
+        <label className="flex flex-col gap-2 text-sm font-semibold">
+          Company website
+          <input name="website" type="url" inputMode="url" placeholder="https://" required className="contact-input" />
+        </label>
+        <label className="flex flex-col gap-2 text-sm font-semibold">
+          Budget range
+          <select name="budget" required className="contact-input">
+            <option value="">Choose a range</option>
+            <option>Under GHS 3,500</option>
+            <option>GHS 3,500 to 6,000</option>
+            <option>GHS 6,000 to 9,000</option>
+            <option>GHS 9,000 to 15,000</option>
+            <option>Over GHS 15,000, or monthly retainer</option>
+            <option>Not sure yet</option>
+          </select>
         </label>
       </div>
 
@@ -70,6 +89,9 @@ export function ContactForm() {
           <option>Something else</option>
         </select>
       </label>
+
+      {/* Honeypot. Bots fill every field; people never see this one. */}
+      <input type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
 
       <label className="flex flex-col gap-2 text-sm font-semibold">
         Tell us about the project
@@ -87,7 +109,7 @@ export function ContactForm() {
       {status.message && (
         <p
           role="status"
-          className={status.type === "success" ? "text-mt-slate" : "text-red-700"}
+          className={status.type === "success" ? "text-mt-slate" : "font-semibold text-mt-ink"}
         >
           {status.message}
         </p>

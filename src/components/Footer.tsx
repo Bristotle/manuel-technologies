@@ -174,14 +174,15 @@ export function Footer() {
                 { k: "Office", v: <span className="text-white/85">{CONTACT.office}</span>, icon: <><path d="M12 21s-6-5.3-6-11a6 6 0 0 1 12 0c0 5.7-6 11-6 11Z" /><circle cx="12" cy="10" r="2.2" /></> },
                 { k: "Hours", v: <span className="text-white/85">{CONTACT.hours}</span>, icon: <><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></> },
               ].map((row) => (
-                <div key={row.k} className="flex items-start gap-3">
-                  <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] border border-white/15 bg-white/5 text-mt-purple-light">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">{row.icon}</svg>
-                  </span>
-                  <div className="flex flex-col gap-0.5">
-                    <dt className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.14em] text-white/50">{row.k}</dt>
-                    <dd className="font-semibold">{row.v}</dd>
-                  </div>
+                <div key={row.k} className="grid grid-cols-[36px_1fr] gap-x-3 gap-y-0.5">
+                  <dt className="col-start-1 row-span-2 flex items-start">
+                    <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-white/15 bg-white/5 text-mt-purple-light">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">{row.icon}</svg>
+                    </span>
+                    <span className="sr-only">{row.k}</span>
+                  </dt>
+                  <dd className="col-start-2 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.14em] text-white/60" aria-hidden="true">{row.k}</dd>
+                  <dd className="col-start-2 font-semibold">{row.v}</dd>
                 </div>
               ))}
             </dl>
