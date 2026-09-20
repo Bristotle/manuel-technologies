@@ -87,7 +87,7 @@ function Heading({ children, href, accent = "purple" }: { children: React.ReactN
 
 function Arrow() {
   return (
-    <svg viewBox="0 0 12 12" aria-hidden="true" className="mt-[0.4em] h-2.5 w-2.5 shrink-0 text-mt-purple-light transition-colors duration-150 group-hover:text-white">
+    <svg viewBox="0 0 12 12" aria-hidden="true" className="mt-[0.4em] h-2.5 w-2.5 shrink-0 text-mt-lilac transition-colors duration-150 group-hover:text-white">
       <path d="M4 2.5 7.5 6 4 9.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -105,10 +105,10 @@ export function Footer() {
           {/* Brand block: wordmark, line, proof pills, socials */}
           <div className="sm:col-span-2 md:col-span-3 lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-3">
-              <Logo className="h-8 w-8 text-mt-purple-light" />
+              <Logo className="h-8 w-8 text-mt-lilac" />
               <span className="text-base font-extrabold tracking-tight text-white">{SITE.name}</span>
             </Link>
-            <p className="mt-3 font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.22em] text-mt-purple-light">Build. Grow. Scale.</p>
+            <p className="mt-3 font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.22em] text-mt-lilac">Build. Grow. Scale.</p>
             <p className="mt-5 max-w-[30ch] text-[0.9375rem] leading-relaxed text-white/70">
               Websites, custom software, search visibility, and automation.
               Built and shipped by an engineer.
@@ -176,7 +176,7 @@ export function Footer() {
               ].map((row) => (
                 <div key={row.k} className="grid grid-cols-[36px_1fr] gap-x-3 gap-y-0.5">
                   <dt className="col-start-1 row-span-2 flex items-start">
-                    <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-white/15 bg-white/5 text-mt-purple-light">
+                    <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-white/15 bg-white/5 text-mt-lilac">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">{row.icon}</svg>
                     </span>
                     <span className="sr-only">{row.k}</span>

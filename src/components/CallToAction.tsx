@@ -43,7 +43,7 @@ export function CallToAction() {
 
           <h2 className="mt-6 !text-4xl leading-[1.05] text-white sm:!text-5xl">
             Have a problem worth{" "}
-            <span className="text-mt-purple-light">building around?</span>
+            <span className="text-mt-lilac">building around?</span>
           </h2>
 
           <p className="mt-8 text-lg leading-relaxed text-white/70">

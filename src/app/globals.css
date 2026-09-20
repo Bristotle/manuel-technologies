@@ -23,6 +23,7 @@
   /* Brand */
   --color-mt-purple:       #6B2FD9;
   --color-mt-purple-light: #8B52E8;
+  --color-mt-lilac:        #9D6DF0;  /* purple for text on ink, 5.0:1. purple-light is 3.8:1 there. 20 September 2026 */
   --color-mt-ink:          #1A1033;
   --color-mt-slate:        #3D3560;
   --color-mt-muted:        #6E6590;  /* was #7B72A0, 4.1:1. Now 5.4:1 on white, 4.8:1 on surface, so it passes at any size. 20 September 2026 */

@@ -48,7 +48,7 @@ function LeadQuote({ text }: { text: string }) {
   return (
     <>
       {text.slice(0, at)}
-      <em className="not-italic text-mt-purple-light">{EMPHASIS}</em>
+      <em className="not-italic text-mt-lilac">{EMPHASIS}</em>
       {text.slice(at + EMPHASIS.length)}
     </>
   );
@@ -68,7 +68,7 @@ export function ClientSpotlight() {
   return (
     <section className="bg-mt-ink py-24 text-white sm:py-32">
       <Container>
-        <SectionLabel className="!text-mt-purple-light">
+        <SectionLabel className="!text-mt-lilac">
           Client spotlight
         </SectionLabel>
 
@@ -77,11 +77,11 @@ export function ClientSpotlight() {
             <p className="max-w-[22ch] text-[1.875rem] leading-[1.12] tracking-[-0.03em] text-white sm:max-w-[26ch] sm:text-[2.75rem] lg:text-[3.25rem]">
               {/* Decorative marks, as the reference has them. aria-hidden so a
                   screen reader gets the quote once, from the blockquote. */}
-              <span aria-hidden="true" className="text-mt-purple-light">
+              <span aria-hidden="true" className="text-mt-lilac">
                 &ldquo;
               </span>
               <LeadQuote text={item.quote} />
-              <span aria-hidden="true" className="text-mt-purple-light">
+              <span aria-hidden="true" className="text-mt-lilac">
                 &rdquo;
               </span>
             </p>
@@ -114,7 +114,7 @@ export function ClientSpotlight() {
               ) : (
                 <span
                   aria-hidden="true"
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-sm font-extrabold text-mt-purple-light"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-sm font-extrabold text-mt-lilac"
                 >
                   {initials}
                 </span>
@@ -136,7 +136,7 @@ export function ClientSpotlight() {
               <a
                 href={item.companyUrl}
                 rel="noopener"
-                className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-white/60 transition-colors duration-150 hover:text-white active:text-mt-purple-light"
+                className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-white/60 transition-colors duration-150 hover:text-white active:text-mt-lilac"
               >
                 {item.company}
               </a>

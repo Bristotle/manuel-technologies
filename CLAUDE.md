@@ -178,7 +178,8 @@ Rules for integration marks:
 
 ```css
 --mt-purple:       #6B2FD9;  /* primary */
---mt-purple-light: #8B52E8;  /* gradient partner, dark mode text */
+--mt-purple-light: #8B52E8;  /* gradient partner, hover on light */
+--mt-lilac:        #9D6DF0;  /* purple for text on ink, 5.0:1. purple-light is 3.8:1 there */
 --mt-ink:          #1A1033;  /* headings, body. deep violet, not black */
 --mt-slate:        #3D3560;  /* secondary text */
 --mt-muted:        #6E6590;  /* labels, captions. passes 4.5:1 at any size */
