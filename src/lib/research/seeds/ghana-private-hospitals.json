@@ -1,0 +1,13 @@
+{
+  "industry": "private hospitals and clinics",
+  "industryPlural": "private hospital and clinic websites",
+  "market": "Ghana",
+  "city": null,
+  "frame": "Facilities named in the YEN.com.gh and IdealMedHealth lists of private hospitals in Ghana, plus well known private facilities in Accra, Tema and Kumasi, where a working website could be found. Public teaching and regional hospitals were excluded except one that operates commercially. Directories and booking aggregators excluded.",
+  "sites": [
+    "nyahomedical.com","thebankhospital.com","thetrusthospital.com","mannaminc.org","ghanacanadamedicalcentre.com","listerhospital.com.gh",
+    "airportwomenshospital.com","medifemhospital.com","holytrinitymedicalcentre.com","euracare.com.gh","imah.gov.gh","asafoboakyehsp.com",
+    "bemuahospital.com","crownmedicalcentre.com","delinternationalhospital.com","finneyhospital.com","focoshospital.org","upscalefertilitygh.com",
+    "yeboahhospital.org","rabitoclinic.com","akaihouseclinic.com"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "industry": "law firms",
+  "industryPlural": "law firm websites",
+  "market": "Ghana",
+  "city": null,
+  "frame": "Firms listed in the Legal 500 Ghana directory, the YEN.com.gh list of law firms in Ghana, the AttorneysHouse Accra directory, and firms named in Chambers Global's Ghana ranking, where a working website could be found. Directories, bar association pages and firms without a site of their own were excluded. This is a sample of the firms a searcher finds, not a random sample of the profession.",
+  "sites": [
+    "darkolawfirm.com","bpaghana.com","ndowuona.com","clintonconsultancy.com","nsiahakuetteh.com","kwameagati.com",
+    "integratedlegalconsultants.com","swiftlaw.co","shawbellconsulting.com","jldmblaw.net","kimathilegal.com","ashongbenjamin.com",
+    "belonline.org","legalinkonline.com","skboafoandcompany.org","ntrakwahandco.com","senachambers.com","abdavid.com",
+    "kulendilaw.com","africalegalassociates.com","adjabenglegal.com","wtsnobisfields.com","sarpongandassociates.com","lawplusgh.com"
+  ]
+}
