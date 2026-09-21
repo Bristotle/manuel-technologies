@@ -5,6 +5,7 @@ import { PUBLISHED_CASE_STUDIES } from "@/lib/case-studies";
 import ROUTE_DATES from "@/lib/route-dates.json";
 import { discoverStaticRoutes, priorityFor } from "@/lib/routes";
 import { SERVICE_PAGES } from "@/lib/service-pages";
+import { PUBLISHED_INDUSTRIES } from "@/lib/pseo/industries";
 import { SITE } from "@/lib/site";
 
 /* --------------------------------------------------------------------------
@@ -94,5 +95,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
   );
 
-  return [...staticRoutes, ...services, ...caseStudies, ...categories, ...blogPosts];
+  /* Programmatic pages, dated from their record. */
+  const industries = PUBLISHED_INDUSTRIES.flatMap((i) => [
+    entry(`/websites-for/${i.slug}`, i.modified, 0.8),
+    entry(`/research/${i.slug}`, i.modified, 0.8),
+  ]);
+
+  return [...staticRoutes, ...services, ...caseStudies, ...categories, ...blogPosts, ...industries];
 }

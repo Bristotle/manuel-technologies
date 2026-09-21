@@ -14,6 +14,7 @@ import {
 } from "@/lib/service-pages";
 import { SITE } from "@/lib/site";
 import { ACCENT, PILLAR_ACCENT } from "@/lib/accent";
+import { PUBLISHED_INDUSTRIES } from "@/lib/pseo/industries";
 import { ogCard } from "@/lib/og";
 
 type PageProps = {
@@ -125,6 +126,15 @@ export default async function ServicePage({ params }: PageProps) {
               <Button href="/contact">Start a conversation</Button>
               <Button href="/work" variant="secondary">See the work</Button>
             </div>
+            {page.slug === "website-development" ? (
+              <p className="mt-8 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-slate">
+                By industry:{" "}
+                {PUBLISHED_INDUSTRIES.map((i, n) => (
+                  <span key={i.slug}>{n > 0 ? ", " : ""}<Link href={`/websites-for/${i.slug}`} className="text-mt-purple hover:underline">{i.name}</Link></span>
+                ))}
+                .
+              </p>
+            ) : null}
             {page.pillar === "build" ? (
               <p className="mt-8 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-slate">
                 Prices are published.{" "}
