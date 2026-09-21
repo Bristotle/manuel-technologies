@@ -49,6 +49,7 @@ const COMPANY_COLUMN = {
     { name: "Integrations", href: "/integrations" },
     { name: "Research", href: "/research" },
     { name: "By industry", href: "/websites-for" },
+    { name: "Glossary", href: "/glossary" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ],

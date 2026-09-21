@@ -6,6 +6,7 @@ import ROUTE_DATES from "@/lib/route-dates.json";
 import { discoverStaticRoutes, priorityFor } from "@/lib/routes";
 import { SERVICE_PAGES } from "@/lib/service-pages";
 import { PUBLISHED_INDUSTRIES } from "@/lib/pseo/industries";
+import { TERMS } from "@/lib/glossary";
 import { SITE } from "@/lib/site";
 
 /* --------------------------------------------------------------------------
@@ -101,5 +102,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`/research/${i.slug}`, i.modified, 0.8),
   ]);
 
-  return [...staticRoutes, ...services, ...caseStudies, ...categories, ...blogPosts, ...industries];
+  const glossary = TERMS.map((t) => entry(`/glossary/${t.slug}`, t.modified, 0.6));
+
+  return [...staticRoutes, ...services, ...caseStudies, ...categories, ...blogPosts, ...industries, ...glossary];
 }
