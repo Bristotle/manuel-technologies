@@ -25,7 +25,7 @@ export const MENUS = [
     name: "Free tools",
     href: "/free-tools",
     items: TOOLS.map((t) => ({ name: t.title, href: t.href, blurb: t.label })),
-    footer: { label: "All twelve tools", href: "/free-tools" },
+    footer: { label: "All thirteen tools", href: "/free-tools" },
     feature: null as typeof FEATURE[keyof typeof FEATURE] | null,
     accent: "pink" as Accent,
   },

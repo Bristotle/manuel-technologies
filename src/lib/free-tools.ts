@@ -4,6 +4,7 @@
 export type Tool = { label: string; title: string; description: string; href: string };
 
 export const TOOLS: Tool[] = [
+  { label: "Gateway fees", title: "Payment gateway fee calculator", description: "Flutterwave, Paystack and Hubtel compared on published rates, and what MoMo and card fees come to at your order value.", href: "/payment-gateways-ghana" },
   { label: "Live audit", title: "Free SEO and GEO audit", description: "Enter a URL. We fetch the page, its robots.txt and its sitemap, measure twenty things, and rank what to fix.", href: "/free-audit" },
   { label: "AI crawlers", title: "AI crawler compatibility check", description: "Are GPTBot, ClaudeBot, PerplexityBot and Google-Extended allowed to read your site? A blocked crawler cannot cite you.", href: "/free-tools/ai-crawler-check" },
   { label: "ROI", title: "Organic traffic ROI calculator", description: "What one organic visit is worth at your own numbers, what a traffic increase would be worth, and the break even point.", href: "/free-tools/roi-calculator" },

@@ -222,7 +222,7 @@ export default function About() {
               client performance through Lighthouse reports was slower than it
               needed to be. The{" "}
               <Link href="/free-tools" className="text-mt-purple hover:underline">
-                twelve free tools
+                thirteen free tools
               </Link>{" "}
               on this site run live rather than describing what they would do,
               and none of them sits behind an email form.

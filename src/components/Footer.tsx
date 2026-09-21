@@ -59,7 +59,7 @@ const COLUMNS = [...PILLAR_COLUMNS, COMPANY_COLUMN];
 
 /* Countable, and each one links to where it can be checked. */
 const PILLS = [
-  { label: "12 free tools", href: "/free-tools" },
+  { label: "13 free tools", href: "/free-tools" },
   { label: "Chrome Web Store developer", href: SITE.chromeStore, external: true },
   { label: "Prices published", href: "/pricing" },
 ];
