@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { CLUSTER_NAMES, TERMS } from "@/lib/glossary";
 import { ogCard } from "@/lib/og";
@@ -21,7 +20,6 @@ export default function GlossaryIndex() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
-        <DotGrid fade="bottom" glowColor="#FF6B9D" />
         <Container className="relative">
           <SectionLabel accent="pink">Glossary</SectionLabel>
           <h1 className="mt-6 max-w-[18ch]">The terms, in plain English.</h1>

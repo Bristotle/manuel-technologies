@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Comparison } from "@/components/Comparison";
 import { Container } from "@/components/ui/Container";
-import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SITE } from "@/lib/site";
 import { ogCard } from "@/lib/og";
@@ -112,7 +111,6 @@ export default function AgencyVsEngineer() {
       />
 
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
-        <DotGrid fade="bottom" />
         <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">

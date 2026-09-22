@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { PUBLISHED_INDUSTRIES } from "@/lib/pseo/industries";
 import UK from "@/lib/research/uk-accountancy-2026.json";
@@ -25,7 +24,6 @@ export default function ResearchIndex() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
-        <DotGrid fade="bottom" glowColor="#FF6B9D" />
         <Container className="relative">
           <SectionLabel accent="pink">Research</SectionLabel>
           <h1 className="mt-6 max-w-[18ch]">Numbers nobody else in this market has.</h1>

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import STUDY from "@/lib/research/uk-accountancy-2026.json";
 import { SITE } from "@/lib/site";
@@ -126,7 +125,6 @@ export default function Study() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
-        <DotGrid fade="bottom" glowColor="#FF6B9D" />
         <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link>
@@ -143,7 +141,7 @@ export default function Study() {
               </span>
             </h1>
             <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">
-              Not slow. Not badly optimised. Unreadable by an identified,
+              Unreadable, rather than slow or badly optimised, by an identified,
               well behaved crawler that obeys robots.txt and says who it is.
               The bot protection responsible serves a holding page carrying{" "}
               <strong className="text-mt-ink">noindex, nofollow</strong>, which

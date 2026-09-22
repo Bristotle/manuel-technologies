@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { DotGrid } from "@/components/ui/DotGrid";
 import { IntegrationLogo } from "@/components/ui/IntegrationLogo";
 import { FEATURED_INTEGRATIONS, INTEGRATIONS } from "@/lib/integrations";
 
@@ -27,7 +26,6 @@ export function Integrations({
     <section
       className={`relative overflow-hidden border-y border-mt-border ${background} py-24 sm:py-32`}
     >
-      <DotGrid fade="center" />
 
       <Container className="relative">
         <div className="mx-auto max-w-[52ch] text-center">

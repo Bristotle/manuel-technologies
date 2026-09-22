@@ -120,7 +120,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       </section>
       <article className="py-24 sm:py-32"><Container><div className="grid gap-16 lg:grid-cols-[minmax(0,680px)_280px] lg:items-start">
         <div>
-          <div className="border-l-4 border-mt-purple bg-white p-6"><SectionLabel>Quick answer</SectionLabel><p className="mt-4 text-lg leading-relaxed">{renderInline(post.lead)}</p></div>
+          <div className="rounded-[18px] border border-mt-border bg-white p-6"><SectionLabel>Quick answer</SectionLabel><p className="mt-4 text-lg leading-relaxed">{renderInline(post.lead)}</p></div>
           {/* Real work, above the fold of the body. CLAUDE.md section 4:
               every page carries visual evidence. Also the schema image. */}
           {post.heroImage ? (

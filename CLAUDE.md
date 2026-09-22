@@ -234,7 +234,11 @@ Set in mono, uppercase, 0.22em tracking.
 
 ### Typeface
 
-**PENDING.** Placeholder is the system stack. When chosen, it goes in `src/app/layout.tsx` via `next/font` and nowhere else.
+Chosen 22 September 2026: **Bricolage Grotesque** for display (h1 to h4), **IBM Plex Sans** for body, **IBM Plex Mono** for bracket labels. All three via `next/font` in `src/app/layout.tsx` and nowhere else. Space Grotesk and Space Mono were the placeholder and are the most recognisable tell of a template built site; do not bring them back.
+
+### Subtraction, 22 September 2026
+
+Audited against the "30 reasons your site looks vibe-coded" list. Decided: dot grid on the homepage hero only, with its glow; no other hero carries a pattern or an orb, since the proof screenshot does the work. `mt-lift` is colour only, no movement, which section 4 always required. No coloured left stripes. Grids of three equal cards are broken where the content count is not three. "Not X. Y." appears once on the site, not as a house tic.
 
 ---
 

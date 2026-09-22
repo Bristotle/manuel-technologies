@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
 import { WorkProcess } from "@/components/WorkProcess";
@@ -128,7 +127,6 @@ export default function About() {
   return (
     <main>
       <section className="relative overflow-hidden bg-white py-24 sm:py-32">
-        <DotGrid fade="bottom" />
         <Container className="relative">
           <SectionLabel>About</SectionLabel>
           <h1 className="mt-6 max-w-[18ch]">

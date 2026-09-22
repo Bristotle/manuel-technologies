@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
-import { DotGrid } from "@/components/ui/DotGrid";
 import { IntegrationLogo } from "@/components/ui/IntegrationLogo";
 import {
   INTEGRATION_CATEGORIES,
@@ -52,7 +51,6 @@ export default function Page() {
       />
 
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
-        <DotGrid fade="center" />
         <Container className="relative">
           <SectionLabel>Integrations</SectionLabel>
           <h1 className="mt-6 max-w-[18ch]">

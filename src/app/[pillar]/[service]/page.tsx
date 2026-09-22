@@ -4,7 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { WorkProcess } from "@/components/WorkProcess";
 import {
@@ -106,7 +105,6 @@ export default async function ServicePage({ params }: PageProps) {
       />
 
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
-        <DotGrid fade="bottom" glowColor={ACCENT[PILLAR_ACCENT[page.pillar]].glow} />
         <Container className="relative">
           <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
@@ -185,9 +183,9 @@ export default async function ServicePage({ params }: PageProps) {
         <Container>
           <SectionLabel accent={PILLAR_ACCENT[page.pillar]}>Who this is for, and why</SectionLabel>
           <h2 className="mt-6 max-w-[22ch]">{page.audience}</h2>
-          <ol className="mt-reveal-group mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <ol className="mt-reveal-group mt-12 grid gap-x-12 gap-y-8 md:grid-cols-2">
             {page.why.map((reason, index) => (
-              <li key={reason} className="border-t border-mt-border pt-6">
+              <li key={reason} className={`border-t border-mt-border pt-6 ${index === 0 ? "md:col-span-2 md:max-w-[60ch]" : ""}`}>
                 <span className={`font-[family-name:var(--font-mono)] text-xs tracking-[0.18em] ${ACCENT[PILLAR_ACCENT[page.pillar]].text}`}>0{index + 1}</span>
                 <p className="mt-4 text-[1.0625rem] leading-relaxed text-mt-slate">{reason}</p>
               </li>

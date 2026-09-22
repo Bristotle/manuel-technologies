@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { GatewayFeeCalculator } from "@/components/tools/GatewayFeeCalculator";
 import { GATEWAYS, type Fee } from "@/lib/gateways";
@@ -41,7 +40,6 @@ export default function GatewaysPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
-        <DotGrid fade="bottom" glowColor="#FF6B9D" />
         <Container className="relative">
           <SectionLabel accent="pink">Payment gateways in Ghana</SectionLabel>
           <h1 className="mt-6 max-w-[22ch]">Flutterwave, Paystack and Hubtel: what each one charges, and what it does not say.</h1>

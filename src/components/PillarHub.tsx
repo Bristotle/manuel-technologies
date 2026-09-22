@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { ACCENT, PILLAR_ACCENT } from "@/lib/accent";
+import { PILLAR_ACCENT } from "@/lib/accent";
 import { Card } from "@/components/ui/Card";
-import { DotGrid } from "@/components/ui/DotGrid";
 import { Button } from "@/components/ui/Button";
 import { PILLARS, SITE, type Pillar } from "@/lib/site";
 import { ogCard } from "@/lib/og";
@@ -66,7 +65,6 @@ export function PillarHub({
       />
 
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
-        <DotGrid fade="bottom" glowColor={ACCENT[PILLAR_ACCENT[pillar.slug]].glow} />
         <Container className="relative">
           <SectionLabel accent={PILLAR_ACCENT[pillar.slug]}>{pillar.name.toUpperCase()}</SectionLabel>
           <h1 className="mt-6 max-w-[16ch]">{pillar.promise}</h1>
@@ -81,7 +79,7 @@ export function PillarHub({
       <section className="py-24 sm:py-32">
         <Container>
           <SectionLabel>Services</SectionLabel>
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-5 sm:grid-cols-2">
             {pillar.services.map((s) => (
               <Card key={s.href} href={s.href}>
                 <h2 className="!text-base !tracking-tight">{s.name}</h2>

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { LEGAL_UPDATED, type LegalSection } from "@/lib/legal";
 
@@ -9,7 +8,6 @@ export function LegalPage({ title, intro, sections }: { title: string; intro: st
   return (
     <main>
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
-        <DotGrid fade="bottom" />
         <Container className="relative">
           <SectionLabel>Legal</SectionLabel>
           <h1 className="mt-6 max-w-[18ch]">{title}</h1>

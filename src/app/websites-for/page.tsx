@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { PUBLISHED_INDUSTRIES } from "@/lib/pseo/industries";
 import { ogCard } from "@/lib/og";
@@ -20,7 +19,6 @@ export default function IndustriesIndex() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
-        <DotGrid fade="bottom" />
         <Container className="relative">
           <SectionLabel>Websites by industry</SectionLabel>
           <h1 className="mt-6 max-w-[20ch]">The same craft, pointed at what your industry actually needs.</h1>

@@ -158,7 +158,7 @@ export default function Home() {
           visitor arrives for search, so it is held for something that speaks
           to the rest of them. */}
       <section className="relative overflow-hidden bg-white py-20 sm:py-28">
-        <DotGrid fade="center" />
+        <DotGrid fade="center" glow />
         <Container className="relative">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-20">
             <div>

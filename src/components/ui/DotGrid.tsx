@@ -22,9 +22,9 @@ type DotGridProps = {
   fade?: "center" | "top" | "bottom" | "none";
   /* Grid rhythm. Default 16px matches the 8px spacing scale. */
   density?: "tight" | "default" | "loose";
-  /* A soft purple glow under the dots, top left, the way the pricing hero
-     has it. On by default since 17 September 2026: every hero was dots on
-     white and read flat. Pass false where a section carries its own. */
+  /* A soft glow under the dots. Off by default since 22 September 2026:
+     dots plus an orb on 35 heroes was the template look, not a style. The
+     homepage hero passes glow so the site keeps one signature. */
   glow?: boolean;
   /* Hex for the glow. Defaults to purple; pillar pages pass their band. */
   glowColor?: string;
@@ -47,7 +47,7 @@ const DENSITY = {
 export function DotGrid({
   fade = "center",
   density = "default",
-  glow = true,
+  glow = false,
   glowColor,
   className = "",
 }: DotGridProps) {

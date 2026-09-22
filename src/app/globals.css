@@ -46,6 +46,7 @@
 
   /* Type. Placeholder until the display face is chosen. */
   --font-display: var(--font-display-face), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body:    var(--font-body-face), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono:    var(--font-mono-face), ui-monospace, "SF Mono", Menlo, monospace;
 
   /* Spacing scale */
@@ -71,16 +72,17 @@
   body {
     background: var(--color-mt-surface);
     color: var(--color-mt-ink);
-    font-family: var(--font-display);
+    font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
   /* Display type must clamp or it destroys 360px screens */
-  h1 { font-size: clamp(2.25rem, 6vw, 4.5rem); line-height: 1.02; letter-spacing: -0.035em; font-weight: 800; }
-  h2 { font-size: clamp(1.75rem, 4vw, 3rem);   line-height: 1.08; letter-spacing: -0.028em; font-weight: 800; }
-  h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); line-height: 1.2; letter-spacing: -0.02em; font-weight: 700; }
+  h1, h2, h3, h4 { font-family: var(--font-display); font-variation-settings: "opsz" 96, "wdth" 100; }
+  h1 { font-size: clamp(2.25rem, 6vw, 4.5rem); line-height: 1.02; letter-spacing: -0.03em; font-weight: 800; }
+  h2 { font-size: clamp(1.75rem, 4vw, 3rem);   line-height: 1.08; letter-spacing: -0.024em; font-weight: 800; }
+  h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); line-height: 1.2; letter-spacing: -0.015em; font-weight: 700; }
 
   p { line-height: 1.7; }
 
@@ -333,14 +335,12 @@
   to   { transform: scaleX(1); }
 }
 
-/* Hover lift. Transform only, never box-shadow, never layout properties. */
+/* Hover on cards. Colour only, since 22 September 2026. The 3px lift this
+   used to carry broke CLAUDE.md's own rule (hover is a colour shift, no
+   movement) and is the most copied hover on the web. The class stays on
+   the markup so the border transition still applies. */
 .mt-lift {
-  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
-              border-color 150ms ease;
-  will-change: transform;
-}
-.mt-lift:hover {
-  transform: translate3d(0, -3px, 0);
+  transition: border-color 150ms ease, background-color 150ms ease;
 }
 
 /* Underline that draws in on hover. Uses scaleX so it never reflows. */

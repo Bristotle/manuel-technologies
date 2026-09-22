@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 import { Container } from "@/components/ui/Container";
-import { DotGrid } from "@/components/ui/DotGrid";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { WorkProcess } from "@/components/WorkProcess";
 import { CONTACT, SITE } from "@/lib/site";
@@ -29,7 +28,6 @@ export default function ContactPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="relative overflow-hidden bg-white py-24 sm:py-32">
-        <DotGrid fade="bottom" />
         <Container className="relative">
           <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>

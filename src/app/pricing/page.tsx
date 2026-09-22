@@ -210,7 +210,7 @@ export default function Pricing() {
             </div>
 
             {/* The two lines that do the selling */}
-            <div className="mt-12 flex flex-col gap-4 border-l-4 border-mt-purple pl-6">
+            <div className="mt-12 flex flex-col gap-4 border-t border-mt-border pt-8">
               {PROMISES.map((p) => (
                 <p key={p} className="max-w-[65ch] text-lg font-semibold leading-relaxed text-mt-ink">{p}</p>
               ))}
@@ -407,7 +407,7 @@ export default function Pricing() {
           <SectionLabel>Next step</SectionLabel>
           <h2 className="mt-6">Tell us what the site has to do. You will get a fixed price back.</h2>
           <p className="mt-6 max-w-[55ch] text-lg leading-relaxed text-mt-slate">
-            Not an estimate that grows. A price, what it includes, a timeline,
+            A price that does not grow, what it includes, a timeline,
             and the name of the engineer who will build it.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">

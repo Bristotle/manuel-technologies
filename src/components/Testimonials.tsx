@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { DotGrid } from "@/components/ui/DotGrid";
 import {
   PUBLISHABLE_TESTIMONIALS,
   type Testimonial,
@@ -62,7 +61,6 @@ export function Testimonials() {
 
   return (
     <section className="relative overflow-hidden border-y border-mt-border bg-white py-24 sm:py-32">
-      <DotGrid fade="top" />
 
       <Container className="relative">
         <div className="max-w-[34ch]">

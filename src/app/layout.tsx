@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Space_Mono } from "next/font/google";
+import { Bricolage_Grotesque, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Header } from "@/components/Header";
@@ -8,17 +8,27 @@ import { CONTACT, SOCIAL } from "@/lib/site";
 import "./globals.css";
 
 /* --------------------------------------------------------------------------
-   Typeface. Recommendation is Space Grotesk + Space Mono.
-   If you pick differently from typeface-picker.html, change ONLY this block.
-   Nothing else in the codebase references a font name.
+   Typeface, chosen 22 September 2026. Bricolage Grotesque for display, IBM
+   Plex Sans for body, IBM Plex Mono for the bracket labels. Replaces Space
+   Grotesk and Space Mono, which had been the placeholder since launch and
+   are the single most recognisable tell of a template built site. Nothing
+   else in the codebase references a font name.
    -------------------------------------------------------------------------- */
-const display = Space_Grotesk({
+const display = Bricolage_Grotesque({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-display-face",
+  axes: ["opsz", "wdth"],
 });
 
-const mono = Space_Mono({
+const body = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-body-face",
+});
+
+const mono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "700"],
   display: "swap",
@@ -115,7 +125,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en-GB" className={`${display.variable} ${mono.variable}`}>
+    <html lang="en-GB" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
         <script
           type="application/ld+json"
