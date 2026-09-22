@@ -18,7 +18,7 @@ const display = Bricolage_Grotesque({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-display-face",
-  axes: ["opsz", "wdth"],
+  weight: ["700", "800"],
 });
 
 const body = IBM_Plex_Sans({
