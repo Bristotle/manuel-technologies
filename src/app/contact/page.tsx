@@ -58,7 +58,7 @@ export default function ContactPage() {
                   </dd>
                 </div>
                 <div>
-                  <dt className="mt-label">Office</dt>
+                  <dt className="mt-label">Where</dt>
                   <dd className="mt-2 text-base font-semibold">{CONTACT.office}</dd>
                 </div>
                 <div>

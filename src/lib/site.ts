@@ -31,7 +31,7 @@ export const SOCIAL = [
 export const CONTACT = {
   phone: "+233 24 790 2348",
   tel: "+233247902348",
-  office: "Accra, Ghana",
+  office: "Worldwide, remote first",
   hours: "Mon to Sat, 8am to 5pm",
   hoursSchema: { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "08:00", closes: "17:00" },
 } as const;

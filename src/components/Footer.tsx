@@ -173,7 +173,7 @@ export function Footer() {
               {[
                 { k: "Phone", v: <a href={`tel:${CONTACT.tel}`} className="text-white/85 hover:text-white">{CONTACT.phone}</a>, icon: <path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" /> },
                 { k: "Email", v: <a href={`mailto:${SITE.email}`} className="text-white/85 hover:text-white">{SITE.email}</a>, icon: <><path d="M3 6h18v12H3z" /><path d="m3 7 9 6 9-6" /></> },
-                { k: "Office", v: <span className="text-white/85">{CONTACT.office}</span>, icon: <><path d="M12 21s-6-5.3-6-11a6 6 0 0 1 12 0c0 5.7-6 11-6 11Z" /><circle cx="12" cy="10" r="2.2" /></> },
+                { k: "Where", v: <span className="text-white/85">{CONTACT.office}</span>, icon: <><path d="M12 21s-6-5.3-6-11a6 6 0 0 1 12 0c0 5.7-6 11-6 11Z" /><circle cx="12" cy="10" r="2.2" /></> },
                 { k: "Hours", v: <span className="text-white/85">{CONTACT.hours}</span>, icon: <><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></> },
               ].map((row) => (
                 <div key={row.k} className="grid grid-cols-[36px_1fr] gap-x-3 gap-y-0.5">
@@ -205,7 +205,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col-reverse gap-4 border-t border-white/12 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-white/50">
-            &copy; {new Date().getFullYear()} {SITE.name}. {CONTACT.office}. All rights reserved.
+            &copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.
           </p>
           <div className="flex flex-wrap gap-6">
             <Link href="/privacy-policy" className="text-sm text-white/50 transition-colors duration-150 hover:text-white">Privacy policy</Link>
