@@ -23,14 +23,14 @@ const display = Bricolage_Grotesque({
 
 const body = IBM_Plex_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "600"],
   display: "swap",
   variable: "--font-body-face",
 });
 
 const mono = IBM_Plex_Mono({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400"],
   display: "swap",
   variable: "--font-mono-face",
 });
