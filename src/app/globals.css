@@ -80,6 +80,9 @@
 
   /* Display type must clamp or it destroys 360px screens */
   h1, h2, h3, h4 { font-family: var(--font-display); }
+  /* Extrabold means display type: stat numbers, prices, the wordmark. The
+     body face has no 800 and the browser would synthesise one. */
+  .font-extrabold { font-family: var(--font-display); }
   h1 { font-size: clamp(2.25rem, 6vw, 4.5rem); line-height: 1.02; letter-spacing: -0.03em; font-weight: 800; }
   h2 { font-size: clamp(1.75rem, 4vw, 3rem);   line-height: 1.08; letter-spacing: -0.024em; font-weight: 800; }
   h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); line-height: 1.2; letter-spacing: -0.015em; font-weight: 800; }
