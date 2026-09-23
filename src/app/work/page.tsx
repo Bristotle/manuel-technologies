@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SeoProof } from "@/components/SeoProof";
 import { Button } from "@/components/ui/Button";
 import { hasCaseStudy } from "@/lib/case-studies";
 import { PROJECTS, SITE } from "@/lib/site";
@@ -118,6 +119,8 @@ export default function Work() {
           </div>
         </Container>
       </section>
+
+      <SeoProof />
 
       {/* Our own software */}
       <section className="border-y border-mt-border bg-white py-24 sm:py-32">
