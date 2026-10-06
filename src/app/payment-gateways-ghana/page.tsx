@@ -14,7 +14,7 @@ import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: "Payment gateways in Ghana: fees compared" },
-  description: "Flutterwave, Paystack and Hubtel for accepting MTN MoMo, Telecel Cash and cards on a Ghanaian website. Published fees, what each does not publish, settlement, and a fee calculator.",
+  description: "Flutterwave, Paystack and Hubtel compared for MTN MoMo, Telecel Cash and cards on a Ghanaian website. Published fees, settlement times, and a fee calculator.",
   alternates: { canonical: "/payment-gateways-ghana" },
   openGraph: { images: [ogCard("Payment gateways in Ghana", "Build")] },
 };
@@ -97,7 +97,7 @@ export default function GatewaysPage() {
             ))}
           </div>
           <div className="mt-10 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-slate">
-            <p><strong className="text-mt-ink">Our pick, and why.</strong> For a new Ghanaian store we usually integrate Paystack first, because its developer tooling is the most mature and its Mobile Money rate is the lowest we could verify, with Flutterwave where international cards are a large share of sales. We say that as the people who build the integration, and the choice is yours after reading the fee schedules yourself. The integration is included in our <Link href="/pricing#store" className="text-mt-purple hover:underline">Online store tier</Link>, and the mechanics are in <Link href="/blog/momo-payment-integration-website-ghana" className="text-mt-purple hover:underline">how to accept MoMo on your website</Link>.</p>
+            <p><strong className="text-mt-ink">Our pick, and why.</strong> For a new Ghanaian store we usually integrate Paystack first, because its developer tooling is the most mature and its Mobile Money rate is the lowest we could verify, with Flutterwave where international cards are a large share of sales. We say that as the people who build the integration, and the choice is yours after reading the fee schedules yourself. The integration is included in our <Link href="/pricing#store" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">Online store tier</Link>, and the mechanics are in <Link href="/blog/momo-payment-integration-website-ghana" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">how to accept MoMo on your website</Link>.</p>
           </div>
         </Container>
       </section>

@@ -128,7 +128,7 @@ export default async function ServicePage({ params }: PageProps) {
               <p className="mt-8 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-slate">
                 By industry:{" "}
                 {PUBLISHED_INDUSTRIES.map((i, n) => (
-                  <span key={i.slug}>{n > 0 ? ", " : ""}<Link href={`/websites-for/${i.slug}`} className="text-mt-purple hover:underline">{i.name}</Link></span>
+                  <span key={i.slug}>{n > 0 ? ", " : ""}<Link href={`/websites-for/${i.slug}`} className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">{i.name}</Link></span>
                 ))}
                 .
               </p>
@@ -136,7 +136,7 @@ export default async function ServicePage({ params }: PageProps) {
             {page.pillar === "build" ? (
               <p className="mt-8 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-slate">
                 Prices are published.{" "}
-                <Link href="/pricing" className="text-mt-purple hover:underline">
+                <Link href="/pricing" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">
                   Four tiers from GHS 2,000, with what each includes
                 </Link>
                 , and a comparison against market rates.
@@ -144,7 +144,7 @@ export default async function ServicePage({ params }: PageProps) {
             ) : null}
             <p className="mt-8 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-slate">
               Related reading:{" "}
-              <Link href="/research/uk-accountancy-websites" className="text-mt-purple hover:underline">
+              <Link href="/research/uk-accountancy-websites" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">
                 our study of 56 UK accountancy websites
               </Link>
               , covering AI crawler access, structured data and response times.

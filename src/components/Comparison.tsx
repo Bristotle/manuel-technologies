@@ -153,6 +153,9 @@ export function Comparison({
   heading?: boolean;
   moreHref?: string;
 } = {}) {
+  /* Without the section heading, the two column titles sit directly under
+     the page's h1, so they must be h2 or the outline skips a level. */
+  const ColumnTitle = heading ? "h3" : "h2";
   return (
     <section className="border-y border-mt-border bg-white py-24 sm:py-32">
       <Container>
@@ -196,9 +199,9 @@ export function Comparison({
               <span className="inline-flex rounded-[20px] border border-mt-border bg-mt-surface px-3 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-slate">
                 The usual model
               </span>
-              <h3 className="mt-6 !text-2xl !tracking-tight">
+              <ColumnTitle className="mt-6 !text-2xl !tracking-tight">
                 The retainer arrangement
-              </h3>
+              </ColumnTitle>
               <p className="mt-3 max-w-[44ch] text-[0.9375rem] leading-relaxed text-mt-slate">
                 The default way technical work is bought, and the one most
                 businesses are still paying for.
@@ -209,9 +212,9 @@ export function Comparison({
               <span className="inline-flex rounded-[20px] bg-mt-ink px-3 py-1.5 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-white">
                 Manuel Technologies
               </span>
-              <h3 className="mt-6 !text-2xl !tracking-tight">
+              <ColumnTitle className="mt-6 !text-2xl !tracking-tight">
                 One engineering practice
-              </h3>
+              </ColumnTitle>
               <p className="mt-3 max-w-[44ch] text-[0.9375rem] leading-relaxed text-mt-slate">
                 Sixteen services across Build, Grow and Scale, under senior
                 engineering ownership and one accountable owner.

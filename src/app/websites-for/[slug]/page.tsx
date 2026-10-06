@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const title = `Website design for ${i.name} in ${i.market}`;
   return {
     title: { absolute: title.length > 45 ? title : `${title} | ${SITE.name}` },
-    description: `What a website for ${i.name} in ${i.market} has to do, what it costs (${ghs(tier.from)} to ${ghs(tier.to)}), and a benchmark of ${i.benchmark.measurable} ${i.name} sites showing where most fall short.`,
+    description: `What a website for ${i.name} in ${i.market} has to do, what it costs (${ghs(tier.from)} to ${ghs(tier.to)}), and where ${i.benchmark.measurable} local sites fall short.`,
     alternates: { canonical: `/websites-for/${i.slug}` },
     openGraph: { images: [ogCard(title, "Build")] },
   };
@@ -73,7 +73,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                 <Button href="/free-audit" variant="secondary">Audit our current site</Button>
               </div>
               <p className="mt-8 text-[0.9375rem] leading-relaxed text-mt-slate">
-                Usually the <Link href={`/pricing#${tier.slug}`} className="text-mt-purple hover:underline">{tier.name}</Link> tier, {ghs(tier.from)} to {ghs(tier.to)}. {i.tier.why}
+                Usually the <Link href={`/pricing#${tier.slug}`} className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">{tier.name}</Link> tier, {ghs(tier.from)} to {ghs(tier.to)}. {i.tier.why}
               </p>
             </div>
 
@@ -156,7 +156,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
             <Button href="/contact">Get a fixed price</Button>
             <Button href="/pricing" variant="secondary">See every tier</Button>
           </div>
-          <p className="mt-10 text-sm text-mt-muted">Also: {PUBLISHED_INDUSTRIES.filter((x) => x.slug !== i.slug).map((x, n) => (<span key={x.slug}>{n > 0 ? " · " : ""}<Link href={`/websites-for/${x.slug}`} className="text-mt-purple hover:underline">websites for {x.name}</Link></span>))}</p>
+          <p className="mt-10 text-sm text-mt-muted">Also: {PUBLISHED_INDUSTRIES.filter((x) => x.slug !== i.slug).map((x, n) => (<span key={x.slug}>{n > 0 ? " · " : ""}<Link href={`/websites-for/${x.slug}`} className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">websites for {x.name}</Link></span>))}</p>
         </Container>
       </section>
     </main>

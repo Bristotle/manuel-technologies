@@ -27,6 +27,9 @@ export type IndustryFaq = { q: string; a: string };
 export type Industry = {
   slug: string;
   name: string;            /* "law firms" */
+  /* A shorter form for title tags, where the full name pushes past 60
+     characters. Falls back to name. */
+  short?: string;
   singular: string;        /* "a law firm" */
   market: string;
   benchmark: Benchmark;
@@ -70,6 +73,7 @@ export const INDUSTRIES: Industry[] = [
   {
     slug: "private-hospitals",
     name: "private hospitals and clinics",
+    short: "private hospital",
     singular: "a private hospital or clinic",
     market: "Ghana",
     benchmark: hospitals,
@@ -119,6 +123,7 @@ export const INDUSTRIES: Industry[] = [
   {
     slug: "real-estate",
     name: "real estate developers and agencies",
+    short: "real estate",
     singular: "a real estate company",
     market: "Ghana",
     benchmark: realEstate,

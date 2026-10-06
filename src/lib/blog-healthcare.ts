@@ -36,7 +36,7 @@ export const HEALTHCARE_POSTS: BlogPost[] = [
     cluster: HEALTHCARE_CLUSTER,
     title: "Ask an AI for a hospital in Accra. Here is why it struggles to answer.",
     metaTitle: "Why AI cannot recommend a hospital in Ghana",
-    description: `We measured ${M} private hospital and clinic websites in Ghana. None blocks an AI crawler, none names one, and ${pc(M - f.localBusinessSchema)} never say in machine readable terms what the organisation is.`,
+    description: `We measured ${M} private hospital and clinic websites in Ghana. None blocks an AI crawler, and ${pc(M - f.localBusinessSchema)} never state in machine readable terms what they are.`,
     published: "2026-09-23",
     modified: "2026-09-23",
     readTime: "9 min read",

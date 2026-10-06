@@ -174,7 +174,7 @@ export default function Home() {
               <p className="max-w-[46ch] text-lg leading-relaxed text-mt-slate">
                 Websites and custom software. SEO and GEO. AI agents and
                 automation development. Built under{" "}
-                <Link href="/about" className="text-mt-purple hover:underline">
+                <Link href="/about" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">
                   senior engineering ownership
                 </Link>
                 , not passed down to a junior.

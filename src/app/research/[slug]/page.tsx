@@ -25,10 +25,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const i = getIndustry(slug);
   if (!i) return {};
   const b = i.benchmark;
-  const title = `State of ${i.name} websites in ${i.market}, ${b.sampledAt.slice(0, 4)}`;
+  /* The title tag uses the short industry name where one exists, so the
+     real estate page does not run to 68 characters and get cut in results. */
+  const title = `State of ${i.short ?? i.name} websites in ${i.market}, ${b.sampledAt.slice(0, 4)}`;
   return {
     title: { absolute: `${title} | ${SITE.name}`.length > 60 ? title : `${title} | ${SITE.name}` },
-    description: `We measured ${b.measurable} ${i.name} websites in ${i.market}: ${pct(b.findings.notOneH1, b.measurable)}% without a single clear H1, ${pct(b.findings.noStructuredData, b.measurable)}% with no structured data, median first byte ${(b.findings.medianResponseMs / 1000).toFixed(1)}s. Original data, sampled ${b.sampledAt}.`,
+    description: `${b.measurable} ${i.name} websites in ${i.market} measured: ${pct(b.findings.notOneH1, b.measurable)}% without one clear H1, ${pct(b.findings.noStructuredData, b.measurable)}% with no structured data, median first byte ${(b.findings.medianResponseMs / 1000).toFixed(1)}s. Sampled ${b.sampledAt}.`,
     alternates: { canonical: `/research/${i.slug}` },
     openGraph: { type: "article", images: [ogCard(title, "Research")] },
   };
@@ -97,7 +99,7 @@ export default async function BenchmarkPage({ params }: { params: Promise<{ slug
           <SectionLabel accent="pink">Method</SectionLabel>
           <div className="mt-8 flex flex-col gap-6 text-lg leading-relaxed text-mt-slate">
             <p>{b.frame}</p>
-            <p>Each site was fetched once by an identified crawler that obeys robots.txt, and its homepage, robots.txt and sitemap were measured by the same engine that powers our <Link href="/free-audit" className="text-mt-purple hover:underline">free audit</Link>. {b.sampled - M > 0 ? `${b.sampled - M} of ${b.sampled} could not be measured: ${b.refused} refused or errored and ${b.challenged} served a bot protection page. ` : `All ${b.sampled} could be measured. `}Every percentage is over the {M} measurable sites. No site is named.</p>
+            <p>Each site was fetched once by an identified crawler that obeys robots.txt, and its homepage, robots.txt and sitemap were measured by the same engine that powers our <Link href="/free-audit" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">free audit</Link>. {b.sampled - M > 0 ? `${b.sampled - M} of ${b.sampled} could not be measured: ${b.refused} refused or errored and ${b.challenged} served a bot protection page. ` : `All ${b.sampled} could be measured. `}Every percentage is over the {M} measurable sites. No site is named.</p>
           </div>
         </Container>
       </section>
@@ -129,7 +131,7 @@ export default async function BenchmarkPage({ params }: { params: Promise<{ slug
           <div className="mt-8 flex flex-col gap-6 text-lg leading-relaxed text-mt-slate">
             <p>None of the eight checks costs money to pass. They are the difference between a site that was built and a site that was built properly, and in this sample the properly built ones are the minority. {i.singular.charAt(0).toUpperCase() + i.singular.slice(1)} that fixes the basics starts ahead of most of its market on the day it launches.</p>
             <p>We wrote out what a website for {i.name} in {i.market} actually has to do, and what it costs, at{" "}
-              <Link href={`/websites-for/${i.slug}`} className="text-mt-purple hover:underline">websites for {i.name}</Link>. Or run your own site through the <Link href="/free-audit" className="text-mt-purple hover:underline">free audit</Link> and compare it to these numbers directly.</p>
+              <Link href={`/websites-for/${i.slug}`} className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">websites for {i.name}</Link>. Or run your own site through the <Link href="/free-audit" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">free audit</Link> and compare it to these numbers directly.</p>
           </div>
           <div className="mt-10 flex flex-wrap gap-4">
             <Button href="/free-audit">Audit my site against this</Button>
@@ -150,7 +152,7 @@ export default async function BenchmarkPage({ params }: { params: Promise<{ slug
               </details>
             ))}
           </div>
-          <p className="mt-10 text-sm text-mt-muted">Other benchmarks: {PUBLISHED_INDUSTRIES.filter((x) => x.slug !== i.slug).map((x, n) => (<span key={x.slug}>{n > 0 ? " · " : ""}<Link href={`/research/${x.slug}`} className="text-mt-purple hover:underline">{x.name}</Link></span>))} · <Link href="/research/uk-accountancy-websites" className="text-mt-purple hover:underline">UK accountancy firms</Link></p>
+          <p className="mt-10 text-sm text-mt-muted">Other benchmarks: {PUBLISHED_INDUSTRIES.filter((x) => x.slug !== i.slug).map((x, n) => (<span key={x.slug}>{n > 0 ? " · " : ""}<Link href={`/research/${x.slug}`} className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">{x.name}</Link></span>))} · <Link href="/research/uk-accountancy-websites" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">UK accountancy firms</Link></p>
         </Container>
       </section>
     </main>

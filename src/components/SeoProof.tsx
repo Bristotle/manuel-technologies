@@ -99,7 +99,7 @@ export function SeoProof() {
             <h3 className="mt-4 !text-lg !tracking-tight">Programmatic SEO at real scale</h3>
             <p className="mt-3 text-[0.9375rem] leading-relaxed text-mt-slate">
               We built {DIH.urls.toLocaleString("en-GB")} pages for{" "}
-              <Link href="/work/dementia-in-home" className="text-mt-teal-ink hover:underline">Dementia In Home</Link>,
+              <Link href="/work/dementia-in-home" className="text-mt-teal-ink underline decoration-mt-teal-ink/30 underline-offset-4 hover:decoration-mt-teal-ink">Dementia In Home</Link>,
               roughly {DIH.cities} cities at around fifty pages each, every one
               carrying that city&rsquo;s own Census and Medicaid data rather than a
               swapped place name. Counted from their live sitemap on {DIH.counted};
@@ -111,7 +111,7 @@ export function SeoProof() {
             <h3 className="mt-4 !text-lg !tracking-tight">Original research, not repackaged advice</h3>
             <p className="mt-3 text-[0.9375rem] leading-relaxed text-mt-slate">
               {sitesMeasured} websites measured and published across{" "}
-              <Link href="/research" className="text-mt-teal-ink hover:underline">five studies</Link>:
+              <Link href="/research" className="text-mt-teal-ink underline decoration-mt-teal-ink/30 underline-offset-4 hover:decoration-mt-teal-ink">five studies</Link>:
               UK accountancy firms, and law firms, hospitals, schools and real
               estate in Ghana. Method stated before findings, no company named,
               and one study documents a bug it found in our own tool.
@@ -122,7 +122,7 @@ export function SeoProof() {
             <h3 className="mt-4 !text-lg !tracking-tight">Lead generation built in, not bolted on</h3>
             <p className="mt-3 text-[0.9375rem] leading-relaxed text-mt-slate">
               Thirteen{" "}
-              <Link href="/free-tools" className="text-mt-teal-ink hover:underline">free tools</Link>{" "}
+              <Link href="/free-tools" className="text-mt-teal-ink underline decoration-mt-teal-ink/30 underline-offset-4 hover:decoration-mt-teal-ink">free tools</Link>{" "}
               that run without an email gate, because a tool nobody can use
               without surrendering an address is an advert. That is the same
               enquiry machinery we build into client sites: the path, the

@@ -359,7 +359,7 @@ export default function Pricing() {
               the store is a brochure with a buy button. Payments, stock, checkout
               failure and order handling are the expensive part of a store, and
               they are what our{" "}
-              <Link href="#store" className="text-mt-purple hover:underline">Online store tier</Link>{" "}
+              <Link href="#store" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">Online store tier</Link>{" "}
               is priced for.
             </p>
           </div>
@@ -387,11 +387,11 @@ export default function Pricing() {
 
           <p className="mt-10 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-muted">
             For the longer version, read{" "}
-            <Link href="/blog/how-much-does-a-website-cost-in-ghana" className="text-mt-purple hover:underline">
+            <Link href="/blog/how-much-does-a-website-cost-in-ghana" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">
               how much a website costs in Ghana in 2026
             </Link>{" "}
             and{" "}
-            <Link href="/blog/website-maintenance-cost-ghana" className="text-mt-purple hover:underline">
+            <Link href="/blog/website-maintenance-cost-ghana" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">
               what you should pay monthly to maintain one
             </Link>
             . Currency guide rates from {RATES.source.label}, {RATES.checked}.

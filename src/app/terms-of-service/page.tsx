@@ -5,7 +5,7 @@ import { ogCard } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "Terms of service",
-  description: "Terms for using manueltechnologies.com and its free tools, and the commercial terms that apply when you engage Manuel Technologies: scope, payment, handover, ownership and liability.",
+  description: "Terms for using manueltechnologies.com and its free tools, and the commercial terms when you engage Manuel Technologies: scope, payment, handover and ownership.",
   alternates: { canonical: "/terms-of-service" },
   openGraph: { images: [ogCard("Terms of service", "Legal")] },
 };

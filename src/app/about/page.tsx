@@ -208,7 +208,7 @@ export default function About() {
               retail. Over a thousand programmatic pages, nine tax calculators
               in a regulated domain, and a product catalogue past a thousand
               configurable items.{" "}
-              <Link href="/work" className="text-mt-purple hover:underline">
+              <Link href="/work" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">
                 Every one of them is live and listed
               </Link>
               , with what can be checked on the client&rsquo;s own site written
@@ -219,7 +219,7 @@ export default function About() {
               Vitals extension on the Chrome Web Store, built because auditing
               client performance through Lighthouse reports was slower than it
               needed to be. The{" "}
-              <Link href="/free-tools" className="text-mt-purple hover:underline">
+              <Link href="/free-tools" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">
                 thirteen free tools
               </Link>{" "}
               on this site run live rather than describing what they would do,

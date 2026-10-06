@@ -131,7 +131,7 @@ export default function AgencyVsEngineer() {
               page sets out the difference, says plainly where an agency is the
               better answer, and gives you the questions that separate a good
               one from a confident one. If you would rather judge on output,{" "}
-              <Link href="/work" className="text-mt-purple hover:underline">
+              <Link href="/work" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">
                 the work is here
               </Link>
               .
@@ -192,11 +192,11 @@ export default function AgencyVsEngineer() {
             <div className="flex flex-col gap-6 text-lg leading-relaxed text-mt-slate">
               <p>
                 A brochure site can be produced.{" "}
-                <Link href="/build/custom-software" className="text-mt-purple hover:underline">
+                <Link href="/build/custom-software" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">
                   An application
                 </Link>
                 ,{" "}
-                <Link href="/build/systems-integrations" className="text-mt-purple hover:underline">
+                <Link href="/build/systems-integrations" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">
                   an integration
                 </Link>
                 , or a search architecture has to be understood, and
@@ -214,13 +214,13 @@ export default function AgencyVsEngineer() {
               <p>
                 Search work has the same shape. Rankings can be reported by
                 anyone.{" "}
-                <Link href="/grow/technical-seo" className="text-mt-purple hover:underline">
+                <Link href="/grow/technical-seo" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">
                   Crawlability, indexation and rendering
                 </Link>{" "}
                 are properties of the code, and they only improve when the
                 person diagnosing them can also change them. The same is true
                 of{" "}
-                <Link href="/grow/geo" className="text-mt-purple hover:underline">
+                <Link href="/grow/geo" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">
                   being citable by generative engines
                 </Link>
                 .

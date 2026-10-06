@@ -23,8 +23,11 @@ import { PROJECTS, type Project } from "@/lib/site";
    never claims. The pill is optional, so no card ever needs an invented one.
 
    Images are `next/image`, so AVIF and WebP are served with correct sizing.
-   Only the first card gets `priority`, since it is the one likely above the
-   fold on a tall viewport.
+   No card carries `priority`. The section sits well below the fold on every
+   viewport and the homepage LCP element is the hero paragraph, so a preloaded
+   card image only competed with the fonts and CSS that paint it. Lighthouse
+   on 30 September 2026 put the hero's render delay at over a second with the
+   preload in place.
    -------------------------------------------------------------------------- */
 
 function WorkCard({
@@ -95,12 +98,8 @@ export function SelectedWork() {
         </div>
 
         <ul className="mt-14 grid gap-5 lg:grid-cols-2 mt-reveal-group">
-          {featured.map((project, index) => (
-            <WorkCard
-              key={project.slug}
-              project={project}
-              priority={index === 0}
-            />
+          {featured.map((project) => (
+            <WorkCard key={project.slug} project={project} />
           ))}
         </ul>
 

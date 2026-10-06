@@ -178,7 +178,7 @@ export default function Study() {
               not firm websites. Each homepage was fetched once, along with its
               robots.txt and XML sitemap, and scored by the same engine that
               powers our{" "}
-              <Link href="/free-audit" className="text-mt-purple hover:underline">free audit</Link>.
+              <Link href="/free-audit" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">free audit</Link>.
             </p>
             <p>
               This is not a random sample of the profession. It is a sample of

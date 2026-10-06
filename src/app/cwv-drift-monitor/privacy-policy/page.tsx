@@ -77,7 +77,7 @@ export default function PrivacyPolicy() {
             handling of that request is governed by{" "}
             <a
               href="https://policies.google.com/privacy"
-              className="text-mt-purple hover:underline"
+              className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple"
             >
               Google&rsquo;s privacy policy
             </a>
@@ -150,7 +150,7 @@ export default function PrivacyPolicy() {
             <br />
             <a
               href="mailto:info@manueltechnologies.com"
-              className="text-mt-purple hover:underline"
+              className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple"
             >
               info@manueltechnologies.com
             </a>

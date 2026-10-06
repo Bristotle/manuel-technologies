@@ -9,7 +9,7 @@ import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Research",
-  description: "Original benchmarks of business websites, produced by our audit engine. Ghana law firms, hospitals, schools and real estate, plus 56 UK accountancy firms. No site named, method stated, data dated.",
+  description: "Original benchmarks of business websites from our audit engine: Ghana law firms, hospitals, schools and real estate, plus 56 UK accountancy firms. No site named.",
   alternates: { canonical: "/research" },
   openGraph: { images: [ogCard("Research", "Research")] },
 };

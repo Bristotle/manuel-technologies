@@ -10,7 +10,7 @@ import { ogCard } from "@/lib/og";
 export const metadata: Metadata = {
   openGraph: { images: [ogCard("Thirteen free tools, no email required", "Free tools")] },
   title: "Free SEO, GEO and performance tools",
-  description: "Thirteen free tools: a live SEO and GEO audit, an AI crawler check, a gateway fee calculator, ROI and automation calculators, and four assessments. No account, no email gate.",
+  description: "Thirteen free tools: a live SEO and GEO audit, an AI crawler check, a gateway fee calculator, ROI calculators and four assessments. No account, no email gate.",
   alternates: { canonical: "/free-tools" },
 };
 
