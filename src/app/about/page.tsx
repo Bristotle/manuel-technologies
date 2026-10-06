@@ -182,7 +182,7 @@ export default function About() {
             because the failure modes it prevents are the expensive ones.
           </p>
 
-          <ol className="mt-reveal-group mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <ol className="mt-reveal-group mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {PIPELINE.map((stage) => (
               <li key={stage.step} className="border-t border-mt-border pt-6">
                 <span className="font-[family-name:var(--font-mono)] text-xs tracking-[0.18em] text-mt-purple">
@@ -239,7 +239,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="mt-14 flex flex-wrap gap-4">
+          <div className="mt-16 flex flex-wrap gap-4">
             <Button href="/contact">Start a conversation</Button>
             <Button href="/agency-vs-engineer" variant="secondary">
               How this differs from a retainer

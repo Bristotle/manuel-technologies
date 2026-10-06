@@ -41,7 +41,8 @@ function Chevron() {
 export function Header() {
   return (
     <>
-    <div className="bg-mt-ink px-6 py-2 text-center font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-white">AI agents and automation, SEO and GEO, ROI-focused websites, and custom software built around your business.</div>
+    {/* Hidden below 640px, where it wrapped to three lines and pushed the hero down a full row. The hero says the same thing on a phone. */}
+    <div className="hidden bg-mt-ink px-6 py-2 text-center sm:block font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-white">AI agents and automation, SEO and GEO, ROI-focused websites, and custom software built around your business.</div>
     {/* Sticky, with the page blurring through it. The announcement bar
         above scrolls away so the sticky part is 72px, not 113. */}
     <header className="sticky top-0 z-40 border-b border-mt-border bg-white/85 backdrop-blur-md">
@@ -58,7 +59,7 @@ export function Header() {
         </Link>
 
         <nav className="relative ml-auto hidden lg:block" aria-label="Primary">
-          <ul className="flex items-center gap-5 lg:gap-6">
+          <ul className="flex items-center gap-6 lg:gap-6">
             {MENUS.map((menu, index) => (
               <li key={menu.href} className="group">
                 <Link href={menu.href} className={trigger} aria-haspopup="true">
@@ -83,7 +84,7 @@ export function Header() {
                         </div>
                       </Link>
                     ) : (
-                      <Link href="/free-audit" className="relative flex flex-col justify-end overflow-hidden border-r border-mt-border bg-mt-ink p-5 text-white">
+                      <Link href="/free-audit" className="relative flex flex-col justify-end overflow-hidden border-r border-mt-border bg-mt-ink p-6 text-white">
                         <div aria-hidden="true" className="mt-bg mt-glow-dark" />
                         <span className="relative font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-pink">( Start here )</span>
                         <p className="relative mt-2 text-lg font-bold leading-snug">Run the free audit on your own site.</p>

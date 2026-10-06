@@ -39,7 +39,7 @@ export default function GatewaysPage() {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
         <Container className="relative">
           <SectionLabel accent="pink">Payment gateways in Ghana</SectionLabel>
           <h1 className="mt-6 max-w-[22ch]">Flutterwave, Paystack and Hubtel: what each one charges, and what it does not say.</h1>
@@ -47,23 +47,23 @@ export default function GatewaysPage() {
         </Container>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="py-24 sm:py-32">
         <Container>
           <SectionLabel accent="pink">Compared</SectionLabel>
           <h2 className="mt-6 max-w-[22ch]">Published rates, side by side.</h2>
-          <div className="mt-10 overflow-x-auto rounded-[18px] border border-mt-border bg-white">
+          <div className="mt-12 overflow-x-auto rounded-[18px] border border-mt-border bg-white">
             <table className="w-full min-w-[760px] text-left text-sm">
-              <thead><tr className="border-b border-mt-border">{["Gateway", "Mobile Money", "Local card", "International card", "Settlement", "Monthly fee", "Source"].map((h) => <th key={h} className="px-5 py-4 font-[family-name:var(--font-mono)] text-[0.625rem] font-bold uppercase tracking-[0.14em] text-mt-muted">{h}</th>)}</tr></thead>
+              <thead><tr className="border-b border-mt-border">{["Gateway", "Mobile Money", "Local card", "International card", "Settlement", "Monthly fee", "Source"].map((h) => <th key={h} className="px-6 py-4 font-[family-name:var(--font-mono)] text-[0.625rem] font-bold uppercase tracking-[0.14em] text-mt-muted">{h}</th>)}</tr></thead>
               <tbody className="divide-y divide-mt-border">
                 {GATEWAYS.map((g) => (
                   <tr key={g.slug}>
-                    <td className="px-5 py-4 align-top font-semibold text-mt-ink">{g.name}</td>
-                    <td className="px-5 py-4 align-top text-mt-slate"><span className={g.momo.rate === null ? "text-mt-muted" : "font-semibold text-mt-ink"}>{cell(g.momo)}</span>{g.momo.note ? <span className="mt-1 block max-w-[24ch] text-xs leading-snug text-mt-muted">{g.momo.note}</span> : null}</td>
-                    <td className="px-5 py-4 align-top text-mt-slate"><span className={g.localCard.rate === null ? "text-mt-muted" : "font-semibold text-mt-ink"}>{cell(g.localCard)}</span>{g.localCard.note ? <span className="mt-1 block max-w-[24ch] text-xs leading-snug text-mt-muted">{g.localCard.note}</span> : null}</td>
-                    <td className="px-5 py-4 align-top text-mt-slate"><span className={g.intlCard.rate === null ? "text-mt-muted" : "font-semibold text-mt-ink"}>{cell(g.intlCard)}</span>{g.intlCard.note ? <span className="mt-1 block max-w-[24ch] text-xs leading-snug text-mt-muted">{g.intlCard.note}</span> : null}</td>
-                    <td className="px-5 py-4 align-top text-mt-slate max-w-[26ch]">{g.settlement}</td>
-                    <td className="px-5 py-4 align-top text-mt-slate">{g.monthly}</td>
-                    <td className="px-5 py-4 align-top"><a href={g.href} target="_blank" rel="noopener noreferrer" className="text-mt-purple underline decoration-mt-border underline-offset-4 hover:decoration-mt-purple">{g.source}</a><span className="mt-1 block text-xs text-mt-muted">checked {g.checked}</span></td>
+                    <td className="px-6 py-4 align-top font-semibold text-mt-ink">{g.name}</td>
+                    <td className="px-6 py-4 align-top text-mt-slate"><span className={g.momo.rate === null ? "text-mt-muted" : "font-semibold text-mt-ink"}>{cell(g.momo)}</span>{g.momo.note ? <span className="mt-1 block max-w-[24ch] text-xs leading-snug text-mt-muted">{g.momo.note}</span> : null}</td>
+                    <td className="px-6 py-4 align-top text-mt-slate"><span className={g.localCard.rate === null ? "text-mt-muted" : "font-semibold text-mt-ink"}>{cell(g.localCard)}</span>{g.localCard.note ? <span className="mt-1 block max-w-[24ch] text-xs leading-snug text-mt-muted">{g.localCard.note}</span> : null}</td>
+                    <td className="px-6 py-4 align-top text-mt-slate"><span className={g.intlCard.rate === null ? "text-mt-muted" : "font-semibold text-mt-ink"}>{cell(g.intlCard)}</span>{g.intlCard.note ? <span className="mt-1 block max-w-[24ch] text-xs leading-snug text-mt-muted">{g.intlCard.note}</span> : null}</td>
+                    <td className="px-6 py-4 align-top text-mt-slate max-w-[26ch]">{g.settlement}</td>
+                    <td className="px-6 py-4 align-top text-mt-slate">{g.monthly}</td>
+                    <td className="px-6 py-4 align-top"><a href={g.href} target="_blank" rel="noopener noreferrer" className="text-mt-purple underline decoration-mt-border underline-offset-4 hover:decoration-mt-purple">{g.source}</a><span className="mt-1 block text-xs text-mt-muted">checked {g.checked}</span></td>
                   </tr>
                 ))}
               </tbody>
@@ -72,20 +72,20 @@ export default function GatewaysPage() {
         </Container>
       </section>
 
-      <section className="border-y border-mt-border bg-white py-20 sm:py-28">
+      <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container>
           <SectionLabel accent="pink">Fee calculator</SectionLabel>
           <h2 className="mt-6 max-w-[22ch]">What the fees come to at your order value.</h2>
           <p className="mt-6 max-w-[65ch] text-lg leading-relaxed text-mt-slate">Only verified rates are in the table. A gateway that does not publish is not guessed.</p>
-          <div className="mt-10"><GatewayFeeCalculator /></div>
+          <div className="mt-12"><GatewayFeeCalculator /></div>
         </Container>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="py-24 sm:py-32">
         <Container>
           <SectionLabel accent="pink">Who each is for</SectionLabel>
           <h2 className="mt-6 max-w-[22ch]">The honest version of a recommendation.</h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
             {GATEWAYS.map((g) => (
               <article key={g.slug} className="flex flex-col rounded-[18px] border border-mt-border bg-white p-6">
                 <span className="mt-label">( {g.name} )</span>
@@ -96,13 +96,13 @@ export default function GatewaysPage() {
               </article>
             ))}
           </div>
-          <div className="mt-10 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-slate">
+          <div className="mt-12 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-slate">
             <p><strong className="text-mt-ink">Our pick, and why.</strong> For a new Ghanaian store we usually integrate Paystack first, because its developer tooling is the most mature and its Mobile Money rate is the lowest we could verify, with Flutterwave where international cards are a large share of sales. We say that as the people who build the integration, and the choice is yours after reading the fee schedules yourself. The integration is included in our <Link href="/pricing#store" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">Online store tier</Link>, and the mechanics are in <Link href="/blog/momo-payment-integration-website-ghana" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">how to accept MoMo on your website</Link>.</p>
           </div>
         </Container>
       </section>
 
-      <section className="border-t border-mt-border bg-white py-20 sm:py-28">
+      <section className="border-t border-mt-border bg-white py-24 sm:py-32">
         <Container>
           <SectionLabel accent="pink">Questions</SectionLabel>
           <h2 className="mt-6 max-w-[22ch]">Asked before every store build.</h2>

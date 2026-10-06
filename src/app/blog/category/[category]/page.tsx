@@ -63,12 +63,12 @@ export default async function CategoryPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="border-b border-mt-border bg-white py-24 sm:py-32">
         <Container>
-          <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link><span aria-hidden="true">/</span>
             <Link href="/blog" className="hover:text-mt-purple">Blog</Link><span aria-hidden="true">/</span>
-            <span>{c.name}</span>
-          </div>
-          <SectionLabel className="mt-10">{posts.length} articles</SectionLabel>
+            <span aria-current="page">{c.name}</span>
+          </nav>
+          <SectionLabel className="mt-12">{posts.length} articles</SectionLabel>
           <h1 className="mt-6 max-w-[18ch]">{c.name}</h1>
           <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">{c.description}</p>
           {c.pillarHref ? (
@@ -81,7 +81,7 @@ export default async function CategoryPage({ params }: Props) {
 
       <section className="py-24 sm:py-32">
         <Container>
-          <div className="mt-reveal-group grid gap-5 md:grid-cols-2">
+          <div className="mt-reveal-group grid gap-6 md:grid-cols-2">
             {posts.map((post) => (
               <article key={post.slug} className="mt-lift flex flex-col rounded-[18px] border border-mt-border bg-white p-6 transition-colors duration-150 hover:border-mt-purple-light">
                 <h2 className="!text-xl !tracking-tight"><Link href={`/blog/${post.slug}`} className="hover:text-mt-purple">{post.title}</Link></h2>

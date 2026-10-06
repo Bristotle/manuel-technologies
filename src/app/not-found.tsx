@@ -27,7 +27,7 @@ export default function NotFound() {
             wrong. Nothing is broken on your side. Everything on the site is
             reachable from the links below.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-12 flex flex-wrap gap-4">
             <Button href="/">Go to the homepage</Button>
             <Button href="/contact" variant="secondary">Tell us what you were looking for</Button>
           </div>

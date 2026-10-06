@@ -40,21 +40,21 @@ export default async function TermPage({ params }: { params: Promise<{ slug: str
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
         <Container className="relative">
-          <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link><span aria-hidden="true">/</span>
             <Link href="/glossary" className="hover:text-mt-purple">Glossary</Link><span aria-hidden="true">/</span>
-            <span>{CLUSTER_NAMES[t.cluster]}</span>
-          </div>
-          <div className="mt-10 max-w-[760px]">
+            <span aria-current="page">{CLUSTER_NAMES[t.cluster]}</span>
+          </nav>
+          <div className="mt-12 max-w-[760px]">
             <SectionLabel accent="pink">{CLUSTER_NAMES[t.cluster]}</SectionLabel>
             <h1 className="mt-6">{question}</h1>
             <p className="mt-8 max-w-[65ch] text-xl leading-relaxed text-mt-ink">{t.short}</p>
           </div>
         </Container>
       </section>
-      <section className="py-20 sm:py-24">
+      <section className="py-24 sm:py-32">
         <Container>
           <div className="grid gap-16 lg:grid-cols-[minmax(0,680px)_280px]">
             <div className="flex flex-col gap-6 text-lg leading-relaxed text-mt-slate">
@@ -66,12 +66,12 @@ export default async function TermPage({ params }: { params: Promise<{ slug: str
             <aside className="lg:sticky lg:top-24">
               <div className="border-l border-mt-border pl-6">
                 <p className="mt-label">Related terms</p>
-                <ul className="mt-5 flex flex-col gap-3">
+                <ul className="mt-6 flex flex-col gap-3">
                   {related.map((r) => <li key={r.slug}><Link href={`/glossary/${r.slug}`} className="text-sm leading-snug text-mt-slate hover:text-mt-purple">{r.term}</Link></li>)}
                   <li><Link href="/glossary" className="text-sm font-semibold text-mt-purple">All {TERMS.length} terms</Link></li>
                 </ul>
               </div>
-              <div className="mt-10 rounded-[18px] border border-mt-border bg-white p-6">
+              <div className="mt-12 rounded-[18px] border border-mt-border bg-white p-6">
                 <span className="mt-label">( Check your own site )</span>
                 <p className="mt-3 text-[0.9375rem] leading-relaxed text-mt-slate">Twenty checks in about fifteen seconds. No account, nothing stored.</p>
                 <div className="mt-4"><Button href="/free-audit" variant="secondary">Run the free audit</Button></div>

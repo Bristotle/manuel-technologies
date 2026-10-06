@@ -69,6 +69,17 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  /* Grid children may shrink below their content. Without this a grid's
+     single mobile column grows to fit its widest child, so a 520px table or
+     a long line of generated JSON pushed nine blog posts and the schema
+     generator into horizontal scroll at 360px. The wide child keeps its own
+     overflow-x-auto box and scrolls inside it instead. Grid only: flex rows
+     carry icons and marquee items that must not shrink. Found by measuring
+     every page at 320 and 360, 6 October 2026. */
+  .grid > * {
+    min-width: 0;
+  }
+
   body {
     background: var(--color-mt-surface);
     color: var(--color-mt-ink);
@@ -533,6 +544,22 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  /* Scroll-driven animations ignore animation-duration, because scroll
+     position is their clock, so the reset above never reached them. With
+     reduced motion requested, 20 of the 25 reveal elements on the homepage
+     still faded and rose on scroll. Removing the animation outright leaves
+     each element at its natural, fully visible state. */
+  .mt-reveal,
+  .mt-reveal-group > *,
+  .mt-reveal-display {
+    animation: none !important;
+  }
+
+  /* The progress rail is decoration that exists only to move. */
+  .mt-scroll-progress {
+    display: none;
   }
 }
 

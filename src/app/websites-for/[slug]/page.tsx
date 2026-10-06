@@ -56,19 +56,19 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
         <Container className="relative">
-          <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link><span aria-hidden="true">/</span>
             <Link href="/build/website-development" className="hover:text-mt-purple">Website development</Link><span aria-hidden="true">/</span>
-            <span>{i.name}</span>
-          </div>
-          <div className="mt-10 grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <span aria-current="page">{i.name}</span>
+          </nav>
+          <div className="mt-12 grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div>
               <SectionLabel>Websites for {i.name}</SectionLabel>
               <h1 className="mt-6 max-w-[20ch]">{i.headline}</h1>
               <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">{i.intro}</p>
-              <div className="mt-10 flex flex-wrap gap-4">
+              <div className="mt-12 flex flex-wrap gap-4">
                 <Button href="/contact">Get a fixed price</Button>
                 <Button href="/free-audit" variant="secondary">Audit our current site</Button>
               </div>
@@ -82,18 +82,18 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
               <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-pink-ink">( Our benchmark · {b.sampledAt} )</span>
               <p className="mt-4 text-4xl font-extrabold tracking-tight text-mt-ink">{pct(b.findings.notOneH1, M)}%</p>
               <p className="mt-1 text-[0.9375rem] font-semibold text-mt-ink">of {M} {i.name} websites in {i.market} do not have a single, clear H1</p>
-              <dl className="mt-5 grid grid-cols-3 gap-4 border-t border-mt-border pt-5">
+              <dl className="mt-6 grid grid-cols-3 gap-4 border-t border-mt-border pt-6">
                 {[[`${pct(b.findings.noStructuredData, M)}%`, "no structured data"], [`${pct(b.findings.slowerThan1s, M)}%`, "slower than 1s"], [`${pct(b.findings.noOpenGraph, M)}%`, "no share image"]].map(([v, l]) => (
                   <div key={l}><dt className="text-xl font-extrabold tracking-tight text-mt-ink">{v}</dt><dd className="mt-1 text-xs leading-snug text-mt-slate">{l}</dd></div>
                 ))}
               </dl>
-              <span className="mt-5 inline-flex text-sm font-semibold text-mt-pink-ink group-hover:underline">Read the full benchmark →</span>
+              <span className="mt-6 inline-flex text-sm font-semibold text-mt-pink-ink group-hover:underline">Read the full benchmark →</span>
             </Link>
           </div>
         </Container>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="py-24 sm:py-32">
         <Container>
           <SectionLabel>What the site has to do</SectionLabel>
           <h2 className="mt-6 max-w-[22ch]">Five things {i.singular} needs that a template will not give it.</h2>
@@ -109,7 +109,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         </Container>
       </section>
 
-      <section className="border-y border-mt-border bg-white py-20 sm:py-28">
+      <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div>
@@ -124,9 +124,9 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
       </section>
 
       {i.example ? (
-        <section className="py-20 sm:py-28">
+        <section className="py-24 sm:py-32">
           <Container>
-            <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
               <Link href={i.example.href} className="mt-lift block overflow-hidden rounded-[18px] border border-mt-border bg-mt-surface">
                 <div className="relative aspect-[16/10]"><Image src={i.example.src} alt={i.example.alt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover object-top" /></div>
               </Link>
@@ -140,7 +140,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         </section>
       ) : null}
 
-      <section className="py-20 sm:py-28">
+      <section className="py-24 sm:py-32">
         <Container>
           <SectionLabel>Questions</SectionLabel>
           <h2 className="mt-6 max-w-[22ch]">What {i.name} ask us.</h2>
@@ -156,7 +156,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
             <Button href="/contact">Get a fixed price</Button>
             <Button href="/pricing" variant="secondary">See every tier</Button>
           </div>
-          <p className="mt-10 text-sm text-mt-muted">Also: {PUBLISHED_INDUSTRIES.filter((x) => x.slug !== i.slug).map((x, n) => (<span key={x.slug}>{n > 0 ? " · " : ""}<Link href={`/websites-for/${x.slug}`} className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">websites for {x.name}</Link></span>))}</p>
+          <p className="mt-12 text-sm text-mt-muted">Also: {PUBLISHED_INDUSTRIES.filter((x) => x.slug !== i.slug).map((x, n) => (<span key={x.slug}>{n > 0 ? " · " : ""}<Link href={`/websites-for/${x.slug}`} className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">websites for {x.name}</Link></span>))}</p>
         </Container>
       </section>
     </main>

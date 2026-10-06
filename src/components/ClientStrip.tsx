@@ -15,12 +15,12 @@ export function ClientStrip() {
   const markets = Array.from(new Set(PROJECTS.map((p) => p.market)));
 
   return (
-    <section className="border-y border-mt-border bg-white py-20 sm:py-24">
+    <section className="border-y border-mt-border bg-white py-24 sm:py-32">
       <Container>
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <SectionLabel>Businesses we have worked with</SectionLabel>
-            <h2 className="mt-5 max-w-[22ch] !text-2xl sm:!text-3xl">
+            <h2 className="mt-6 max-w-[22ch] !text-2xl sm:!text-3xl">
               Live systems in {markets.length} markets.
             </h2>
           </div>

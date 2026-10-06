@@ -60,6 +60,8 @@ export default async function ServicePage({ params }: PageProps) {
     .filter((servicePage) => servicePage !== undefined);
 
   const pageUrl = `${SITE.url}/${page.pillar}/${page.slug}`;
+  /* "Grow", not "grow". Used by the visible breadcrumb and its schema. */
+  const pillarName = page.pillar.charAt(0).toUpperCase() + page.pillar.slice(1);
   const jsonLd = [
     {
       "@context": "https://schema.org",
@@ -80,7 +82,7 @@ export default async function ServicePage({ params }: PageProps) {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
-        { "@type": "ListItem", position: 2, name: page.pillar, item: `${SITE.url}/${page.pillar}` },
+        { "@type": "ListItem", position: 2, name: pillarName, item: `${SITE.url}/${page.pillar}` },
         { "@type": "ListItem", position: 3, name: page.name, item: pageUrl },
       ],
     },
@@ -108,19 +110,22 @@ export default async function ServicePage({ params }: PageProps) {
         <Container className="relative">
           <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
-          <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
-            <Link href="/" className="hover:text-mt-purple">Home</Link>
-            <span aria-hidden="true">/</span>
-            <Link href={`/${page.pillar}`} className="hover:text-mt-purple">{page.pillar}</Link>
-            <span aria-hidden="true">/</span>
-            <span>{page.name}</span>
-          </div>
+          {/* A real breadcrumb: nav landmark, ordered list, current page
+              marked. The pillar shows by its name, "Grow", not its slug. */}
+          <nav aria-label="Breadcrumb">
+            <ol className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
+              <li><Link href="/" className="hover:text-mt-purple">Home</Link></li>
+              <li aria-hidden="true">/</li>
+              <li><Link href={`/${page.pillar}`} className="hover:text-mt-purple">{pillarName}</Link></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page">{page.name}</li>
+            </ol>
+          </nav>
           <div className="mt-12 max-w-[760px]">
             <SectionLabel accent={PILLAR_ACCENT[page.pillar]}>{page.pillar.toUpperCase()}</SectionLabel>
             <h1 className="mt-6">{page.title}</h1>
             <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">{page.intro}</p>
-            <p className="mt-6 max-w-[65ch] font-semibold text-mt-ink">{page.audience}</p>
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-12 flex flex-wrap gap-4">
               <Button href="/contact">Start a conversation</Button>
               <Button href="/work" variant="secondary">See the work</Button>
             </div>
@@ -163,7 +168,7 @@ export default async function ServicePage({ params }: PageProps) {
             <div className="relative aspect-[16/10] overflow-hidden bg-mt-surface">
               <Image src={proof.src} alt={proof.alt} fill priority sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover object-top" />
             </div>
-            <div className="flex items-center justify-between gap-4 border-t border-mt-border px-5 py-4">
+            <div className="flex items-center justify-between gap-4 border-t border-mt-border px-6 py-4">
               <div>
                 <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-pink-ink">Delivered</span>
                 <p className="mt-1 text-[0.9375rem] font-semibold text-mt-ink">{proof.client}</p>
@@ -226,7 +231,7 @@ export default async function ServicePage({ params }: PageProps) {
         <Container>
           <SectionLabel>Related services</SectionLabel>
           <h2 className="mt-6 max-w-[18ch]">Continue with the part that matters next.</h2>
-          <div className="mt-reveal-group mt-10 grid gap-5 md:grid-cols-3">
+          <div className="mt-reveal-group mt-12 grid gap-6 md:grid-cols-3">
             {relatedServices.map((related) => (
               <Link
                 key={related.slug}

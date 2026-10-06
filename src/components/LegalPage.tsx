@@ -7,7 +7,7 @@ import { LEGAL_UPDATED, type LegalSection } from "@/lib/legal";
 export function LegalPage({ title, intro, sections }: { title: string; intro: string; sections: LegalSection[] }) {
   return (
     <main>
-      <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
         <Container className="relative">
           <SectionLabel>Legal</SectionLabel>
           <h1 className="mt-6 max-w-[18ch]">{title}</h1>
@@ -15,12 +15,12 @@ export function LegalPage({ title, intro, sections }: { title: string; intro: st
           <p className="mt-4 font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.16em] text-mt-slate">Last updated {LEGAL_UPDATED}</p>
         </Container>
       </section>
-      <section className="py-20 sm:py-28">
+      <section className="py-24 sm:py-32">
         <Container>
           <div className="grid gap-16 lg:grid-cols-[220px_1fr]">
             <nav aria-label="On this page" className="hidden lg:block">
               <p className="mt-label">On this page</p>
-              <ol className="mt-5 flex flex-col gap-3 border-l border-mt-border">
+              <ol className="mt-6 flex flex-col gap-3 border-l border-mt-border">
                 {sections.map((s) => (
                   <li key={s.heading}>
                     <a href={`#${s.heading.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className="block pl-4 text-sm leading-snug text-mt-slate hover:text-mt-purple">{s.heading}</a>

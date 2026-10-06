@@ -113,7 +113,7 @@ function Cell({
 }) {
   return (
     <div
-      className={`grid gap-1 px-6 py-5 sm:grid-cols-[7rem_1fr] sm:gap-5 sm:px-8 ${
+      className={`grid gap-1 px-6 py-6 sm:grid-cols-[7rem_1fr] sm:gap-6 sm:px-8 ${
         last ? "" : "border-b border-mt-border"
       }`}
     >
@@ -178,7 +178,7 @@ export function Comparison({
           </>
         )}
 
-        <div className="relative mt-14 overflow-hidden rounded-t-[18px] border border-mt-border">
+        <div className="relative mt-16 overflow-hidden rounded-t-[18px] border border-mt-border">
           {/* Gradient behind the whole right column, as the reference has it.
               It cannot go on the cells: each is its own grid item, so the
               gradient would restart on every row instead of running the height
@@ -263,7 +263,7 @@ export function Comparison({
         {/* Attached to the foot of the table rather than floated below it, so
             the page does not gain a third free standing dark band. The
             spotlight carries one and CallToAction closes with one. */}
-        <div className="-mt-px rounded-b-[18px] border border-mt-border bg-mt-ink px-6 py-8 sm:px-8 sm:py-10">
+        <div className="-mt-px rounded-b-[18px] border border-mt-border bg-mt-ink px-6 py-8 sm:px-8 sm:py-12">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <h3 className="max-w-[26ch] !text-xl !leading-snug !tracking-tight text-white sm:!text-2xl">

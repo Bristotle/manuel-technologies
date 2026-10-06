@@ -86,14 +86,14 @@ export function RoiCalculator() {
   const hasTraffic = input.sessions > 0 && result.baseline.valuePerSession > 0;
 
   return (
-    <div className="grid gap-5 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+    <div className="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
       {/* Inputs */}
       <form
         onSubmit={(e) => e.preventDefault()}
         className="rounded-[18px] border border-mt-border bg-white p-6 sm:p-8"
       >
         <span className="mt-label">Your numbers</span>
-        <h2 className="mt-5 !text-2xl !tracking-tight">
+        <h2 className="mt-6 !text-2xl !tracking-tight">
           Five figures you already have
         </h2>
         <p className="mt-4 text-[0.9375rem] leading-relaxed text-mt-slate">
@@ -142,7 +142,7 @@ export function RoiCalculator() {
       </form>
 
       {/* Results */}
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-6">
         {/* Baseline */}
         <div className="rounded-[18px] border border-mt-border bg-white p-6 sm:p-8">
           <span className="mt-label">Where you are now</span>
@@ -194,7 +194,7 @@ export function RoiCalculator() {
                 <p className="mt-1 font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.14em] text-mt-muted">
                   extra a month
                 </p>
-                <dl className="mt-5 flex flex-col gap-2 border-t border-mt-border pt-4 text-[0.8125rem] text-mt-slate">
+                <dl className="mt-6 flex flex-col gap-2 border-t border-mt-border pt-4 text-[0.8125rem] text-mt-slate">
                   <div className="flex justify-between gap-3">
                     <dt>Extra enquiries</dt>
                     <dd className="font-semibold text-mt-ink">
@@ -233,12 +233,12 @@ export function RoiCalculator() {
         <div className="rounded-[18px] border border-mt-border bg-mt-surface p-6 sm:p-8">
           <span className="mt-label">The question that actually matters</span>
           {result.breakEvenUplift === null ? (
-            <p className="mt-5 text-lg leading-relaxed text-mt-slate">
+            <p className="mt-6 text-lg leading-relaxed text-mt-slate">
               Enter a monthly cost above and this shows how much extra traffic
               it would take before that spend pays for itself.
             </p>
           ) : !Number.isFinite(result.breakEvenUplift) || !hasTraffic ? (
-            <p className="mt-5 text-lg leading-relaxed text-mt-slate">
+            <p className="mt-6 text-lg leading-relaxed text-mt-slate">
               With the numbers as entered, a session is worth nothing, so no
               amount of extra traffic covers the cost. Check the conversion
               rate, close rate and customer value before reading anything else
@@ -246,14 +246,14 @@ export function RoiCalculator() {
             </p>
           ) : (
             <>
-              <p className="mt-5 text-2xl leading-snug text-mt-ink">
+              <p className="mt-6 text-2xl leading-snug text-mt-ink">
                 Organic sessions would need to rise{" "}
                 <strong className="font-extrabold text-mt-purple">
                   {formatNumber(result.breakEvenUplift, 1)}%
                 </strong>{" "}
                 before {money(input.monthlyInvestment)} a month pays for itself.
               </p>
-              <p className="mt-5 text-[0.9375rem] leading-relaxed text-mt-slate">
+              <p className="mt-6 text-[0.9375rem] leading-relaxed text-mt-slate">
                 That is{" "}
                 {formatNumber(
                   input.sessions * (result.breakEvenUplift / 100),
@@ -271,7 +271,7 @@ export function RoiCalculator() {
         {/* The disclaimer that makes the rest credible */}
         <div className="rounded-[18px] border border-mt-border bg-white p-6 sm:p-8">
           <span className="mt-label">What this is not</span>
-          <p className="mt-5 text-[0.9375rem] leading-relaxed text-mt-slate">
+          <p className="mt-6 text-[0.9375rem] leading-relaxed text-mt-slate">
             This is arithmetic on the five numbers you entered, not a forecast.
             It does not predict that traffic will rise, or say how long that
             would take, and no tool that has never seen your site can tell you

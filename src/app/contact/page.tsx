@@ -69,20 +69,16 @@ export default function ContactPage() {
                   <dt className="mt-label">Typical response</dt>
                   <dd className="mt-2 text-base font-semibold">Within one business day</dd>
                 </div>
-                <div>
-                  <dt className="mt-label">Working worldwide</dt>
-                  <dd className="mt-2 text-base font-semibold">Remote, across time zones</dd>
-                </div>
               </dl>
             </div>
 
-            <div className="border border-mt-border bg-mt-surface p-6 sm:p-10">
+            <div className="rounded-[18px] border border-mt-border bg-mt-surface p-6 sm:p-12">
               <SectionLabel>Project enquiry</SectionLabel>
               <h2 className="mt-6 max-w-[16ch]">Give us enough to be useful.</h2>
               <p className="mt-6 max-w-[52ch] text-base text-mt-slate">
-                Free, no obligation. We respond within 24 hours, 7 days a week.
+                Free, no obligation. You will hear back within one business day.
               </p>
-              <div className="mt-10">
+              <div className="mt-12">
                 <ContactForm />
               </div>
             </div>

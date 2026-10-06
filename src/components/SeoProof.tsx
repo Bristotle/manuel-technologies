@@ -67,15 +67,15 @@ export function SeoProof() {
         </p>
 
         {/* The self comparison. Same engine, both sides. */}
-        <div className="mt-14 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border lg:grid-cols-[1.1fr_1fr_1fr]">
-          <div className="flex flex-col justify-center bg-mt-surface p-7">
+        <div className="mt-16 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border lg:grid-cols-[1.1fr_1fr_1fr]">
+          <div className="flex flex-col justify-center bg-mt-surface p-8">
             <span className="mt-label">( Our own site, our own engine )</span>
             <p className="mt-4 text-[0.9375rem] leading-relaxed text-mt-slate">
               The same twenty checks we run on a client, run on us and
               published whichever way they fall. Scored {SELF.checked}.
             </p>
           </div>
-          <div className="bg-white p-7">
+          <div className="bg-white p-8">
             <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.14em] text-mt-muted">Audit score</span>
             <p className="mt-3 text-5xl font-extrabold tracking-tight text-mt-teal-ink">{SELF.score}</p>
             <p className="mt-3 text-[0.9375rem] leading-relaxed text-mt-slate">
@@ -83,7 +83,7 @@ export function SeoProof() {
               sites we measured.
             </p>
           </div>
-          <div className="bg-white p-7">
+          <div className="bg-white p-8">
             <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.14em] text-mt-muted">Time to first byte</span>
             <p className="mt-3 text-5xl font-extrabold tracking-tight text-mt-teal-ink">{SELF.ttfbMs}ms</p>
             <p className="mt-3 text-[0.9375rem] leading-relaxed text-mt-slate">
@@ -93,7 +93,7 @@ export function SeoProof() {
           </div>
         </div>
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-3">
+        <div className="mt-16 grid gap-12 lg:grid-cols-3">
           <div className="border-t border-mt-border pt-6">
             <span className="font-[family-name:var(--font-mono)] text-xs tracking-[0.18em] text-mt-teal-ink">01</span>
             <h3 className="mt-4 !text-lg !tracking-tight">Programmatic SEO at real scale</h3>
@@ -133,7 +133,7 @@ export function SeoProof() {
         </div>
 
         {/* The honest gap, stated rather than hidden. */}
-        <div className="mt-14 rounded-[18px] border border-mt-border bg-mt-surface p-7 sm:p-8">
+        <div className="mt-16 rounded-[18px] border border-mt-border bg-mt-surface p-8 sm:p-8">
           <span className="mt-label">( What is not on this page )</span>
           <p className="mt-4 max-w-[70ch] text-[0.9375rem] leading-relaxed text-mt-slate">
             Client traffic charts and ranking screenshots. We have done this

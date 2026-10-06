@@ -72,7 +72,7 @@ export function ClientSpotlight() {
           Client spotlight
         </SectionLabel>
 
-        <figure className="mt-reveal mt-10">
+        <figure className="mt-reveal mt-12">
           <blockquote>
             <p className="max-w-[22ch] text-[1.875rem] leading-[1.12] tracking-[-0.03em] text-white sm:max-w-[26ch] sm:text-[2.75rem] lg:text-[3.25rem]">
               {/* Decorative marks, as the reference has them. aria-hidden so a
@@ -100,7 +100,7 @@ export function ClientSpotlight() {
             )}
           </blockquote>
 
-          <figcaption className="mt-14 flex flex-col gap-6 border-t border-white/15 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <figcaption className="mt-16 flex flex-col gap-6 border-t border-white/15 pt-8 sm:flex-row sm:items-center sm:justify-between">
             <span className="flex items-center gap-4">
               {item.photo ? (
                 <Image

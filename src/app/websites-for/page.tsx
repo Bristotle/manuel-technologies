@@ -18,23 +18,23 @@ export default function IndustriesIndex() {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
         <Container className="relative">
           <SectionLabel>Websites by industry</SectionLabel>
           <h1 className="mt-6 max-w-[20ch]">The same craft, pointed at what your industry actually needs.</h1>
           <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">A hospital site and a law firm site are not the same site with different words. Each page here says what the industry&rsquo;s website has to do, what that costs on our published tiers, and how its peers in Ghana measure up on our benchmark.</p>
         </Container>
       </section>
-      <section className="py-20 sm:py-28">
+      <section className="py-24 sm:py-32">
         <Container>
-          <ul className="grid gap-5 md:grid-cols-2">
+          <ul className="grid gap-6 md:grid-cols-2">
             {PUBLISHED_INDUSTRIES.map((i) => (
               <li key={i.slug}>
-                <Link href={`/websites-for/${i.slug}`} className="mt-lift mt-spot group flex h-full flex-col rounded-[18px] border border-mt-border bg-white p-7 transition-colors duration-150 hover:border-mt-purple-light">
+                <Link href={`/websites-for/${i.slug}`} className="mt-lift mt-spot group flex h-full flex-col rounded-[18px] border border-mt-border bg-white p-8 transition-colors duration-150 hover:border-mt-purple-light">
                   <span className="mt-label">( {i.name} · {i.market} )</span>
                   <h2 className="mt-4 !text-2xl !tracking-tight group-hover:text-mt-purple">{i.headline}</h2>
                   <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-mt-slate">{i.needs.slice(0, 3).map((n) => n.title).join(". ")}.</p>
-                  <span className="mt-5 text-sm font-semibold text-mt-purple">What it needs and what it costs →</span>
+                  <span className="mt-6 text-sm font-semibold text-mt-purple">What it needs and what it costs →</span>
                 </Link>
               </li>
             ))}

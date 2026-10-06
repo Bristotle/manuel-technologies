@@ -65,7 +65,7 @@ export default function Work() {
             {PROJECTS.filter((p) => p.thumb).map((p, i) => (
               <article
                 key={p.slug}
-                className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16"
+                className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16"
               >
                 <Link
                   href={hasCaseStudy(p.slug) ? `/work/${p.slug}` : p.url}
@@ -136,7 +136,7 @@ export default function Work() {
             PerformanceObserver API, and published free on the Chrome Web Store,
             so anyone can check the work rather than take our word for it.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-12 flex flex-wrap gap-4">
             <Button href={SITE.chromeStore} external>
               View on the Chrome Web Store
             </Button>

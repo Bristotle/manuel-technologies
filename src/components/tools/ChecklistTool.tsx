@@ -48,11 +48,11 @@ export function ChecklistTool({
   const top = result.actions.slice(0, 5);
 
   return (
-    <div className="grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
+    <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
       {/* Checklist */}
       <div className="rounded-[18px] border border-mt-border bg-white p-6 sm:p-8">
         <span className="mt-label">The checklist</span>
-        <h2 className="mt-5 !text-2xl !tracking-tight">
+        <h2 className="mt-6 !text-2xl !tracking-tight">
           {items.length} checks, weighted by what actually changes the outcome
         </h2>
         <p className="mt-4 text-[0.9375rem] leading-relaxed text-mt-slate">
@@ -62,7 +62,7 @@ export function ChecklistTool({
           Nothing is sent anywhere and there is no email to enter.
         </p>
 
-        <div className="mt-8 flex flex-col gap-10">
+        <div className="mt-8 flex flex-col gap-12">
           {groups.map((group) => {
             const own = items.filter((i) => i.group === group);
             if (own.length === 0) return null;
@@ -109,7 +109,7 @@ export function ChecklistTool({
       </div>
 
       {/* Score and plan */}
-      <div className="flex flex-col gap-5 lg:sticky lg:top-6 lg:self-start">
+      <div className="flex flex-col gap-6 lg:sticky lg:top-6 lg:self-start">
         <div className="rounded-[18px] border border-mt-border bg-white p-6 sm:p-8">
           <span className="mt-label">{scoreLabel}</span>
           <div className="mt-6 flex flex-col items-center gap-6 sm:flex-row">
@@ -159,7 +159,7 @@ export function ChecklistTool({
               {top.map((item, index) => (
                 <li
                   key={item.id}
-                  className="grid gap-2 border-b border-mt-border py-5 last:border-b-0 sm:grid-cols-[2rem_1fr] sm:gap-4"
+                  className="grid gap-2 border-b border-mt-border py-6 last:border-b-0 sm:grid-cols-[2rem_1fr] sm:gap-4"
                 >
                   <span className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.16em] text-mt-purple">
                     {String(index + 1).padStart(2, "0")}
@@ -180,7 +180,7 @@ export function ChecklistTool({
 
         <div className="rounded-[18px] border border-mt-border bg-mt-surface p-6 sm:p-8">
           <span className="mt-label">What this is</span>
-          <div className="mt-5 text-[0.9375rem] leading-relaxed text-mt-slate">
+          <div className="mt-6 text-[0.9375rem] leading-relaxed text-mt-slate">
             {footnote}
           </div>
           <div className="mt-6">

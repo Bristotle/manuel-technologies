@@ -63,7 +63,7 @@ export default function Page() {
             automation vendor. Where a connector does not exist, we write the
             middleware.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-12 flex flex-wrap gap-4">
             <Button href="/contact">Ask about your stack</Button>
             <Button href="/scale" variant="secondary">
               See the Scale pillar
@@ -76,18 +76,18 @@ export default function Page() {
         <section
           key={category.slug}
           id={category.slug}
-          className={`border-b border-mt-border py-20 sm:py-24 ${
+          className={`border-b border-mt-border py-24 sm:py-32 ${
             index % 2 === 1 ? "bg-mt-surface" : "bg-white"
           }`}
         >
           <Container>
-            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.6fr] lg:gap-16">
+            <div className="grid gap-12 lg:grid-cols-[0.9fr_1.6fr] lg:gap-16">
               <div>
                 <SectionLabel>{category.name}</SectionLabel>
-                <p className="mt-5 max-w-[38ch] text-base leading-relaxed text-mt-slate">
+                <p className="mt-6 max-w-[38ch] text-base leading-relaxed text-mt-slate">
                   {category.intro}
                 </p>
-                <p className="mt-5 font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-mt-muted">
+                <p className="mt-6 font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-mt-muted">
                   ( {category.items.length} systems )
                 </p>
               </div>
@@ -98,7 +98,7 @@ export default function Page() {
                     <a
                       href={item.url}
                       rel="noopener"
-                      className="flex h-full gap-4 p-5 transition-colors duration-150 hover:bg-mt-surface"
+                      className="flex h-full gap-4 p-6 transition-colors duration-150 hover:bg-mt-surface"
                     >
                       <span className="shrink-0">
                         <IntegrationLogo item={item} />
@@ -132,7 +132,7 @@ export default function Page() {
             even a CSV export on a schedule can be automated. Tell us what you
             run and we will tell you honestly whether it is worth doing.
           </p>
-          <div className="mt-10">
+          <div className="mt-12">
             <Link
               href="/contact"
               className="inline-flex min-h-12 items-center justify-center rounded-[10px] bg-white px-6 py-3.5 text-base font-semibold text-mt-purple transition-colors duration-150 hover:bg-mt-surface active:bg-mt-border"

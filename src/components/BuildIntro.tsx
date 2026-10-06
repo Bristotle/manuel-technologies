@@ -39,7 +39,7 @@ export function BuildIntro() {
   return (
     <section className="border-b border-mt-border bg-white py-24 sm:py-32">
       <Container>
-        <div className="grid gap-16 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+        <div className="grid gap-16 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <div>
             <SectionLabel>What this pillar is</SectionLabel>
             <h2 className="mt-6 !text-3xl !leading-[1.05] sm:!text-4xl">
@@ -71,11 +71,11 @@ export function BuildIntro() {
           </div>
         </div>
 
-        <div className="mt-20 mt-reveal-group">
+        <div className="mt-24 mt-reveal-group">
           <SectionLabel>What we do differently</SectionLabel>
           <dl className="mt-8 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border md:grid-cols-3">
             {DECISIONS.map((item) => (
-              <div key={item.label} className="flex flex-col gap-5 bg-white p-7">
+              <div key={item.label} className="flex flex-col gap-6 bg-white p-8">
                 <div>
                   <dt className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-muted">
                     ( {item.label} )
@@ -84,7 +84,7 @@ export function BuildIntro() {
                     {item.body}
                   </dd>
                 </div>
-                <div className="border-t border-mt-border pt-5">
+                <div className="border-t border-mt-border pt-6">
                   <dt className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">
                     ( INSTEAD )
                   </dt>
@@ -97,7 +97,7 @@ export function BuildIntro() {
           </dl>
         </div>
 
-        <div className="mt-14 flex flex-wrap gap-4">
+        <div className="mt-16 flex flex-wrap gap-4">
           <Button href="/build/website-development">Website development</Button>
           <Button href="/build/custom-software" variant="secondary">
             Custom software

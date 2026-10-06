@@ -79,7 +79,7 @@ export function PillarHub({
       <section className="py-24 sm:py-32">
         <Container>
           <SectionLabel>Services</SectionLabel>
-          <div className="mt-8 grid gap-5 sm:grid-cols-2">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
             {pillar.services.map((s) => (
               <Card key={s.href} href={s.href}>
                 <h2 className="!text-base !tracking-tight">{s.name}</h2>

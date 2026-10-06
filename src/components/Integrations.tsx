@@ -40,7 +40,7 @@ export function Integrations({
           </p>
         </div>
 
-        <ul className="mt-14 flex flex-wrap items-center justify-center gap-4">
+        <ul className="mt-16 flex flex-wrap items-center justify-center gap-4">
           {FEATURED_INTEGRATIONS.map((item) => (
             <li key={item.slug}>
               <a
@@ -62,7 +62,7 @@ export function Integrations({
           not, we build the middleware that makes it behave as though it does.
         </p>
 
-        <div className="mt-10 flex justify-center">
+        <div className="mt-12 flex justify-center">
           <Link
             href="/integrations"
             className="mt-lift inline-flex min-h-12 items-center justify-center rounded-[10px] bg-mt-ink px-6 py-3.5 text-base font-semibold text-white transition-colors duration-150 hover:bg-mt-purple"

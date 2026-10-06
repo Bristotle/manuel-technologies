@@ -59,10 +59,10 @@ export default function BlogPage() {
               in a grid with everything else. */}
           <Link
             href="/research/uk-accountancy-websites"
-            className="mt-lift mt-spot group block rounded-[18px] border border-mt-purple bg-white p-7 transition-colors duration-150 sm:p-8"
+            className="mt-lift mt-spot group block rounded-[18px] border border-mt-purple bg-white p-8 transition-colors duration-150 sm:p-8"
           >
             <span className="mt-label">( Original research )</span>
-            <h2 className="mt-5 max-w-[26ch] !text-2xl !tracking-tight group-hover:text-mt-purple sm:!text-3xl">
+            <h2 className="mt-6 max-w-[26ch] !text-2xl !tracking-tight group-hover:text-mt-purple sm:!text-3xl">
               We crawled 56 UK accountancy websites. 12 could not be read at all.
             </h2>
             <p className="mt-4 max-w-[65ch] leading-relaxed text-mt-slate">
@@ -87,7 +87,7 @@ export default function BlogPage() {
 
           <div className="mt-16">
           <SectionLabel>All articles</SectionLabel>
-          <div className="mt-reveal-group mt-8 grid gap-5 md:grid-cols-3">
+          <div className="mt-reveal-group mt-8 grid gap-6 md:grid-cols-3">
             {visiblePosts.map((post) => {
               return (
               <article key={post.title} className="border border-mt-border bg-white p-6">

@@ -39,7 +39,7 @@ export default function Page() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
         <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link>
@@ -48,7 +48,7 @@ export default function Page() {
             <span aria-hidden="true">/</span>
             <span>Indexation risk</span>
           </div>
-          <div className="mt-10 max-w-[760px]">
+          <div className="mt-12 max-w-[760px]">
             <SectionLabel accent="pink">Free tool / Grow</SectionLabel>
             <h1 className="mt-6">Will your generated pages <span className="text-mt-purple">actually get indexed?</span></h1>
             <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">Fifteen known failure modes for programmatic page sets, weighted by how badly each one damages indexation. Tick what is true of your setup. This one scores risk, so a low number is the good outcome.</p>
@@ -56,7 +56,7 @@ export default function Page() {
         </Container>
       </section>
 
-      <section className="py-16 sm:py-20">
+      <section className="py-16 sm:py-24">
         <Container size="wide">
           <ChecklistTool
             items={PROGRAMMATIC_ITEMS}
@@ -76,7 +76,7 @@ export default function Page() {
         <Container>
           <SectionLabel accent="pink">Questions</SectionLabel>
           <h2 className="mt-6 max-w-[24ch]">What people ask before shipping at scale.</h2>
-          <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">
+          <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-12 md:grid-cols-2">
             {FAQS.map((f) => (
               <article key={f.q} className="border-t border-mt-border pt-6">
                 <h3 className="!text-lg !tracking-tight">{f.q}</h3>

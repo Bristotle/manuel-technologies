@@ -44,10 +44,10 @@ export function RetainerVsBuild() {
   const max = Math.max(r.retainerTotal, r.buildTotal, 1);
 
   return (
-    <div className="grid gap-5 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+    <div className="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
       <form onSubmit={(e) => e.preventDefault()} className="rounded-[18px] border border-mt-border bg-white p-6 sm:p-8">
         <span className="mt-label">Your position</span>
-        <h2 className="mt-5 !text-2xl !tracking-tight">What you pay, and what owning it would cost</h2>
+        <h2 className="mt-6 !text-2xl !tracking-tight">What you pay, and what owning it would cost</h2>
         <p className="mt-4 text-[0.9375rem] leading-relaxed text-mt-slate">
           Runs in your browser. Nothing is sent anywhere.
         </p>
@@ -75,7 +75,7 @@ export function RetainerVsBuild() {
         </div>
       </form>
 
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-6">
         <div className="rounded-[18px] border border-mt-border bg-white p-6 sm:p-8">
           <span className="mt-label">Over {r.horizon} months</span>
           <div className="mt-8 flex flex-col gap-6">
@@ -111,30 +111,30 @@ export function RetainerVsBuild() {
         <div className="rounded-[18px] border border-mt-border bg-mt-surface p-6 sm:p-8">
           <span className="mt-label">Crossover</span>
           {!meaningful ? (
-            <p className="mt-5 text-lg leading-relaxed text-mt-slate">Enter your retainer and a build cost to see where the two lines cross.</p>
+            <p className="mt-6 text-lg leading-relaxed text-mt-slate">Enter your retainer and a build cost to see where the two lines cross.</p>
           ) : r.crossoverMonth === null ? (
-            <p className="mt-5 text-lg leading-relaxed text-mt-slate">
+            <p className="mt-6 text-lg leading-relaxed text-mt-slate">
               Upkeep meets or exceeds the retainer, so building never becomes
               cheaper. At these numbers the retainer is the right answer and no
               amount of time changes that.
             </p>
           ) : r.crossoverBeyondHorizon ? (
             <>
-              <p className="mt-5 text-2xl leading-snug text-mt-ink">
+              <p className="mt-6 text-2xl leading-snug text-mt-ink">
                 Building overtakes the retainer at month{" "}
                 <strong className="font-extrabold text-mt-purple">{formatNumber(r.crossoverMonth, 0)}</strong>, beyond the {r.horizon} you are comparing.
               </p>
-              <p className="mt-5 text-[0.9375rem] leading-relaxed text-mt-slate">
+              <p className="mt-6 text-[0.9375rem] leading-relaxed text-mt-slate">
                 That is {formatNumber(r.crossoverMonth / 12, 1)} years. If the business does not plan that far ahead, the retainer is the sensible choice and this calculator has just told you not to hire us for it.
               </p>
             </>
           ) : (
             <>
-              <p className="mt-5 text-2xl leading-snug text-mt-ink">
+              <p className="mt-6 text-2xl leading-snug text-mt-ink">
                 Building costs less from month{" "}
                 <strong className="font-extrabold text-mt-purple">{formatNumber(r.crossoverMonth, 0)}</strong> onward.
               </p>
-              <p className="mt-5 text-[0.9375rem] leading-relaxed text-mt-slate">
+              <p className="mt-6 text-[0.9375rem] leading-relaxed text-mt-slate">
                 Every month after that is {money(Math.max(0, input.monthlyRetainer - input.buildMonthlyUpkeep))} that stays in the business, and you hold the asset rather than renting access to it.
                 {r.sunk > 0 && <> You have already paid {money(r.sunk)} on the retainer, which is spent either way and should not affect the decision ahead.</>}
               </p>
@@ -144,12 +144,12 @@ export function RetainerVsBuild() {
 
         <div className="rounded-[18px] border border-mt-border bg-white p-6 sm:p-8">
           <span className="mt-label">What a retainer buys that this does not count</span>
-          <ul className="mt-5 flex flex-col gap-3 text-[0.9375rem] leading-relaxed text-mt-slate">
+          <ul className="mt-6 flex flex-col gap-3 text-[0.9375rem] leading-relaxed text-mt-slate">
             <li>Ongoing attention. Somebody is looking at it every month, which a finished asset does not give you.</li>
             <li>Flexibility. Priorities can move month to month without a new scope.</li>
             <li>No capital outlay, and the delivery risk sits with them rather than you.</li>
           </ul>
-          <p className="mt-5 text-[0.9375rem] leading-relaxed text-mt-slate">
+          <p className="mt-6 text-[0.9375rem] leading-relaxed text-mt-slate">
             Those are real and arithmetic cannot price them. If what you need is
             continuous attention rather than a thing that exists, a retainer is
             the correct purchase and the crossover month is beside the point.

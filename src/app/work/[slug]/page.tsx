@@ -139,7 +139,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </p>
           </div>
 
-          <dl className="mt-14 grid gap-8 border-t border-mt-border pt-8 sm:grid-cols-3">
+          <dl className="mt-16 grid gap-8 border-t border-mt-border pt-8 sm:grid-cols-3">
             <div>
               <dt className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.18em] text-mt-muted">
                 Client
@@ -221,7 +221,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             Everything above is{" "}
             <span className="text-mt-purple">verifiable on the live site.</span>
           </h2>
-          <ul className="mt-reveal-group mt-10 max-w-[680px] flex flex-col">
+          <ul className="mt-reveal-group mt-12 max-w-[680px] flex flex-col">
             {study.verify.map((item) => (
               <li
                 key={item}
@@ -231,7 +231,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
               </li>
             ))}
           </ul>
-          <div className="mt-10">
+          <div className="mt-12">
             <Button href={project.url} variant="secondary" external>
               Open {project.client}
             </Button>
@@ -244,7 +244,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         <section className="py-24 sm:py-32">
           <Container>
             <SectionLabel>Results</SectionLabel>
-            <ul className="mt-10 max-w-[680px] flex flex-col">
+            <ul className="mt-12 max-w-[680px] flex flex-col">
               {study.results.map((result) => (
                 <li
                   key={result}
@@ -262,7 +262,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
       <section className="py-24 sm:py-32">
         <Container>
           <SectionLabel>What this involved</SectionLabel>
-          <ul className="mt-10 flex flex-wrap gap-3">
+          <ul className="mt-12 flex flex-wrap gap-3">
             {project.scope.map((item) => {
               const href = SCOPE_TO_SERVICE[item];
               /* No service page means plain text, never a dead link. */
@@ -296,7 +296,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         <section className="border-t border-mt-border py-24 sm:py-32">
           <Container>
             <SectionLabel>More work</SectionLabel>
-            <div className="mt-reveal-group mt-10 grid gap-5 md:grid-cols-3">
+            <div className="mt-reveal-group mt-12 grid gap-6 md:grid-cols-3">
               {others.map(({ study: other, project: otherProject }) => (
                 <Link
                   key={other.slug}

@@ -97,7 +97,7 @@ export function SelectedWork() {
           </h2>
         </div>
 
-        <ul className="mt-14 grid gap-5 lg:grid-cols-2 mt-reveal-group">
+        <ul className="mt-16 grid gap-6 lg:grid-cols-2 mt-reveal-group">
           {featured.map((project) => (
             <WorkCard key={project.slug} project={project} />
           ))}
@@ -108,7 +108,7 @@ export function SelectedWork() {
             <p className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-muted">
               ( Also live )
             </p>
-            <ul className="mt-5 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <ul className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4">
               {rest.map((project) => (
                 <li key={project.slug}>
                   <Link

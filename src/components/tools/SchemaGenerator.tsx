@@ -164,7 +164,7 @@ export function SchemaGenerator() {
   }
 
   return (
-    <div className="grid gap-5 lg:grid-cols-2">
+    <div className="grid gap-6 lg:grid-cols-2">
       <div className="rounded-[18px] border border-mt-border bg-white p-6 sm:p-8">
         <span className="mt-label">What to describe</span>
         <div className="mt-6 flex flex-wrap gap-2">
@@ -183,7 +183,7 @@ export function SchemaGenerator() {
             </button>
           ))}
         </div>
-        <p className="mt-5 text-[0.8125rem] leading-relaxed text-mt-muted">{NOTES[type]}</p>
+        <p className="mt-6 text-[0.8125rem] leading-relaxed text-mt-muted">{NOTES[type]}</p>
 
         <div className="mt-8 flex flex-col gap-6">
           {FIELDS[type].map((f) => (
@@ -216,7 +216,7 @@ export function SchemaGenerator() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-6">
         <div className="overflow-hidden rounded-[18px] border border-mt-border">
           <div className="flex items-center justify-between gap-4 border-b border-mt-border bg-mt-surface px-6 py-4">
             <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.14em] text-mt-muted">
@@ -238,7 +238,7 @@ export function SchemaGenerator() {
 
         <div className="rounded-[18px] border border-mt-border bg-mt-surface p-6 sm:p-8">
           <span className="mt-label">Before you paste it</span>
-          <p className="mt-5 text-[0.9375rem] leading-relaxed text-mt-slate">
+          <p className="mt-6 text-[0.9375rem] leading-relaxed text-mt-slate">
             Schema is a label, not an argument. Every property here must
             describe something a visitor can actually see on the page. Marking
             up a claim that is not visible is a manual action risk and, more to

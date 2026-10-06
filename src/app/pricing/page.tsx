@@ -121,12 +121,12 @@ export default function Pricing() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Hero. The H1 is the price band. */}
-      <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
         <Backdrop kind="glow" style={{ "--gx": "18%", "--gy": "35%", "--gw": "55%", "--gh": "70%", "--ga": "0.22" } as React.CSSProperties} />
         <DotGrid fade="bottom" />
         <Container className="relative">
           <h1 className="max-w-[24ch]">
-            Pro level website developments and design prices ranging from{" "}
+            Website development and design, priced from{" "}
             <span className="text-mt-purple">
               {ghs(PRICE_BAND.from)} to {ghs(PRICE_BAND.to)}.
             </span>
@@ -194,7 +194,7 @@ export default function Pricing() {
                       ))}
                     </ul>
 
-                    <dl className="mt-6 grid grid-cols-2 gap-4 border-t border-mt-border pt-5">
+                    <dl className="mt-6 grid grid-cols-2 gap-4 border-t border-mt-border pt-6">
                       <div>
                         <dt className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.14em] text-mt-muted">Timeline</dt>
                         <dd className="mt-1 text-sm text-mt-ink">{t.timeline}</dd>
@@ -260,7 +260,7 @@ export default function Pricing() {
             <div>
               <SectionLabel>Not included</SectionLabel>
               <h2 className="mt-6 max-w-[20ch]">Stated here so it never surprises you on an invoice.</h2>
-              <ul className="mt-10 flex flex-col divide-y divide-mt-border border-y border-mt-border">
+              <ul className="mt-12 flex flex-col divide-y divide-mt-border border-y border-mt-border">
                 {NOT_INCLUDED.map((x) => (
                   <li key={x} className="py-3.5 text-[0.9375rem] text-mt-slate">{x}</li>
                 ))}
@@ -274,7 +274,7 @@ export default function Pricing() {
             <div>
               <SectionLabel>Payment terms</SectionLabel>
               <h2 className="mt-6 max-w-[22ch]">60% to start. Live on your domain when the balance clears.</h2>
-              <dl className="mt-10 flex flex-col divide-y divide-mt-border border-y border-mt-border">
+              <dl className="mt-12 flex flex-col divide-y divide-mt-border border-y border-mt-border">
                 {PAYMENT_TERMS.map((p) => (
                   <div key={p.term} className="grid gap-1 py-4 sm:grid-cols-[140px_1fr] sm:gap-6">
                     <dt className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.14em] text-mt-purple">{p.term}</dt>
@@ -308,37 +308,37 @@ export default function Pricing() {
               <thead>
                 <tr className="border-b border-mt-border">
                   {["Firm", "Starter", "Business site", "Online store", "Custom", "Care or maintenance"].map((h) => (
-                    <th key={h} className="px-5 py-4 font-[family-name:var(--font-mono)] text-[0.625rem] font-bold uppercase tracking-[0.14em] text-mt-muted">{h}</th>
+                    <th key={h} className="px-6 py-4 font-[family-name:var(--font-mono)] text-[0.625rem] font-bold uppercase tracking-[0.14em] text-mt-muted">{h}</th>
                   ))}
                 </tr>
               </thead>
               <tbody className="divide-y divide-mt-border">
                 <tr className="bg-mt-surface">
-                  <td className="px-5 py-4 font-semibold text-mt-ink">Manuel Technologies</td>
-                  <td className="px-5 py-4 text-mt-ink">{ghs(TIERS[0].from)} to {TIERS[0].to.toLocaleString("en-GB")}</td>
-                  <td className="px-5 py-4 text-mt-ink">{ghs(TIERS[1].from)} to {TIERS[1].to.toLocaleString("en-GB")}</td>
-                  <td className="px-5 py-4 text-mt-ink">{ghs(TIERS[2].from)} to {TIERS[2].to.toLocaleString("en-GB")}</td>
-                  <td className="px-5 py-4 text-mt-ink">{ghs(TIERS[3].from)} to {TIERS[3].to.toLocaleString("en-GB")}</td>
-                  <td className="px-5 py-4 text-mt-ink">GHS 299 to 499 a month</td>
+                  <td className="px-6 py-4 font-semibold text-mt-ink">Manuel Technologies</td>
+                  <td className="px-6 py-4 text-mt-ink">{ghs(TIERS[0].from)} to {TIERS[0].to.toLocaleString("en-GB")}</td>
+                  <td className="px-6 py-4 text-mt-ink">{ghs(TIERS[1].from)} to {TIERS[1].to.toLocaleString("en-GB")}</td>
+                  <td className="px-6 py-4 text-mt-ink">{ghs(TIERS[2].from)} to {TIERS[2].to.toLocaleString("en-GB")}</td>
+                  <td className="px-6 py-4 text-mt-ink">{ghs(TIERS[3].from)} to {TIERS[3].to.toLocaleString("en-GB")}</td>
+                  <td className="px-6 py-4 text-mt-ink">GHS 299 to 499 a month</td>
                 </tr>
                 {MARKET.rows.map((r) => (
                   <tr key={r.firm}>
-                    <td className="px-5 py-4 align-top">
+                    <td className="px-6 py-4 align-top">
                       <a href={r.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-mt-ink underline decoration-mt-border underline-offset-4 hover:text-mt-purple">{r.firm}</a>
                       <span className="mt-1 block max-w-[28ch] text-xs leading-relaxed text-mt-muted">{r.note}</span>
                     </td>
-                    <td className="px-5 py-4 align-top text-mt-slate">{r.starter}</td>
-                    <td className="px-5 py-4 align-top text-mt-slate">{r.business}</td>
-                    <td className="px-5 py-4 align-top text-mt-slate">{r.store}</td>
-                    <td className="px-5 py-4 align-top text-mt-slate">{r.custom}</td>
-                    <td className="px-5 py-4 align-top text-mt-slate">{r.care}</td>
+                    <td className="px-6 py-4 align-top text-mt-slate">{r.starter}</td>
+                    <td className="px-6 py-4 align-top text-mt-slate">{r.business}</td>
+                    <td className="px-6 py-4 align-top text-mt-slate">{r.store}</td>
+                    <td className="px-6 py-4 align-top text-mt-slate">{r.custom}</td>
+                    <td className="px-6 py-4 align-top text-mt-slate">{r.care}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <div className="mt-10 flex max-w-[65ch] flex-col gap-4 text-[0.9375rem] leading-relaxed text-mt-slate">
+          <div className="mt-12 flex max-w-[65ch] flex-col gap-4 text-[0.9375rem] leading-relaxed text-mt-slate">
             <p>
               <strong className="text-mt-ink">Where we are more expensive.</strong> Our
               Starter tier is above JobHouse&rsquo;s two simple sites and above the
@@ -385,7 +385,7 @@ export default function Pricing() {
             ))}
           </div>
 
-          <p className="mt-10 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-muted">
+          <p className="mt-12 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-muted">
             For the longer version, read{" "}
             <Link href="/blog/how-much-does-a-website-cost-in-ghana" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">
               how much a website costs in Ghana in 2026

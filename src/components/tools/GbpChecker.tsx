@@ -51,11 +51,11 @@ export function GbpChecker() {
   const top: GbpItem[] = result.actions.slice(0, 5);
 
   return (
-    <div className="grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
+    <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
       {/* Checklist */}
       <div className="rounded-[18px] border border-mt-border bg-white p-6 sm:p-8">
         <span className="mt-label">The checklist</span>
-        <h2 className="mt-5 !text-2xl !tracking-tight">
+        <h2 className="mt-6 !text-2xl !tracking-tight">
           Twenty things, weighted by what actually moves local rankings
         </h2>
         <p className="mt-4 text-[0.9375rem] leading-relaxed text-mt-slate">
@@ -63,7 +63,7 @@ export function GbpChecker() {
           sent anywhere and there is no email to enter.
         </p>
 
-        <div className="mt-8 flex flex-col gap-10">
+        <div className="mt-8 flex flex-col gap-12">
           {GBP_GROUPS.map((group) => {
             const items = GBP_ITEMS.filter((i) => i.group === group);
             const g = result.groups.find((x) => x.group === group)!;
@@ -107,7 +107,7 @@ export function GbpChecker() {
       </div>
 
       {/* Score and plan */}
-      <div className="flex flex-col gap-5 lg:sticky lg:top-6 lg:self-start">
+      <div className="flex flex-col gap-6 lg:sticky lg:top-6 lg:self-start">
         <div className="rounded-[18px] border border-mt-border bg-white p-6 sm:p-8">
           <span className="mt-label">Local dominance score</span>
           <div className="mt-6 flex flex-col items-center gap-6 sm:flex-row sm:items-center">
@@ -142,7 +142,7 @@ export function GbpChecker() {
               {top.map((item, index) => (
                 <li
                   key={item.id}
-                  className="grid gap-2 border-b border-mt-border py-5 last:border-b-0 sm:grid-cols-[2rem_1fr] sm:gap-4"
+                  className="grid gap-2 border-b border-mt-border py-6 last:border-b-0 sm:grid-cols-[2rem_1fr] sm:gap-4"
                 >
                   <span className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.16em] text-mt-purple">
                     {String(index + 1).padStart(2, "0")}
@@ -163,7 +163,7 @@ export function GbpChecker() {
 
         <div className="rounded-[18px] border border-mt-border bg-mt-surface p-6 sm:p-8">
           <span className="mt-label">What this is</span>
-          <p className="mt-5 text-[0.9375rem] leading-relaxed text-mt-slate">
+          <p className="mt-6 text-[0.9375rem] leading-relaxed text-mt-slate">
             A self assessment. We cannot read your profile: there is no public
             way to check another business&rsquo;s completeness, and anything
             claiming to scan it is guessing or scraping. What this does is score

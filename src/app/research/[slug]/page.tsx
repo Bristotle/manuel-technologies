@@ -66,14 +66,14 @@ export default async function BenchmarkPage({ params }: { params: Promise<{ slug
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
         <Container className="relative">
-          <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link><span aria-hidden="true">/</span>
             <Link href="/research" className="hover:text-mt-purple">Research</Link><span aria-hidden="true">/</span>
-            <span>{i.name}</span>
-          </div>
-          <div className="mt-10 max-w-[820px]">
+            <span aria-current="page">{i.name}</span>
+          </nav>
+          <div className="mt-12 max-w-[820px]">
             <SectionLabel accent="pink">Original research · sampled {b.sampledAt}</SectionLabel>
             <h1 className="mt-6">
               We measured {M} {i.name} websites in {i.market}.{" "}
@@ -83,7 +83,7 @@ export default async function BenchmarkPage({ params }: { params: Promise<{ slug
               {worst.value} of {M} {worst.label.toLowerCase().startsWith("more") ? "do not have a single, clear H1" : worst.label.toLowerCase()}. {f.noStructuredData} have no structured data at all, so nothing on them can appear as a rich result. Median time to first byte is {(f.medianResponseMs / 1000).toFixed(1)} seconds. Every number below comes from our audit engine, and the method is stated before the findings.
             </p>
           </div>
-          <dl className="mt-14 grid gap-8 border-t border-mt-border pt-8 sm:grid-cols-2 lg:grid-cols-4">
+          <dl className="mt-16 grid gap-8 border-t border-mt-border pt-8 sm:grid-cols-2 lg:grid-cols-4">
             {[[String(b.sampled), "Sites sampled"], [String(M), "Could be measured"], [`${(f.medianResponseMs / 1000).toFixed(1)}s`, "Median first byte"], [String(f.medianScore), "Median audit score"]].map(([v, l]) => (
               <div key={l}>
                 <dt className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase leading-relaxed tracking-[0.14em] text-mt-muted">{l}</dt>
@@ -94,7 +94,7 @@ export default async function BenchmarkPage({ params }: { params: Promise<{ slug
         </Container>
       </section>
 
-      <section className="py-20 sm:py-24">
+      <section className="py-24 sm:py-32">
         <Container size="prose">
           <SectionLabel accent="pink">Method</SectionLabel>
           <div className="mt-8 flex flex-col gap-6 text-lg leading-relaxed text-mt-slate">
@@ -104,12 +104,12 @@ export default async function BenchmarkPage({ params }: { params: Promise<{ slug
         </Container>
       </section>
 
-      <section className="border-y border-mt-border bg-white py-20 sm:py-24">
+      <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container>
           <SectionLabel accent="pink">What we found</SectionLabel>
           <h2 className="mt-6 max-w-[26ch]">Eight checks, none of which need a budget to pass.</h2>
-          <div className="mt-10"><BenchmarkChart b={b} /></div>
-          <div className="mt-10 grid gap-8 md:grid-cols-3">
+          <div className="mt-12"><BenchmarkChart b={b} /></div>
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
             {[
               { k: "Structure", v: `${f.notOneH1} of ${M} do not have exactly one H1. ${f.noMetaDescription} have no meta description and ${f.noCanonical} no canonical tag. These are the cheapest signals a page can send about what it is, and most sites are not sending them.` },
               { k: "Discovery", v: `${f.noSitemap} have no XML sitemap and ${f.noRobots} no robots.txt. ${f.noStructuredData} carry no structured data, and only ${f.localBusinessSchema} declare the organisation in schema, so ${M - f.localBusinessSchema} are anonymous to an answer engine.` },
@@ -124,7 +124,7 @@ export default async function BenchmarkPage({ params }: { params: Promise<{ slug
         </Container>
       </section>
 
-      <section className="py-20 sm:py-24">
+      <section className="py-24 sm:py-32">
         <Container size="prose">
           <SectionLabel accent="pink">What it means for {i.singular}</SectionLabel>
           <h2 className="mt-6">The bar is low, which is the opportunity.</h2>
@@ -133,14 +133,14 @@ export default async function BenchmarkPage({ params }: { params: Promise<{ slug
             <p>We wrote out what a website for {i.name} in {i.market} actually has to do, and what it costs, at{" "}
               <Link href={`/websites-for/${i.slug}`} className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">websites for {i.name}</Link>. Or run your own site through the <Link href="/free-audit" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">free audit</Link> and compare it to these numbers directly.</p>
           </div>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-12 flex flex-wrap gap-4">
             <Button href="/free-audit">Audit my site against this</Button>
             <Button href={`/websites-for/${i.slug}`} variant="secondary">What {i.name} need</Button>
           </div>
         </Container>
       </section>
 
-      <section className="border-t border-mt-border bg-white py-20 sm:py-24">
+      <section className="border-t border-mt-border bg-white py-24 sm:py-32">
         <Container>
           <SectionLabel accent="pink">Questions</SectionLabel>
           <h2 className="mt-6 max-w-[24ch]">About the method.</h2>
@@ -152,7 +152,7 @@ export default async function BenchmarkPage({ params }: { params: Promise<{ slug
               </details>
             ))}
           </div>
-          <p className="mt-10 text-sm text-mt-muted">Other benchmarks: {PUBLISHED_INDUSTRIES.filter((x) => x.slug !== i.slug).map((x, n) => (<span key={x.slug}>{n > 0 ? " · " : ""}<Link href={`/research/${x.slug}`} className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">{x.name}</Link></span>))} · <Link href="/research/uk-accountancy-websites" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">UK accountancy firms</Link></p>
+          <p className="mt-12 text-sm text-mt-muted">Other benchmarks: {PUBLISHED_INDUSTRIES.filter((x) => x.slug !== i.slug).map((x, n) => (<span key={x.slug}>{n > 0 ? " · " : ""}<Link href={`/research/${x.slug}`} className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">{x.name}</Link></span>))} · <Link href="/research/uk-accountancy-websites" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">UK accountancy firms</Link></p>
         </Container>
       </section>
     </main>

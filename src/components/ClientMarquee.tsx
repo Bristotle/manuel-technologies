@@ -74,12 +74,12 @@ export function ClientMarquee() {
   const bottom = CLIENTS.filter((_, i) => i % 2 === 1);
 
   return (
-    <section className="border-y border-mt-border bg-white py-20 sm:py-24">
+    <section className="border-y border-mt-border bg-white py-24 sm:py-32">
       <Container>
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <SectionLabel>Trusted by</SectionLabel>
-            <h2 className="mt-5 max-w-[24ch] !text-2xl sm:!text-3xl">
+            <h2 className="mt-6 max-w-[24ch] !text-2xl sm:!text-3xl">
               Universities, research firms, retailers, and founders.
             </h2>
           </div>
@@ -91,7 +91,7 @@ export function ClientMarquee() {
       </Container>
 
       {/* Rails break the container deliberately. Edge to edge is the point. */}
-      <div className="mt-14 flex flex-col gap-6">
+      <div className="mt-16 flex flex-col gap-6">
         <Rail clients={top} />
         <Rail clients={bottom} reverse />
       </div>

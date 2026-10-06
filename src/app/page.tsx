@@ -13,7 +13,6 @@ import { HeroAudit } from "@/components/HeroAudit";
 import ROUTE_DATES from "@/lib/route-dates.json";
 import { Engine } from "@/components/Engine";
 import { FunnelCoverage } from "@/components/FunnelCoverage";
-import { Motions } from "@/components/Motions";
 import { Testimonials } from "@/components/Testimonials";
 import { CallToAction } from "@/components/CallToAction";
 import { SelectedWork } from "@/components/SelectedWork";
@@ -157,13 +156,13 @@ export default function Home() {
           The right hand column is deliberately light for now. Not every
           visitor arrives for search, so it is held for something that speaks
           to the rest of them. */}
-      <section className="relative overflow-hidden bg-white py-20 sm:py-28">
+      <section className="relative overflow-hidden bg-white py-24 sm:py-32">
         <DotGrid fade="center" glow />
         <Container className="relative">
-          <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-20">
+          <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16">
             <div>
               <SectionLabel>Working worldwide</SectionLabel>
-              <h1 className="mt-reveal-display mt-7 flex flex-col !text-[clamp(3.25rem,13vw,7rem)] font-extrabold !leading-[0.86] !tracking-[-0.05em]">
+              <h1 className="mt-reveal-display mt-8 flex flex-col !text-[clamp(4rem,19vw,7rem)] font-extrabold !leading-[0.86] !tracking-[-0.05em]">
                 <span>Build.</span>
                 <span>Grow.</span>
                 <span className="text-mt-purple">Scale.</span>
@@ -182,7 +181,7 @@ export default function Home() {
               <p className="mt-6 max-w-[46ch] text-lg font-semibold text-mt-ink">
                 {SITE.proof}
               </p>
-              <div className="mt-9 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-wrap gap-4">
                 <Button href="/contact">Start a conversation</Button>
                 <Button href="/work" variant="secondary">See our work</Button>
               </div>
@@ -196,7 +195,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-16 border-t border-mt-border pt-10">
+          <div className="mt-16 border-t border-mt-border pt-12">
             <HeroAudit />
           </div>
         </Container>
@@ -222,19 +221,19 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="mt-reveal-group mt-14 grid gap-5 md:grid-cols-3">
+          <div className="mt-reveal-group mt-16 grid gap-6 md:grid-cols-3">
             {PILLARS.map((pillar) => {
               const proof = PILLAR_PROOF[pillar.slug];
               const band = ACCENT[PILLAR_ACCENT[pillar.slug]];
               return (
                 <Card key={pillar.slug} href={`/${pillar.slug}`} className="flex flex-col">
                   <SectionLabel accent={PILLAR_ACCENT[pillar.slug]}>{pillar.name.toUpperCase()}</SectionLabel>
-                  <p className="mt-5 text-lg font-semibold leading-snug text-mt-ink">
+                  <p className="mt-6 text-lg font-semibold leading-snug text-mt-ink">
                     {pillar.promise}
                   </p>
 
                   {/* The evidence, not a description of it. */}
-                  <div className="mt-7 border-t border-mt-border pt-6">
+                  <div className="mt-8 border-t border-mt-border pt-6">
                     <span className={`block text-3xl font-extrabold tracking-tight ${band.text}`}>
                       {proof.value}
                     </span>
@@ -262,7 +261,7 @@ export default function Home() {
                     )}
                   </ul>
 
-                  <span className={`mt-7 inline-flex text-sm font-semibold ${band.text}`}>
+                  <span className={`mt-8 inline-flex text-sm font-semibold ${band.text}`}>
                     Explore {pillar.name}
                   </span>
                 </Card>
@@ -281,8 +280,6 @@ export default function Home() {
       <SelectedWork />
 
       <ClientSpotlight />
-
-      <Motions />
 
       <Integrations />
 
@@ -310,7 +307,7 @@ export default function Home() {
             <div>
               <SectionLabel>Is this a fit?</SectionLabel>
               <h2 className="mt-6 max-w-[16ch]">Bring us the work that matters.</h2>
-              <ul className="mt-10 flex flex-col gap-5">
+              <ul className="mt-12 flex flex-col gap-6">
                 {FIT_POINTS.map((point) => (
                   <li key={point} className="border-t border-mt-border pt-4 text-base leading-relaxed text-mt-slate">{point}</li>
                 ))}
@@ -319,7 +316,7 @@ export default function Home() {
             <div>
               <SectionLabel>What you receive</SectionLabel>
               <h2 className="mt-6 max-w-[16ch]">The work stays useful after handover.</h2>
-              <ul className="mt-10 flex flex-col gap-5">
+              <ul className="mt-12 flex flex-col gap-6">
                 {CLIENT_RECEIVES.map((item) => (
                   <li key={item} className="border-t border-mt-border pt-4 text-base leading-relaxed text-mt-slate">{item}</li>
                 ))}
@@ -339,7 +336,7 @@ export default function Home() {
             them anyway.
           </p>
 
-          <dl className="mt-12 grid gap-10 md:grid-cols-3">
+          <dl className="mt-12 grid gap-12 md:grid-cols-3">
             {STANDARDS.map((s) => (
               <div key={s.title}>
                 <dt className="text-base font-semibold">{s.title}</dt>
@@ -365,7 +362,7 @@ export default function Home() {
             it, and it is public so you can check the work rather than take our
             word for it.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-12 flex flex-wrap gap-4">
             <Button href={SITE.chromeStore} external>
               View the extension
             </Button>

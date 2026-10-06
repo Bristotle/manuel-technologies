@@ -124,7 +124,7 @@ export default function Study() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
         <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link>
@@ -132,7 +132,7 @@ export default function Study() {
             <span>Research</span>
           </div>
 
-          <div className="mt-10 max-w-[820px]">
+          <div className="mt-12 max-w-[820px]">
             <SectionLabel accent="pink">Original research · September 2026</SectionLabel>
             <h1 className="mt-6">
               We crawled {STUDY.sampled} UK accountancy websites.{" "}
@@ -149,7 +149,7 @@ export default function Study() {
             </p>
           </div>
 
-          <dl className="mt-14 grid gap-8 border-t border-mt-border pt-8 sm:grid-cols-2 lg:grid-cols-4">
+          <dl className="mt-16 grid gap-8 border-t border-mt-border pt-8 sm:grid-cols-2 lg:grid-cols-4">
             {[
               [String(STUDY.sampled), "Firms sampled"],
               [String(M), "Could be measured"],
@@ -167,7 +167,7 @@ export default function Study() {
 
       {/* Method, first rather than last, because a study that hides it is a
           press release. */}
-      <section className="py-20 sm:py-24">
+      <section className="py-24 sm:py-32">
         <Container size="prose">
           <SectionLabel accent="pink">Method</SectionLabel>
           <div className="mt-8 flex flex-col gap-6 text-lg leading-relaxed text-mt-slate">
@@ -200,7 +200,7 @@ export default function Study() {
             Share of the {M} readable sites failing each check.
           </h2>
 
-          <div className="mt-14 flex flex-col gap-7">
+          <div className="mt-16 flex flex-col gap-8">
             {BARS.map((bar) => {
               const p = pct(bar.value);
               return (
@@ -330,7 +330,7 @@ export default function Study() {
         <Container>
           <SectionLabel accent="pink">What to do about it</SectionLabel>
           <h2 className="mt-6 max-w-[24ch]">Four checks, none of which need a budget.</h2>
-          <ol className="mt-reveal-group mt-14 grid gap-8 md:grid-cols-2">
+          <ol className="mt-reveal-group mt-16 grid gap-8 md:grid-cols-2">
             {[
               ["01", "Open your own robots.txt", "Look for GPTBot, ClaudeBot, PerplexityBot and Google-Extended. If any carries Disallow: /, somebody decided you should not appear in AI answers. Confirm that was on purpose."],
               ["02", "Fetch your homepage without a browser", "curl it, or use any tool that does not run JavaScript. If you get a challenge page, that is what an AI crawler sees, and it carries noindex."],
@@ -345,7 +345,7 @@ export default function Study() {
             ))}
           </ol>
 
-          <div className="mt-14 flex flex-wrap gap-4">
+          <div className="mt-16 flex flex-wrap gap-4">
             <Button href="/free-audit">Run this audit on your own site</Button>
             <Button href="/free-tools/ai-crawler-check" variant="secondary">
               Just check the crawlers
@@ -358,7 +358,7 @@ export default function Study() {
         <Container>
           <SectionLabel accent="pink">Questions</SectionLabel>
           <h2 className="mt-6 max-w-[24ch]">About the method.</h2>
-          <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">
+          <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-12 md:grid-cols-2">
             {FAQS.map((x) => (
               <article key={x.q} className="border-t border-mt-border pt-6">
                 <h3 className="!text-lg !tracking-tight">{x.q}</h3>

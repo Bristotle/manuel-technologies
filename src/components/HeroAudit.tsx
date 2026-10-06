@@ -44,7 +44,7 @@ export function HeroAudit() {
       <label htmlFor="hero-audit" className="sr-only">
         Your website address
       </label>
-      <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
         <input
           id="hero-audit"
           type="text"

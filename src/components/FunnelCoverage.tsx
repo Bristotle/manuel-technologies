@@ -139,6 +139,11 @@ export function FunnelCoverage() {
         {/* Asymmetric header, as the reference has it: headline set right,
             label sitting left beneath it. CLAUDE.md section 4, asymmetry beats
             centring. */}
+        {/* The heading and intro sit on the standard 5xl column, so their
+            left edge lines up with every other section. Only the grids below
+            break wide, which is the deliberate break the wide container is
+            for. */}
+        <div className="mx-auto max-w-[61rem]">
         <div className="grid gap-8 lg:grid-cols-[1fr_1.35fr] lg:items-end">
           <div className="order-2 lg:order-1">
             <SectionLabel>Full funnel coverage</SectionLabel>
@@ -149,15 +154,16 @@ export function FunnelCoverage() {
           </h2>
         </div>
 
-        <p className="mt-10 max-w-[65ch] text-lg leading-relaxed text-mt-slate">
+        <p className="mt-12 max-w-[65ch] text-lg leading-relaxed text-mt-slate">
           Most firms own a slice. We own the whole path: discovery across Google
           and the AI answer engines, the build that has to hold up when someone
           arrives, the enquiry route that turns a visit into a conversation, and
           the automation that lets you handle the result.
         </p>
+        </div>
 
         {/* Stage cards */}
-        <div className="mt-reveal-group mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-reveal-group mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {STAGES.map((stage) => (
             <div
               key={stage.number}
@@ -166,7 +172,7 @@ export function FunnelCoverage() {
               <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-muted">
                 Stage {stage.number}
               </span>
-              <h3 className="mt-5 !text-2xl !tracking-tight">{stage.title}</h3>
+              <h3 className="mt-6 !text-2xl !tracking-tight">{stage.title}</h3>
               <p className="mt-4 flex-1 text-[0.9375rem] leading-relaxed text-mt-slate">
                 {stage.body}
               </p>
@@ -192,7 +198,7 @@ export function FunnelCoverage() {
             rails would read as noise rather than as a schematic. */}
         <ul
           aria-hidden="true"
-          className="mt-4 hidden gap-5 lg:grid lg:grid-cols-4"
+          className="mt-4 hidden gap-6 lg:grid lg:grid-cols-4"
         >
           {STAGES.map((stage) => (
             <li key={stage.number} className="flex items-center gap-3">
@@ -205,7 +211,7 @@ export function FunnelCoverage() {
         </ul>
 
         {/* Countable facts, one per stage */}
-        <div className="mt-10 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border lg:grid-cols-[auto_repeat(4,1fr)]">
+        <div className="mt-12 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border lg:grid-cols-[auto_repeat(4,1fr)]">
           <div className="flex items-center bg-white px-6 py-6">
             <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase leading-relaxed tracking-[0.16em] text-mt-muted">
               Shipped, and checkable
@@ -227,7 +233,7 @@ export function FunnelCoverage() {
         </div>
 
         {/* Six disciplines */}
-        <div className="mt-20 border-t border-mt-border">
+        <div className="mt-24 border-t border-mt-border">
           <ul className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
             {DISCIPLINES.map((d) => (
               <li key={d.code} className="border-b border-mt-border sm:border-r">
@@ -238,7 +244,7 @@ export function FunnelCoverage() {
                   <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-muted">
                     {d.code}
                   </span>
-                  <span className="mt-5 text-xl font-extrabold tracking-tight text-mt-ink group-hover:text-mt-purple">
+                  <span className="mt-6 text-xl font-extrabold tracking-tight text-mt-ink group-hover:text-mt-purple">
                     {d.name}
                   </span>
                   <span className="mt-4 text-[0.875rem] leading-relaxed text-mt-slate">

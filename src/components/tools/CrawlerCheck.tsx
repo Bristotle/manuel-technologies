@@ -63,7 +63,7 @@ export function CrawlerCheck() {
 
   return (
     <div>
-      <form onSubmit={run} className="mt-beam rounded-[18px] border border-mt-border p-7 sm:p-8">
+      <form onSubmit={run} className="mt-beam rounded-[18px] border border-mt-border p-8 sm:p-8">
         <label htmlFor="crawler-url" className="mt-label">
           ( Domain to check )
         </label>
@@ -99,21 +99,21 @@ export function CrawlerCheck() {
       </form>
 
       {state === "done" && result && (
-        <div className="mt-10 flex flex-col gap-5">
+        <div className="mt-12 flex flex-col gap-6">
           <div
-            className={`rounded-[18px] border p-7 sm:p-8 ${
+            className={`rounded-[18px] border p-8 sm:p-8 ${
               blocked.length === 0 ? "border-mt-border bg-white" : "border-mt-purple bg-mt-surface"
             }`}
           >
             <span className="mt-label">Verdict</span>
-            <h2 className="mt-5 max-w-[30ch] !text-2xl !tracking-tight sm:!text-3xl">
+            <h2 className="mt-6 max-w-[30ch] !text-2xl !tracking-tight sm:!text-3xl">
               {blocked.length === 0
                 ? "Every checked AI crawler can read this site."
                 : blocked.length === result.crawlers.length
                   ? "Every checked AI crawler is blocked."
                   : `${blocked.length} of ${result.crawlers.length} AI crawlers are blocked.`}
             </h2>
-            <p className="mt-5 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-slate">
+            <p className="mt-6 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-slate">
               {blocked.length === 0
                 ? result.robotsFound
                   ? "Nothing in your robots.txt stops an answer engine fetching your pages. That is the floor, not the finish line: being readable is necessary before anything else matters."
@@ -124,7 +124,7 @@ export function CrawlerCheck() {
 
           <ul className="grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border sm:grid-cols-2">
             {result.crawlers.map((c) => (
-              <li key={c.name} className="bg-white px-6 py-5">
+              <li key={c.name} className="bg-white px-6 py-6">
                 <div className="flex items-baseline justify-between gap-4">
                   <span className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.14em] text-mt-ink">
                     {c.name}
@@ -145,9 +145,9 @@ export function CrawlerCheck() {
             ))}
           </ul>
 
-          <div className="rounded-[18px] border border-mt-border bg-white p-7 sm:p-8">
+          <div className="rounded-[18px] border border-mt-border bg-white p-8 sm:p-8">
             <span className="mt-label">Also worth knowing</span>
-            <p className="mt-5 text-[0.9375rem] leading-relaxed text-mt-slate">
+            <p className="mt-6 text-[0.9375rem] leading-relaxed text-mt-slate">
               {result.robotsFound ? (
                 <>
                   Your robots.txt is at{" "}
@@ -175,11 +175,11 @@ export function CrawlerCheck() {
           </div>
 
           {result.raw && (
-            <details className="rounded-[18px] border border-mt-border bg-white p-7 sm:p-8">
+            <details className="rounded-[18px] border border-mt-border bg-white p-8 sm:p-8">
               <summary className="cursor-pointer text-[0.9375rem] font-semibold text-mt-ink">
                 Show the robots.txt we read
               </summary>
-              <pre className="mt-5 overflow-x-auto whitespace-pre-wrap font-[family-name:var(--font-mono)] text-[0.8125rem] leading-relaxed text-mt-slate">
+              <pre className="mt-6 overflow-x-auto whitespace-pre-wrap font-[family-name:var(--font-mono)] text-[0.8125rem] leading-relaxed text-mt-slate">
                 {result.raw}
               </pre>
             </details>

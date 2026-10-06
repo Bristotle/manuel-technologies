@@ -81,7 +81,7 @@ export default function RoiCalculatorPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
         <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link>
@@ -90,7 +90,7 @@ export default function RoiCalculatorPage() {
             <span aria-hidden="true">/</span>
             <span>ROI calculator</span>
           </div>
-          <div className="mt-10 max-w-[760px]">
+          <div className="mt-12 max-w-[760px]">
             <SectionLabel accent="pink">Free tool / Grow</SectionLabel>
             <h1 className="mt-6">
               What is one organic visit{" "}
@@ -106,7 +106,7 @@ export default function RoiCalculatorPage() {
         </Container>
       </section>
 
-      <section className="py-16 sm:py-20">
+      <section className="py-16 sm:py-24">
         <Container size="wide"><RoiCalculator /></Container>
       </section>
 
@@ -148,7 +148,7 @@ export default function RoiCalculatorPage() {
         <Container>
           <SectionLabel accent="pink">Questions</SectionLabel>
           <h2 className="mt-6 max-w-[22ch]">What people ask about this calculator.</h2>
-          <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">
+          <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-12 md:grid-cols-2">
             {FAQS.map((f) => (
               <article key={f.q} className="border-t border-mt-border pt-6">
                 <h3 className="!text-lg !tracking-tight">{f.q}</h3>

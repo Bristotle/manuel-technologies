@@ -178,7 +178,7 @@ export default function FreeAudit() {
       />
 
       {/* Hero, with the tool in it */}
-      <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
         {/* Aurora, palette locked. The tool is the product demo, so this is
             the one hero that earns a moving background. */}
         <div aria-hidden="true" className="mt-aurora pointer-events-none absolute inset-0" />
@@ -191,7 +191,7 @@ export default function FreeAudit() {
             <span>Free audit</span>
           </div>
 
-          <div className="mt-10 max-w-[760px]">
+          <div className="mt-12 max-w-[760px]">
             <SectionLabel accent="pink">Free SEO and GEO audit</SectionLabel>
             <h1 className="mt-6">
               Audit any live page in{" "}
@@ -239,9 +239,9 @@ export default function FreeAudit() {
             <span className="text-mt-purple">measured, not guessed.</span>
           </h2>
 
-          <div className="mt-reveal-group mt-14 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-reveal-group mt-16 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border md:grid-cols-2 lg:grid-cols-3">
             {COVERAGE.map((item) => (
-              <div key={item.code} className="flex flex-col gap-4 bg-white p-7">
+              <div key={item.code} className="flex flex-col gap-4 bg-white p-8">
                 <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">
                   {item.code}
                 </span>
@@ -277,7 +277,7 @@ export default function FreeAudit() {
             score.
           </p>
 
-          <div className="mt-reveal-group mt-14 grid gap-8 md:grid-cols-4">
+          <div className="mt-reveal-group mt-16 grid gap-8 md:grid-cols-4">
             {STEPS.map((s) => (
               <div key={s.step} className="border-t border-mt-border pt-6">
                 <span className="font-[family-name:var(--font-mono)] text-xs tracking-[0.18em] text-mt-purple">
@@ -303,7 +303,7 @@ export default function FreeAudit() {
           <h2 className="mt-6 max-w-[26ch]">
             We will not tell you what ChatGPT thinks of you.
           </h2>
-          <div className="mt-10 grid gap-16 lg:grid-cols-2 lg:gap-24">
+          <div className="mt-12 grid gap-16 lg:grid-cols-2 lg:gap-24">
             <div className="flex flex-col gap-6 text-lg leading-relaxed text-mt-slate">
               <p>
                 Plenty of audit tools now report an AI visibility score across
@@ -341,7 +341,7 @@ export default function FreeAudit() {
           <SectionLabel accent="pink">Questions</SectionLabel>
           <h2 className="mt-6 max-w-[22ch]">What people ask about the audit.</h2>
 
-          <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">
+          <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-12 md:grid-cols-2">
             {FAQS.map((f) => (
               <article key={f.q} className="border-t border-mt-border pt-6">
                 <h3 className="!text-lg !tracking-tight">{f.q}</h3>

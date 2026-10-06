@@ -41,7 +41,7 @@ export default function Page() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="relative overflow-hidden border-b border-mt-border bg-white py-20 sm:py-28">
+      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
         <Container className="relative">
           <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
             <Link href="/" className="hover:text-mt-purple">Home</Link>
@@ -50,7 +50,7 @@ export default function Page() {
             <span aria-hidden="true">/</span>
             <span>SEO triage</span>
           </div>
-          <div className="mt-10 max-w-[760px]">
+          <div className="mt-12 max-w-[760px]">
             <SectionLabel accent="pink">Free tool / Grow</SectionLabel>
             <h1 className="mt-6">Triage a page a crawler <span className="text-mt-purple">cannot reach.</span></h1>
             <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">Staging builds, pages behind a login, client sites you do not control. Supply the facts you have and get a severity ranked plan. For anything public, the live audit measures it properly instead.</p>
@@ -58,7 +58,7 @@ export default function Page() {
         </Container>
       </section>
 
-      <section className="py-16 sm:py-20">
+      <section className="py-16 sm:py-24">
         <Container size="wide"><ToolWorkspace tool="seo-audit" /></Container>
       </section>
 
@@ -66,9 +66,9 @@ export default function Page() {
         <Container>
           <SectionLabel accent="pink">What it covers</SectionLabel>
           <h2 className="mt-6 max-w-[26ch]">Three layers, ranked by what blocks what.</h2>
-          <div className="mt-reveal-group mt-14 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border md:grid-cols-3">
+          <div className="mt-reveal-group mt-16 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border md:grid-cols-3">
             {COVERS.map((c) => (
-              <div key={c.title} className="flex flex-col gap-4 bg-white p-7">
+              <div key={c.title} className="flex flex-col gap-4 bg-white p-8">
                 <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">{c.code}</span>
                 <h3 className="!text-xl !tracking-tight">{c.title}</h3>
                 <p className="text-[0.9375rem] leading-relaxed text-mt-slate">{c.body}</p>
@@ -85,7 +85,7 @@ export default function Page() {
         <Container>
           <SectionLabel accent="pink">Questions</SectionLabel>
           <h2 className="mt-6 max-w-[24ch]">What people ask about triage.</h2>
-          <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">
+          <div className="mt-reveal-group mt-12 grid gap-x-16 gap-y-12 md:grid-cols-2">
             {FAQS.map((f) => (
               <article key={f.q} className="border-t border-mt-border pt-6">
                 <h3 className="!text-lg !tracking-tight">{f.q}</h3>

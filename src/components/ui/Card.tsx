@@ -13,7 +13,7 @@ export function Card({
 }) {
   /* mt-lift and mt-spot only when the card actually goes somewhere. A hover
      affordance on a static panel promises an interaction that is not there. */
-  const cls = `block rounded-[18px] border border-mt-border bg-white p-7 transition-colors duration-150 ${
+  const cls = `block rounded-[18px] border border-mt-border bg-white p-8 transition-colors duration-150 ${
     href ? "mt-lift mt-spot hover:border-mt-purple" : ""
   } ${className}`;
 

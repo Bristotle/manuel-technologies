@@ -146,7 +146,7 @@ export function AuditForm() {
   return (
     <div>
       {/* Input */}
-      <form onSubmit={run} className="mt-beam rounded-[18px] border border-mt-border p-7 sm:p-8">
+      <form onSubmit={run} className="mt-beam rounded-[18px] border border-mt-border p-8 sm:p-8">
         <label
           htmlFor="audit-url"
           className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple"
@@ -206,7 +206,7 @@ export function AuditForm() {
       {state === "done" && report && (
         <div className="mt-12">
           {/* Scores */}
-          <div className="rounded-[18px] border border-mt-border bg-white p-7 sm:p-8">
+          <div className="rounded-[18px] border border-mt-border bg-white p-8 sm:p-8">
             <div className="flex flex-col gap-3 border-b border-mt-border pb-6 sm:flex-row sm:items-baseline sm:justify-between">
               <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">
                 ( Result )
@@ -216,7 +216,7 @@ export function AuditForm() {
               </span>
             </div>
 
-            <div className="mt-8 grid gap-10 lg:grid-cols-[auto_1fr] lg:gap-14">
+            <div className="mt-8 grid gap-12 lg:grid-cols-[auto_1fr] lg:gap-16">
               <Dial score={report.overall} />
               <div className="grid gap-6 sm:grid-cols-2">
                 {report.pillars.map((p) => (
@@ -228,22 +228,22 @@ export function AuditForm() {
 
           {/* Advice */}
           {report.advice && (
-            <div className="mt-5 rounded-[18px] border border-mt-border bg-mt-surface p-7 sm:p-8">
+            <div className="mt-6 rounded-[18px] border border-mt-border bg-mt-surface p-8 sm:p-8">
               <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">
                 ( What to do about it )
               </span>
-              <h3 className="mt-5 max-w-[28ch] !text-2xl !tracking-tight">
+              <h3 className="mt-6 max-w-[28ch] !text-2xl !tracking-tight">
                 {report.advice.headline}
               </h3>
               <p className="mt-4 max-w-[65ch] text-lg leading-relaxed text-mt-slate">
                 {report.advice.summary}
               </p>
 
-              <ol className="mt-reveal-group mt-10">
+              <ol className="mt-reveal-group mt-12">
                 {report.advice.actions.map((action) => (
                   <li
                     key={action.rank}
-                    className="grid gap-2 border-t border-mt-border py-6 sm:grid-cols-[3rem_1fr] sm:gap-5"
+                    className="grid gap-2 border-t border-mt-border py-6 sm:grid-cols-[3rem_1fr] sm:gap-6"
                   >
                     <span className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.16em] text-mt-purple">
                       {String(action.rank).padStart(2, "0")}
@@ -262,11 +262,11 @@ export function AuditForm() {
               </ol>
 
               {report.advice.strengths.length > 0 && (
-                <div className="mt-10 border-t border-mt-border pt-8">
+                <div className="mt-12 border-t border-mt-border pt-8">
                   <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-muted">
                     ( Already right )
                   </span>
-                  <ul className="mt-5 flex flex-col gap-3">
+                  <ul className="mt-6 flex flex-col gap-3">
                     {report.advice.strengths.map((s) => (
                       <li
                         key={s}
@@ -282,7 +282,7 @@ export function AuditForm() {
           )}
 
           {report.adviceError && (
-            <p className="mt-5 rounded-[18px] border border-mt-border bg-mt-surface p-7 text-[0.9375rem] leading-relaxed text-mt-slate sm:p-8">
+            <p className="mt-6 rounded-[18px] border border-mt-border bg-mt-surface p-8 text-[0.9375rem] leading-relaxed text-mt-slate sm:p-8">
               {report.adviceError}
             </p>
           )}
@@ -291,9 +291,9 @@ export function AuditForm() {
           {report.pillars.map((pillar) => (
             <div
               key={pillar.pillar}
-              className="mt-5 rounded-[18px] border border-mt-border bg-white p-7 sm:p-8"
+              className="mt-6 rounded-[18px] border border-mt-border bg-white p-8 sm:p-8"
             >
-              <div className="flex items-baseline justify-between gap-4 border-b border-mt-border pb-5">
+              <div className="flex items-baseline justify-between gap-4 border-b border-mt-border pb-6">
                 <h3 className="!text-xl !tracking-tight">{pillar.label}</h3>
                 <span className="text-lg font-semibold text-mt-purple">
                   {pillar.score}
@@ -308,7 +308,7 @@ export function AuditForm() {
           ))}
 
           {/* AI crawler detail, the part most audits never look at */}
-          <div className="mt-5 rounded-[18px] border border-mt-border bg-white p-7 sm:p-8">
+          <div className="mt-6 rounded-[18px] border border-mt-border bg-white p-8 sm:p-8">
             <h3 className="!text-xl !tracking-tight">AI crawler access</h3>
             <p className="mt-3 max-w-[65ch] text-[0.9375rem] leading-relaxed text-mt-slate">
               Read from your robots.txt. A blocked crawler cannot read the page,
@@ -319,7 +319,7 @@ export function AuditForm() {
               {report.facts.crawlers.map((c) => (
                 <li
                   key={c.name}
-                  className="flex items-center justify-between gap-4 bg-white px-5 py-4"
+                  className="flex items-center justify-between gap-4 bg-white px-6 py-4"
                 >
                   <span className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.14em] text-mt-slate">
                     {c.name}

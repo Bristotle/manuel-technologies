@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function PrivacyPolicy() {
   return (
     <main className="min-h-dvh bg-white text-mt-ink">
-      <article className="mx-auto max-w-[680px] px-6 py-16 sm:py-20">
+      <article className="mx-auto max-w-[680px] px-6 py-16 sm:py-24">
         <header className="mb-12 flex items-center gap-3">
           <Logo className="h-8 w-8 text-mt-purple" />
           <span className="text-sm text-mt-muted">Manuel Technologies</span>
@@ -28,7 +28,7 @@ export default function PrivacyPolicy() {
         </h1>
         <p className="mt-2 text-sm text-mt-muted">Last updated: July 2026</p>
 
-        <div className="my-8 rounded-r-[10px] border-l-[3px] border-mt-purple bg-mt-surface px-5 py-4 text-[0.9375rem]">
+        <div className="my-8 rounded-r-[10px] border-l-[3px] border-mt-purple bg-mt-surface px-6 py-4 text-[0.9375rem]">
           CWV Drift Monitor collects no personal data and stores nothing outside
           your own browser. It makes exactly one external request, to Google&rsquo;s
           PageSpeed service, and only when you open the popup.
@@ -159,7 +159,7 @@ export default function PrivacyPolicy() {
           </p>
         </Section>
 
-        <footer className="mt-14 border-t border-mt-border pt-5 text-xs text-mt-muted">
+        <footer className="mt-16 border-t border-mt-border pt-6 text-xs text-mt-muted">
           &copy; 2026 Manuel Technologies. CWV Drift Monitor is an independent
           tool and is not affiliated with Google.
         </footer>
@@ -176,8 +176,8 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="[&_p]:mb-4 [&_p]:text-mt-slate [&_li]:mb-1.5 [&_ul]:mb-4 [&_ul]:ml-5 [&_ul]:list-disc [&_ul]:text-mt-slate">
-      <h2 className="mb-2.5 mt-9 border-b border-mt-border pb-2 !text-[1.0625rem] font-bold !tracking-normal">
+    <section className="[&_p]:mb-4 [&_p]:text-mt-slate [&_li]:mb-1.5 [&_ul]:mb-4 [&_ul]:ml-6 [&_ul]:list-disc [&_ul]:text-mt-slate">
+      <h2 className="mb-2.5 mt-8 border-b border-mt-border pb-2 !text-[1.0625rem] font-bold !tracking-normal">
         {title}
       </h2>
       {children}

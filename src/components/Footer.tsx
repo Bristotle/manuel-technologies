@@ -102,7 +102,7 @@ export function Footer() {
     <footer className="relative isolate overflow-hidden bg-mt-ink text-white">
       <div aria-hidden="true" className="mt-bg mt-grid-dark -z-10" />
       <div aria-hidden="true" className="mt-bg mt-glow-dark -z-10" />
-      <div className="mx-auto w-full max-w-5xl px-6 py-16 sm:py-20">
+      <div className="mx-auto w-full max-w-5xl px-6 py-16 sm:py-24">
         <div className="grid gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.5fr_repeat(4,1fr)_1.25fr]">
           {/* Brand block: wordmark, line, proof pills, socials */}
           <div className="sm:col-span-2 md:col-span-3 lg:col-span-1">
@@ -111,7 +111,7 @@ export function Footer() {
               <span className="text-base font-extrabold tracking-tight text-white">{SITE.name}</span>
             </Link>
             <p className="mt-3 font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.22em] text-mt-lilac">Build. Grow. Scale.</p>
-            <p className="mt-5 max-w-[30ch] text-[0.9375rem] leading-relaxed text-white/70">
+            <p className="mt-6 max-w-[30ch] text-[0.9375rem] leading-relaxed text-white/70">
               Websites, custom software, search visibility, and automation.
               Built and shipped by an engineer.
             </p>
@@ -153,7 +153,7 @@ export function Footer() {
           {COLUMNS.map((column) => (
               <div key={column.heading}>
                 <Heading href={column.headingHref} accent={column.accent}>{column.heading}</Heading>
-                <ul className="mt-5 flex flex-col gap-2.5">
+                <ul className="mt-6 flex flex-col gap-2.5">
                   {column.links.map((link) => (
                     <li key={link.href}>
                       <Link href={link.href} className="group flex items-start gap-1.5 text-[0.875rem] leading-snug text-white/70 transition-colors duration-150 hover:text-white">
@@ -169,7 +169,7 @@ export function Footer() {
           {/* Get in touch: icon tile, label, value, then the newsletter card */}
           <div className="sm:col-span-2 md:col-span-3 lg:col-span-1">
             <Heading href="/contact" accent="pink">Get in touch</Heading>
-            <dl className="mt-5 flex flex-col gap-4 text-[0.875rem] leading-snug">
+            <dl className="mt-6 flex flex-col gap-4 text-[0.875rem] leading-snug">
               {[
                 { k: "Phone", v: <a href={`tel:${CONTACT.tel}`} className="text-white/85 hover:text-white">{CONTACT.phone}</a>, icon: <path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" /> },
                 { k: "Email", v: <a href={`mailto:${SITE.email}`} className="text-white/85 hover:text-white">{SITE.email}</a>, icon: <><path d="M3 6h18v12H3z" /><path d="m3 7 9 6 9-6" /></> },
@@ -192,7 +192,7 @@ export function Footer() {
         </div>
 
         {/* Newsletter card */}
-        <div className="mt-14 grid gap-6 rounded-[18px] border border-white/12 bg-white/[0.04] p-6 sm:p-8 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-12">
+        <div className="mt-16 grid gap-6 rounded-[18px] border border-white/12 bg-white/[0.04] p-6 sm:p-8 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-12">
           <div>
             <span className="font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.18em] text-mt-pink">( Newsletter )</span>
             <p className="mt-3 max-w-[36ch] text-lg font-semibold leading-snug text-white">

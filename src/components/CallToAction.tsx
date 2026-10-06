@@ -52,16 +52,16 @@ export function CallToAction() {
             when that is not hiring us.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="mt-lift inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3.5 text-base font-semibold text-mt-ink transition-colors duration-150 hover:bg-mt-surface active:bg-mt-border"
+              className="mt-lift inline-flex min-h-12 items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-semibold text-mt-ink transition-colors duration-150 hover:bg-mt-surface active:bg-mt-border"
             >
               Start a conversation
             </Link>
             <Link
               href="/work"
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 px-7 py-3.5 text-base font-semibold text-white transition-colors duration-150 hover:border-white/60 active:border-white"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 px-8 py-3.5 text-base font-semibold text-white transition-colors duration-150 hover:border-white/60 active:border-white"
             >
               See the work
             </Link>

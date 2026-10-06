@@ -107,9 +107,9 @@ export default async function BlogPostPage({ params }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
         <Container>
-          <div className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
-            <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/blog">Blog</Link><span aria-hidden="true">/</span>{thisCategory ? <Link href={`/blog/category/${thisCategory.slug}`} className="hover:text-mt-purple">{post.cluster}</Link> : <span>{post.cluster}</span>}
-          </div>
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-3 text-sm text-mt-slate">
+            <Link href="/" className="hover:text-mt-purple">Home</Link><span aria-hidden="true">/</span><Link href="/blog" className="hover:text-mt-purple">Blog</Link><span aria-hidden="true">/</span>{thisCategory ? <Link href={`/blog/category/${thisCategory.slug}`} className="hover:text-mt-purple">{post.cluster}</Link> : <span aria-current="page">{post.cluster}</span>}
+          </nav>
           <div className="mt-12 max-w-[760px]">
             <SectionLabel>{post.cluster}</SectionLabel>
             <h1 className="mt-6">{post.title}</h1>
@@ -124,7 +124,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           {/* Real work, above the fold of the body. CLAUDE.md section 4:
               every page carries visual evidence. Also the schema image. */}
           {post.heroImage ? (
-            <figure className="mt-10">
+            <figure className="mt-12">
               <Link href={post.heroImage.href ?? "/work"} className="block overflow-hidden rounded-[18px] border border-mt-border bg-mt-surface">
                 <Image src={post.heroImage.src} alt={post.heroImage.alt} width={post.heroImage.width} height={post.heroImage.height} sizes="(min-width: 1024px) 680px, 100vw" priority className="h-auto w-full" />
               </Link>
@@ -148,9 +148,9 @@ export default async function BlogPostPage({ params }: PageProps) {
               {item.table ? (
                 <div className="mt-8 overflow-x-auto rounded-[18px] border border-mt-border bg-white">
                   <table className="w-full min-w-[520px] text-left text-sm">
-                    <caption className="px-5 pt-4 text-left font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.14em] text-mt-muted">{item.table.caption}</caption>
-                    <thead><tr className="border-b border-mt-border">{item.table.headers.map((h) => <th key={h} className="px-5 py-3 font-[family-name:var(--font-mono)] text-[0.625rem] font-bold uppercase tracking-[0.14em] text-mt-muted">{h}</th>)}</tr></thead>
-                    <tbody className="divide-y divide-mt-border">{item.table.rows.map((row) => <tr key={row.join("|")}>{row.map((cell, i) => <td key={i} className={`px-5 py-3.5 align-top leading-relaxed ${i === 0 ? "font-semibold text-mt-ink" : "text-mt-slate"}`}>{renderInline(cell)}</td>)}</tr>)}</tbody>
+                    <caption className="px-6 pt-4 text-left font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.14em] text-mt-muted">{item.table.caption}</caption>
+                    <thead><tr className="border-b border-mt-border">{item.table.headers.map((h) => <th key={h} className="px-6 py-3 font-[family-name:var(--font-mono)] text-[0.625rem] font-bold uppercase tracking-[0.14em] text-mt-muted">{h}</th>)}</tr></thead>
+                    <tbody className="divide-y divide-mt-border">{item.table.rows.map((row) => <tr key={row.join("|")}>{row.map((cell, i) => <td key={i} className={`px-6 py-3.5 align-top leading-relaxed ${i === 0 ? "font-semibold text-mt-ink" : "text-mt-slate"}`}>{renderInline(cell)}</td>)}</tr>)}</tbody>
                   </table>
                 </div>
               ) : null}
@@ -173,15 +173,15 @@ export default async function BlogPostPage({ params }: PageProps) {
           <section id="final-thoughts" className="scroll-mt-8 py-4"><SectionLabel>Final thoughts</SectionLabel><p className="mt-6 text-xl leading-relaxed">{renderInline(post.conclusion)}</p></section>
           <section id="faqs" className="mt-16 scroll-mt-8"><SectionLabel>Frequently asked questions</SectionLabel><div className="mt-reveal-group mt-8 flex flex-col gap-8">{post.faqs.map((item) => <div key={item.question} className="pt-2"><h2 className="!text-2xl">{item.question}</h2><p className="mt-4 text-lg leading-relaxed text-mt-slate">{renderInline(item.answer)}</p></div>)}</div></section>
           <section className="mt-16 pt-8"><SectionLabel>Sources</SectionLabel><ul className="mt-6 flex flex-wrap gap-x-6 gap-y-3">{post.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer" className="text-sm text-mt-slate underline decoration-mt-border underline-offset-4 hover:text-mt-purple">{source.label}</a></li>)}</ul></section>
-          <section className="mt-16 border-y border-mt-border bg-white px-6 py-12 sm:px-10"><SectionLabel>Next step</SectionLabel><h2 className="mt-6 !text-3xl">Turn the research into a working plan.</h2><p className="mt-6 max-w-[55ch] text-lg leading-relaxed text-mt-slate">Bring the evidence, constraints, and next decision. We will help you turn it into a clear technical brief.</p><div className="mt-8 flex flex-wrap gap-4"><Button href={post.serviceHref}>Explore the related service</Button><Button href="/contact" variant="secondary">Start a conversation</Button></div></section>
+          <section className="mt-16 border-y border-mt-border bg-white px-6 py-12 sm:px-12"><SectionLabel>Next step</SectionLabel><h2 className="mt-6 !text-3xl">Turn the research into a working plan.</h2><p className="mt-6 max-w-[55ch] text-lg leading-relaxed text-mt-slate">Bring the evidence, constraints, and next decision. We will help you turn it into a clear technical brief.</p><div className="mt-8 flex flex-wrap gap-4"><Button href={post.serviceHref}>Explore the related service</Button><Button href="/contact" variant="secondary">Start a conversation</Button></div></section>
         </div>
         <aside className="lg:sticky lg:top-8">
           <details className="border-y border-mt-border py-4 lg:hidden"><summary className="cursor-pointer font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.18em] text-mt-purple">Jump to a section</summary><nav className="mt-4 flex flex-col gap-3">{post.sections.map((item) => <a key={item.heading} href={`#${sectionId(item.heading)}`} className="text-sm text-mt-slate hover:text-mt-purple">{item.heading}</a>)}<a href="#final-thoughts" className="text-sm text-mt-slate hover:text-mt-purple">Final thoughts</a><a href="#faqs" className="text-sm text-mt-slate hover:text-mt-purple">FAQs</a></nav></details>
           <div className="hidden lg:block border-l border-mt-border pl-6"><p className="mt-label">On this page</p><nav className="mt-6 flex flex-col gap-4">{post.sections.map((item) => <a key={item.heading} href={`#${sectionId(item.heading)}`} className="text-sm leading-snug text-mt-slate hover:text-mt-purple">{item.heading}</a>)}<a href="#final-thoughts" className="text-sm leading-snug text-mt-slate hover:text-mt-purple">Final thoughts</a><a href="#faqs" className="text-sm leading-snug text-mt-slate hover:text-mt-purple">FAQs</a></nav></div>
           <div className="mt-12 border border-mt-border bg-white p-6"><SectionLabel>Have a brief?</SectionLabel><p className="mt-4 text-lg leading-relaxed">Tell us what you are building and get a direct reply from the person doing the work.</p><div className="mt-6"><Button href="/contact">Contact us</Button></div></div>
           <form action="/blog" method="get" className="mt-12"><label className="mt-label" htmlFor="blog-search">Search the blog</label><div className="mt-3 flex"><input id="blog-search" name="q" type="search" placeholder="Search topics" className="contact-input min-w-0 flex-1 rounded-r-none" /><button type="submit" className="rounded-r-[10px] bg-mt-purple px-4 text-sm font-semibold text-white hover:bg-mt-purple-light">Search</button></div></form>
-          <div className="mt-12"><p className="mt-label">Recent posts</p><ul className="mt-5 flex flex-col gap-4">{recentPosts.map((item) => <li key={item.slug}><Link href={`/blog/${item.slug}`} className="text-sm leading-snug text-mt-slate hover:text-mt-purple">{item.title}</Link></li>)}</ul></div>
-          <div className="mt-12"><p className="mt-label">Categories</p><ul className="mt-5 flex flex-col gap-3">{CATEGORIES.map((category) => <li key={category.slug}><Link href={`/blog/category/${category.slug}`} className={`text-sm hover:text-mt-purple ${category.name === post.cluster ? "font-semibold text-mt-ink" : "text-mt-slate"}`}>{category.name}</Link></li>)}</ul></div>
+          <div className="mt-12"><p className="mt-label">Recent posts</p><ul className="mt-6 flex flex-col gap-4">{recentPosts.map((item) => <li key={item.slug}><Link href={`/blog/${item.slug}`} className="text-sm leading-snug text-mt-slate hover:text-mt-purple">{item.title}</Link></li>)}</ul></div>
+          <div className="mt-12"><p className="mt-label">Categories</p><ul className="mt-6 flex flex-col gap-3">{CATEGORIES.map((category) => <li key={category.slug}><Link href={`/blog/category/${category.slug}`} className={`text-sm hover:text-mt-purple ${category.name === post.cluster ? "font-semibold text-mt-ink" : "text-mt-slate"}`}>{category.name}</Link></li>)}</ul></div>
         </aside>
       </div></Container></article>
     </main>

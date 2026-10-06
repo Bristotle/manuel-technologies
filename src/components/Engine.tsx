@@ -76,16 +76,16 @@ export function Engine() {
 
   return (
     <section className="border-b border-mt-border bg-mt-surface py-24 sm:py-32">
-      <Container size="wide">
+      <Container>
         {/* Header rail, drawing office register */}
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-mt-border pb-5">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-mt-border pb-6">
           <SectionLabel>The engine</SectionLabel>
           <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-muted">
             Schematic · integrated delivery
           </span>
         </div>
 
-        <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+        <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           <h2 className="!text-3xl !leading-[1.08] sm:!text-4xl">
             Six disciplines. One engine.{" "}
             <span className="text-mt-purple">Accountable to shipped work.</span>
@@ -99,7 +99,7 @@ export function Engine() {
         </div>
 
         {/* Figure */}
-        <figure className="mt-reveal mt-14 overflow-hidden rounded-[18px] border border-mt-border bg-white">
+        <figure className="mt-reveal mt-16 overflow-hidden rounded-[18px] border border-mt-border bg-white">
           <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-b border-mt-border px-6 py-4">
             <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">
               Fig. 01
@@ -112,7 +112,7 @@ export function Engine() {
             </span>
           </div>
 
-          <div className="px-4 py-8 sm:px-8 sm:py-10">
+          <div className="px-4 py-8 sm:px-8 sm:py-12">
             <svg
               viewBox="0 0 840 320"
               className="h-auto w-full"
@@ -308,7 +308,7 @@ export function Engine() {
         </figure>
 
         {/* Axioms */}
-        <ol className="mt-reveal-group mt-14 grid gap-8 md:grid-cols-3">
+        <ol className="mt-reveal-group mt-16 grid gap-8 md:grid-cols-3">
           {AXIOMS.map((a) => (
             <li key={a.code} className="border-t border-mt-border pt-6">
               <span className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">

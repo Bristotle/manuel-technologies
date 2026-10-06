@@ -70,11 +70,11 @@ export function Testimonials() {
           </h2>
         </div>
 
-        <ul className={`mt-14 grid gap-5 sm:grid-cols-2 ${columns} mt-reveal-group`}>
+        <ul className={`mt-16 grid gap-6 sm:grid-cols-2 ${columns} mt-reveal-group`}>
           {items.map((item) => (
             <li
               key={item.id}
-              className="flex flex-col justify-between gap-8 rounded-[18px] border border-mt-border bg-white p-7"
+              className="flex flex-col justify-between gap-8 rounded-[18px] border border-mt-border bg-white p-8"
             >
               <blockquote className="text-lg leading-relaxed text-mt-ink">
                 {item.quote}

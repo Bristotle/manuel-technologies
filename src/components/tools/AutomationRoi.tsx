@@ -50,13 +50,13 @@ export function AutomationRoi() {
   const money = (v: number) => formatMoney(v, currency);
 
   return (
-    <div className="grid gap-5 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+    <div className="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
       <form
         onSubmit={(e) => e.preventDefault()}
         className="rounded-[18px] border border-mt-border bg-white p-6 sm:p-8"
       >
         <span className="mt-label">The workflow</span>
-        <h2 className="mt-5 !text-2xl !tracking-tight">Describe one repetitive task</h2>
+        <h2 className="mt-6 !text-2xl !tracking-tight">Describe one repetitive task</h2>
         <p className="mt-4 text-[0.9375rem] leading-relaxed text-mt-slate">
           One workflow at a time. Nothing is sent anywhere and the maths updates
           as you type.
@@ -102,7 +102,7 @@ export function AutomationRoi() {
         </div>
       </form>
 
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-6">
         <div className="rounded-[18px] border border-mt-border bg-white p-6 sm:p-8">
           <span className="mt-label">What it costs you now</span>
           <dl className="mt-6 grid gap-6 sm:grid-cols-3">
@@ -145,7 +145,7 @@ export function AutomationRoi() {
         <div className="rounded-[18px] border border-mt-border bg-mt-surface p-6 sm:p-8">
           <span className="mt-label">Payback</span>
           {result.neverPaysBack ? (
-            <p className="mt-5 text-lg leading-relaxed text-mt-slate">
+            <p className="mt-6 text-lg leading-relaxed text-mt-slate">
               At these numbers the running cost meets or exceeds the saving, so
               the build never pays for itself. Either the task is too small to
               automate, or the residual share is too high for automation to help
@@ -153,7 +153,7 @@ export function AutomationRoi() {
             </p>
           ) : (
             <>
-              <p className="mt-5 text-2xl leading-snug text-mt-ink">
+              <p className="mt-6 text-2xl leading-snug text-mt-ink">
                 The build pays for itself in{" "}
                 <strong className="font-extrabold text-mt-purple">
                   {result.paybackMonths < 1
@@ -162,7 +162,7 @@ export function AutomationRoi() {
                 </strong>
                 .
               </p>
-              <p className="mt-5 text-[0.9375rem] leading-relaxed text-mt-slate">
+              <p className="mt-6 text-[0.9375rem] leading-relaxed text-mt-slate">
                 That frees{" "}
                 <strong className="font-semibold text-mt-ink">
                   {formatNumber(result.savings.fte, 2)} full time equivalents
@@ -185,7 +185,7 @@ export function AutomationRoi() {
 
         <div className="rounded-[18px] border border-mt-border bg-white p-6 sm:p-8">
           <span className="mt-label">The part calculators leave out</span>
-          <p className="mt-5 text-[0.9375rem] leading-relaxed text-mt-slate">
+          <p className="mt-6 text-[0.9375rem] leading-relaxed text-mt-slate">
             Freed hours are only money if the time is actually reallocated. A
             team that keeps the same headcount and absorbs more work has gained
             capacity, which is usually the better outcome but is not a line in
