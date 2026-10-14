@@ -4,7 +4,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { LEGAL_UPDATED, type LegalSection } from "@/lib/legal";
 
 /* Shared template for the two legal pages. Copy lives in lib/legal.ts. */
-export function LegalPage({ title, intro, sections }: { title: string; intro: string; sections: LegalSection[] }) {
+export function LegalPage({ title, intro, sections, updated = LEGAL_UPDATED }: { title: string; intro: string; sections: LegalSection[]; updated?: string }) {
   return (
     <main>
       <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
@@ -12,7 +12,7 @@ export function LegalPage({ title, intro, sections }: { title: string; intro: st
           <SectionLabel>Legal</SectionLabel>
           <h1 className="mt-6 max-w-[18ch]">{title}</h1>
           <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">{intro}</p>
-          <p className="mt-4 font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.16em] text-mt-slate">Last updated {LEGAL_UPDATED}</p>
+          <p className="mt-4 font-[family-name:var(--font-mono)] text-[0.6875rem] uppercase tracking-[0.16em] text-mt-slate">Last updated {updated}</p>
         </Container>
       </section>
       <section className="py-24 sm:py-32">

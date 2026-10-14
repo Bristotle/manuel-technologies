@@ -12,6 +12,9 @@
    lawyer's review before a large engagement, and it does not claim to be. */
 
 export const LEGAL_UPDATED = "2026-09-20";
+/* The privacy policy changed on its own when Google Analytics was added, so
+   it carries its own date rather than moving the terms' date with it. */
+export const PRIVACY_UPDATED = "2026-10-14";
 
 export type LegalSection = { heading: string; paragraphs: string[]; bullets?: string[] };
 
@@ -29,20 +32,20 @@ export const PRIVACY: LegalSection[] = [
       "Contact form: your name, work email, company website, budget range, the service you are asking about, and your message. Used to reply to you and assess the enquiry. Delivered to our inbox by Resend, our email provider, and kept for as long as the conversation and any resulting work are live.",
       "Newsletter: your email address, stored as a contact with Resend and used only to send the updates you asked for. Every email carries an unsubscribe link, and unsubscribing removes you from the list.",
       "Free audit and crawler check: the website address you type. Our server fetches that page, its robots.txt and its sitemap to produce the report. The address and the report are not stored, and no account is created.",
-      "Analytics: page views and referrers through Vercel Web Analytics, which does not use cookies or track you across sites and does not identify you personally.",
+      "Analytics: page views and referrers through Vercel Web Analytics, which does not use cookies or identify you personally. We also use Google Analytics to understand which pages are read and how visitors arrive. It records pages viewed, the referring site, approximate location derived from your IP address, and device and browser type. Google Analytics does not receive your name or email address, and advertising features are switched off.",
       "Server logs: the hosting provider records requests, including IP address and browser type, for security and to keep the site running. These are kept briefly and not used to profile visitors.",
     ],
   },
   {
     heading: "Cookies",
     paragraphs: [
-      "The website does not set tracking cookies and does not run advertising pixels. That is why there is no cookie banner. If that changes, this page and the site will be updated before it does.",
+      "If you are in the United Kingdom, the European Union, the European Economic Area or Switzerland, the website sets no analytics cookies. Google Analytics receives cookieless measurements only, which cannot recognise you on a later visit. That is why there is no cookie banner.", "Everywhere else, Google Analytics sets first party cookies named _ga and _ga_<ID> to tell new visits from returning ones. They last up to two years, are not used for advertising, and are not shared with other sites. You can block them in your browser settings, or install Google's opt out add-on at tools.google.com/dlpage/gaoptout, and the site works the same either way.", "The website runs no advertising pixels and no advertising cookies anywhere."
     ],
   },
   {
     heading: "Who else sees your information",
     paragraphs: [
-      "We do not sell personal information and we do not share it for marketing. The providers that process it on our behalf are Vercel, which hosts the site and serves it from its network, and Resend, which delivers email and holds the newsletter list. Each processes information only to provide its service to us. We may disclose information if the law requires it.",
+      "We do not sell personal information and we do not share it for marketing. The providers that process it on our behalf are Vercel, which hosts the site and serves it from its network, Resend, which delivers email and holds the newsletter list, and Google, which provides Google Analytics. Each processes information only to provide its service to us. We may disclose information if the law requires it.",
     ],
   },
   {
@@ -69,7 +72,7 @@ export const PRIVACY: LegalSection[] = [
   },
   {
     heading: "Changes",
-    paragraphs: [`This policy was last updated on ${LEGAL_UPDATED}. Material changes will be dated here. Continued use of the site after a change means you accept it.`],
+    paragraphs: [`This policy was last updated on ${PRIVACY_UPDATED}. Material changes will be dated here. Continued use of the site after a change means you accept it.`],
   },
 ];
 

@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from "next/script";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { CONTACT, SOCIAL } from "@/lib/site";
+import { CONTACT, SITE as SITE_CONFIG, SOCIAL } from "@/lib/site";
 import "./globals.css";
 
 /* --------------------------------------------------------------------------
@@ -70,6 +71,28 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+/* --------------------------------------------------------------------------
+   Google Analytics consent defaults. Must reach the data layer before gtag.js
+   loads, so this runs as an
+   inline script in the server rendered body.
+
+   UK, EU, EEA and Switzerland: analytics storage denied by default. GA gets
+   cookieless pings and no cookie is set, which is why the site needs no
+   cookie banner. Everywhere else: analytics storage granted. Advertising
+   storage is denied everywhere, because the site runs no ads. The privacy
+   policy states exactly this; change both together.
+   -------------------------------------------------------------------------- */
+const CONSENT_REGIONS = [
+  "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR",
+  "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK",
+  "SI", "ES", "SE", "IS", "LI", "NO", "CH", "GB",
+];
+
+const GA_CONSENT_DEFAULTS = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',region:${JSON.stringify(CONSENT_REGIONS)}});
+gtag('consent','default',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+gtag('set','ads_data_redaction',true);`;
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -127,6 +150,7 @@ export default function RootLayout({
   return (
     <html lang="en-GB" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
+        <script dangerouslySetInnerHTML={{ __html: GA_CONSENT_DEFAULTS }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -137,6 +161,19 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
       </body>
+      {/* gtag.js is 166KB and runs a long task. Loaded after the page has
+          finished and the browser is idle, never at hydration, where it took
+          the homepage from 95 to 86 on mobile and blocking time from 40ms to
+          380ms. The page view is queued in the data layer first, so a visit
+          is still counted once the script arrives. */}
+      <Script id="ga-config" strategy="lazyOnload">
+        {`gtag('js', new Date()); gtag('config', '${SITE_CONFIG.gaId}');`}
+      </Script>
+      <Script
+        id="ga"
+        strategy="lazyOnload"
+        src={`https://www.googletagmanager.com/gtag/js?id=${SITE_CONFIG.gaId}`}
+      />
     </html>
   );
 }

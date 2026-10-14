@@ -13,6 +13,9 @@ export const SITE = {
      rather than the extension. */
   chromeStore:
     "https://chromewebstore.google.com/detail/cwv-drift-monitor/pkiklodchlkafnfidhhdagimgjjfdanm",
+  /* Google Analytics 4 measurement ID. Public by design: it ships in every
+     page's HTML, so it is not a secret and needs no environment variable. */
+  gaId: "G-204WFRN3NJ",
 } as const;
 
 /* Social. Only populated entries render, so an empty string hides the icon
