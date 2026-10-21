@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@/lib/track";
 import { useState } from "react";
 
 /* Footer signup. State for the three outcomes, so it earns "use client".
@@ -19,7 +20,7 @@ export function NewsletterForm({ dark = false }: { dark?: boolean }) {
       const r = await fetch("/api/subscribe", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(data) });
       const j = await r.json();
       if (!r.ok) { setState("error"); setNote(j.error || "Could not add you just now."); return; }
-      setState("done"); setNote(j.message); form.reset();
+      setState("done"); setNote(j.message); form.reset(); track("sign_up", { method: "newsletter" });
     } catch {
       setState("error"); setNote("Could not add you just now. Please try again.");
     }

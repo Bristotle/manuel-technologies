@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { WorkProcess } from "@/components/WorkProcess";
+import { RelatedArticles } from "@/components/RelatedArticles";
+import { articlesForService } from "@/lib/related-articles";
 import {
   getServicePage,
   RELATED_SERVICE_SLUGS,
@@ -252,6 +254,12 @@ export default async function ServicePage({ params }: PageProps) {
           </div>
         </Container>
       </section>
+
+      <RelatedArticles
+        posts={articlesForService(page.pillar, page.slug)}
+        heading="Read this before you brief anyone."
+        intro={`Guides written for this decision, with the numbers and the method behind them. They apply whoever you hire for ${page.name.toLowerCase()}.`}
+      />
 
       <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container>

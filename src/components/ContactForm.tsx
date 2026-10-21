@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@/lib/track";
 import { FormEvent, useState } from "react";
 
 type Status = { type: "idle" | "success" | "error"; message: string };
@@ -33,6 +34,7 @@ export function ContactForm() {
 
       form.reset();
       setStatus({ type: "success", message: result.message });
+      track("generate_lead", { form: "contact", service: String(payload.service ?? ""), budget: String(payload.budget ?? "") });
     } catch (error) {
       setStatus({
         type: "error",

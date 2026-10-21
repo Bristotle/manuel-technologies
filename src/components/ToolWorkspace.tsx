@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@/lib/track";
 import { useState } from "react";
 
 type Tool = "geo-brief" | "agent-readiness" | "seo-audit";
@@ -59,6 +60,7 @@ export function ToolWorkspace({ tool }: Props) {
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "The assessment could not be completed.");
       setResult(data.result);
+      track("run_tool", { tool });
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "The assessment could not be completed.");
     } finally {

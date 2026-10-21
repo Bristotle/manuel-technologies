@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { BlogChartFigure } from "@/components/blog/BlogChart";
+import { BlogDiagramFigure } from "@/components/blog/BlogDiagramFigure";
+import { POST_VISUALS } from "@/lib/blog-visuals";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -45,6 +48,12 @@ export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) notFound();
+  const visual = POST_VISUALS[post.slug];
+  /* A visual whose anchor heading was renamed would silently vanish. Fail
+     the build instead, naming the post. */
+  if (visual && !post.sections.some((item) => item.heading === visual.after)) {
+    throw new Error(`blog-visuals: "${post.slug}" has no section headed "${visual.after}"`);
+  }
   const postUrl = `${SITE.url}/blog/${post.slug}`;
   const sectionId = (heading: string) => heading.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
   /* Same cluster first, then everything else. Before this it was the first
@@ -168,6 +177,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   <figcaption className="mt-3 text-sm leading-relaxed text-mt-muted">{renderInline(item.image.caption)}</figcaption>
                 </figure>
               ) : null}
+              {visual && visual.after === item.heading ? ("chart" in visual ? <BlogChartFigure chart={visual.chart} /> : <BlogDiagramFigure diagram={visual.diagram} />) : null}
             </section>
           ))}</div>
           <section id="final-thoughts" className="scroll-mt-8 py-4"><SectionLabel>Final thoughts</SectionLabel><p className="mt-6 text-xl leading-relaxed">{renderInline(post.conclusion)}</p></section>

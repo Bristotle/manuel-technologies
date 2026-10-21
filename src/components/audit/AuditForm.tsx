@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@/lib/track";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { AuditReport, Check, CheckStatus } from "@/lib/audit/types";
@@ -115,6 +116,7 @@ export function AuditForm() {
       }
       setReport(data.report as AuditReport);
       setState("done");
+      track("run_audit", { score: (data.report as AuditReport).overall });
     } catch {
       setError("The request failed. Check your connection and try again.");
       setState("error");

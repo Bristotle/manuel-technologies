@@ -29,3 +29,25 @@ export type BlogSection = {
   table?: BlogTable;
   image?: BlogImage;
 };
+
+/* A bar chart drawn from data we measured ourselves. Values are computed at
+   build time from the benchmark files in lib/research, never typed in, so a
+   chart cannot drift from its source. Pure HTML, no chart library. */
+export type BlogChart = {
+  title: string;
+  /* Where the numbers come from, with the sample and the date. */
+  source: string;
+  sourceHref: string;
+  unit: "%" | "s" | "words";
+  bars: { label: string; value: number; note?: string; highlight?: boolean }[];
+};
+
+/* A schematic of the method a post describes. Each step is taken from the
+   post's own text, so the diagram summarises rather than adds claims. */
+export type BlogDiagram = {
+  title: string;
+  caption: string;
+  steps: { label: string; detail: string }[];
+  /* Optional closing loop shown under the steps, such as a feedback path. */
+  loop?: string;
+};

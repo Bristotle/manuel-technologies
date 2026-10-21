@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@/lib/track";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -53,6 +54,7 @@ export function CrawlerCheck() {
       }
       setResult(data.result as Result);
       setState("done");
+      track("run_tool", { tool: "ai-crawler-check" });
     } catch {
       setError("The request failed. Check your connection and try again.");
       setState("error");

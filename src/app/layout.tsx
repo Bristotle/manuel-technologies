@@ -7,6 +7,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HelpWidget } from "@/components/HelpWidget";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { ContactClickTracker } from "@/components/ContactClickTracker";
 import { CONTACT, SITE as SITE_CONFIG, SOCIAL } from "@/lib/site";
 import "./globals.css";
 
@@ -164,6 +165,7 @@ export default function RootLayout({
             getfold.org. The WhatsApp link ships no JavaScript. */}
         <HelpWidget />
         <WhatsAppButton />
+        <ContactClickTracker />
         <Analytics />
         <SpeedInsights />
       </body>

@@ -7,6 +7,8 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { PILLARS, SITE, type Pillar } from "@/lib/site";
 import { ogCard } from "@/lib/og";
+import { RelatedArticles } from "@/components/RelatedArticles";
+import { articlesForPillar } from "@/lib/related-articles";
 
 function get(slug: string): Pillar | undefined {
   return PILLARS.find((p) => p.slug === slug);
@@ -101,6 +103,12 @@ export function PillarHub({
           </div>
         </Container>
       </section>
+
+      <RelatedArticles
+        posts={articlesForPillar(pillar.slug)}
+        heading={`Guides from the ${pillar.name} pillar.`}
+        intro="The thinking behind the work, written up with our own data where we have it. Start with whichever matches the decision in front of you."
+      />
     </main>
   );
 }
