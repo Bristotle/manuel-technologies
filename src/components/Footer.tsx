@@ -44,6 +44,7 @@ const COMPANY_COLUMN = {
   links: [
     { name: "About", href: "/about" },
     { name: "Work", href: "/work" },
+    { name: "ManuelPOS", href: "/mpos" },
     { name: "Pricing", href: "/pricing" },
     { name: "Free tools", href: "/free-tools" },
     { name: "Integrations", href: "/integrations" },

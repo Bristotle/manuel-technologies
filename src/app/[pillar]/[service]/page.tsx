@@ -30,6 +30,12 @@ const PROOF = {
   scale: { src: "/work/cgt-experts.webp", alt: "Capital Gains Tax Experts calculator suite, built by Manuel Technologies", client: "Capital Gains Tax Experts", fact: "9 calculators", href: "/work/cgt-experts" },
 } as const;
 
+/* A service whose best proof is not its pillar's default. Custom software is
+   proved by ManuelPOS, our own production software, rather than by a site. */
+const SERVICE_PROOF: Partial<Record<string, { src: string; alt: string; client: string; fact: string; href: string }>> = {
+  "custom-software": { src: "/work/manuelpos.webp", alt: "ManuelPOS, point of sale software built and run by Manuel Technologies", client: "ManuelPOS", fact: "6 business types", href: "/mpos" },
+};
+
 export function generateStaticParams() {
   return SERVICE_PAGES.map(({ pillar, slug }) => ({ pillar, service: slug }));
 }
@@ -99,7 +105,7 @@ export default async function ServicePage({ params }: PageProps) {
     },
   ];
 
-  const proof = PROOF[page.pillar];
+  const proof = SERVICE_PROOF[page.slug] ?? PROOF[page.pillar];
 
   return (
     <main>

@@ -234,6 +234,20 @@ export type Project = {
 };
 
 export const PROJECTS: Project[] = [
+  /* Our own product, first because live software that businesses run their
+     day on is the strongest proof on the site. Facts from lib/mpos.ts. */
+  {
+    slug: "manuelpos",
+    client: "ManuelPOS",
+    url: "https://mpos.bz",
+    market: "Ghana",
+    sector: "Point of sale software",
+    summary:
+      "Our own point of sale, bookings and stock system for Ghanaian shops, salons, restaurants and pharmacies. It keeps selling offline, takes MoMo straight to the business's own wallet, and works out VAT, NHIL and GETFund on every receipt.",
+    scope: ["Custom Software", "Mobile Applications"],
+    thumb: "/work/manuelpos.webp",
+    metric: "6 business types",
+  },
   {
     slug: "impressiful",
     client: "Impressiful",

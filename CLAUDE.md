@@ -506,7 +506,7 @@ Case studies and blog posts are **MDX files in the repo**. No CMS, no database, 
 
 ### Portfolio boundary, important
 
-Only engagements where **Manuel Technologies was the vendor** appear under `/work`: CWV Drift Monitor, Impressiful, Cangaf, Miyaki Beauty, Dementia In Home, BOT Properties, and Fold (getfold.org, a church management PWA that is a Manuel Technologies product).
+Only engagements where **Manuel Technologies was the vendor** appear under `/work`: CWV Drift Monitor, Impressiful, Cangaf, Miyaki Beauty, Dementia In Home, BOT Properties, Fold (getfold.org, a church management PWA that is a Manuel Technologies product), and ManuelPOS (mpos.bz, a point of sale product, introduced at /mpos with facts kept in `src/lib/mpos.ts`; its documentation lives on mpos.bz, not here).
 
 Higglo Digital, SkillCEF and ChainYacc were **staff roles**. They appear on `/about` as personal experience, attributed to Emmanuel, never as company work.
 
