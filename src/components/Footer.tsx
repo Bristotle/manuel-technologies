@@ -171,8 +171,9 @@ export function Footer() {
             <Heading href="/contact" accent="pink">Get in touch</Heading>
             <dl className="mt-6 flex flex-col gap-4 text-[0.875rem] leading-snug">
               {[
-                { k: "Phone", v: <a href={`tel:${CONTACT.tel}`} className="text-white/85 hover:text-white">{CONTACT.phone}</a>, icon: <path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" /> },
-                { k: "Email", v: <a href={`mailto:${SITE.email}`} className="text-white/85 hover:text-white">{SITE.email}</a>, icon: <><path d="M3 6h18v12H3z" /><path d="m3 7 9 6 9-6" /></> },
+                { k: "Phone", v: <a href={`tel:${CONTACT.tel}`} className="inline-flex min-h-11 items-center text-white/85 hover:text-white">{CONTACT.phone}</a>, icon: <path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" /> },
+                { k: "WhatsApp", v: <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-white/85 hover:text-white">{CONTACT.phone}<span className="sr-only"> on WhatsApp, opens in a new tab</span></a>, icon: <path d="M4 20l1.3-3.9A8.5 8.5 0 1 1 8 18.8Z" /> },
+                { k: "Email", v: <a href={`mailto:${SITE.email}`} className="inline-flex min-h-11 items-center text-white/85 hover:text-white">{SITE.email}</a>, icon: <><path d="M3 6h18v12H3z" /><path d="m3 7 9 6 9-6" /></> },
                 { k: "Where", v: <span className="text-white/85">{CONTACT.office}</span>, icon: <><path d="M12 21s-6-5.3-6-11a6 6 0 0 1 12 0c0 5.7-6 11-6 11Z" /><circle cx="12" cy="10" r="2.2" /></> },
                 { k: "Hours", v: <span className="text-white/85">{CONTACT.hours}</span>, icon: <><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></> },
               ].map((row) => (

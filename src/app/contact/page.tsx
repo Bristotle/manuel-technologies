@@ -46,13 +46,22 @@ export default function ContactPage() {
                 <div>
                   <dt className="mt-label">Phone</dt>
                   <dd className="mt-2 text-base font-semibold">
-                    <a href={`tel:${CONTACT.tel}`} className="hover:text-mt-purple">{CONTACT.phone}</a>
+                    <a href={`tel:${CONTACT.tel}`} className="inline-flex min-h-11 items-center hover:text-mt-purple">{CONTACT.phone}</a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="mt-label">WhatsApp</dt>
+                  <dd className="mt-2 text-base font-semibold">
+                    <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center hover:text-mt-purple">
+                      {CONTACT.phone}
+                      <span className="sr-only"> on WhatsApp, opens in a new tab</span>
+                    </a>
                   </dd>
                 </div>
                 <div>
                   <dt className="mt-label">Email</dt>
                   <dd className="mt-2 text-base font-semibold">
-                    <a href={`mailto:${SITE.email}`} className="hover:text-mt-purple">
+                    <a href={`mailto:${SITE.email}`} className="inline-flex min-h-11 items-center hover:text-mt-purple">
                       {SITE.email}
                     </a>
                   </dd>

@@ -30,10 +30,14 @@ export const SOCIAL = [
 ] as const;
 
 /* Contact details shown in the footer and on the contact page, and carried
-   into the Organization schema. The phone is Emmanuel's for now. */
+   into the Organization schema. The business line, a dedicated SIM since
+   21 October 2026 (020 283 7410 locally). Calls and WhatsApp both go to it.
+   Change the number here and every call link, WhatsApp link and schema
+   telephone follows. */
 export const CONTACT = {
-  phone: "+233 24 790 2348",
-  tel: "+233247902348",
+  phone: "+233 20 283 7410",
+  tel: "+233202837410",
+  whatsapp: "https://wa.me/233202837410",
   office: "Worldwide, remote first",
   hours: "Mon to Sat, 8am to 5pm",
   hoursSchema: { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "08:00", closes: "17:00" },
