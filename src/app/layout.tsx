@@ -5,6 +5,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { HelpWidget } from "@/components/HelpWidget";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { CONTACT, SITE as SITE_CONFIG, SOCIAL } from "@/lib/site";
 import "./globals.css";
 
@@ -158,6 +160,10 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        {/* Floating help panel bottom left and WhatsApp bottom right, as on
+            getfold.org. The WhatsApp link ships no JavaScript. */}
+        <HelpWidget />
+        <WhatsAppButton />
         <Analytics />
         <SpeedInsights />
       </body>
