@@ -308,6 +308,59 @@ export const PROJECTS: Project[] = [
     thumb: "/work/cangaf.webp",
     metric: "6 service lines",
   },
+  /* Added 3 November 2026. Counts taken from the live sites that day.
+     SCOPE NEEDS CONFIRMING on all four: this is the conservative reading of
+     what is evident on each site. Emmanuel to widen it if the work went
+     further. ImpressiFix states "300,000 5* reviews" on its own homepage;
+     that is the client's claim and is deliberately not repeated here. */
+  {
+    slug: "impressiful-logistics",
+    client: "Impressiful Shipping and Logistics",
+    url: "https://impresship.com",
+    market: "United Arab Emirates",
+    sector: "Freight and logistics",
+    summary:
+      "Sea and air freight from Sharjah and Dubai to 54 African countries. A shipping cost calculator, shipment tracking, a quote form that routes to email and WhatsApp, and a guide library for importers.",
+    scope: ["Website Development", "Custom Software"],
+    thumb: "/work/impressiful-logistics.webp",
+    metric: "54 countries",
+  },
+  {
+    slug: "impresscar",
+    client: "ImpressCar",
+    url: "https://carshop.impresship.com",
+    market: "United Arab Emirates",
+    sector: "Vehicle export",
+    summary:
+      "Left hand drive cars exported from Dubai to African ports. A live stock catalogue with prices switchable across nine currencies, UAE auction assistance, VIN tracking, and a destination page for every country it ships to.",
+    scope: ["Website Development", "Ecommerce"],
+    thumb: "/work/impresscar.webp",
+    metric: "9 currencies",
+  },
+  {
+    slug: "impressifix",
+    client: "ImpressiFix",
+    url: "https://impressifix.com",
+    market: "United Arab Emirates",
+    sector: "Home services",
+    summary:
+      "Home cleaning and domestic staff across Sharjah and Dubai. Online booking for four cleaning services, separate accounts for customers and cleaners, and profiles for housemaids, nannies, home cooks and caregivers.",
+    scope: ["Website Development", "Web Design"],
+    thumb: "/work/impressifix.webp",
+    metric: "4 cleaning services",
+  },
+  {
+    slug: "bolton-tax-clinic",
+    client: "Bolton Community Tax Clinic",
+    url: "https://boltoncommunitytaxclinic.co.uk",
+    market: "United Kingdom",
+    sector: "Community advice",
+    summary:
+      "Free, confidential tax help for people in Bolton who cannot afford an accountant. Plain English guides by situation, a referral route for support workers, and seven free tax calculators and checkers.",
+    scope: ["Website Development", "Custom Software"],
+    thumb: "/work/bolton-tax-clinic.webp",
+    metric: "7 free tax tools",
+  },
   {
     slug: "bot-properties",
     client: "BOT Properties",
