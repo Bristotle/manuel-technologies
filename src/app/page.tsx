@@ -16,6 +16,7 @@ import { FunnelCoverage } from "@/components/FunnelCoverage";
 import { Testimonials } from "@/components/Testimonials";
 import { CallToAction } from "@/components/CallToAction";
 import { SelectedWork } from "@/components/SelectedWork";
+import { WorkReel } from "@/components/WorkReel";
 import { DotGrid } from "@/components/ui/DotGrid";
 import { ACCENT, PILLAR_ACCENT } from "@/lib/accent";
 import { Integrations } from "@/components/Integrations";
@@ -200,6 +201,9 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      {/* Recent work, moving. REF diptell.com, 5 November 2026. */}
+      <WorkReel />
 
       <Marquee items={CAPABILITIES} />
 

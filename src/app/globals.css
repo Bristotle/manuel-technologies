@@ -249,6 +249,27 @@
   }
 
   /* Pause on hover, so anyone reading a name can stop it. */
+  /* Work reel, homepage, under the hero. A vertical marquee: two halves
+     of identical height, translated exactly -50%, so the loop has no join.
+     Tiles carry their spacing as padding, never gap, or the halves differ.
+     The columns run at different speeds so they never line up. */
+  .mt-reel {
+    animation: mt-reel-up 60s linear infinite;
+    will-change: transform;
+  }
+  .mt-reel-b {
+    animation-duration: 80s;
+    animation-delay: -20s;
+  }
+  .mt-reel-mask {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 8%, black 92%, transparent);
+  }
+  .mt-reel-hold:hover .mt-reel,
+  .mt-reel-hold:focus-within .mt-reel {
+    animation-play-state: paused;
+  }
+
   .mt-marquee-hold:hover .mt-marquee,
   .mt-marquee-hold:focus-within .mt-marquee {
     animation-play-state: paused;
@@ -282,6 +303,11 @@
 @keyframes mt-scroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
+}
+
+@keyframes mt-reel-up {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
 }
 
 /* ==========================================================================
