@@ -16,4 +16,4 @@ export const ACCENT: Record<Accent, { text: string; onDark: string; pill: string
 };
 
 /* Pillar to band. Build shares purple; the site reads purple, teal, amber. */
-export const PILLAR_ACCENT: Record<"build" | "grow" | "scale", Accent> = { build: "purple", grow: "teal", scale: "amber" };
+export const PILLAR_ACCENT: Record<"build" | "grow" | "scale", Exclude<Accent, "pink">> = { build: "purple", grow: "teal", scale: "amber" };

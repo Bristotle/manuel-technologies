@@ -59,28 +59,30 @@ export function ScaleIntro() {
 
         <div className="mt-24 mt-reveal-group">
           <SectionLabel>What changes</SectionLabel>
-          <dl className="mt-8 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border md:grid-cols-3">
+          {/* A list of cards, not a dl: each card holds two label and
+              value pairs, which a dl group cannot. */}
+          <ul className="mt-8 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border md:grid-cols-3">
             {CAPABILITY_SHIFT.map((shift) => (
-              <div key={shift.from} className="flex flex-col gap-6 bg-white p-8">
+              <li key={shift.from} className="flex flex-col gap-6 bg-white p-8">
                 <div>
-                  <dt className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-muted">
+                  <p className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-muted">
                     ( BEFORE )
-                  </dt>
-                  <dd className="mt-3 text-[0.9375rem] leading-relaxed text-mt-slate">
+                  </p>
+                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-mt-slate">
                     {shift.from}
-                  </dd>
+                  </p>
                 </div>
                 <div className="border-t border-mt-border pt-6">
-                  <dt className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">
+                  <p className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">
                     ( AFTER )
-                  </dt>
-                  <dd className="mt-3 text-[0.9375rem] font-medium leading-relaxed text-mt-ink">
+                  </p>
+                  <p className="mt-3 text-[0.9375rem] font-medium leading-relaxed text-mt-ink">
                     {shift.to}
-                  </dd>
+                  </p>
                 </div>
-              </div>
+              </li>
             ))}
-          </dl>
+          </ul>
         </div>
 
         <div className="mt-16 flex flex-wrap gap-4">

@@ -3,25 +3,22 @@ import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { Marquee } from "@/components/ui/Marquee";
 import { FAQTabs, FAQ_CATEGORIES } from "@/components/ui/faq-tabs";
-import { WorkProcess } from "@/components/WorkProcess";
 import { ClientMarquee } from "@/components/ClientMarquee";
 import { ClientSpotlight } from "@/components/ClientSpotlight";
-import { Comparison } from "@/components/Comparison";
 import { HeroAudit } from "@/components/HeroAudit";
 import ROUTE_DATES from "@/lib/route-dates.json";
-import { Engine } from "@/components/Engine";
-import { FunnelCoverage } from "@/components/FunnelCoverage";
 import { Testimonials } from "@/components/Testimonials";
 import { CallToAction } from "@/components/CallToAction";
 import { SelectedWork } from "@/components/SelectedWork";
 import { WorkReel } from "@/components/WorkReel";
-import { SearchStatement } from "@/components/SearchStatement";
+import { PillarStatement } from "@/components/PillarStatement";
+import { PricingTeaser } from "@/components/PricingTeaser";
+import { HOME_SEARCH } from "@/lib/pillar-statements";
 import { DotGrid } from "@/components/ui/DotGrid";
 import { ACCENT, PILLAR_ACCENT } from "@/lib/accent";
 import { Integrations } from "@/components/Integrations";
-import { CAPABILITIES, PILLARS, SITE } from "@/lib/site";
+import { PILLARS, SITE } from "@/lib/site";
 
 /* One countable artefact per pillar, each traceable to real work.
 
@@ -54,51 +51,6 @@ const PILLAR_PROOF: Record<string, { value: string; label: string; detail: strin
     detail: "Systems we connect to, from CRMs to custom SQL, listed openly rather than described vaguely.",
   },
 };
-
-const STANDARDS = [
-  {
-    title: "Data security",
-    body: "Your data stays yours. Private infrastructure and secure API protocols, so nothing leaks to public models.",
-  },
-  {
-    title: "Legacy compatibility",
-    body: "Agents plug into what you already run. Salesforce, HubSpot, custom SQL, internal ERPs, via custom middleware.",
-  },
-  {
-    title: "Built to scale",
-    body: "No brittle no-code templates. Production grade code, designed to handle real traffic without breaking.",
-  },
-];
-
-const ENGAGEMENTS = [
-  {
-    title: "A focused first move",
-    body: "Start with a technical audit, discovery sprint, or defined piece of work that makes the next decision clearer.",
-  },
-  {
-    title: "A complete build",
-    body: "Move from an agreed brief to a working website, application, integration, or automation with testing and handover included.",
-  },
-  {
-    title: "Ongoing technical support",
-    body: "Keep improving the system after launch with SEO implementation, new features, performance work, and measured iteration.",
-  },
-] as const;
-
-const FIT_POINTS = [
-  "You need a website, application, or internal system that has to work in the real world.",
-  "You need technical SEO implementation, not another report that stays in a folder.",
-  "You have a repeatable workflow where AI or automation could reduce manual effort.",
-  "You value clear ownership, maintainable code, and direct technical accountability.",
-] as const;
-
-const CLIENT_RECEIVES = [
-  "A clear brief, scope, priorities, and definition of done",
-  "Working code and a documented deployment path",
-  "Technical SEO foundations and structured content where relevant",
-  "Testing across devices, accessibility checks, and sensible failure handling",
-  "A practical handover with the next improvements identified",
-] as const;
 
 export default function Home() {
   const faqs = Object.values(FAQ_CATEGORIES).flatMap(
@@ -207,9 +159,7 @@ export default function Home() {
       <WorkReel />
 
       {/* What we do for search, in one sentence. REF diptell.com. */}
-      <SearchStatement />
-
-      <Marquee items={CAPABILITIES} />
+      <PillarStatement accent="teal" {...HOME_SEARCH} />
 
       {/* Pillars. The tagline doubles as the navigation.
 
@@ -279,112 +229,21 @@ export default function Home() {
         </Container>
       </section>
 
-      <FunnelCoverage />
-
-      <Engine />
-
-      <WorkProcess />
-
+      {/* Cut on 8 November 2026, because none of them helped a visitor
+          decide: the funnel and engine diagrams (both repeated the pillars),
+          the process, the 2,000px agency comparison (it has its own page,
+          linked from the prices), fit and handover lists, enterprise
+          standards (now on the five technical pages' remit) and the
+          extension band (on /work). Components remain in the repo. */}
       <SelectedWork />
 
       <ClientSpotlight />
 
-      <Integrations />
+      <Integrations variant="surface" />
 
-      <Comparison moreHref="/agency-vs-engineer" />
+      <PricingTeaser />
 
       <section className="py-24 sm:py-32">
-        <Container>
-          <SectionLabel>Engagement options</SectionLabel>
-          <h2 className="mt-6 max-w-[18ch]">Start with the right level of work.</h2>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {ENGAGEMENTS.map((engagement, index) => (
-              <div key={engagement.title} className="border-t border-mt-border pt-6">
-                <span className="font-[family-name:var(--font-mono)] text-xs tracking-[0.18em] text-mt-purple">0{index + 1}</span>
-                <h3 className="mt-4 !text-xl !tracking-tight">{engagement.title}</h3>
-                <p className="mt-4 text-base leading-relaxed text-mt-slate">{engagement.body}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-y border-mt-border bg-white py-24 sm:py-32">
-        <Container>
-          <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
-            <div>
-              <SectionLabel>Is this a fit?</SectionLabel>
-              <h2 className="mt-6 max-w-[16ch]">Bring us the work that matters.</h2>
-              <ul className="mt-12 flex flex-col gap-6">
-                {FIT_POINTS.map((point) => (
-                  <li key={point} className="border-t border-mt-border pt-4 text-base leading-relaxed text-mt-slate">{point}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <SectionLabel>What you receive</SectionLabel>
-              <h2 className="mt-6 max-w-[16ch]">The work stays useful after handover.</h2>
-              <ul className="mt-12 flex flex-col gap-6">
-                {CLIENT_RECEIVES.map((item) => (
-                  <li key={item} className="border-t border-mt-border pt-4 text-base leading-relaxed text-mt-slate">{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Enterprise reassurance. The objection nobody says out loud. */}
-      <section className="border-y border-mt-border bg-white py-24 sm:py-32">
-        <Container>
-          <SectionLabel>Standards</SectionLabel>
-          <h2 className="mt-6 max-w-[16ch]">Built for enterprise standards.</h2>
-          <p className="mt-8 max-w-[60ch] text-lg text-mt-slate">
-            Most buyers will not ask these questions out loud. They decide on
-            them anyway.
-          </p>
-
-          <dl className="mt-12 grid gap-12 md:grid-cols-3">
-            {STANDARDS.map((s) => (
-              <div key={s.title}>
-                <dt className="text-base font-semibold">{s.title}</dt>
-                <dd className="mt-3 text-[0.9375rem] leading-relaxed text-mt-slate">
-                  {s.body}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </Container>
-      </section>
-
-      {/* Proof */}
-      <section className="py-24 sm:py-32">
-        <Container>
-          <SectionLabel>Proof</SectionLabel>
-          <h2 className="mt-6 max-w-[20ch]">
-            We use what we build, before you do.
-          </h2>
-          <p className="mt-8 max-w-[60ch] text-lg leading-relaxed text-mt-slate">
-            CWV Drift Monitor is a Core Web Vitals tool we shipped to the Chrome
-            Web Store. Free, no API key, no account. It exists because we needed
-            it, and it is public so you can check the work rather than take our
-            word for it.
-          </p>
-          <div className="mt-12 flex flex-wrap gap-4">
-            <Button href={SITE.chromeStore} external>
-              View the extension
-            </Button>
-            <Link
-              href="/cwv-drift-monitor/privacy-policy"
-              className="inline-flex items-center text-base font-semibold text-mt-purple hover:underline"
-            >
-              Read its privacy policy
-            </Link>
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-t border-mt-border bg-white py-24 sm:py-32">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

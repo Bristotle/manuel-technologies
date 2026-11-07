@@ -78,20 +78,18 @@ export function GrowIntro() {
           <SectionLabel>What actually gets worked on</SectionLabel>
           <dl className="mt-8 grid gap-px overflow-hidden rounded-[18px] border border-mt-border bg-mt-border md:grid-cols-3">
             {SIGNALS.map((item) => (
-              <div key={item.label} className="flex flex-col gap-6 bg-white p-8">
-                <div>
-                  <dt className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">
-                    ( {item.label} )
-                  </dt>
-                  <dd className="mt-3 text-[0.9375rem] leading-relaxed text-mt-slate">
-                    {item.body}
-                  </dd>
-                </div>
-                <div className="border-t border-mt-border pt-6">
-                  <dd className="text-[0.9375rem] font-medium leading-relaxed text-mt-ink">
-                    {item.detail}
-                  </dd>
-                </div>
+              <div key={item.label} className="flex flex-col bg-white p-8">
+                <dt className="font-[family-name:var(--font-mono)] text-[0.625rem] uppercase tracking-[0.16em] text-mt-purple">
+                  ( {item.label} )
+                </dt>
+                <dd className="mt-3 text-[0.9375rem] leading-relaxed text-mt-slate">
+                  {item.body}
+                </dd>
+                {/* A dl group allows only dt and dd inside its div, so the
+                    rule sits on the dd itself rather than a wrapper. */}
+                <dd className="mt-6 border-t border-mt-border pt-6 text-[0.9375rem] font-medium leading-relaxed text-mt-ink">
+                  {item.detail}
+                </dd>
               </div>
             ))}
           </dl>

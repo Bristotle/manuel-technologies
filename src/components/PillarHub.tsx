@@ -7,6 +7,8 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { PILLARS, SITE, type Pillar } from "@/lib/site";
 import { ogCard } from "@/lib/og";
+import { PillarStatement } from "@/components/PillarStatement";
+import { HUB_STATEMENTS } from "@/lib/pillar-statements";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { articlesForPillar } from "@/lib/related-articles";
 
@@ -66,15 +68,15 @@ export function PillarHub({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="relative overflow-hidden border-b border-mt-border bg-white py-24 sm:py-32">
-        <Container className="relative">
-          <SectionLabel accent={PILLAR_ACCENT[pillar.slug]}>{pillar.name.toUpperCase()}</SectionLabel>
-          <h1 className="mt-6 max-w-[16ch]">{pillar.promise}</h1>
-          <p className="mt-8 max-w-[60ch] text-lg text-mt-slate">
-            {pillar.intro}
-          </p>
-        </Container>
-      </section>
+      {/* Hero. The pillar statement, with the h1 in the middle and each
+          service as a link around it. Replaced a text only hero on
+          8 November 2026. */}
+      <PillarStatement
+        as="h1"
+        accent={PILLAR_ACCENT[pillar.slug]}
+        {...HUB_STATEMENTS[pillar.slug]}
+        className="border-b border-mt-border bg-white py-24 sm:py-32"
+      />
 
       {afterHero}
 
