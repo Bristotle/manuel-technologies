@@ -284,6 +284,20 @@ export const PROJECTS: Project[] = [
     thumb: "/work/dementia-in-home.webp",
     metric: "1,000+ pages",
   },
+  /* Added 7 November 2026. Counts from the live site that day. SCOPE NEEDS
+     CONFIRMING: the conservative reading of what is evident on the site. */
+  {
+    slug: "dementia-companions",
+    client: "Dementia Companions",
+    url: "https://dementiacompanions.com",
+    market: "United States",
+    sector: "Healthcare",
+    summary:
+      "In-home dementia care across Florida. Published hourly and live-in prices, caregiver video interviews families watch before choosing, and coverage across nine regions from Miami to Jacksonville.",
+    scope: ["Website Development", "Web Design"],
+    thumb: "/work/dementia-companions.webp",
+    metric: "9 Florida regions",
+  },
   {
     slug: "miyaki-beauty",
     client: "Miyaki Beauty",
