@@ -70,7 +70,7 @@ export function Header() {
                 {/* The panel. Sits in the header's stacking context above the
                     page. A transparent pt-3 bridge keeps hover alive across
                     the gap between trigger and panel. */}
-                <div className={`invisible absolute top-full z-50 w-max pt-3 opacity-0 ${index < 2 ? "left-0" : "right-0"} transition-[opacity,visibility] duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100`}>
+                <div className={`invisible absolute top-full z-50 w-max pt-3 opacity-0 ${index === 0 ? "left-0" : index === 1 ? "-left-24 xl:left-0" : "right-0"} transition-[opacity,visibility] duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100`}>
                   <div className={`grid overflow-hidden rounded-[18px] border border-mt-border bg-white grid-cols-[15rem_1fr]`}>
                     {menu.feature ? (
                       <Link href={menu.feature.href} className="group/feat relative flex flex-col justify-end overflow-hidden border-r border-mt-border bg-mt-surface">
@@ -133,7 +133,7 @@ export function Header() {
         <div className="ml-auto hidden items-center gap-3 lg:ml-0 lg:flex">
           <Link
             href="/free-audit"
-            className="whitespace-nowrap rounded-[10px] border border-mt-border px-4 py-2.5 text-sm font-semibold text-mt-ink transition-colors duration-150 hover:border-mt-purple hover:text-mt-purple active:border-mt-purple-light"
+            className="hidden whitespace-nowrap rounded-[10px] xl:block border border-mt-border px-4 py-2.5 text-sm font-semibold text-mt-ink transition-colors duration-150 hover:border-mt-purple hover:text-mt-purple active:border-mt-purple-light"
           >
             Free audit
           </Link>

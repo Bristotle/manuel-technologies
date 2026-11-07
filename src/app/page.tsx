@@ -17,6 +17,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { CallToAction } from "@/components/CallToAction";
 import { SelectedWork } from "@/components/SelectedWork";
 import { WorkReel } from "@/components/WorkReel";
+import { SearchStatement } from "@/components/SearchStatement";
 import { DotGrid } from "@/components/ui/DotGrid";
 import { ACCENT, PILLAR_ACCENT } from "@/lib/accent";
 import { Integrations } from "@/components/Integrations";
@@ -204,6 +205,9 @@ export default function Home() {
 
       {/* Recent work, moving. REF diptell.com, 5 November 2026. */}
       <WorkReel />
+
+      {/* What we do for search, in one sentence. REF diptell.com. */}
+      <SearchStatement />
 
       <Marquee items={CAPABILITIES} />
 
