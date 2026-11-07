@@ -238,7 +238,7 @@ export const PROJECTS: Project[] = [
      day on is the strongest proof on the site. Facts from lib/mpos.ts. */
   {
     slug: "manuelpos",
-    client: "ManuelPOS",
+    client: "MPOS",
     url: "https://mpos.bz",
     market: "Ghana",
     sector: "Point of sale software",
@@ -316,11 +316,27 @@ export const PROJECTS: Project[] = [
     url: "https://cangafltd.com",
     market: "United Kingdom",
     sector: "Accountancy",
+    /* Redesigned and re-counted 7 November 2026, from the live sitemap. */
     summary:
-      "The parent practice behind Capital Gains Tax Experts. Chartered accountants in Bolton, with a client portal and a resource library.",
-    scope: ["Website Development", "Technical SEO"],
+      "A Bolton accountancy practice, rebuilt around who it serves. Nine pages by client type, from landlords to taxi drivers, thirteen local area pages, eight working tax calculators, a tax glossary and a library of over three hundred articles.",
+    scope: ["Website Development", "Custom Software", "Technical SEO"],
     thumb: "/work/cangaf.webp",
-    metric: "6 service lines",
+    metric: "13 local area pages",
+  },
+  /* Added 7 November 2026. Cangaf's charity practice: the same Bolton phone
+     line, and its own domain because charity trustees search differently
+     from sole traders. Counts from the live sitemap that day. */
+  {
+    slug: "accountants-for-charities",
+    client: "Accountants for Charities",
+    url: "https://accountantsforcharities.uk",
+    market: "United Kingdom",
+    sector: "Charity accountancy",
+    summary:
+      "Specialist accounts for UK charities, CIOs and not-for-profits. Five service pages from SORP accounts to Gift Aid claims, a free review route for trustees, and over fifty guides answering the questions charities search for.",
+    scope: ["Website Development", "Web Design", "Technical SEO"],
+    thumb: "/work/accountants-for-charities.webp",
+    metric: "50+ charity guides",
   },
   /* Added 3 November 2026. Counts taken from the live sites that day.
      SCOPE NEEDS CONFIRMING on all four: this is the conservative reading of

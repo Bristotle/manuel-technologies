@@ -31,9 +31,9 @@ const PROOF = {
 } as const;
 
 /* A service whose best proof is not its pillar's default. Custom software is
-   proved by ManuelPOS, our own production software, rather than by a site. */
+   proved by MPOS, our own production software, rather than by a site. */
 const SERVICE_PROOF: Partial<Record<string, { src: string; alt: string; client: string; fact: string; href: string }>> = {
-  "custom-software": { src: "/work/manuelpos.webp", alt: "ManuelPOS, point of sale software built and run by Manuel Technologies", client: "ManuelPOS", fact: "6 business types", href: "/mpos" },
+  "custom-software": { src: "/work/manuelpos.webp", alt: "MPOS, point of sale software built and run by Manuel Technologies", client: "MPOS", fact: "6 business types", href: "/mpos" },
 };
 
 export function generateStaticParams() {

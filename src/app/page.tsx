@@ -13,7 +13,6 @@ import { CallToAction } from "@/components/CallToAction";
 import { SelectedWork } from "@/components/SelectedWork";
 import { WorkReel } from "@/components/WorkReel";
 import { PillarStatement } from "@/components/PillarStatement";
-import { PricingTeaser } from "@/components/PricingTeaser";
 import { HOME_SEARCH } from "@/lib/pillar-statements";
 import { DotGrid } from "@/components/ui/DotGrid";
 import { ACCENT, PILLAR_ACCENT } from "@/lib/accent";
@@ -229,19 +228,18 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Cut on 8 November 2026, because none of them helped a visitor
+      {/* Cut on 7 November 2026, because none of them helped a visitor
           decide: the funnel and engine diagrams (both repeated the pillars),
-          the process, the 2,000px agency comparison (it has its own page,
-          linked from the prices), fit and handover lists, enterprise
+          the process, the 2,000px agency comparison (it has its own page), fit and handover lists, enterprise
           standards (now on the five technical pages' remit) and the
-          extension band (on /work). Components remain in the repo. */}
+          extension band (on /work). The pricing teaser that replaced them was
+          also removed the same day: prices cover one service line and have
+          their own page. Components remain in the repo. */}
       <SelectedWork />
 
       <ClientSpotlight />
 
       <Integrations variant="surface" />
-
-      <PricingTeaser />
 
       <section className="py-24 sm:py-32">
         <script

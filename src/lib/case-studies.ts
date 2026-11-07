@@ -253,50 +253,60 @@ export const CASE_STUDIES: CaseStudy[] = [
   /* ---------------------------------------------------------------------- */
   {
     slug: "cangaf",
-    modified: "2026-08-31",
-    title: "Website and technical SEO for a Bolton accountancy practice",
-    metaTitle: "Accountancy website and technical SEO",
+    /* Rewritten 7 November 2026 after the redesign. Every count below was
+       taken from the live sitemap and homepage that day. The Google rating
+       is Google's and is quoted as what the site displays, not as a result
+       of our work. */
+    modified: "2026-11-07",
+    title: "A Bolton accountancy practice, rebuilt around who it serves",
+    metaTitle: "Accountancy site rebuilt for local SEO",
     description:
-      "A chartered accountancy practice in Bolton: six service paths, a client onboarding route, and a resource library feeding its specialist CGT arm.",
-    lead: "Cangaf is a certified chartered accountancy practice in Bolton and the parent firm behind Capital Gains Tax Experts. Two sites, one practice, and a deliberate decision to keep them apart.",
+      "Nine client type pages, thirteen local area pages, eight working tax calculators and over 300 articles for a chartered certified practice in Bolton.",
+    lead: "Cangaf is an ACCA and AAT qualified practice on Tonge Moor Road in Bolton. The redesign stopped organising the site around what the firm sells and started organising it around who is searching: the landlord, the taxi driver, the charity treasurer and the town they live in.",
     sections: [
       {
-        heading: "Why the specialist arm has its own domain",
+        heading: "Organised by the client, not the service",
         paragraphs: [
-          "A general practice site and a specialist capital gains site want to rank for different things and speak to different people. Someone searching for an accountant in Bolton wants a local firm they can visit. Someone searching for what they owe on a second property disposal wants a specialist, and does not care where the office is.",
-          "Folding both into one site means every page compromises. Keeping them separate lets the general practice own local intent and the specialist arm own national intent, with each free to structure itself around its own buyer. The relationship between them is stated rather than hidden, so neither is pretending to be something it is not.",
+          "Nobody searches for \"Self Assessment services\". A landlord searches for an accountant for landlords, and a CIS subcontractor searches for someone who understands CIS rebates. The site now has nine pages written for a type of client: sole traders, landlords, contractors, CIS and construction, taxi drivers, hairdressers, restaurants, doctors and healthcare professionals, and online sellers.",
+          "The sixteen service pages still exist, from Self Assessment and VAT returns to R&D tax and inheritance tax planning. The difference is that a visitor no longer has to translate their situation into the firm's vocabulary before they can find the right page. The homepage hero repeats the same idea in a row of client types, so the first screen answers \"is this for me\".",
         ],
       },
       {
-        heading: "Service architecture",
+        heading: "Thirteen towns, one office",
         paragraphs: [
-          "The practice publishes six distinct service lines, covering self assessment and personal tax, accounting and bookkeeping, capital gains tax advice, cloud accounting, corporation tax and VAT returns.",
-          "Each is a genuine service line with its own buyer rather than a subheading on a single services page. A sole trader needing self assessment and a limited company needing corporation tax and VAT are not the same enquiry, and giving each its own path is what allows either to be found.",
-          "A three step onboarding route runs alongside them, from stating the need through to the practice taking the work on. Professional services buyers hesitate at the point where they cannot picture what happens next, and naming the steps removes that.",
+          "A local practice competes on being near. The site carries thirteen local area pages covering Bolton and the towns around it: Bury, Chorley, Farnworth, Horwich, Leigh, Manchester, Radcliffe, Rochdale, Salford, Warrington, Westhoughton and Wigan.",
+          "The homepage marks up the places it serves as structured data, alongside an FAQ block, so the area served is stated to search engines as well as to people. The office address appears in full, because a business owner choosing an accountant often wants to know they could walk in.",
         ],
       },
       {
-        heading: "The conversion path for a local practice",
+        heading: "Answering the question before the call",
         paragraphs: [
-          "A Bolton practice competes on being reachable, not on being the largest. The phone number sits in the header rather than buried on a contact page, and WhatsApp is available alongside it, because a small business owner with a question about a deadline will use whichever is nearest to hand.",
-          "Two entry points run side by side rather than one: a free quote for someone comparing firms, and a call back request for someone who would rather talk than fill anything in. A single call to action would have lost one of those visitors, and they are not the same person.",
-          "A client portal carries existing clients, which keeps the public site free to do acquisition work instead of doubling as an account area.",
+          "Eight tax calculators run on the site: VAT, National Insurance, Capital Gains Tax, salary against dividend, CIS tax rebate, Corporation Tax, employed and self-employed income, and mileage allowance. Each answers a question a prospect would otherwise phone to ask, and each is a page someone can find, use and come back to.",
+          "A tax glossary of ten terms, from Section 24 to payments on account, and a library of over three hundred articles do the same job at a different depth. Tax rules change every year, so a practice that publishes as they change keeps answering the questions clients are asking that year.",
         ],
       },
       {
-        heading: "The resource library",
+        heading: "Proof and contact on the first screen",
         paragraphs: [
-          "The practice publishes on live UK tax and property matters, including inheritance tax and pension reform, the Renters' Rights Act, and stamp duty.",
-          "This is the part that compounds. Tax changes annually, legislation lands on a schedule, and a practice that publishes on each change as it arrives builds a body of work that answers the questions clients are asking that year. It supports the specialist CGT arm at the same time, because the two sites cover adjacent ground and each strengthens the case that the practice knows the subject.",
+          "The hero shows the practice's Google rating and review count next to its qualifications and its fixed monthly fees, and the reviews further down are labelled by the work they describe: charity accounts, Self Assessment, annual accounts and Corporation Tax. A prospect sees someone like them before they reach the contact form.",
+          "Every route to a conversation is one tap away: the phone number in the header, a free quote, WhatsApp, and a three step switching route that says what happens after the first call. Existing clients have a client portal, which keeps the public site free to do acquisition work.",
+        ],
+      },
+      {
+        heading: "One practice, several front doors",
+        paragraphs: [
+          "Cangaf is not the only site the practice runs. Capital Gains Tax Experts serves people with a national, specialist question. Accountants for Charities serves charity trustees on the same Bolton phone line. Bolton Community Tax Clinic is a free walk-in clinic at the same Tonge Moor Road address. We built all four.",
+          "Each audience searches differently and trusts different signals, so each has its own domain rather than a tab on one site. The general practice owns local intent, and the specialist sites own theirs.",
         ],
       },
     ],
     verify: [
-      "Six service paths are published: self assessment, accounting and bookkeeping, capital gains tax advice, cloud accounting, corporation tax and VAT returns.",
-      "A three step client onboarding route is published on the homepage.",
-      "The resource library carries current UK tax and property articles, including inheritance tax and pension reform, the Renters' Rights Act and stamp duty.",
-      "The relationship to Capital Gains Tax Experts, the specialist arm, is stated rather than concealed.",
-      "A client portal, a free quote path and a call back path are all reachable from the homepage.",
+      "Nine client type pages are published, including landlords, taxi drivers, hairdressers, CIS and online sellers.",
+      "Thirteen local area pages are published, from Bolton to Warrington and Wigan.",
+      "Eight working tax calculators are listed under Resources.",
+      "A ten term tax glossary and over three hundred articles are published.",
+      "The homepage carries FAQ and place structured data, testable in Google's Rich Results Test.",
+      "Phone, free quote, WhatsApp and the client portal are all reachable from the homepage.",
     ],
     results: [],
     published: true,

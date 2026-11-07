@@ -506,7 +506,7 @@ Case studies and blog posts are **MDX files in the repo**. No CMS, no database, 
 
 ### Portfolio boundary, important
 
-Only engagements where **Manuel Technologies was the vendor** appear under `/work`: CWV Drift Monitor, Impressiful, and its sister sites Impressiful Shipping and Logistics (impresship.com), ImpressCar (carshop.impresship.com) and ImpressiFix (impressifix.com), Cangaf, Bolton Community Tax Clinic (boltoncommunitytaxclinic.co.uk), Miyaki Beauty, Dementia In Home, Dementia Companions (dementiacompanions.com), BOT Properties, Fold (getfold.org, a church management PWA that is a Manuel Technologies product), and ManuelPOS (mpos.bz, a point of sale product, introduced at /mpos with facts kept in `src/lib/mpos.ts`; its documentation lives on mpos.bz, not here).
+Only engagements where **Manuel Technologies was the vendor** appear under `/work`: CWV Drift Monitor, Impressiful, and its sister sites Impressiful Shipping and Logistics (impresship.com), ImpressCar (carshop.impresship.com) and ImpressiFix (impressifix.com), Cangaf, Accountants for Charities (accountantsforcharities.uk), Bolton Community Tax Clinic (boltoncommunitytaxclinic.co.uk), Miyaki Beauty, Dementia In Home, Dementia Companions (dementiacompanions.com), BOT Properties, Fold (getfold.org, a church management PWA that is a Manuel Technologies product), and MPOS (mpos.bz, a point of sale product, introduced at /mpos with facts kept in `src/lib/mpos.ts`; its documentation lives on mpos.bz, not here).
 
 Higglo Digital, SkillCEF and ChainYacc were **staff roles**. They appear on `/about` as personal experience, attributed to Emmanuel, never as company work.
 

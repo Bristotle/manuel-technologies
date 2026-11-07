@@ -7,7 +7,7 @@ import type { Accent } from "@/lib/accent";
    Pillar statement. One centred sentence, flanked by tilted pills that link
    to the services behind it. From diptell.com, 7 November 2026; first used
    as the search section on the homepage, then made the hero of each pillar
-   hub on 8 November, because it was the clearest section on the site.
+   hub on 7 November, because it was the clearest section on the site.
 
    Adapted, not copied. Every pill is a real link to a real page, so the
    section works for the visitor and for crawlers. No box-shadow (CLAUDE.md

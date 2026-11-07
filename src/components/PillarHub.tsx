@@ -70,7 +70,7 @@ export function PillarHub({
 
       {/* Hero. The pillar statement, with the h1 in the middle and each
           service as a link around it. Replaced a text only hero on
-          8 November 2026. */}
+          7 November 2026. */}
       <PillarStatement
         as="h1"
         accent={PILLAR_ACCENT[pillar.slug]}

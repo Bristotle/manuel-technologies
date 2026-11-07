@@ -80,10 +80,17 @@ function WorkCard({
   );
 }
 
+/* The four cards, chosen by Emmanuel on 7 November 2026 for their visual
+   appeal. Everything else lists beneath as a link. A slug that is missing
+   or has no screenshot simply drops out, so this can never render a hole. */
+const FEATURED = ["manuelpos", "bolton-tax-clinic", "dementia-companions", "accountants-for-charities"];
+
 export function SelectedWork() {
   /* Cards for anything with a screenshot. Everything else goes to the rail,
      so a project without an image is still visible rather than dropped. */
-  const featured = PROJECTS.filter((p) => p.thumb).slice(0, 4);
+  const featured = FEATURED.map((slug) => PROJECTS.find((p) => p.slug === slug)).filter(
+    (p): p is Project => Boolean(p?.thumb),
+  );
   const rest = PROJECTS.filter((p) => !featured.includes(p));
 
   return (

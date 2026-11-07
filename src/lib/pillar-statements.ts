@@ -67,7 +67,7 @@ export const HUB_STATEMENTS: Record<"build" | "grow" | "scale", Statement> = {
       { label: "AI agents", href: "/scale/ai-agents", icon: "bot" },
       { label: "Analytics", href: "/scale/analytics", icon: "chart" },
       { label: `${INTEGRATIONS.length} integrations`, href: "/integrations", icon: "plug" },
-      { label: "ManuelPOS", href: "/mpos", icon: "till" },
+      { label: "MPOS", href: "/mpos", icon: "till" },
     ],
   },
 };

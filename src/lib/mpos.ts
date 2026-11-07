@@ -1,5 +1,5 @@
 /* --------------------------------------------------------------------------
-   ManuelPOS, the facts this site states about it. One place, read by /mpos,
+   MPOS, the facts this site states about it. One place, read by /mpos,
    the work index, the Scale hub and /build/custom-software.
 
    Source: mpos.bz and mpos.bz/pricing as published on 21 October 2026.
@@ -15,7 +15,7 @@ export const MPOS = {
   url: "https://mpos.bz",
   pricingUrl: "https://mpos.bz/pricing",
   summary:
-    "ManuelPOS is the till, bookings, stock and reports system for Ghanaian businesses. It keeps selling when the network drops, takes MoMo straight into the business's own wallet, and lets the owner check on the business from anywhere.",
+    "MPOS is the till, bookings, stock and reports system for Ghanaian businesses. It keeps selling when the network drops, takes MoMo straight into the business's own wallet, and lets the owner check on the business from anywhere.",
   /* Countable on mpos.bz by anyone. Used as the work card's metric. */
   metric: "6 business types",
   businessTypes: [

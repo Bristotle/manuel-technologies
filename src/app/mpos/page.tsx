@@ -9,25 +9,25 @@ import { SITE } from "@/lib/site";
 import { ogCard } from "@/lib/og";
 
 /* --------------------------------------------------------------------------
-   ManuelPOS, introduced, not duplicated. The product has its own site at
+   MPOS, introduced, not duplicated. The product has its own site at
    mpos.bz, which is where people sign up, read the docs and see pricing.
    This page says what it is and who it is for, as proof that Manuel
    Technologies ships production software, and sends every action there.
 
    Every fact here is taken from mpos.bz as published on 21 October 2026.
-   Two things are deliberately absent. There is no price, because ManuelPOS
+   Two things are deliberately absent. There is no price, because MPOS
    agrees each price with the business and publishes none. And there is no
-   claim of GRA certification: ManuelPOS calculates VAT, NHIL and GETFund on
+   claim of GRA certification: MPOS calculates VAT, NHIL and GETFund on
    receipts under the 2026 rules, which is a feature, not an approval.
    -------------------------------------------------------------------------- */
 
-const TITLE = "ManuelPOS: point of sale for Ghanaian businesses";
+const TITLE = "MPOS: point of sale for Ghanaian businesses";
 
 export const metadata: Metadata = {
-  title: { absolute: "ManuelPOS: point of sale built in Ghana | Manuel Technologies" },
-  description: "ManuelPOS is our till, bookings and stock system for shops, salons, restaurants and pharmacies in Ghana. Works offline, takes MoMo to your own wallet.",
+  title: { absolute: "MPOS: point of sale built in Ghana | Manuel Technologies" },
+  description: "MPOS is our till, bookings and stock system for shops, salons, restaurants and pharmacies in Ghana. Works offline, takes MoMo to your own wallet.",
   alternates: { canonical: "/mpos" },
-  openGraph: { images: [{ url: "/work/manuelpos.webp", width: 1200, height: 750, alt: "ManuelPOS point of sale" }, ogCard(TITLE, "Product")] },
+  openGraph: { images: [{ url: "/work/manuelpos.webp", width: 1200, height: 750, alt: "MPOS point of sale" }, ogCard(TITLE, "Product")] },
 };
 
 export default function MposPage() {
@@ -36,7 +36,7 @@ export default function MposPage() {
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      name: "ManuelPOS",
+      name: "MPOS",
       url: MPOS.url,
       sameAs: [url],
       applicationCategory: "BusinessApplication",
@@ -53,7 +53,7 @@ export default function MposPage() {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
-        { "@type": "ListItem", position: 2, name: "ManuelPOS", item: url },
+        { "@type": "ListItem", position: 2, name: "MPOS", item: url },
       ],
     },
   ];
@@ -71,7 +71,7 @@ export default function MposPage() {
               <li aria-hidden="true">/</li>
               <li><Link href="/work" className="hover:text-mt-purple">Work</Link></li>
               <li aria-hidden="true">/</li>
-              <li aria-current="page">ManuelPOS</li>
+              <li aria-current="page">MPOS</li>
             </ol>
           </nav>
           <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
@@ -86,7 +86,7 @@ export default function MposPage() {
               <p className="mt-6 text-sm text-mt-slate">Sign up, pricing and support all live at mpos.bz.</p>
             </div>
             <a href={MPOS.url} className="block overflow-hidden rounded-[18px] border border-mt-border bg-mt-surface transition-colors duration-150 hover:border-mt-purple">
-              <Image src="/work/manuelpos.webp" alt="The ManuelPOS homepage, showing the till and the appointments screen" width={1200} height={750} priority sizes="(min-width: 1024px) 50vw, 100vw" className="h-auto w-full" />
+              <Image src="/work/manuelpos.webp" alt="The MPOS homepage, showing the till and the appointments screen" width={1200} height={750} priority sizes="(min-width: 1024px) 50vw, 100vw" className="h-auto w-full" />
             </a>
           </div>
         </Container>
@@ -98,7 +98,7 @@ export default function MposPage() {
           <SectionLabel>Who it is for</SectionLabel>
           <h2 className="mt-6 max-w-[24ch]">Set up for the way six kinds of business work.</h2>
           <p className="mt-6 max-w-[65ch] text-lg leading-relaxed text-mt-slate">
-            A business picks its type when it signs up, and ManuelPOS loads the screens and words for it.
+            A business picks its type when it signs up, and MPOS loads the screens and words for it.
           </p>
           <ul className="mt-reveal-group mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {MPOS.businessTypes.map((b) => (
@@ -128,7 +128,7 @@ export default function MposPage() {
         </Container>
       </section>
 
-      {/* How paying works. No price, because ManuelPOS publishes none. */}
+      {/* How paying works. No price, because MPOS publishes none. */}
       <section className="py-24 sm:py-32">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1fr_1fr]">
@@ -163,12 +163,12 @@ export default function MposPage() {
           <SectionLabel>Why it is here</SectionLabel>
           <h2 className="mt-6 max-w-[22ch]">The same engineering, on software we run ourselves.</h2>
           <p className="mt-6 max-w-[65ch] text-lg leading-relaxed text-mt-slate">
-            ManuelPOS is designed, built and operated by Manuel Technologies. Offline sync, per-business data separation, role based access and tax worked out on every receipt are the same problems we solve in{" "}
+            MPOS is designed, built and operated by Manuel Technologies. Offline sync, per-business data separation, role based access and tax worked out on every receipt are the same problems we solve in{" "}
             <Link href="/build/custom-software" className="text-mt-purple underline decoration-mt-purple/30 underline-offset-4 hover:decoration-mt-purple">custom software</Link>{" "}
             for clients.
           </p>
           <div className="mt-12 flex flex-wrap gap-4">
-            <Button href={MPOS.url} external>Try ManuelPOS free</Button>
+            <Button href={MPOS.url} external>Try MPOS free</Button>
             <Button href="/contact" variant="secondary">Talk to us about your own software</Button>
           </div>
         </Container>
