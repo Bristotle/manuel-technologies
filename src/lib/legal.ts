@@ -14,7 +14,7 @@
 export const LEGAL_UPDATED = "2026-09-20";
 /* The privacy policy changed on its own when Google Analytics was added, so
    it carries its own date rather than moving the terms' date with it. */
-export const PRIVACY_UPDATED = "2026-10-14";
+export const PRIVACY_UPDATED = "2026-11-09";
 
 export type LegalSection = { heading: string; paragraphs: string[]; bullets?: string[] };
 
@@ -39,13 +39,13 @@ export const PRIVACY: LegalSection[] = [
   {
     heading: "Cookies",
     paragraphs: [
-      "If you are in the United Kingdom, the European Union, the European Economic Area or Switzerland, the website sets no analytics cookies. Google Analytics receives cookieless measurements only, which cannot recognise you on a later visit. That is why there is no cookie banner.", "Everywhere else, Google Analytics sets first party cookies named _ga and _ga_<ID> to tell new visits from returning ones. They last up to two years, are not used for advertising, and are not shared with other sites. You can block them in your browser settings, or install Google's opt out add-on at tools.google.com/dlpage/gaoptout, and the site works the same either way.", "The website runs no advertising pixels and no advertising cookies anywhere."
+      "If you are in the United Kingdom, the European Union, the European Economic Area or Switzerland, the website sets no analytics cookies. Google Analytics receives cookieless measurements only, which cannot recognise you on a later visit. That is why there is no cookie banner.", "Everywhere else, Google Analytics sets first party cookies named _ga and _ga_<ID> to tell new visits from returning ones. They last up to two years, are not used for advertising, and are not shared with other sites. You can block them in your browser settings, or install Google's opt out add-on at tools.google.com/dlpage/gaoptout, and the site works the same either way.", "Outside those regions, the website also loads the Meta Pixel, so we can measure visits that come from our adverts on Facebook and Instagram and show those adverts to people who have visited. It sets a first party cookie named _fbp, which lasts up to 90 days, and sends Meta the page viewed, the referring site, your IP address and browser details. Meta does not receive your name or email address from us. You can control how Meta uses this in your Facebook or Instagram ad preferences, or block it in your browser settings. Visitors in the United Kingdom, the European Union, the European Economic Area and Switzerland do not load the Meta Pixel at all.",
     ],
   },
   {
     heading: "Who else sees your information",
     paragraphs: [
-      "We do not sell personal information and we do not share it for marketing. The providers that process it on our behalf are Vercel, which hosts the site and serves it from its network, Resend, which delivers email and holds the newsletter list, and Google, which provides Google Analytics. Each processes information only to provide its service to us. We may disclose information if the law requires it.",
+      "We do not sell personal information and we do not share it for marketing. The providers that process it on our behalf are Vercel, which hosts the site and serves it from its network, Resend, which delivers email and holds the newsletter list, Google, which provides Google Analytics, and Meta, which provides the Meta Pixel outside the United Kingdom and Europe. Each processes information only to provide its service to us. We may disclose information if the law requires it.",
     ],
   },
   {

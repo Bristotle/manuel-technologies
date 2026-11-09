@@ -14,7 +14,7 @@ export default function PrivacyPage() {
   return (
     <LegalPage
       title="Privacy policy"
-      intro="What this website collects, why, who processes it, and what you can ask us to do with it. The short version: only what a feature needs, no advertising cookies, no analytics cookies for UK and EU visitors, and nothing sold."
+      intro="What this website collects, why, who processes it, and what you can ask us to do with it. The short version: only what a feature needs, no analytics or advertising cookies for UK and EU visitors, and nothing sold."
       sections={PRIVACY}
       updated={PRIVACY_UPDATED}
     />

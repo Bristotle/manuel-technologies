@@ -182,6 +182,26 @@ export default function RootLayout({
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${SITE_CONFIG.gaId}`}
       />
+      {/* Meta Pixel, 9 November 2026. Same lazyOnload timing as gtag.js, so
+          it never touches LCP or blocking time.
+
+          Not loaded at all in the UK, EU, EEA or Switzerland, where an
+          advertising cookie needs consent and the site has no banner. The
+          page is static, so the region comes from the browser's time zone:
+          Europe/* plus the Atlantic zones of Iceland, Portugal, Spain and
+          the Faroes. That over-blocks a little (Russia, Turkey, Ukraine),
+          which is the safe direction. The privacy policy says exactly this;
+          change both together.
+
+          Meta's <noscript> image beacon is left out: CLAUDE.md bans a raw
+          <img>, and a visitor without JavaScript is almost never an ad
+          audience. */}
+      <Script id="meta-pixel" strategy="lazyOnload">
+        {`(function(){var z="";try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(e){}
+if(/^Europe\\//.test(z)||/^Atlantic\\/(Reykjavik|Canary|Madeira|Azores|Faroe)$/.test(z))return;
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','${SITE_CONFIG.metaPixelId}');fbq('track','PageView');})();`}
+      </Script>
     </html>
   );
 }

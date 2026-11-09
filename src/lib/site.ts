@@ -16,6 +16,8 @@ export const SITE = {
   /* Google Analytics 4 measurement ID. Public by design: it ships in every
      page's HTML, so it is not a secret and needs no environment variable. */
   gaId: "G-204WFRN3NJ",
+  /* Meta Pixel ID, added 9 November 2026. Public for the same reason. */
+  metaPixelId: "2254603818437633",
 } as const;
 
 /* Social. Only populated entries render, so an empty string hides the icon
