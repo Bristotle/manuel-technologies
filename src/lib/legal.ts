@@ -29,7 +29,7 @@ export const PRIVACY: LegalSection[] = [
     heading: "What we collect, and why",
     paragraphs: ["We collect only what a feature needs to work."],
     bullets: [
-      "Contact form: your name, work email, company website, budget range, the service you are asking about, and your message. Used to reply to you and assess the enquiry. Delivered to our inbox by Resend, our email provider, and kept for as long as the conversation and any resulting work are live.",
+      "Contact form: your name, email address, website or social page if you give one, budget range, the service you are asking about, and your message. Used to reply to you and assess the enquiry. Delivered to our inbox by Resend, our email provider, and kept for as long as the conversation and any resulting work are live.",
       "Newsletter: your email address, stored as a contact with Resend and used only to send the updates you asked for. Every email carries an unsubscribe link, and unsubscribing removes you from the list.",
       "Free audit and crawler check: the website address you type. Our server fetches that page, its robots.txt and its sitemap to produce the report. The address and the report are not stored, and no account is created.",
       "Analytics: page views and referrers through Vercel Web Analytics, which does not use cookies or identify you personally. We also use Google Analytics to understand which pages are read and how visitors arrive. It records pages viewed, the referring site, approximate location derived from your IP address, and device and browser type. Google Analytics does not receive your name or email address, and advertising features are switched off.",

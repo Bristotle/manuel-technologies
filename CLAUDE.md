@@ -550,9 +550,9 @@ which would move the MX records and take email down.
 
 Qualification, deliberate:
 
-- Business email required. Block gmail, yahoo, outlook, hotmail, icloud
+- Any email address accepted, Gmail included. Blocking free mail was tried and dropped on 13 November 2026: most small businesses in Ghana use Gmail, so it turned away real leads
 - Budget range field
-- Company website field
+- Website or social page field, optional. Many first time clients have no site yet
 
 No secrets in the repo. `RESEND_API_KEY` and `RESEND_FROM_EMAIL` live in Vercel
 env vars. **Never paste an API key into chat, a file, or a commit.** Code reads

@@ -56,15 +56,15 @@ export function ContactForm() {
           <input name="name" required className="contact-input" />
         </label>
         <label className="flex flex-col gap-2 text-sm font-semibold">
-          Work email
-          <input name="email" type="email" required className="contact-input" placeholder="you@yourcompany.com" />
+          Email
+          <input name="email" type="email" required className="contact-input" placeholder="you@example.com" />
         </label>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">
         <label className="flex flex-col gap-2 text-sm font-semibold">
-          Company website
-          <input name="website" type="url" inputMode="url" placeholder="https://" required className="contact-input" />
+          Website or social page <span className="font-normal text-mt-muted">(optional)</span>
+          <input name="website" type="text" inputMode="url" placeholder="yourbusiness.com or a Facebook page" className="contact-input" />
         </label>
         <label className="flex flex-col gap-2 text-sm font-semibold">
           Budget range

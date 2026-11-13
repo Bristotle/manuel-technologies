@@ -1,12 +1,12 @@
 import { Resend } from "resend";
 import { CONTACT_RECIPIENT } from "@/lib/site";
 
-/* Qualification, per CLAUDE.md section 8: business email, budget range,
-   company website. Free mail providers are refused with a plain message,
-   because an enquiry from a Gmail address with no website and no budget is
-   almost never a project. Plus a honeypot and a per IP rate limit, since a
-   public form with neither is a spam funnel into the inbox. */
-const FREE_MAIL = new Set(["gmail.com", "googlemail.com", "yahoo.com", "yahoo.co.uk", "outlook.com", "hotmail.com", "hotmail.co.uk", "live.com", "icloud.com", "me.com", "aol.com", "ymail.com", "proton.me", "protonmail.com"]);
+/* Qualification, per CLAUDE.md section 8: budget range required, website
+   optional, any email address accepted. Gmail and other free addresses were
+   refused until 13 November 2026, when a test showed the rule turning away
+   real leads: most small businesses in Ghana run on Gmail, and many first
+   time clients have no website yet. Plus a honeypot and a per IP rate limit,
+   since a public form with neither is a spam funnel into the inbox. */
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const hits = new Map<string, { n: number; t: number }>();
 
@@ -33,7 +33,7 @@ export async function POST(request: Request) {
       return Response.json({ message: "Thanks. We will get back to you within one business day." });
     }
 
-    if (!name || !email || !service || !message || !website || !budget) {
+    if (!name || !email || !service || !message || !budget) {
       return Response.json({ error: "Please complete every field." }, { status: 400 });
     }
 
@@ -41,13 +41,6 @@ export async function POST(request: Request) {
       return Response.json({ error: "Please enter a valid email address." }, { status: 400 });
     }
 
-    const domain = email.split("@")[1];
-    if (FREE_MAIL.has(domain)) {
-      return Response.json(
-        { error: "Please use your work email address. If your business does not have one yet, that is a good first project: mention it in the message and use your website field for a social profile." },
-        { status: 400 },
-      );
-    }
 
     if (message.length < 20) {
       return Response.json({ error: "Tell us a little more about the project, a sentence or two is enough." }, { status: 400 });
@@ -69,7 +62,7 @@ export async function POST(request: Request) {
       text: [
         `Name: ${name}`,
         `Email: ${email}`,
-        `Website: ${website}`,
+        `Website: ${website || "None given"}`,
         `Budget: ${budget}`,
         `Service: ${service}`,
         "",
