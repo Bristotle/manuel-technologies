@@ -13,10 +13,24 @@
 
 type Params = Record<string, string | number | boolean | undefined>;
 
+/* Meta Pixel standard events, 13 November 2026, so Facebook and Instagram
+   ads can optimise for enquiries rather than page views. A form send is a
+   Lead, a newsletter sign up is CompleteRegistration, a call or WhatsApp
+   tap is Contact. fbq only exists outside the UK and Europe (layout.tsx),
+   so elsewhere this is a no op. */
+const META: Record<string, string> = {
+  generate_lead: "Lead",
+  sign_up: "CompleteRegistration",
+  click_call: "Contact",
+  click_whatsapp: "Contact",
+};
+
 export function track(event: string, params: Params = {}): void {
   try {
-    const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+    const w = window as unknown as { gtag?: (...args: unknown[]) => void; fbq?: (...args: unknown[]) => void };
     w.gtag?.("event", event, params);
+    const meta = META[event];
+    if (meta) w.fbq?.("track", meta, params);
   } catch {
     /* Analytics is never allowed to break the page. */
   }
