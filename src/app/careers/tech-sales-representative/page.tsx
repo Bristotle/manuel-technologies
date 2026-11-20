@@ -47,10 +47,13 @@ const TARGETS = [
 ] as const;
 
 const GET = [
-  <><strong className="text-mt-ink">{role.pay.label}</strong>, paid monthly.</>,
+  <><strong className="text-mt-ink">{role.pay.label}</strong> basic pay, paid monthly.</>,
+  <><strong className="text-mt-ink">10% commission</strong> on every client you bring in who pays in full. The more you close, the more you earn.</>,
+  <><strong className="text-mt-ink">Airtime and data allowance</strong> every month, for calls, WhatsApp and demos.</>,
+  <>A <strong className="text-mt-ink">6 month contract</strong>, with room to extend and grow depending on your performance.</>,
   "Training on the job: how MPOS works, how to demo it, and how to close, from the people who build it.",
   "A demo account to sell with, on your own phone.",
-  "Room to grow with us. As we expand from these three regions to the rest of Ghana, the first team leads the new areas.",
+  "As we expand from these three regions to the rest of Ghana, the strongest performers lead the new areas.",
 ] as const;
 
 const LOOK = [
@@ -69,12 +72,12 @@ const STEPS = [
 
 export const metadata: Metadata = {
   title: `${role.title}, ${role.regions.join(", ")}`,
-  description: `We are hiring a ${role.title} in the Western, Central and Western North regions. ${role.pay.label}, full time, training on the job. Sell MPOS and websites to local businesses.`,
+  description: `We are hiring a ${role.title} in the Western, Central and Western North regions. ${role.pay.label} plus 10% commission and a monthly airtime and data allowance. 6 month contract, training on the job.`,
   alternates: { canonical: `/careers/${role.slug}` },
   openGraph: {
     images: [ogCard(role.title, "Careers")],
     title: `${role.title} | ${SITE.name}`,
-    description: `${role.pay.label}. Field sales in the Western, Central and Western North regions, with training on the job.`,
+    description: `${role.pay.label} plus 10% commission. Field sales in the Western, Central and Western North regions, 6 month contract, training on the job.`,
     url: `${SITE.url}/careers/${role.slug}`,
   },
 };
@@ -115,6 +118,8 @@ export default function TechSalesRepresentative() {
       currency: role.pay.currency,
       value: { "@type": "QuantitativeValue", value: role.pay.amount, unitText: role.pay.unit },
     },
+    incentiveCompensation: role.commission,
+    jobBenefits: role.allowances,
     directApply: false,
   };
   const crumbsJsonLd = {
@@ -147,7 +152,8 @@ export default function TechSalesRepresentative() {
           <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-4 text-[0.9375rem]">
             {[
               ["Pay", role.pay.label],
-              ["Type", role.type],
+              ["Commission", "10% on full payments"],
+              ["Contract", "6 months, full time"],
               ["Where", `${role.regions.join(", ")} regions`],
               ["Closes", "31 December 2026"],
             ].map(([k, v]) => (
@@ -257,7 +263,7 @@ export default function TechSalesRepresentative() {
       <section className="border-y border-mt-border bg-white py-24 sm:py-32">
         <Container size="prose">
           <SectionLabel>What you get</SectionLabel>
-          <h2 className="mt-6">Pay, training and room to grow.</h2>
+          <h2 className="mt-6">Basic pay, commission, and room to grow.</h2>
           <Bullets items={GET} />
         </Container>
       </section>

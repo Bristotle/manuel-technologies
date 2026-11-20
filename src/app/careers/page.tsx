@@ -60,7 +60,7 @@ export default function Careers() {
                     <h3 className="mt-4 !text-2xl group-hover:text-mt-purple">{r.title}</h3>
                     <p className="mt-3 max-w-[60ch] leading-relaxed text-mt-slate">{r.summary}</p>
                     <p className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[0.9375rem] text-mt-ink">
-                      <strong>{r.pay.label}</strong>
+                      <strong>{r.pay.label} + 10% commission</strong>
                       <span>{r.type}</span>
                     </p>
                     <span className="mt-8 inline-flex items-center gap-2 font-semibold text-mt-purple">
