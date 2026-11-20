@@ -34,7 +34,6 @@ const DO = [
   "Visit shops, restaurants, chop bars, salons, barbershops and pharmacies, and find the owners who are still writing sales in a book.",
   "Show MPOS working on a phone: a sale, a receipt, MoMo, the stock count and the owner's report.",
   "Help new businesses through the free 14 day trial: adding their products or menu and ringing up their first real sales.",
-  "Spot businesses that need a website or a Google listing, and pass them to the team with the details.",
   "Follow up by phone and WhatsApp until each trial becomes a paying customer, or a clear no.",
   "Log every visit, demo and follow up the same day, so nothing is lost.",
 ] as const;
@@ -49,7 +48,7 @@ const TARGETS = [
 const GET = [
   <><strong className="text-mt-ink">{role.pay.label}</strong> basic pay, paid monthly.</>,
   <><strong className="text-mt-ink">10% commission</strong> on every client you bring in who pays in full. The more you close, the more you earn.</>,
-  <><strong className="text-mt-ink">Airtime and data allowance</strong> every month, for calls, WhatsApp and demos.</>,
+  <><strong className="text-mt-ink">Data bundle + airtime</strong>, paid every two weeks, so you stay connected to every prospect: calls, WhatsApp and demos.</>,
   <>A <strong className="text-mt-ink">6 month contract</strong>, with room to extend and grow depending on your performance.</>,
   "Training on the job: how MPOS works, how to demo it, and how to close, from the people who build it.",
   "A demo account to sell with, on your own phone.",
@@ -72,7 +71,7 @@ const STEPS = [
 
 export const metadata: Metadata = {
   title: `${role.title}, ${role.regions.join(", ")}`,
-  description: `We are hiring a ${role.title} in the Western, Central and Western North regions. ${role.pay.label} plus 10% commission and a monthly airtime and data allowance. 6 month contract, training on the job.`,
+  description: `We are hiring a ${role.title} in the Western, Central and Western North regions. ${role.pay.label} plus 10% commission, with data and airtime paid every two weeks. 6 month contract, training on the job.`,
   alternates: { canonical: `/careers/${role.slug}` },
   openGraph: {
     images: [ogCard(role.title, "Careers")],
@@ -165,8 +164,8 @@ export default function TechSalesRepresentative() {
           </dl>
 
           <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">
-            Bring local businesses onto MPOS, our till, stock and reports system, and our
-            websites. You will find owners, show them the system working on a phone, and help
+            Bring local businesses onto MPOS, our point of sale, stock and reports system.
+            You will find owners, show them the system working on a phone, and help
             them through a free trial until they become paying customers. We train you on the job.
           </p>
 
@@ -204,7 +203,7 @@ export default function TechSalesRepresentative() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <SectionLabel>What you will sell</SectionLabel>
-              <h2 className="mt-6 max-w-[18ch]">Software that works when the network does not.</h2>
+              <h2 className="mt-6 max-w-[18ch]">One product: a till that works when the network does not.</h2>
               <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">{MPOS.summary}</p>
               <ul className="mt-8 flex flex-wrap gap-2">
                 {MPOS.businessTypes.map((b) => (
