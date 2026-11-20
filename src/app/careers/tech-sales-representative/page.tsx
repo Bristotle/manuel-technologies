@@ -183,7 +183,7 @@ export default function TechSalesRepresentative() {
           <h2 className="mt-6 max-w-[22ch]">Three regions first. <span className="text-mt-purple">The rest of Ghana next.</span></h2>
           <p className="mt-8 max-w-[65ch] text-lg leading-relaxed text-mt-slate">
             We are growing with the businesses in our own part of the country before anywhere
-            else. Candidates who live in these regions are given favourable consideration,
+            else. Candidates who live anywhere in these regions, not only the regional capitals, are given favourable consideration,
             because you already know the towns, the markets and the people.
           </p>
           <ul className="mt-12 grid gap-6 md:grid-cols-3">
