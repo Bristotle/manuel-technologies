@@ -354,7 +354,7 @@ export const PROJECTS: Project[] = [
     summary:
       "Sea and air freight from Sharjah and Dubai to 54 African countries. A shipping cost calculator, shipment tracking, a quote form that routes to email and WhatsApp, and a guide library for importers.",
     scope: ["Website Development", "Custom Software"],
-    thumb: "/work/impressiful-logistics.webp",
+    thumb: "/work/impressiful-logistics-home.webp",
     metric: "54 countries",
   },
   {
@@ -366,7 +366,7 @@ export const PROJECTS: Project[] = [
     summary:
       "Left hand drive cars exported from Dubai to African ports. A live stock catalogue with prices switchable across nine currencies, UAE auction assistance, VIN tracking, and a destination page for every country it ships to.",
     scope: ["Website Development", "Ecommerce"],
-    thumb: "/work/impresscar.webp",
+    thumb: "/work/impresscar-home.webp",
     metric: "9 currencies",
   },
   {
@@ -378,7 +378,7 @@ export const PROJECTS: Project[] = [
     summary:
       "Home cleaning and domestic staff across Sharjah and Dubai. Online booking for four cleaning services, separate accounts for customers and cleaners, and profiles for housemaids, nannies, home cooks and caregivers.",
     scope: ["Website Development", "Web Design"],
-    thumb: "/work/impressifix.webp",
+    thumb: "/work/impressifix-home.webp",
     metric: "4 cleaning services",
   },
   {
