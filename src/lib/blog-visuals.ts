@@ -124,6 +124,21 @@ export const POST_VISUALS: Record<string, PostVisual> = {
     },
   },
 
+  "google-ads-vs-meta-ads-ghana": {
+    after: "How we track our own adverts",
+    diagram: {
+      title: "From an advert to a tracked enquiry",
+      caption: "The setup running on manueltechnologies.com. Each platform is told about the steps that matter and nothing else, so it optimises for enquiries, not clicks.",
+      steps: [
+        { label: "Advert", detail: "Google Search or Meta, pointing at the page that answers the advert." },
+        { label: "Page view", detail: "Recorded by Google Analytics and, outside the UK and Europe, the Meta Pixel." },
+        { label: "Enquiry", detail: "Form sent as Lead. WhatsApp or call tap as Contact." },
+        { label: "Customer", detail: "Marked in your own records, then compared with spend per advert." },
+      ],
+      loop: "Move budget toward the adverts and search terms that produced customers",
+    },
+  },
+
   "secure-accessible-website-build-checklist": {
     after: "Ship a maintainable system",
     diagram: {

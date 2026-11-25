@@ -4,6 +4,7 @@ import { DECISION_CLUSTER_POSTS } from "@/lib/blog-decision-cluster";
 import { TECHNICAL_CLUSTER_POSTS } from "@/lib/blog-technical-cluster";
 import { HEALTHCARE_POSTS } from "@/lib/blog-healthcare";
 import { AUTOMATION_CLUSTER_POSTS } from "@/lib/blog-automation-cluster";
+import { SERVICES_CLUSTER_POSTS } from "@/lib/blog-services-cluster";
 
 export type BlogPost = {
   slug: string;
@@ -192,6 +193,7 @@ export const BLOG_POSTS: BlogPost[] = [
   ...TECHNICAL_CLUSTER_POSTS,
   ...HEALTHCARE_POSTS,
   ...AUTOMATION_CLUSTER_POSTS,
+  ...SERVICES_CLUSTER_POSTS,
 ];
 
 export function getBlogPost(slug: string) {

@@ -38,6 +38,12 @@ export const CATEGORIES: Category[] = [
     pillarHref: "/scale",
   },
   {
+    slug: "ads-and-social",
+    name: "Ads and social",
+    description: "Google Ads, Meta ads, social media and the tracking that shows which of them bring enquiries.",
+    pillarHref: "/grow",
+  },
+  {
     slug: "proof-and-planning",
     name: "Proof and planning",
     description: "Choosing partners, writing briefs, and measuring whether the work is working.",
