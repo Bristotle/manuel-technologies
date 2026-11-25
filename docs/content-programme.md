@@ -42,6 +42,7 @@ Cycle 2 repeats the services with the cost and "best for" formats, such as "How 
 ## The daily routine
 
 1. **Write** the two articles in `src/lib/blog-services-cluster.ts`. Add a diagram in `blog-visuals.ts` where the article has no screenshot.
+   - **Hero photo:** a free Unsplash photo of real people, ideally African, at `public/blog/<slug>.webp`. 1200 by 750, under 100KB. Caption it "Photo by <name> on Unsplash", linked to the photo page. Never describe a stock photo as our work, and never name a place the photo was not taken.
 2. **Check:** `next build`, the dash grep, and `node scripts/optimise-images.mjs --check`.
 3. **Publish:** commit and push to main. Vercel deploys.
 4. **Submit for indexing:**
