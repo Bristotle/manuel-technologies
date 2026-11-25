@@ -82,7 +82,7 @@ export const COST_CLUSTER_POSTS: BlogPost[] = [
           ],
         },
         image: {
-          src: "/work/impressiful.webp",
+          src: "/work/impressiful-home.webp",
           alt: "Impressiful online store with a catalogue past a thousand products",
           width: 1200,
           height: 750,
@@ -295,7 +295,7 @@ export const COST_CLUSTER_POSTS: BlogPost[] = [
           `We have written separately about [what an online store really costs](/blog/ecommerce-website-price-ghana), including the gateway fees and Mobile Money setup that no price list includes.`,
         ],
         image: {
-          src: "/work/impressiful.webp",
+          src: "/work/impressiful-home.webp",
           alt: "Impressiful online store with a catalogue past a thousand products",
           width: 1200,
           height: 750,
@@ -358,7 +358,7 @@ export const COST_CLUSTER_POSTS: BlogPost[] = [
     readTime: "10 min read",
     lead: `An e-commerce website in Ghana costs ${range(store)} to build properly, from our [published price list](/pricing#store), plus a payment gateway fee on every sale of roughly 2% for Mobile Money and local cards. One widely quoted agency lists an online store at ${jobhouse.store}, which is the same price as their NGO site. This post explains why that number cannot include the work that makes a store a store, and lists the running costs that no price list mentions.`,
     heroImage: {
-      src: "/work/impressiful.webp",
+      src: "/work/impressiful-home.webp",
       alt: "Impressiful online store, catalogue and checkout",
       width: 1200,
       height: 750,

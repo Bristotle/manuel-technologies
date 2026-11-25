@@ -25,7 +25,7 @@ type PageProps = {
 /* One delivered site per pillar, shown in every service hero under it.
    Each is checkable by opening the case study. */
 const PROOF = {
-  build: { src: "/work/impressiful.webp", alt: "Impressiful online store, built by Manuel Technologies", client: "Impressiful", fact: "1,000+ products", href: "/work/impressiful" },
+  build: { src: "/work/impressiful-home.webp", alt: "Impressiful online store, built by Manuel Technologies", client: "Impressiful", fact: "1,000+ products", href: "/work/impressiful" },
   grow: { src: "/work/dementia-in-home.webp", alt: "Dementia In Home programmatic city pages, built by Manuel Technologies", client: "Dementia In Home", fact: "1,067 pages live", href: "/work/dementia-in-home" },
   scale: { src: "/work/cgt-experts.webp", alt: "Capital Gains Tax Experts calculator suite, built by Manuel Technologies", client: "Capital Gains Tax Experts", fact: "9 calculators", href: "/work/cgt-experts" },
 } as const;

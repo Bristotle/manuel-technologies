@@ -259,7 +259,7 @@ export const PROJECTS: Project[] = [
     summary:
       "Custom branded merchandise at catalogue scale. Over 1,000 configurable products across 21 categories, with multi currency pricing, sample kit and bulk order flows, and WhatsApp commerce wired into the checkout path.",
     scope: ["Website Development", "Ecommerce", "Technical SEO"],
-    thumb: "/work/impressiful.webp",
+    thumb: "/work/impressiful-home.webp",
     metric: "1,000+ products",
   },
   {

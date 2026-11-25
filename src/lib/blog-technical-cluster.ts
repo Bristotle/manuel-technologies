@@ -47,7 +47,7 @@ export const TECHNICAL_CLUSTER_POSTS: BlogPost[] = [
     readTime: "10 min read",
     lead: `To accept MTN MoMo and Telecel Cash on a website in Ghana you connect the site to a payment gateway, and the gateway talks to the networks. Paystack publishes 1.95% per local transaction, Flutterwave publishes 2% for Mobile Money, and Hubtel publishes no rate card. The integration itself is included in our [Online store tier at ${range(store)}](/pricing#store), and this guide explains what it involves, what onboarding asks for, and the one state that most stores handle wrongly.`,
     heroImage: {
-      src: "/work/impressiful.webp",
+      src: "/work/impressiful-home.webp",
       alt: "Impressiful online store checkout with Mobile Money",
       width: 1200,
       height: 750,

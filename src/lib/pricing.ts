@@ -104,7 +104,7 @@ export const TIERS: Tier[] = [
       "Admin training for your team",
     ],
     proof: {
-      src: "/work/impressiful.webp",
+      src: "/work/impressiful-home.webp",
       alt: "Impressiful online store with a catalogue past a thousand products, built by Manuel Technologies",
       client: "Impressiful",
       href: "/work/impressiful",

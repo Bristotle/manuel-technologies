@@ -145,7 +145,7 @@ export const DECISION_CLUSTER_POSTS: BlogPost[] = [
     readTime: "9 min read",
     lead: `The usual version of this post is a list of ten agencies with the author at number one, and every reader sees through it. This is the other version. We measured ${measured.length} Ghanaian web design companies, including ourselves, on ten criteria anyone can check with a free tool, on ${AGENCIES.measured}, and published the criteria before the scores. Manuel Technologies came ${mtRank === 1 ? "first" : `number ${mtRank}`}, and it lost a column, which is stated below. Our prices are [published](/pricing) so the comparison can include them.`,
     heroImage: {
-      src: "/work/impressiful.webp",
+      src: "/work/impressiful-home.webp",
       alt: "Impressiful online store, live work that can be opened and measured",
       width: 1200,
       height: 750,
