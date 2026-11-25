@@ -13,7 +13,10 @@ import type { BlogFaq, BlogSection } from "@/lib/blog-types";
       that will go stale: state the mechanism and link the current page.
    2. Our own work is named only where it is true and on /work or a product
       we run. Fold is a PWA; that is the evidence the mobile post uses.
-   3. Comparisons name a winner per situation, never an overall winner. A
+   3. Hero photos may come from Unsplash, credited in the caption and
+      linked to the photo's page. A stock photo is never captioned or
+      described as our work; the evidence stays in the body.
+   4. Comparisons name a winner per situation, never an overall winner. A
       buyer who reads "it depends" and nothing else learns nothing.
    -------------------------------------------------------------------------- */
 
@@ -143,11 +146,12 @@ export const SERVICES_CLUSTER_POSTS: BlogPost[] = [
     sources: [SOURCES.flutter, SOURCES.reactNative, SOURCES.pwa, SOURCES.iosPush, SOURCES.appleProgram, SOURCES.googlePlay],
     serviceHref: "/build/mobile-apps",
     heroImage: {
-      src: "/work/getfold.webp",
-      alt: "Fold, a church management PWA built by Manuel Technologies",
+      src: "/blog/flutter-vs-react-native-vs-pwa.webp",
+      alt: "A young man smiling as he uses an app on his smartphone",
       width: 1200,
       height: 750,
-      caption: "Fold, a PWA at getfold.org.",
+      caption: "Photo by Francisco Venâncio on [Unsplash](https://unsplash.com/photos/G_ov3T7WCZg). Our own PWA, Fold, is shown further down.",
+      href: "https://unsplash.com/photos/G_ov3T7WCZg",
     },
   },
 
@@ -241,5 +245,13 @@ export const SERVICES_CLUSTER_POSTS: BlogPost[] = [
     ],
     sources: [SOURCES.googleAds, SOURCES.googleConversions, SOURCES.metaPixel, SOURCES.metaCapi, SOURCES.metaLearning, SOURCES.ctwa],
     serviceHref: "/grow/paid-ads",
+    heroImage: {
+      src: "/blog/google-ads-vs-meta-ads-ghana.webp",
+      alt: "A shopkeeper behind the counter of her provision shop, her phone on the counter",
+      width: 1200,
+      height: 750,
+      caption: "Photo by Ali Mkumbwa on [Unsplash](https://unsplash.com/photos/EOkN2pRjFsg).",
+      href: "https://unsplash.com/photos/EOkN2pRjFsg",
+    },
   },
 ];
