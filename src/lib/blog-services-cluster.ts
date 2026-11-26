@@ -39,6 +39,19 @@ const SOURCES = {
   metaCapi: { label: "Meta for Developers: Conversions API", href: "https://developers.facebook.com/docs/marketing-api/conversions-api" },
   metaLearning: { label: "Meta Business Help: about the learning phase", href: "https://www.facebook.com/business/help/112167992830700" },
   ctwa: { label: "Meta: ads that click to WhatsApp", href: "https://www.facebook.com/business/ads/ad-objectives/click-to-whatsapp" },
+  wordpress: { label: "WordPress.org: about WordPress", href: "https://wordpress.org/about/" },
+  woocommerce: { label: "WooCommerce", href: "https://woocommerce.com" },
+  paystackWoo: { label: "WordPress.org: Paystack WooCommerce Payment Gateway", href: "https://wordpress.org/plugins/woo-paystack/" },
+  webflowPricing: { label: "Webflow: pricing", href: "https://webflow.com/pricing" },
+  webflowEcommerce: { label: "Webflow: Ecommerce", href: "https://webflow.com/ecommerce" },
+  stripeGlobal: { label: "Stripe: supported countries", href: "https://stripe.com/global" },
+  nextjs: { label: "Next.js documentation", href: "https://nextjs.org/docs" },
+  instagramBusiness: { label: "Instagram for Business", href: "https://business.instagram.com" },
+  metaSuite: { label: "Meta Business Suite", href: "https://www.facebook.com/business/tools/meta-business-suite" },
+  tiktokBusiness: { label: "TikTok for Business", href: "https://www.tiktok.com/business/en" },
+  tiktokForYou: { label: "TikTok: how TikTok recommends videos #ForYou", href: "https://newsroom.tiktok.com/en-us/how-tiktok-recommends-videos-for-you" },
+  linkedinPages: { label: "LinkedIn Pages", href: "https://business.linkedin.com/marketing-solutions/linkedin-pages" },
+  whatsappBusiness: { label: "WhatsApp Business", href: "https://business.whatsapp.com" },
 };
 
 export const SERVICES_CLUSTER_POSTS: BlogPost[] = [
@@ -252,6 +265,237 @@ export const SERVICES_CLUSTER_POSTS: BlogPost[] = [
       height: 750,
       caption: "Photo by Ali Mkumbwa on [Unsplash](https://unsplash.com/photos/EOkN2pRjFsg).",
       href: "https://unsplash.com/photos/EOkN2pRjFsg",
+    },
+  },
+
+  /* ---------------------------------------------------------------------
+     Website development. Day 2, 26 November 2026. Sits beside the older
+     wordpress-vs-custom-website-ghana post and links to it: that one is
+     about maintenance, this one adds Webflow and the checkout question.
+     --------------------------------------------------------------------- */
+  {
+    slug: "wordpress-vs-webflow-vs-custom-website",
+    cluster: WEB_CLUSTER,
+    title: "WordPress vs Webflow vs a custom build: which should your website be?",
+    metaTitle: "WordPress vs Webflow vs a custom website build",
+    description: "When a business website should be WordPress, when Webflow, and when a custom build. Compared on editing, payments in Ghana, speed, upkeep and ownership.",
+    published: "2026-11-26",
+    modified: "2026-11-26",
+    readTime: "8 min read",
+    lead: "Choose WordPress if you publish often, want a large choice of plugins, and will pay someone to keep them updated. Choose Webflow if the site is a design led marketing site, your team wants to edit it visually, and you do not need to take Mobile Money on it. Choose a custom build when the site has to do something: take payments, calculate, book, connect to other systems, or run to hundreds of pages while staying fast on a phone.",
+    sections: [
+      {
+        ...section(
+          "The three options in one paragraph each",
+          "WordPress is free, open source software that runs a large share of the world's websites. You host it yourself, choose a theme, and add features with plugins. WooCommerce, a free plugin, turns it into an online store. The software costs nothing. Hosting, premium themes and plugins, and the work to keep them all updated do.",
+          "Webflow is a hosted website builder for designers. You lay out pages visually, with far more control than a template builder, and Webflow hosts the result. Its CMS handles blogs and other collections, and editors can change text on the live page. It is a subscription, billed per site, and the site lives on Webflow's platform.",
+          "A custom build is a website written in code for your business, by a developer or an agency. We build on Next.js, the framework this site runs on. There is no plugin stack to patch, the pages are generated ahead of time so they load fast, and the site can do anything the business needs, because nothing is limited to what a plugin or a builder offers.",
+        ),
+      },
+      {
+        ...section(
+          "How they compare on the things that decide it",
+          "No column wins every row. The decision starts from what the website has to do, then who will look after it.",
+        ),
+        table: {
+          caption: "WordPress, Webflow and a custom build compared for a business website",
+          headers: ["Question", "WordPress", "Webflow", "Custom build"],
+          rows: [
+            ["Who edits the content", "You, in the WordPress dashboard", "You, visually on the page", "You, through a CMS or editor the developer sets up"],
+            ["Hosting", "You choose and pay for it", "Included, on Webflow only", "You choose, often Vercel or similar"],
+            ["Running cost shape", "Hosting, plugins and maintenance", "Subscription per site, in US dollars", "Hosting and an optional care plan"],
+            ["Mobile Money and card checkout in Ghana", "Yes, Paystack has a WooCommerce plugin", "Not in the built in checkout, which uses Stripe and PayPal", "Yes, any gateway's API"],
+            ["Speed on a mid range phone", "Slow by default, fast with work", "Good", "Fast by default"],
+            ["Security upkeep", "Core, theme and every plugin need updates", "Handled by Webflow", "Small, no plugin stack"],
+            ["Hundreds or thousands of pages from data", "Possible, gets heavy", "Limited by the plan's CMS item cap", "Built for it"],
+            ["Leaving later", "Easy, it is open source", "Hard, the CMS and forms depend on Webflow hosting", "Easy, you own the code"],
+          ],
+        },
+      },
+      section(
+        "The Mobile Money question settles it for many Ghanaian stores",
+        "If the website will sell, check the checkout first. Webflow's built in ecommerce takes payments through Stripe and PayPal. Stripe does not onboard businesses in Ghana directly: on its own list of supported countries, Ghana links to Paystack, the payment gateway Stripe owns. So a Ghanaian store on Webflow cannot take Mobile Money through Webflow's checkout, and ends up sending buyers to a separate payment page.",
+        "WordPress handles this well. Paystack publishes a WooCommerce plugin, so MoMo and card payments sit inside the store. A custom build connects to Paystack, Hubtel or any other gateway through its API, and can do things a plugin cannot, such as splitting a payment or confirming an order on WhatsApp.",
+      ),
+      {
+        ...section(
+          "When WordPress is right",
+          "WordPress is the right answer more often than agencies that only build custom like to admit. We wrote a full post on [WordPress or a custom build](/blog/wordpress-vs-custom-website-ghana), and the short version is this.",
+        ),
+        bullets: [
+          "You publish articles or news often and want to do it yourself.",
+          "The budget is tight, and what you need is something a mature plugin already does well.",
+          "You want a WooCommerce store with Paystack, and a standard checkout is enough.",
+          "Someone is paid to update the core, theme and plugins every month. If nobody is, WordPress is the wrong choice.",
+        ],
+      },
+      {
+        ...section(
+          "When Webflow is right",
+          "Webflow is a strong tool for a particular kind of site, and a poor fit outside it.",
+        ),
+        bullets: [
+          "A marketing site where the design is the selling point, such as a studio, a launch or a portfolio.",
+          "A marketing team that wants to build and change pages without a developer.",
+          "No payments in Ghana, or payments handled elsewhere.",
+          "You are comfortable paying a US dollar subscription per site, and with the site living on Webflow.",
+        ],
+      },
+      {
+        ...section(
+          "When a custom build is right",
+          "Build custom when the website is part of how the business works, not only how it looks.",
+        ),
+        bullets: [
+          "It takes payments, bookings or quotes, or runs calculators, as our tax clients' sites do.",
+          "It connects to other systems, such as a CRM, stock, accounting, or WhatsApp.",
+          "It must be fast on a cheap Android phone on mobile data, because that is how the customers arrive.",
+          "It will grow to hundreds or thousands of pages generated from data, each one useful.",
+        ],
+      },
+      {
+        ...section(
+          "Worked example: Dementia In Home",
+          "Dementia In Home is a caregiver matching service in the United States, built by us on Next.js. It has over a thousand pages across twenty cities, each carrying real local pricing, generated from data rather than written one by one.",
+          "On WordPress, a thousand data driven pages means a heavy page builder or custom code inside WordPress anyway. On Webflow, it runs into the CMS item limits on each plan. As a custom build, the pages are generated ahead of time, load fast, and the next twenty cities are a data change, not a rebuild.",
+        ),
+        image: {
+          src: "/work/dementia-in-home.webp",
+          alt: "The Dementia In Home website, a caregiver matching service built by Manuel Technologies on Next.js",
+          width: 1200,
+          height: 750,
+          caption: "Dementia In Home, built on Next.js by Manuel Technologies. Over a thousand pages across twenty cities. [See the project](/work/dementia-in-home).",
+          href: "/work/dementia-in-home",
+        },
+      },
+      section(
+        "What it costs, and where to start",
+        "A WordPress template site is the cheapest to launch and can be the most expensive to keep, because the plugin upkeep never stops. Webflow is predictable but billed in dollars every year, per site. A custom build costs more on day one and least to run, and you own every line of it.",
+        "Our published prices for custom websites and stores in Ghana cedis are on the [pricing page](/pricing). Tell us what the site has to do on our [website development page](/build/website-development), and we will say plainly which of the three it should be, including when the answer is WordPress.",
+      ),
+    ],
+    conclusion: "WordPress suits frequent publishing on a small budget, with maintenance paid for. Webflow suits design led marketing sites that take no payments in Ghana. A custom build suits a website that has to do something, stay fast, and grow. Decide by what the site must do, then by who will look after it.",
+    faqs: [
+      faq("Is Webflow better than WordPress?", "For a design led marketing site edited by a marketing team, often yes, because hosting and security are handled and the editing is visual. For frequent publishing, a large plugin choice, or a store taking Mobile Money in Ghana, WordPress is usually the better fit."),
+      faq("Can Webflow take Mobile Money in Ghana?", "Not through its built in checkout, which uses Stripe and PayPal. Stripe does not onboard businesses in Ghana directly and points them to Paystack instead. A Webflow site can link out to a separate payment page, but the payment is no longer part of the store."),
+      faq("Is a custom website more expensive than WordPress?", "To launch, usually yes. To run, usually no, because there is no plugin stack to update and no per site subscription. Compare the cost over three years, not the launch price."),
+      faq("Can I move my site off Webflow later?", "Webflow can export the HTML and CSS of a site, but CMS content, forms and other features depend on its hosting. In practice, moving off Webflow means rebuilding the site elsewhere."),
+      faq("Can I update a custom built website myself?", "Yes, if it is built that way. A custom site can have a content editor for pages, posts and products, so text and images change without a developer. Ask for this at the start."),
+    ],
+    sources: [SOURCES.wordpress, SOURCES.woocommerce, SOURCES.paystackWoo, SOURCES.webflowPricing, SOURCES.webflowEcommerce, SOURCES.stripeGlobal, SOURCES.nextjs],
+    serviceHref: "/build/website-development",
+    heroImage: {
+      src: "/blog/wordpress-vs-webflow-vs-custom-website.webp",
+      alt: "A woman with long braids working on a laptop at a desk by a window",
+      width: 1200,
+      height: 750,
+      caption: "Photo by Daniel Thomas on [Unsplash](https://unsplash.com/photos/HA-0i0E7sq4). Our own build, Dementia In Home, is shown further down.",
+      href: "https://unsplash.com/photos/HA-0i0E7sq4",
+    },
+  },
+
+  /* ---------------------------------------------------------------------
+     Social media. Day 2, 26 November 2026. No screenshot of client social
+     work exists, so the evidence is the diagram of our own programme in
+     blog-visuals.ts. Never claim we ran a client's social accounts.
+     --------------------------------------------------------------------- */
+  {
+    slug: "instagram-vs-tiktok-vs-linkedin-ghana",
+    cluster: ADS_CLUSTER,
+    title: "Instagram vs TikTok vs LinkedIn: where should a Ghanaian business post?",
+    metaTitle: "Instagram vs TikTok vs LinkedIn for a Ghana business",
+    description: "Which social platform a Ghanaian business should put its time into, by who it sells to. What each one takes every week, and how to turn posts into enquiries.",
+    published: "2026-11-26",
+    modified: "2026-11-26",
+    readTime: "7 min read",
+    lead: "Post on Instagram if you sell to consumers and your product sells on how it looks, such as food, fashion, beauty, property and events. Post on TikTok if you can make short videos every week and want to reach people who do not follow you yet. Post on LinkedIn if you sell to other businesses, professionals or institutions. Pick one as your main platform and do it properly before adding a second, and make every post lead to a WhatsApp chat or a page that can turn into an enquiry.",
+    sections: [
+      {
+        ...section(
+          "The three platforms in one paragraph each",
+          "Instagram is Meta's photo and video app. It is where people browse products, check a business looks real, and message it. A professional account adds insights, contact buttons and a shop. Because Meta owns Instagram, Facebook and WhatsApp, one tool, Meta Business Suite, schedules posts to Instagram and Facebook together.",
+          "TikTok is short video. Its For You feed recommends videos based on what each viewer watches, not only on who they follow, so a new account with no followers can still reach a large audience with one good video. The cost is that it rewards frequent, native video, made for TikTok rather than reposted.",
+          "LinkedIn is the professional network. People use it as themselves, in their work role, which makes it the one platform where you can reach a finance director or a school owner with a post. A company has a LinkedIn Page, but people tend to engage more with posts from a person, so the founder posting matters.",
+        ),
+      },
+      {
+        ...section(
+          "Which to choose, by what you sell",
+          "Start with who buys from you, not with which platform is popular. These are starting points we give clients.",
+        ),
+        table: {
+          caption: "Where to post first, by business type",
+          headers: ["Business", "Main platform", "Why"],
+          rows: [
+            ["Restaurant, bakery, catering", "Instagram", "Sells on photos, ordered by message"],
+            ["Fashion, beauty, salon", "Instagram, then TikTok", "Visual, and video shows the result"],
+            ["Events, entertainment, a new product", "TikTok", "Reach beyond followers, made for discovery"],
+            ["Real estate, car sales", "Instagram", "Buyers browse listings and message"],
+            ["Accountant, lawyer, consultant", "LinkedIn", "Buyers are professionals, trust is built by expertise"],
+            ["Software, B2B services, recruitment", "LinkedIn", "Decision makers are reachable there"],
+            ["School, clinic, church", "Facebook and Instagram", "Parents and members are already there"],
+          ],
+        },
+      },
+      {
+        ...section(
+          "What each one takes every week",
+          "The platform you can keep up with beats the platform that suits you on paper. An account that posted daily for a month and then stopped looks closed.",
+        ),
+        table: {
+          caption: "The weekly effort each platform needs to work",
+          headers: ["Platform", "Format that works", "Rough weekly effort"],
+          rows: [
+            ["Instagram", "Photos, carousels, short Reels, Stories", "Three posts and daily Stories"],
+            ["TikTok", "Vertical video, made for TikTok", "Three to five short videos"],
+            ["LinkedIn", "Text posts with a point of view, documents, photos of real work", "Two or three posts, plus comments on others"],
+          ],
+        },
+      },
+      section(
+        "Do not drop Facebook and WhatsApp",
+        "Facebook is not in this title, but for many Ghanaian customers it is still where they find a business and read its reviews. Since Meta Business Suite posts to Facebook and Instagram at once, keeping a Facebook Page alive costs very little once Instagram is running.",
+        "WhatsApp is where the sale usually happens. Whichever platform you choose, put a WhatsApp link in the profile and in the posts, use WhatsApp Business so you have a catalogue and quick replies, and post to your WhatsApp Status, which your existing customers already watch.",
+      ),
+      {
+        ...section(
+          "How we run our own",
+          "This is the routine behind the articles on this site, and it is the same one we set up for clients. Social posts are not the product. They are the way people find an article that answers their question and then message us.",
+        ),
+        bullets: [
+          "Every article becomes a LinkedIn and Facebook post, a short post for X, and a line for WhatsApp Status.",
+          "Every post links to the article itself, never to the homepage, so the reader lands on the answer.",
+          "Every article ends with a WhatsApp button that opens a chat pre filled with the article's title, so we know which post brought the conversation.",
+          "Each tap on that button is recorded by page in Google Analytics, so we judge posts by the conversations they start, not by likes.",
+        ],
+      },
+      section(
+        "Measure conversations, not followers",
+        "Followers and likes are easy to count and loosely connected to sales. What matters is how many people messaged, called or sent a form, and which posts they came from. Use a link per platform, or a pre filled WhatsApp message per campaign, so every enquiry can be traced to where it started.",
+        "Give a platform about three months of steady posting before judging it. If it has produced conversations, keep going. If not, change the content before changing the platform.",
+      ),
+      section(
+        "Getting help",
+        "We plan and run social content for businesses, tied to a website that turns attention into enquiries and to tracking that shows which posts worked. See our [social media service](/grow/social-media), or message us with what you sell and we will tell you which platform we would start on.",
+      ),
+    ],
+    conclusion: "Instagram suits consumer businesses that sell on looks. TikTok suits businesses that can make video weekly and want reach beyond their followers. LinkedIn suits anyone selling to other businesses or professionals. Choose one main platform, post on a schedule you can keep, send every post toward WhatsApp or an article, and judge it on the conversations it starts.",
+    faqs: [
+      faq("Which social media platform is best for business in Ghana?", "It depends on who buys from you, and there is a clear answer for each case. Instagram for consumer products that sell on looks, TikTok for reach through short video, LinkedIn for selling to businesses and professionals, and Facebook alongside Instagram for broad local reach."),
+      faq("Should my business be on TikTok?", "If you can make three or more short videos a week, and your customers are consumers, it is worth testing, because its For You feed shows videos to people who do not follow you. If you cannot keep up with video, put the time into Instagram or LinkedIn instead."),
+      faq("Is LinkedIn useful for a small business in Ghana?", "Yes, if you sell to other businesses, professionals or institutions. It is the most direct way to reach decision makers. It is not the right place to sell food or fashion to the public."),
+      faq("How often should a business post on social media?", "As often as you can keep up for a year. For most small businesses that is two or three good posts a week on the main platform, plus Stories or WhatsApp Status. A steady schedule beats a burst followed by silence."),
+      faq("How do I get enquiries from social media, not just likes?", "Give every post a next step, usually a WhatsApp link or a link to a page that answers the question. Use WhatsApp Business for quick replies, reply quickly, and track which posts start conversations."),
+    ],
+    sources: [SOURCES.instagramBusiness, SOURCES.metaSuite, SOURCES.tiktokBusiness, SOURCES.tiktokForYou, SOURCES.linkedinPages, SOURCES.whatsappBusiness],
+    serviceHref: "/grow/social-media",
+    heroImage: {
+      src: "/blog/instagram-vs-tiktok-vs-linkedin-ghana.webp",
+      alt: "A smiling woman in an Ankara print dress waving at her phone as she films herself",
+      width: 1200,
+      height: 750,
+      caption: "Photo by Ahmed Nasiru on [Unsplash](https://unsplash.com/photos/Sl-LrWJNXV8).",
+      href: "https://unsplash.com/photos/Sl-LrWJNXV8",
     },
   },
 ];

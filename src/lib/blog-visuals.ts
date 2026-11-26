@@ -139,6 +139,21 @@ export const POST_VISUALS: Record<string, PostVisual> = {
     },
   },
 
+  "instagram-vs-tiktok-vs-linkedin-ghana": {
+    after: "How we run our own",
+    diagram: {
+      title: "From a social post to a conversation",
+      caption: "The routine behind the articles on manueltechnologies.com. Each step is described in the section above.",
+      steps: [
+        { label: "Article", detail: "Answers one question a buyer asks, with our own work as evidence." },
+        { label: "Social posts", detail: "LinkedIn, Facebook, X and WhatsApp Status, each written for its platform." },
+        { label: "Link to the article", detail: "Never the homepage, so the reader lands on the answer." },
+        { label: "WhatsApp chat", detail: "Pre filled with the article title, and recorded by page." },
+      ],
+      loop: "Write more of what starts conversations, less of what only collects likes",
+    },
+  },
+
   "secure-accessible-website-build-checklist": {
     after: "Ship a maintainable system",
     diagram: {

@@ -29,7 +29,7 @@ Every day, two services get one article each on manueltechnologies.com. Each art
 | Day | Service | Article | Service | Article |
 |---|---|---|---|---|
 | 1 ✅ | Mobile apps | Flutter vs React Native vs a PWA | Paid ads | Google Ads vs Meta ads: which first? |
-| 2 | Website development | WordPress vs Webflow vs a custom build | Social media | Instagram vs TikTok vs LinkedIn for a business in Ghana |
+| 2 ✅ | Website development | WordPress vs Webflow vs a custom build | Social media | Instagram vs TikTok vs LinkedIn for a business in Ghana |
 | 3 | Custom software | Spreadsheet vs custom software: when to switch | Link building | Guest posts vs digital PR vs directories |
 | 4 | Systems and integrations | Zapier vs Make vs a custom integration | Content and branding | Logo vs brand identity: what you actually need |
 | 5 | Web design | Template vs custom design | Technical SEO | Shopify vs WooCommerce for SEO |
@@ -102,3 +102,59 @@ https://manueltechnologies.com/blog/google-ads-vs-meta-ads-ghana
 
 **WhatsApp Status / Instagram story**
 > Google Ads or Facebook ads first? The answer depends on one question. manueltechnologies.com/blog/google-ads-vs-meta-ads-ghana
+
+## Social copy, day 2
+
+### WordPress vs Webflow vs a custom build
+https://manueltechnologies.com/blog/wordpress-vs-webflow-vs-custom-website
+
+**LinkedIn / Facebook**
+> WordPress, Webflow or a custom build for your business website?
+>
+> WordPress: you publish often, the budget is tight, and someone is paid to keep the plugins updated.
+> Webflow: a design led marketing site your team edits visually.
+> Custom: the site has to do something. Take payments, book, calculate, or connect to your other systems.
+>
+> One check settles it for many Ghanaian stores: Webflow's checkout runs on Stripe and PayPal, and Stripe sends businesses in Ghana to Paystack instead. So no Mobile Money inside a Webflow store.
+>
+> The full comparison, with a site we built that runs to over a thousand pages:
+> https://manueltechnologies.com/blog/wordpress-vs-webflow-vs-custom-website
+
+**X**
+> WordPress, Webflow or custom?
+>
+> Publish often on a small budget: WordPress.
+> Design led site, no payments: Webflow.
+> The site has to take MoMo, book or calculate: custom.
+>
+> https://manueltechnologies.com/blog/wordpress-vs-webflow-vs-custom-website
+
+**WhatsApp Status / Instagram story**
+> Building a website? WordPress, Webflow or custom: one question decides it. manueltechnologies.com/blog/wordpress-vs-webflow-vs-custom-website
+
+### Instagram vs TikTok vs LinkedIn
+https://manueltechnologies.com/blog/instagram-vs-tiktok-vs-linkedin-ghana
+
+**LinkedIn / Facebook**
+> Instagram, TikTok or LinkedIn: where should your business post?
+>
+> Sell to consumers on looks (food, fashion, beauty, property): Instagram.
+> Can make short videos every week and want reach beyond your followers: TikTok.
+> Sell to businesses or professionals: LinkedIn.
+>
+> Pick one, post on a schedule you can keep for a year, and send every post toward WhatsApp. Then judge it by the conversations it starts, not the likes.
+>
+> Full guide, with the routine we run on our own content:
+> https://manueltechnologies.com/blog/instagram-vs-tiktok-vs-linkedin-ghana
+
+**X**
+> Instagram for products that sell on looks.
+> TikTok for reach through video.
+> LinkedIn for selling to businesses.
+>
+> Pick one, and measure conversations, not followers.
+>
+> https://manueltechnologies.com/blog/instagram-vs-tiktok-vs-linkedin-ghana
+
+**WhatsApp Status / Instagram story**
+> Instagram, TikTok or LinkedIn for your business? Here is how to choose. manueltechnologies.com/blog/instagram-vs-tiktok-vs-linkedin-ghana
