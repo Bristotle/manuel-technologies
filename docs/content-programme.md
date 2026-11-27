@@ -30,7 +30,7 @@ Every day, two services get one article each on manueltechnologies.com. Each art
 |---|---|---|---|---|
 | 1 ✅ | Mobile apps | Flutter vs React Native vs a PWA | Paid ads | Google Ads vs Meta ads: which first? |
 | 2 ✅ | Website development | WordPress vs Webflow vs a custom build | Social media | Instagram vs TikTok vs LinkedIn for a business in Ghana |
-| 3 | Custom software | Spreadsheet vs custom software: when to switch | Link building | Guest posts vs digital PR vs directories |
+| 3 ✅ | Custom software | Spreadsheet vs custom software: when to switch | Link building | Guest posts vs digital PR vs directories |
 | 4 | Systems and integrations | Zapier vs Make vs a custom integration | Content and branding | Logo vs brand identity: what you actually need |
 | 5 | Web design | Template vs custom design | Technical SEO | Shopify vs WooCommerce for SEO |
 | 6 | AI agents | ChatGPT vs a custom AI assistant for your business | Analytics | Google Analytics vs Looker Studio vs a custom dashboard |
@@ -158,3 +158,55 @@ https://manueltechnologies.com/blog/instagram-vs-tiktok-vs-linkedin-ghana
 
 **WhatsApp Status / Instagram story**
 > Instagram, TikTok or LinkedIn for your business? Here is how to choose. manueltechnologies.com/blog/instagram-vs-tiktok-vs-linkedin-ghana
+
+## Social copy, day 3
+
+### Spreadsheet vs custom software
+https://manueltechnologies.com/blog/spreadsheet-vs-custom-software
+
+**LinkedIn / Facebook**
+> Is your business run on a spreadsheet?
+>
+> That is the right start. It stops being right when several people edit the same sheet, nobody knows which copy is the latest, the same data is typed twice, and a wrong cell has already cost money.
+>
+> Before building anything, check whether a product already does the job. If it does not, build for the one process that hurts most, not everything at once.
+>
+> The seven signs, and how our own system MPOS replaced the notebook and the sheet for Ghanaian shops:
+> https://manueltechnologies.com/blog/spreadsheet-vs-custom-software
+
+**X**
+> Signs you have outgrown the spreadsheet:
+>
+> "stock FINAL v3" exists.
+> Only one person understands it.
+> Staff can see the takings.
+> A wrong cell has cost you money.
+>
+> When to switch, and to what:
+> https://manueltechnologies.com/blog/spreadsheet-vs-custom-software
+
+**WhatsApp Status / Instagram story**
+> Is a spreadsheet still running your business? Seven signs it is time to switch. manueltechnologies.com/blog/spreadsheet-vs-custom-software
+
+### Guest posts vs digital PR vs directories
+https://manueltechnologies.com/blog/guest-posts-vs-digital-pr-vs-directories
+
+**LinkedIn / Facebook**
+> Not every backlink helps your website. Some count against it.
+>
+> Google's own spam policy names links with keyword anchor text in guest posts as link spam. Bulk directory links carry almost no value.
+>
+> What works: publish something genuinely useful, such as original data or a free tool, and tell the journalists and industry sites that cover your field. One good asset can earn links for years.
+>
+> Full comparison, with how we build our own research pages:
+> https://manueltechnologies.com/blog/guest-posts-vs-digital-pr-vs-directories
+
+**X**
+> Guest posts for keyword links: spam, by Google's own policy.
+> Directories: only the few customers use.
+> Digital PR: the links that matter.
+>
+> https://manueltechnologies.com/blog/guest-posts-vs-digital-pr-vs-directories
+
+**WhatsApp Status / Instagram story**
+> Buying backlinks for your website? Read this first. manueltechnologies.com/blog/guest-posts-vs-digital-pr-vs-directories

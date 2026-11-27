@@ -52,6 +52,13 @@ const SOURCES = {
   tiktokForYou: { label: "TikTok: how TikTok recommends videos #ForYou", href: "https://newsroom.tiktok.com/en-us/how-tiktok-recommends-videos-for-you" },
   linkedinPages: { label: "LinkedIn Pages", href: "https://business.linkedin.com/marketing-solutions/linkedin-pages" },
   whatsappBusiness: { label: "WhatsApp Business", href: "https://business.whatsapp.com" },
+  terms: { label: "Manuel Technologies: terms of service", href: "https://manueltechnologies.com/terms-of-service" },
+  rankingSystems: { label: "Google Search Central: guide to ranking systems", href: "https://developers.google.com/search/docs/appearance/ranking-systems-guide" },
+  mpos: { label: "MPOS", href: "https://mpos.bz" },
+  spamPolicies: { label: "Google Search Central: spam policies", href: "https://developers.google.com/search/docs/essentials/spam-policies" },
+  qualifyLinks: { label: "Google Search Central: qualify your outbound links", href: "https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links" },
+  howSearchWorks: { label: "Google Search Central: how Search works", href: "https://developers.google.com/search/docs/fundamentals/how-search-works" },
+  businessProfile: { label: "Google Business Profile Help: add or claim your profile", href: "https://support.google.com/business/answer/7091" },
 };
 
 export const SERVICES_CLUSTER_POSTS: BlogPost[] = [
@@ -496,6 +503,203 @@ export const SERVICES_CLUSTER_POSTS: BlogPost[] = [
       height: 750,
       caption: "Photo by Ahmed Nasiru on [Unsplash](https://unsplash.com/photos/Sl-LrWJNXV8).",
       href: "https://unsplash.com/photos/Sl-LrWJNXV8",
+    },
+  },
+
+  /* ---------------------------------------------------------------------
+     Custom software. Day 3, 27 November 2026. Sits beside the older
+     when-to-build-custom-software post and links to it: that one is the
+     general framework, this one starts from the spreadsheet most
+     businesses actually run on. Evidence is MPOS, facts from lib/mpos.ts.
+     --------------------------------------------------------------------- */
+  {
+    slug: "spreadsheet-vs-custom-software",
+    cluster: WEB_CLUSTER,
+    title: "Spreadsheet vs custom software: when should a business switch?",
+    metaTitle: "Spreadsheet vs custom software: when to switch",
+    description: "The signs a business has outgrown Excel or Google Sheets, what to try before custom software, and when building your own system pays for itself.",
+    published: "2026-11-27",
+    modified: "2026-11-27",
+    readTime: "7 min read",
+    lead: "Keep the spreadsheet while one or two people use it, the data is mostly typed in once, and a mistake is cheap to fix. Switch to off the shelf software when a product already does the job, such as accounting or a point of sale. Build custom software when several people depend on the same sheet every day, the same data is typed into more than one place, mistakes cost real money, and no product fits how you work.",
+    sections: [
+      {
+        ...section(
+          "Why spreadsheets are the right start",
+          "Excel and Google Sheets are the most successful business software ever made, for good reason. They cost little or nothing, everyone can use them, and you can change how they work in a minute without asking anyone. For a new process, a spreadsheet is the fastest way to find out what you actually need.",
+          "The problem is not the spreadsheet. It is what happens when a sheet built for one person becomes the system a whole business runs on.",
+        ),
+      },
+      {
+        ...section(
+          "Seven signs you have outgrown the spreadsheet",
+          "One of these is normal. Three or more, every week, means the spreadsheet is now costing more than it saves.",
+        ),
+        bullets: [
+          "Several people edit the same sheet, and someone has overwritten someone else's work.",
+          "Nobody is sure which copy is the latest: \"stock FINAL v3\" exists.",
+          "The same information is typed twice, into the sheet and into an invoice, a WhatsApp message or another sheet.",
+          "A wrong formula or a pasted row has cost money: a wrong price, a missed payment, stock that was not there.",
+          "Only one person understands how it works, and the business stops when they travel.",
+          "Staff can see figures they should not, such as takings or salaries, because a sheet has no real roles.",
+          "Reports take hours at the end of each month because the data has to be cleaned before it can be added up.",
+        ],
+      },
+      {
+        ...section(
+          "The three options compared",
+          "There is a step between a spreadsheet and custom software, and it is often the right one.",
+        ),
+        table: {
+          caption: "A spreadsheet, off the shelf software and custom software compared",
+          headers: ["Question", "Spreadsheet", "Off the shelf software", "Custom software"],
+          rows: [
+            ["Cost to start", "Little or nothing", "A monthly or yearly subscription", "A build fee, then hosting"],
+            ["Fits how you work", "Exactly, you built it", "You adapt to it", "Exactly, built for it"],
+            ["Several people at once", "Fragile", "Yes, with roles", "Yes, with the roles you define"],
+            ["Stops wrong data going in", "Only if someone sets up validation", "Yes, for what it covers", "Yes, every rule you need"],
+            ["Talks to MoMo, WhatsApp, other systems", "No, or by hand", "Only the integrations it offers", "Whatever you need"],
+            ["Audit trail of who changed what", "Limited", "Usually", "Yes, built in"],
+            ["Who you depend on", "The person who built the sheet", "The vendor", "The developer, unless the code and documentation are handed over"],
+          ],
+        },
+      },
+      section(
+        "Try off the shelf first",
+        "If a product already does what your sheet does, use it. Accounting, payroll, a point of sale, a CRM and booking systems are all solved problems, and a subscription costs far less than building the same thing. Configure it properly, move your data in once, and retire the sheet.",
+        "Off the shelf stops working when you bend your business around the software: workarounds in a second spreadsheet, a step done by hand because the product cannot do it, or three products that do not share data. That is the point to consider building, and our older post on [when to build custom software](/blog/when-to-build-custom-software) sets out the full test.",
+      ),
+      {
+        ...section(
+          "Worked example: MPOS",
+          "MPOS, our own point of sale, bookings and stock system, exists because the shops, salons and pharmacies it serves were running on the pattern above: a notebook or a sheet for stock, a separate record of MoMo payments, and tax worked out by hand at the end of the month.",
+          "It replaces each of those with something a spreadsheet cannot do safely. Every person signs in with a role, so cashiers sell and only the owner sees the money. Each MoMo transaction ID is recorded for a monthly check against the statement. VAT, NHIL and GETFund are worked out on every receipt. And the till keeps selling when the network drops, then uploads when it returns, which no shared sheet does.",
+        ),
+        image: {
+          src: "/work/manuelpos.webp",
+          alt: "MPOS, the point of sale, bookings and stock system for Ghanaian businesses, built and run by Manuel Technologies",
+          width: 1200,
+          height: 750,
+          caption: "MPOS, our own point of sale and stock system for Ghanaian businesses. [See the project](/work/manuelpos).",
+          href: "/work/manuelpos",
+        },
+      },
+      section(
+        "Start with the one process that hurts",
+        "Custom software does not have to replace every sheet at once. The best first build takes the single process that costs the most, usually the one with money in it, and turns it into a small system with proper roles, validation and a record of changes. The rest of the sheets carry on until the evidence says the next one is worth it.",
+        "Before any build, write down the steps the sheet handles today, who touches it, and what went wrong in the last three months. That list is the brief, and it is what lets a developer give you a fixed price.",
+      ),
+      section(
+        "Getting help",
+        "We build focused business systems that replace the spreadsheet a business has outgrown, and we hand over the code and documentation so you are not tied to us. Send us the sheet you are worried about on our [custom software page](/build/custom-software), and we will tell you plainly whether it needs a product, a build, or just a better spreadsheet.",
+      ),
+    ],
+    conclusion: "A spreadsheet is the right start and the wrong system for a growing team. Move to off the shelf software when a product fits, and build custom software when several people rely on the same data daily, mistakes cost money, and no product fits how you work. Start with the one process that hurts most.",
+    faqs: [
+      faq("When should a business stop using Excel?", "When several people depend on the same sheet every day, data is typed into more than one place, and mistakes have started to cost money. One person keeping their own records in Excel is fine indefinitely."),
+      faq("Is Google Sheets better than Excel for a team?", "For several people editing at once, Google Sheets is usually easier, because everyone works on the same live copy. Neither gives you real roles, so staff who can open the sheet can usually see all of it."),
+      faq("Is custom software expensive?", "More than a subscription, less than many expect when it is kept to one process. The right comparison is the build cost against what the spreadsheet costs each year in staff time and mistakes."),
+      faq("Can custom software import my existing spreadsheets?", "Yes. Moving the existing data in is a normal part of the build, and cleaning it at the same time is often one of the most valuable steps."),
+      faq("What if the developer disappears?", "Insist on owning the code, the hosting account and the documentation from day one. Our terms hand all three over when the final payment clears."),
+    ],
+    sources: [SOURCES.mpos, SOURCES.terms],
+    serviceHref: "/build/custom-software",
+    heroImage: {
+      src: "/blog/spreadsheet-vs-custom-software.webp",
+      alt: "A man in a checked shirt working on a laptop at a wooden table, a printer and papers beside him",
+      width: 1200,
+      height: 750,
+      caption: "Photo by LinkedIn Sales Solutions on [Unsplash](https://unsplash.com/photos/c-xZktTrmJ0). Our own system, MPOS, is shown further down.",
+      href: "https://unsplash.com/photos/c-xZktTrmJ0",
+    },
+  },
+
+  /* ---------------------------------------------------------------------
+     Link building. Day 3, 27 November 2026. Evidence is our own research
+     benchmarks, described as what we publish. Never claim links earned.
+     --------------------------------------------------------------------- */
+  {
+    slug: "guest-posts-vs-digital-pr-vs-directories",
+    cluster: "Search and GEO",
+    title: "Guest posts vs digital PR vs directories: which links are worth it?",
+    metaTitle: "Guest posts vs digital PR vs directories for links",
+    description: "Which kinds of backlinks help a business rank, which ones Google treats as spam, and where a Ghanaian business should spend its link building effort.",
+    published: "2026-11-27",
+    modified: "2026-11-27",
+    readTime: "7 min read",
+    lead: "Spend most of your effort on digital PR: publishing something genuinely useful, such as original data or a free tool, and telling journalists and industry sites about it. Use directories only for the few that customers actually use, such as Google Business Profile and your trade association, and treat them as listings, not ranking tricks. Write guest posts only for audiences you want to reach, never to buy keyword links, because Google's own spam policy names links with optimised anchor text in guest posts.",
+    sections: [
+      {
+        ...section(
+          "Why links still matter, and which ones",
+          "Google finds new pages largely by following links, and its own guide to its ranking systems says it uses how pages link to each other to work out what they are about and which are most helpful. PageRank, one of those systems, has been part of Google since it launched.",
+          "Not all links are equal. A single link from a respected news site or industry body in your field is worth more than hundreds from directories nobody visits. And some links count against you: Google's spam policies treat links built to manipulate rankings as link spam.",
+        ),
+      },
+      {
+        ...section(
+          "The three approaches compared",
+          "Each approach has a place. The question is what you get for the effort, and the risk you take on.",
+        ),
+        table: {
+          caption: "Guest posts, digital PR and directories compared",
+          headers: ["Question", "Guest posts", "Digital PR", "Directories"],
+          rows: [
+            ["What it is", "Writing an article for someone else's site", "Publishing something newsworthy and pitching it", "Listing the business on directory sites"],
+            ["Link quality", "Varies widely", "Highest: news, industry and education sites", "Mostly low"],
+            ["Spam risk", "High when done for keyword links", "Low, the links are given freely", "High for paid or bulk directories"],
+            ["Effort", "One article per link", "A large piece of work, then many links from it", "Low"],
+            ["Brings customers directly", "Sometimes, if the audience fits", "Yes, through coverage", "Only the directories customers use"],
+            ["Lasts", "As long as the article stays up", "Years, if the asset stays useful", "Until the directory goes away"],
+          ],
+        },
+      },
+      section(
+        "Guest posts: for an audience, not for a link",
+        "Google's spam policy lists links with optimised anchor text in guest posts as an example of link spam. A guest post written to place \"best accountant in Accra\" as a link on a blog with no real readers is exactly that, and a site full of them risks being ignored or penalised.",
+        "A guest post is still worth writing when the site's readers are your customers. An article for a trade association's newsletter or a respected industry publication puts you in front of the right people, and if the site adds a link, it is a natural one. Google also asks that sponsored links be marked with rel=\"sponsored\" or rel=\"nofollow\", so a site that sells guest posts with followed links is one to avoid.",
+      ),
+      section(
+        "Directories: a handful, chosen by customers",
+        "The directories that matter are the ones your customers actually search. For almost every local business that starts with Google Business Profile, which is what appears in Google Maps. After that: your professional body or trade association, the main local business directories, and any industry listing your buyers use.",
+        "Keep the name, address and phone number identical on every one, because inconsistent details confuse both customers and search engines. Skip anything that offers hundreds of directory links for a fee. Those links carry almost no value and are the kind Google's spam team targets.",
+      ),
+      {
+        ...section(
+          "Digital PR: give people something worth linking to",
+          "Journalists, bloggers and industry sites link to things that help their readers: original data, a useful tool, an expert answer. Make one of those, then tell the people who write about your field. One good asset can earn links for years, because people keep finding and citing it.",
+          "This is how we build our own. Our [research pages](/research) benchmark the websites of Ghanaian law firms, private hospitals, private schools and real estate firms, measured by us, with the method published. Our [free tools](/free-tools), such as the payment gateway fee calculator, answer questions people ask every day. Both are made to be useful enough that a writer would cite them.",
+        ),
+        bullets: [
+          "Original data: a survey, a benchmark or prices you collect that nobody else publishes.",
+          "A free tool or calculator that answers a real question in your field.",
+          "An expert answer to a current story, sent quickly to the journalist covering it.",
+          "A clear guide that becomes the reference other sites point to.",
+        ],
+      },
+      section(
+        "What to do this quarter",
+        "Claim and complete Google Business Profile. Add the business to your trade association and two or three directories customers use, with identical details. Then put the rest of the effort into one useful asset in your field, and spend a week telling the right people about it.",
+        "We plan and build link earning assets, from research to free tools, and handle the outreach. See our [link building service](/grow/link-building), or tell us your field and we will suggest the asset we would build first.",
+      ),
+    ],
+    conclusion: "Digital PR earns the links that matter, from sites people trust, by giving them something worth citing. Directories are for being found where customers look, not for ranking. Guest posts are for reaching an audience, and become spam the moment they exist only to place a keyword link.",
+    faqs: [
+      faq("Are guest posts bad for SEO?", "Not in themselves. Guest posts written mainly to place links with optimised anchor text are named in Google's spam policy as link spam. A guest post written for a real audience, with a natural or no link, is fine."),
+      faq("Do directory links help SEO?", "A few do, mainly as listings customers use, such as Google Business Profile and trade associations. Bulk or paid directory links carry little value and can count as link spam."),
+      faq("What is digital PR?", "Earning coverage and links by publishing something newsworthy or useful, such as original data or a free tool, and pitching it to journalists and industry sites. The links are given freely, which is why they are the most valuable kind."),
+      faq("Should I buy backlinks?", "No. Google's spam policies treat buying or selling links that pass ranking credit as link spam. Paid placements should be marked rel=\"sponsored\", which means they do not pass ranking credit anyway."),
+      faq("How many backlinks does my business need?", "There is no number. A handful of links from respected sites in your field is worth more than hundreds from irrelevant ones. Focus on whether each link would bring you a customer on its own."),
+    ],
+    sources: [SOURCES.spamPolicies, SOURCES.qualifyLinks, SOURCES.rankingSystems, SOURCES.howSearchWorks, SOURCES.businessProfile],
+    serviceHref: "/grow/link-building",
+    heroImage: {
+      src: "/blog/guest-posts-vs-digital-pr-vs-directories.webp",
+      alt: "A smiling young reporter in glasses holding a microphone on a residential street",
+      width: 1200,
+      height: 750,
+      caption: "Photo by Iwaria Inc. on [Unsplash](https://unsplash.com/photos/1jsk7RhVg-U).",
+      href: "https://unsplash.com/photos/1jsk7RhVg-U",
     },
   },
 ];

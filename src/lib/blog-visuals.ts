@@ -154,6 +154,36 @@ export const POST_VISUALS: Record<string, PostVisual> = {
     },
   },
 
+  "guest-posts-vs-digital-pr-vs-directories": {
+    after: "Digital PR: give people something worth linking to",
+    diagram: {
+      title: "How a link earning asset is built",
+      caption: "The approach behind our own research pages and free tools. Each step is described in the section above.",
+      steps: [
+        { label: "A question", detail: "Something people in the field ask, that nobody answers with data." },
+        { label: "The asset", detail: "Original data, a benchmark or a free tool, with the method published." },
+        { label: "Outreach", detail: "Told to the journalists, associations and sites that cover the field." },
+        { label: "Links and mentions", detail: "Given freely, from sites customers and search engines trust." },
+      ],
+      loop: "Update the data each year, so the asset stays worth citing",
+    },
+  },
+
+  "spreadsheet-vs-custom-software": {
+    after: "Start with the one process that hurts",
+    diagram: {
+      title: "From a spreadsheet to a system, one process at a time",
+      caption: "The order we follow when a business has outgrown its sheets. Each step is described in the post.",
+      steps: [
+        { label: "Write it down", detail: "The steps the sheet handles, who touches it, what went wrong lately." },
+        { label: "Check for a product", detail: "If off the shelf software fits, use it and retire the sheet." },
+        { label: "Build the one that hurts", detail: "Roles, validation and a record of every change, for one process." },
+        { label: "Move the data in", detail: "Imported once and cleaned on the way, then the sheet is retired." },
+      ],
+      loop: "Let the evidence decide which sheet becomes the next build",
+    },
+  },
+
   "secure-accessible-website-build-checklist": {
     after: "Ship a maintainable system",
     diagram: {
