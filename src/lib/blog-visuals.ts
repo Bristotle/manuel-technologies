@@ -184,6 +184,35 @@ export const POST_VISUALS: Record<string, PostVisual> = {
     },
   },
 
+  "zapier-vs-make-vs-custom-integration": {
+    after: "A sensible path",
+    diagram: {
+      title: "From a quick automation to an integration you own",
+      caption: "The path described in this post. Each step keeps what the one before it proved.",
+      steps: [
+        { label: "Prove it", detail: "Build the workflow in Zapier or Make and see whether it is used." },
+        { label: "Measure it", detail: "Runs per month, the bill, and what a failed run would have cost." },
+        { label: "Own it", detail: "Rebuild the workflows the business depends on as a custom integration." },
+        { label: "Watch it", detail: "Logs, retries and an alert when something fails, so nothing is lost silently." },
+      ],
+      loop: "Keep the simple workflows in the tool; own only the ones that carry money or personal data",
+    },
+  },
+
+  "logo-vs-brand-identity": {
+    after: "Worked example: our own identity",
+    diagram: {
+      title: "What a brand identity is made of",
+      caption: "The layers of our own identity, from the mark outwards. A starter identity decides the first three once.",
+      steps: [
+        { label: "The mark", detail: "An MT monogram, drawn once, never stretched, outlined or shadowed." },
+        { label: "Colours with jobs", detail: "Purple for action, one colour per service pillar, pink for proof." },
+        { label: "Type and voice", detail: "Three typefaces for display, body and labels, and written rules for how we write." },
+        { label: "Applied everywhere", detail: "Website, social posts, documents and the product, from the same rules." },
+      ],
+    },
+  },
+
   "secure-accessible-website-build-checklist": {
     after: "Ship a maintainable system",
     diagram: {

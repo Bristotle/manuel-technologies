@@ -53,6 +53,13 @@ const SOURCES = {
   linkedinPages: { label: "LinkedIn Pages", href: "https://business.linkedin.com/marketing-solutions/linkedin-pages" },
   whatsappBusiness: { label: "WhatsApp Business", href: "https://business.whatsapp.com" },
   terms: { label: "Manuel Technologies: terms of service", href: "https://manueltechnologies.com/terms-of-service" },
+  zapierTasks: { label: "Zapier Help: how task usage is measured", href: "https://help.zapier.com/hc/en-us/articles/8496196837261" },
+  zapierPricing: { label: "Zapier: pricing", href: "https://zapier.com/pricing" },
+  makeCredits: { label: "Make Help Center: credits", href: "https://help.make.com/credits" },
+  n8nHosting: { label: "n8n Docs: host n8n", href: "https://docs.n8n.io/hosting/" },
+  n8nLicence: { label: "n8n Docs: Sustainable Use License", href: "https://docs.n8n.io/sustainable-use-license/" },
+  googleLogo: { label: "Google Search Central: Organization structured data, logo guidelines", href: "https://developers.google.com/search/docs/appearance/structured-data/logo" },
+  wcagContrast: { label: "W3C: Understanding WCAG contrast (minimum)", href: "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html" },
   rankingSystems: { label: "Google Search Central: guide to ranking systems", href: "https://developers.google.com/search/docs/appearance/ranking-systems-guide" },
   mpos: { label: "MPOS", href: "https://mpos.bz" },
   spamPolicies: { label: "Google Search Central: spam policies", href: "https://developers.google.com/search/docs/essentials/spam-policies" },
@@ -700,6 +707,221 @@ export const SERVICES_CLUSTER_POSTS: BlogPost[] = [
       height: 750,
       caption: "Photo by Iwaria Inc. on [Unsplash](https://unsplash.com/photos/1jsk7RhVg-U).",
       href: "https://unsplash.com/photos/1jsk7RhVg-U",
+    },
+  },
+
+  /* ---------------------------------------------------------------------
+     Systems and integrations. Day 4, 28 November 2026. Billing facts from
+     Zapier's and Make's own help pages that day. Evidence: our own
+     contact form pipeline and the Impresship quote form, stated only as
+     PROJECTS in site.ts describes it.
+     --------------------------------------------------------------------- */
+  {
+    slug: "zapier-vs-make-vs-custom-integration",
+    cluster: WEB_CLUSTER,
+    title: "Zapier vs Make vs a custom integration: which should connect your systems?",
+    metaTitle: "Zapier vs Make vs a custom integration",
+    description: "When to connect your business tools with Zapier, when with Make or n8n, and when a custom integration is cheaper and safer. How each bills, and where each breaks.",
+    published: "2026-11-28",
+    modified: "2026-11-28",
+    readTime: "8 min read",
+    lead: "Use Zapier when the tools you use are on its app list, the workflow is a straight line, and the volume is low: a form to a spreadsheet, a sale to an email. Use Make, or n8n if you want to host it yourself, when the workflow branches, loops over many items, or needs to be cheaper at volume. Build a custom integration when the data is sensitive, the volume is high enough that per task billing hurts, one of the systems has no ready made connector, such as a Ghanaian payment gateway or an older accounting system, or a failure would cost real money.",
+    sections: [
+      {
+        ...section(
+          "The three options in one paragraph each",
+          "Zapier connects apps without code. A Zap starts with a trigger, such as a new form entry, and runs one or more actions, such as adding a row and sending an email. It bills by tasks: by its own definition, a task is any successful action, so a Zap with three action steps uses three tasks every time it runs.",
+          "Make does the same job with a visual canvas, where a workflow, called a scenario, can branch, filter, loop and handle errors in ways that are easier to see. It bills in credits, which for most modules are based on the operations each run performs. n8n is a similar tool that you can also host on your own server, which keeps the data in your own infrastructure and removes per task billing, at the cost of running it yourself.",
+          "A custom integration is code written for your systems: a small service that receives a webhook or polls an API, transforms the data, and writes it where it needs to go, with logging, retries and alerts built in. It costs more to start and nothing per run beyond hosting.",
+        ),
+      },
+      {
+        ...section(
+          "How they compare on the things that decide it",
+          "No column wins every row, so start from the workflow, not the tool.",
+        ),
+        table: {
+          caption: "Zapier, Make or n8n, and a custom integration compared",
+          headers: ["Question", "Zapier", "Make or n8n", "Custom integration"],
+          rows: [
+            ["Time to first working version", "Minutes to hours", "Hours", "Days"],
+            ["Who can change it", "Anyone careful", "Someone comfortable with logic", "A developer"],
+            ["How it bills", "Per task, each successful action", "Make: credits per operation. n8n: free to self host, or a plan", "Hosting only"],
+            ["Branches, loops, many items", "Possible, gets expensive", "Strong", "Anything"],
+            ["Apps with no ready connector", "Webhooks and HTTP steps", "HTTP modules, more flexible", "Anything with an API"],
+            ["Where your data passes", "Zapier's servers", "Make's servers, or your own with n8n", "Your own servers"],
+            ["When something fails", "Error emails, replay", "Error routes, replay", "Retries, logs and alerts you define"],
+          ],
+        },
+      },
+      {
+        ...section(
+          "When Zapier is right",
+          "Zapier's strength is its app list and how quickly a non developer can make something work.",
+        ),
+        bullets: [
+          "Both apps are on Zapier's list, with the trigger and action you need.",
+          "The workflow is a straight line of a few steps.",
+          "It runs tens or hundreds of times a month, not tens of thousands.",
+          "A missed run is an inconvenience, not a loss of money.",
+        ],
+      },
+      {
+        ...section(
+          "When Make or n8n is right",
+          "Move to Make when the Zap has grown branches, filters and workarounds, or the task count has made the bill uncomfortable. Choose n8n when the data should stay on your own infrastructure and you have someone to look after the server.",
+        ),
+        bullets: [
+          "The workflow has conditions: route a lead by region, skip duplicates, handle a failed payment differently.",
+          "It processes lists, such as every order in a day or every row in a sheet.",
+          "The volume makes per task billing expensive.",
+          "You want the data to stay on your own server, which n8n allows when self hosted.",
+        ],
+      },
+      {
+        ...section(
+          "When a custom integration is right",
+          "Build it when the integration is part of how the business makes money, rather than a convenience.",
+        ),
+        bullets: [
+          "Payments, invoices or stock move through it, and a silent failure costs money.",
+          "One system has no connector, such as a Ghanaian payment gateway's webhooks, a government portal or an older accounting package.",
+          "The data is personal or regulated, and you need to control where it goes and who can see it.",
+          "Volume is high and steady, so a fixed hosting cost beats paying per task.",
+          "You need a record of every message: what arrived, what was sent, what failed and why.",
+        ],
+      },
+      {
+        ...section(
+          "Worked example: two integrations we run",
+          "The contact form on this website is a small custom integration. A form sent here is validated on our server, checked for automated abuse, and delivered to our inbox through Resend, an email API, with the reply address set to the person who wrote, so answering the email answers the prospect. The same submission is recorded as a lead in Google Analytics and Meta. It is custom because it handles personal data and because a lost enquiry is lost money.",
+          "For Impresship, a freight business shipping from Sharjah and Dubai to 54 African countries, we built a quote form that routes each request to both email and WhatsApp, so the sales team sees it where they actually work. Both are the kind of integration where Zapier would work on day one, and where owning the code pays off once the volume and the stakes grow.",
+        ),
+        image: {
+          src: "/work/impressiful-logistics-home.webp",
+          alt: "The Impresship website, with sea and air freight from Sharjah and Dubai to 54 African countries, built by Manuel Technologies",
+          width: 1200,
+          height: 750,
+          caption: "Impresship, built by Manuel Technologies, with a quote form that routes to email and WhatsApp. [See the project](/work/impressiful-logistics).",
+          href: "/work/impressiful-logistics",
+        },
+      },
+      section(
+        "A sensible path",
+        "Start in Zapier or Make to prove the workflow is worth having. When it becomes something the business depends on, or the bill grows, rebuild that one workflow as a custom integration with logging and alerts. The automation tool did its job: it showed you exactly what the integration needs to do.",
+        "Tell us which systems need to talk on our [systems and integrations page](/build/systems-integrations), and we will say plainly whether a Zap will do, or whether it is time to own it.",
+      ),
+    ],
+    conclusion: "Zapier suits simple, low volume workflows between apps on its list. Make and n8n suit workflows with branches, lists and volume, and n8n can keep data on your own server. A custom integration suits anything that moves money, handles personal data, or connects a system with no ready connector. Prove the workflow in a tool, then own the ones the business depends on.",
+    faqs: [
+      faq("Is Make cheaper than Zapier?", "Often, for workflows with many steps or high volume, because the two bill differently: Zapier per successful action, Make in credits based on operations. Compare on your own workflow using both pricing pages, since both change their plans."),
+      faq("What is the difference between Zapier and n8n?", "Both connect apps without much code. Zapier is hosted only and bills per task. n8n can be hosted on your own server, which keeps data in your infrastructure and removes per task charges, but someone has to run and update it."),
+      faq("Can Zapier connect to Paystack or Hubtel?", "Check Zapier's app list for a current connector. Where none exists, Zapier's webhook and HTTP steps can receive a gateway's webhooks or call its API, though at that point a small custom integration is often more reliable."),
+      faq("When is a custom integration worth the cost?", "When the workflow moves money or personal data, when a failure would cost more than the build, when a system has no connector, or when the volume makes per task billing expensive."),
+      faq("Do I own a custom integration?", "You should. Insist on the code, the hosting account and the documentation being handed over, so the integration does not depend on one developer."),
+    ],
+    sources: [SOURCES.zapierTasks, SOURCES.zapierPricing, SOURCES.makeCredits, SOURCES.n8nHosting, SOURCES.n8nLicence],
+    serviceHref: "/build/systems-integrations",
+    heroImage: {
+      src: "/blog/zapier-vs-make-vs-custom-integration.webp",
+      alt: "Two developers reading code together on a laptop and a monitor in a shared office",
+      width: 1200,
+      height: 750,
+      caption: "Photo by X (@disruptxn) on [Unsplash](https://unsplash.com/photos/kwzWjTnDPLk). Our own work, Impresship, is shown further down.",
+      href: "https://unsplash.com/photos/kwzWjTnDPLk",
+    },
+  },
+
+  /* ---------------------------------------------------------------------
+     Content and branding. Day 4, 28 November 2026. Evidence is our own
+     brand system as recorded in CLAUDE.md section 3, stated as fact.
+     --------------------------------------------------------------------- */
+  {
+    slug: "logo-vs-brand-identity",
+    cluster: "Proof and planning",
+    title: "Logo vs brand identity: what does your business actually need?",
+    metaTitle: "Logo vs brand identity: what your business needs",
+    description: "A logo is one mark; a brand identity is the system around it. What each includes, which one a business needs at each stage, and what to ask a designer for.",
+    published: "2026-11-28",
+    modified: "2026-11-28",
+    readTime: "7 min read",
+    lead: "A new business needs a good logo and three decisions made once: its colours, its typefaces and how it writes. That is a small brand identity, and it is enough. A full identity system, with rules for every format, is worth paying for when several people or suppliers produce material for you, such as staff, printers, a web developer and a social media manager, and things have started to look inconsistent.",
+    sections: [
+      {
+        ...section(
+          "The difference in one paragraph each",
+          "A logo is a mark: a symbol, a wordmark, or both. It identifies the business on a sign, a receipt, a profile picture or a van. On its own, it says almost nothing about how anything else should look.",
+          "A brand identity is the system the logo sits in. It decides which colours the business uses and what each is for, which typefaces, how photos look, how the business writes, and how all of it is applied on a website, a flyer, a WhatsApp catalogue and a shop front. Its purpose is that anything you produce is recognisably yours, whoever made it.",
+        ),
+      },
+      {
+        ...section(
+          "What each one includes",
+          "Ask a designer which column a quote covers. Two quotes with the same price can deliver very different things.",
+        ),
+        table: {
+          caption: "A logo, a starter identity and a full identity system compared",
+          headers: ["Included", "Logo only", "Starter identity", "Full identity system"],
+          rows: [
+            ["The mark, in colour, one colour and reversed", "Usually", "Yes", "Yes"],
+            ["Files for print, web and social", "Sometimes", "Yes", "Yes"],
+            ["Colour palette with the job of each colour", "No", "Yes", "Yes"],
+            ["Typefaces for headings and text", "No", "Yes", "Yes"],
+            ["How the business writes: tone and words to avoid", "No", "A short page", "A full guide"],
+            ["Photo and illustration style", "No", "Brief notes", "Yes, with examples"],
+            ["Templates: social posts, letterhead, flyers", "No", "A few", "A full set"],
+            ["Rules for using the mark: space, size, what not to do", "No", "Brief", "Yes"],
+          ],
+        },
+      },
+      {
+        ...section(
+          "What a logo has to survive",
+          "A logo is not judged on a large screen in a presentation. It is judged at the size of a WhatsApp profile picture, printed in one colour on a receipt, and embroidered on a shirt. Test it there before approving it.",
+        ),
+        bullets: [
+          "Small: still readable as a profile picture and a browser tab icon.",
+          "One colour: still works in black only, and white on a dark background.",
+          "Square: fits a square crop for social profiles without losing the name.",
+          "Search: Google asks that the logo in a site's Organization markup be at least 112 by 112 pixels and look right on a plain white background.",
+        ],
+      },
+      {
+        ...section(
+          "Worked example: our own identity",
+          "Our own identity is deliberately small, and every part of it has a rule. The mark is an MT monogram drawn as an inline SVG, never stretched, outlined or shadowed. The tagline, Build. Grow. Scale., is always written with full stops, in that order.",
+          "The colours each have one job. Purple is the action colour: the mark, links and every button. Teal belongs to the Grow services, amber to Scale, and pink to proof, such as free tools and research. So a colour on our pages always means something, and nobody has to guess which to use. Every text colour is checked against the 4.5 to 1 contrast ratio the WCAG accessibility guidelines set for normal text, so the identity never makes the site harder to read.",
+          "We also wrote down how we write: British spelling, no jargon where a plain word works, numbers instead of adjectives, and a short list of banned words. That page does more to keep the brand consistent than the logo does.",
+        ),
+      },
+      section(
+        "Which one you need, by stage",
+        "Starting out: a strong logo and a starter identity. Decide the colours, the two typefaces and a few writing rules once, and use them everywhere. Spending more before you know your customers is usually wasted, because the brand will change once you do.",
+        "Growing: when staff, printers, a web developer and a social media manager all produce material, and the results no longer match, a full identity system pays for itself by removing the guesswork. Rebranding: only when the business has genuinely changed, such as a new market, a merger or a name that no longer fits. A new logo on the same business rarely changes anything a customer notices.",
+      ),
+      section(
+        "What to ask a designer for",
+        "Ask for the mark in colour, one colour and reversed, as vector files and as images sized for web and social. Ask for the palette with exact colour values and the job of each colour, the typefaces with their licences, and a one or two page guide. Make sure you own the files and the rights to the design when the final payment is made.",
+        "We design identities and the websites, templates and content that carry them. See our [content and branding service](/grow/content-branding), or tell us where your business is and we will say which of the three it needs now.",
+      ),
+    ],
+    conclusion: "A logo is a mark; a brand identity is the system that makes everything you produce look like you. Start with a good logo and a small identity: colours with jobs, two typefaces and writing rules. Invest in a full system when several people produce material for you and it no longer matches.",
+    faqs: [
+      faq("Is a logo the same as a brand?", "No. A logo is the mark. A brand identity is the system of colours, type, imagery and voice around it, and the brand itself is what customers think of you, which the identity helps shape."),
+      faq("Does a small business need a brand identity?", "It needs a small one: the logo, a palette, two typefaces and a few writing rules, decided once. A full identity system can wait until several people are producing material for the business."),
+      faq("What files should I get from a logo designer?", "Vector files, such as SVG or PDF, plus PNG or WebP images for web and social, in colour, one colour and reversed. Also the exact colour values and the names of the typefaces, with their licences."),
+      faq("When should a business rebrand?", "When the business has genuinely changed, such as a new market, a merger or a name that no longer fits. A rebrand on an unchanged business rarely changes what customers notice."),
+      faq("What size should my logo be for Google?", "For Organization structured data, Google asks for a logo image of at least 112 by 112 pixels that looks right on a plain white background."),
+    ],
+    sources: [SOURCES.googleLogo, SOURCES.wcagContrast],
+    serviceHref: "/grow/content-branding",
+    heroImage: {
+      src: "/blog/logo-vs-brand-identity.webp",
+      alt: "A designer working on a layout in Photoshop on a laptop",
+      width: 1200,
+      height: 750,
+      caption: "Photo by Timothy Exodus on [Unsplash](https://unsplash.com/photos/P-t_ABQlPxY).",
+      href: "https://unsplash.com/photos/P-t_ABQlPxY",
     },
   },
 ];

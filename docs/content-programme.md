@@ -31,7 +31,7 @@ Every day, two services get one article each on manueltechnologies.com. Each art
 | 1 ✅ | Mobile apps | Flutter vs React Native vs a PWA | Paid ads | Google Ads vs Meta ads: which first? |
 | 2 ✅ | Website development | WordPress vs Webflow vs a custom build | Social media | Instagram vs TikTok vs LinkedIn for a business in Ghana |
 | 3 ✅ | Custom software | Spreadsheet vs custom software: when to switch | Link building | Guest posts vs digital PR vs directories |
-| 4 | Systems and integrations | Zapier vs Make vs a custom integration | Content and branding | Logo vs brand identity: what you actually need |
+| 4 ✅ | Systems and integrations | Zapier vs Make vs a custom integration | Content and branding | Logo vs brand identity: what you actually need |
 | 5 | Web design | Template vs custom design | Technical SEO | Shopify vs WooCommerce for SEO |
 | 6 | AI agents | ChatGPT vs a custom AI assistant for your business | Analytics | Google Analytics vs Looker Studio vs a custom dashboard |
 | 7 | AI automations | WhatsApp chatbot vs a human: what to automate | GEO | SEO vs GEO: what changes when AI answers first |
@@ -210,3 +210,54 @@ https://manueltechnologies.com/blog/guest-posts-vs-digital-pr-vs-directories
 
 **WhatsApp Status / Instagram story**
 > Buying backlinks for your website? Read this first. manueltechnologies.com/blog/guest-posts-vs-digital-pr-vs-directories
+
+## Social copy, day 4
+
+### Zapier vs Make vs a custom integration
+https://manueltechnologies.com/blog/zapier-vs-make-vs-custom-integration
+
+**LinkedIn / Facebook**
+> Zapier, Make or a custom integration to connect your business systems?
+>
+> Zapier: a few straight steps, low volume, both apps on its list.
+> Make or n8n: branches, lists and volume, and n8n can run on your own server.
+> Custom: it moves money or personal data, a system has no connector, or a failed run costs real money.
+>
+> The sensible path: prove the workflow in a tool, then own the ones your business depends on.
+>
+> Full comparison, with two integrations we run:
+> https://manueltechnologies.com/blog/zapier-vs-make-vs-custom-integration
+
+**X**
+> Zapier bills per successful action. Make bills in credits. A custom integration bills only for hosting.
+>
+> Which one fits depends on volume, and on what a failure would cost.
+>
+> https://manueltechnologies.com/blog/zapier-vs-make-vs-custom-integration
+
+**WhatsApp Status / Instagram story**
+> Paying more every month for Zapier? Here is when to own the integration instead. manueltechnologies.com/blog/zapier-vs-make-vs-custom-integration
+
+### Logo vs brand identity
+https://manueltechnologies.com/blog/logo-vs-brand-identity
+
+**LinkedIn / Facebook**
+> A logo is a mark. A brand identity is the system around it: colours with a job each, two typefaces, and rules for how you write.
+>
+> A new business needs a good logo and those three decisions made once. A full identity system pays off later, when staff, printers and freelancers all make material for you and it no longer matches.
+>
+> Before approving any logo, test it as a WhatsApp profile picture and in one colour on a receipt.
+>
+> What to ask a designer for, and how our own identity works:
+> https://manueltechnologies.com/blog/logo-vs-brand-identity
+
+**X**
+> Your logo will mostly be seen at the size of a WhatsApp profile picture.
+>
+> Test it there before you approve it.
+>
+> Logo vs brand identity, and which one you need now:
+> https://manueltechnologies.com/blog/logo-vs-brand-identity
+
+**WhatsApp Status / Instagram story**
+> Logo or full brand identity: what does your business actually need? manueltechnologies.com/blog/logo-vs-brand-identity
